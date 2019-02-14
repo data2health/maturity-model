@@ -31,7 +31,7 @@ David Dorr (@davedorr9) | OHSU
 
 ## Team members 
 
-See https://github.com/data2health/project-repo-template/tree/master/team.md
+See https://github.com/data2health/maturity-model/blob/master/team.md
 
 ## Repositories
 
