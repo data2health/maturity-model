@@ -35,8 +35,6 @@ See https://github.com/data2health/project-repo-template/tree/master/team.md
 
 ## Repositories
 
-Github repositories associated with the project. Each project requires at least one repository to house the administrative tracking and public information. Please be sure to tag any repositories not under the data2health organization with the topic 'data2health'. Project repositories must be public. Some repositories may be private for sensitivity or operational reasons. 
-
 - https://github.com/data2health/maturity-model; main repo
 
 
@@ -62,29 +60,14 @@ The survey has three steps:
 
 
 ## Evaluation 
-Each project should propose a set of evaluation measures, recorded in a separate Evaluation Plan file, for example [here](https://github.com/data2health/project-repo-template/blob/master/evaluation.md). These will be reviewed by the Evaluation committee and approved by the Program Directors and NCATS. The Evaluation committee will meet with each Project team leads to assist. 
-
-Each project should have Evaluation-realated issues, that can be tagged with the "evaluation" tag. see [Example Evaluation Issue](https://github.com/data2health/project-repo-template/issues/5)
 
 TBD
 
 ## Education
-Each project should propose a set of educational activities, listed separately in the Education Plan file. 
-Please reference any of the following that apply: 
-- Educational resources that will be generated (these can be milestones and/or files in the repo)
-- Educational opportunities (please indicate for which type of learner and how to participate)
-- Best practices guides
-
-Please include education related issues where relevant, tagged with "education". 
 
 TBD
 
 ## Get involved
-We encourage the community to get involved. 
-
-We require all CD2H projects to have non-CD2H CTSA participants, as CD2H is a CTSA coordinating center. Each project should include an Engagement plan file, example [here](https://github.com/data2health/project-repo-template/blob/master/engagement.md). 
-
-Please tag any engagment related issues with "engagement".
 
 TBD
 
