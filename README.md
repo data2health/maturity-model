@@ -58,7 +58,7 @@ See https://github.com/data2health/maturity-model/blob/master/team.md
 
 ## Milestones 
 
-1) All
+See milestone at https://github.com/data2health/maturity-model/milestones
 
 ## Evaluation 
 
@@ -68,14 +68,15 @@ See https://github.com/data2health/maturity-model/blob/master/team.md
 ## Education
 
 1) Description of how to take and interpret the survey
+2) FUTURE: potential connection to knowledge 
 
 ## Get involved
 
-TBD
+contact key personnel above. we'd love your participation
 
 ## Working documents
 
-TBD 
+https://docs.google.com/document/d/13jN5Fu24Q_YmQJFnEnWNvqXLRQC9uz5TJ_vxbMCFIZI/
 
 
 
