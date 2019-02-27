@@ -29,7 +29,7 @@ The survey has three steps:
 
 Point person (github handle) | Site | Program Director
 ----------|--------------|---------------
-Connor Cook (@cgcook) | OHSU | TBD
+Connor Cook (@cgcook) | OHSU | Sean Mooney (@sdmooney)
 
 
 ## Leads 
