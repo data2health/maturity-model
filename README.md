@@ -7,8 +7,6 @@ CTSAs are the core sources of clinical and translational research, but often str
 
 Significant interest in the Maturity Model has already been elicited without a wide call.  We want to democratize this kind of survey so that stakeholders at all levels can self-assess and work to improve their current functions and plan for innovation.
 
-
-
 ## Project description
 Organizations that engage in research, especially those with Clinical and Translational Science groups, may want to self-assess their maturity of key research IT capabilities and learn to improve these capabilities.  This project intends to develop an approach to help organizations through that process.  It builds on other assessments by Embi, Knosp, Barnett, and Anderson by narrowing the focus to key areas related to collaborative and open science, and provides more clarity and context for the possibilities for improvement.  It also intends to facilitate the process of improvement through guided vignettes and tools.
 
@@ -24,6 +22,9 @@ The survey has three steps:
 2) Open-ended questions related to governance and leadership, and policies influencing data sharing and licensing.
 
 3) A guided identification of  ‘bright spots’ related to the  deployment of key infrastructure capabilities.   
+
+## Alignment to program objectives
+TODO see [here](https://github.com/data2health/roadmap/blob/master/cd2h-foa.md)
 
 ## Contact person 
 
