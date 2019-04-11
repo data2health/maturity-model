@@ -28,9 +28,9 @@ TODO see [here](https://github.com/data2health/roadmap/blob/master/cd2h-foa.md)
 
 ## Contact person 
 
-Point person (github handle) | Site | Core Director
+Point person (github handle) | Core Director
 ----------|--------------|---------------
-Connor Cook (@cgcook) | OHSU | Adam Wilcox (@abwilcox)
+Connor Cook (@cgcook) | Adam Wilcox (@abwilcox)
 
 
 ## Leads 
