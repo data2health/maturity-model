@@ -3,7 +3,6 @@
 ## Lead(s)
 Name | GitHub Handle | Site
 -- | -- | --
-Ammar Chaudhry | [informatics](https://github.com/achaudhry615/informatics) | COH
 David Dorr | [davedorr9](http://github.com/davedorr9) | OHSU
 Adam Wilcox | [abwilcox](http://github.com/abwilcox) | UW
 
@@ -13,6 +12,7 @@ Name | GitHub Handle | Site
 Nick Anderson | [flipcorp](http://github.com/flipcorp) | UCDavisHealth
 Tim Carey | [tscarey](http://github.com/tscarey) | UNC
 Robin Champieux | [rchampieux](https://github.com/rchampieux) | OHSU
+Ammar Chaudhry | [informatics](https://github.com/achaudhry615/informatics) | COH
 Christopher Chute | [cgchute](https://github.com/cgchute) | JHU
 Peter Elkin | [github.com](http://github.com) | UBuffalo
 Ken Gersing | [KenGersing](https://github.com/KenGersing) | NCATS
