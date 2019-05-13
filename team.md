@@ -18,7 +18,6 @@ Peter Elkin | [github.com](http://github.com) | UBuffalo
 Ken Gersing | [KenGersing](https://github.com/KenGersing) | NCATS
 Boyd Knosp | [boydknosp](http://github.com/boydknosp) | Iowa
 Bernie LaSalle | [github.com](http://github.com) | UUtahHealth
-Sean Mooney | [sdmooney](http://github.com/sdmooney) | UW
 Rania Mussa | [ramussa](https://github.com/ramussa) | UW
 Justin Prosser | [jprosser](http://github.com/jprosser) | UW
 Andrey Rzhetsky | [arzhetsky](http://github.com/arzhetsky) | UChicago
@@ -43,7 +42,6 @@ Tamas Gal | [tsgal](https://github.com/tsgal) | CCTR
 Justin Guinney | [jguinney](http://github.com/jguinney) | Sage
 Diane Keogh | [gibhub.com](http://gibhub.com) | Harvard
 Boyd Knosp | [boydknosp](http://github.com/boydknosp) | Iowa
-Sean Mooney | [sdmooney](http://github.com/sdmooney) | UW
 Nitin Parikh | [github.com](http://github.com) | UCDavisHealth
 Philip Payne | [prpayne5](http://github.com/prpayne5) | WashU
 Svetlana Rojevsky | [github.com](http://github.com) | Tufts
