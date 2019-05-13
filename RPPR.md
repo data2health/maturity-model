@@ -37,12 +37,14 @@ Basic maturity levels for prioritized topics
 Tool supporting self-assessment and assessment collection
 
 # Timeline (monthly)
-8/2019 Vignettes for main adoption model
-8/2019 Distribution for main adoption model
-9/2019 Main adoption model with descritions of levels
-8/2019 Prioritized topics
-9/2019 Community responses for top and bottom levels of maturity
-9/2019 Software requirements and validation
+ Due Date | Milestone    | Status     | 
+|:----------|:--------------:|------------:|
+8/2019 | Vignettes for main adoption model
+8/2019 | Distribution for main adoption model
+9/2019 | Main adoption model with descritions of levels
+8/2019 | Prioritized topics
+9/2019 | Community responses for top and bottom levels of maturity
+9/2019 | Software requirements and validation
 
 # Potential Pitfalls and Alternative Strategies
 By using two approaches for developing maturity models, we mitigate the main pitfalls of models being difficult to define. The main potential pitfall for the main adoption model is that there is too much diversity of approach, which would make creating vignettes and distributions difficult. A pitfall for the rapid development approach is that the models will not be sufficiently detailed to be useful.
