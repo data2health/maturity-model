@@ -13,17 +13,14 @@ Organizations that engage in research, especially those with Clinical and Transl
 There are two core components of this project. The first is an extension and translation of model development by Embi, Knosp, Barnett, and Anderson by narrowing the focus to key areas related to collaborative and open science, providing more clarity and context for the possibilities for improvement. It also intends to facilitate the process of improvement through guided vignettes and tools. 
 
 The purpose of this survey is to elicit key indicators related to research and translational IT that may drive the ability for institutions to engage in innovative and collaborative open science. Our definition of research and translational IT are the capabilities that enable data, information, and knowledge to be discovered, processed, and shared. It focuses on three key areas:
+- Governance and Leadership
+- Data sharing and licensing
+- Deployment of capabilities related to data (architecture, content, tools, and sharing)
 
-Governance and Leadership
-Data sharing and licensing
-Deployment of capabilities related to data (architecture, content, tools, and sharing)
 The survey has three steps:
-
-data collection for “artifacts” related to our focus areas and open science/collaboration more broadly. This includes documenting the evidence of tools, policies, governance structures, leadership positions, and resources at a site.
-
-Open-ended questions related to governance and leadership, and policies influencing data sharing and licensing.
-
-A guided identification of ‘bright spots’ related to the deployment of key infrastructure capabilities.
+- Data collection for “artifacts” related to our focus areas and open science/collaboration more broadly. This includes documenting the evidence of tools, policies, governance structures, leadership positions, and resources at a site.
+- Open-ended questions related to governance and leadership, and policies influencing data sharing and licensing.
+- A guided identification of ‘bright spots’ related to the deployment of key infrastructure capabilities.
 
 The second component of the project involves expanding the coverage of maturity models. This component is based on work within the community, where informatics and translational science experts identified a broad need for definitions of existing best practices and assessments in multiple areas. Based on identified areas, we will organize and prioritize these topics according to needs, match to existing models, and develop simple models that can be rapidly distributed to the community. 
 
