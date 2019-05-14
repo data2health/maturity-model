@@ -23,8 +23,7 @@ The survey has three steps:
 
 3) A guided identification of  ‘bright spots’ related to the  deployment of key infrastructure capabilities.   
 
-## Alignment to program objectives
-TODO see [here](https://github.com/data2health/roadmap/blob/master/cd2h-foa.md)
+
 
 ## Contact person 
 
