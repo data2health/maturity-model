@@ -3,7 +3,7 @@ Research Informatics and Open Science Maturity Model
 
 
 ## Problem statement
-CTSAs are the core sources of clinical and translational research, but often struggle with helping their organizations understand the strategic importance of improving its informatics capabilities and IT deployment.  All institutions are trying to understand what they should invest in to remain innovative and competitive, not only in research but in translating knowledge into practice and exploring the data they have to improve health. 
+CTSAs are the core sources of clinical and translational research, but often struggle with helping their organizations understand the strategic importance of improving their informatics capabilities and IT deployment.  All institutions are trying to understand what they should invest in to remain innovative and competitive, not only in research but in translating knowledge into practice and exploring the data they have to improve health. 
 
 Significant interest in the Maturity Model has already been elicited without a wide call.  We want to democratize this kind of survey so that stakeholders at all levels can self-assess and work to improve their current functions and plan for innovation.
 
