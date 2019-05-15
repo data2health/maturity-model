@@ -17,6 +17,7 @@ Peter Elkin | [github.com](http://github.com) | UBuffalo
 Ken Gersing | [KenGersing](https://github.com/KenGersing) | NCATS
 Boyd Knosp | [boydknosp](http://github.com/boydknosp) | Iowa
 Bernie LaSalle | [github.com](http://github.com) | UUtahHealth
+Justin Starren | [github.com](http://github.com)| Northwestern
 Rania Mussa | [ramussa](https://github.com/ramussa) | UW
 Justin Prosser | [jprosser](http://github.com/jprosser) | UW
 Andrey Rzhetsky | [arzhetsky](http://github.com/arzhetsky) | UChicago
