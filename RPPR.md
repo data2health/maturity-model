@@ -38,7 +38,7 @@ Tool supporting self-assessment and assessment collection
 |:----------|:--------------:|------------:|
 8/2019 | Vignettes for main adoption model
 8/2019 | Distribution for main adoption model
-9/2019 | Main adoption model with descritions of levels
+9/2019 | Main adoption model with descriptions of levels
 8/2019 | Prioritized topics
 9/2019 | Community responses for top and bottom levels of maturity
 9/2019 | Software requirements and validation
