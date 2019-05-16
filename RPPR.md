@@ -27,11 +27,11 @@ The second component of the project involves expanding the coverage of maturity 
 Models created by both methods will be combined in a tool that will allow organizations to choose areas for self-assessment, support assessments, provide feedback and existing comparisons based on distributions from other organizations, and update distributions according to site assessments. 
 
 # Expected Outcomes
-Defined adoption model for research informatics maturity with vignettes 
-Distributions of adoption levels across surveyed sites
-Organization and prioritization of requested maturity topics
-Basic maturity levels for prioritized topics
-Tool supporting self-assessment and assessment collection
+- Defined adoption model for research informatics maturity with vignettes 
+- Distributions of adoption levels across surveyed sites
+- Organization and prioritization of requested maturity topics
+- Basic maturity levels for prioritized topics
+- Tool supporting self-assessment and assessment collection
 
 # Timeline (monthly)
  Due Date | Milestone    | Status     | 
