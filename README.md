@@ -63,15 +63,17 @@ See milestone at https://github.com/data2health/maturity-model/milestones
 
 1) Descriptions of the benchmarks and levels.
 2) Qualitative feedback on the survey and how it can be improved; with benchmark for validation as to usefulness.
+[Evaluation Plan]: (https://github.com/data2health/maturity-model/blob/master/evaluation.md
 
 ## Education
 
 1) Description of how to take and interpret the survey
 2) FUTURE: potential connection to knowledge 
 
-## Get involved
+[Education Plan]: (https://github.com/data2health/maturity-model/blob/master/education.md)
 
-contact key personnel above. we'd love your participation
+## Get involved
+[Engagement Ideas]: (https://github.com/data2health/maturity-model/blob/master/engagement.md)
 
 ## Working documents
 
