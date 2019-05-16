@@ -17,7 +17,7 @@ The purpose of this survey is to elicit key indicators related to research and t
 
 The survey has three steps:  
 
-1) data collection for “artifacts” related to our focus areas and open science/collaboration more broadly.  This includes documenting the evidence of tools, policies, governance structures, leadership positions, and resources at a site.
+1) Data collection for “artifacts” related to our focus areas and open science/collaboration more broadly.  This includes documenting the evidence of tools, policies, governance structures, leadership positions, and resources at a site.
 
 2) Open-ended questions related to governance and leadership, and policies influencing data sharing and licensing.
 
