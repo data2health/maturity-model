@@ -52,9 +52,11 @@ See https://github.com/data2health/maturity-model/blob/master/team.md
 
 ## Deliverables
 
-* Survey version 2.0, ready for administration to a wide audience (including self-assessment).
-* Results / benchmarks from 1st twelve administrations.
-
+- Defined adoption model for research informatics maturity with vignettes
+- Distributions of adoption levels across surveyed sites
+- Organization and prioritization of requested maturity topics
+- Basic maturity levels for prioritized topics
+- Tool supporting self-assessment and assessment collection
 
 ## Milestones 
 
