@@ -45,10 +45,6 @@ David Dorr (@davedorr9) | OHSU
 
 See https://github.com/data2health/maturity-model/blob/master/team.md
 
-## Repositories
-
-- https://github.com/data2health/maturity-model; project description and milestones
-
 
 ## Deliverables
 
