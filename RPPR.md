@@ -33,6 +33,11 @@ Models created by both methods will be combined in a tool that will allow organi
 - Basic maturity levels for prioritized topics
 - Tool supporting self-assessment and assessment collection
 
+# Deliverables
+
+- Defined adoption model for research informatics maturity with vignettes
+- Tool supporting self-assessment and assessment collection
+
 # Timeline (monthly)
  Due Date | Milestone    | Status     | 
 |:----------|:--------------:|------------:|
