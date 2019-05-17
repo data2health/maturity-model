@@ -47,6 +47,7 @@ Models created by both methods will be combined in a tool that will allow organi
 8/2019 | Prioritized topics
 9/2019 | Community responses for top and bottom levels of maturity
 9/2019 | Software requirements and validation
+10/2019 | Assessment tool software development plan
 
 # Potential Pitfalls and Alternative Strategies
 By using two approaches for developing maturity models, we mitigate the main pitfalls of models being difficult to define. The main potential pitfall for the main adoption model is that there is too much diversity of approach, which would make creating vignettes and distributions difficult. A pitfall for the rapid development approach is that the models will not be sufficiently detailed to be useful.
