@@ -5,19 +5,20 @@ Name | GitHub Handle | Site
 -- | -- | --
 David Dorr | [davedorr9](http://github.com/davedorr9) | OHSU
 Adam Wilcox | [abwilcox](http://github.com/abwilcox) | UW
-Robin Champieux | [rchampieux](https://github.com/rchampieux) | OHSU
+
 ## Contributor(s)
 Name | GitHub Handle | Site
 -- | -- | --
 Nick Anderson | [flipcorp](http://github.com/flipcorp) | UCDavisHealth
 Tim Carey | [tscarey](http://github.com/tscarey) | UNC
+Robin Champieux | [rchampieux](https://github.com/rchampieux) | OHSU
 Ammar Chaudhry | [informatics](https://github.com/achaudhry615/informatics) | COH
 Christopher Chute | [cgchute](https://github.com/cgchute) | JHU
 Peter Elkin | [github.com](http://github.com) | UBuffalo
 Ken Gersing | [KenGersing](https://github.com/KenGersing) | NCATS
 Boyd Knosp | [boydknosp](http://github.com/boydknosp) | Iowa
 Bernie LaSalle | [github.com](http://github.com) | UUtahHealth
-Justin Starren | [github.com](http://github.com)| Northwestern
+Sean Mooney | [sdmooney](http://github.com/sdmooney) | UW
 Rania Mussa | [ramussa](https://github.com/ramussa) | UW
 Justin Prosser | [jprosser](http://github.com/jprosser) | UW
 Andrey Rzhetsky | [arzhetsky](http://github.com/arzhetsky) | UChicago
@@ -42,6 +43,7 @@ Tamas Gal | [tsgal](https://github.com/tsgal) | CCTR
 Justin Guinney | [jguinney](http://github.com/jguinney) | Sage
 Diane Keogh | [gibhub.com](http://gibhub.com) | Harvard
 Boyd Knosp | [boydknosp](http://github.com/boydknosp) | Iowa
+Sean Mooney | [sdmooney](http://github.com/sdmooney) | UW
 Nitin Parikh | [github.com](http://github.com) | UCDavisHealth
 Philip Payne | [prpayne5](http://github.com/prpayne5) | WashU
 Svetlana Rojevsky | [github.com](http://github.com) | Tufts
