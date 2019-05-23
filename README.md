@@ -72,9 +72,12 @@ See milestone at https://github.com/data2health/maturity-model/milestones
 ## Get involved
 [Engagement Ideas](https://github.com/data2health/maturity-model/blob/master/engagement.md)
 
-## Working documents
 
+## Working documents
 https://docs.google.com/document/d/13jN5Fu24Q_YmQJFnEnWNvqXLRQC9uz5TJ_vxbMCFIZI/
+
+
+[Team Collaborative folder](https://drive.google.com/drive/u/0/folders/1JLKDhzvaqe6gNM9GFVids95XjLt8WsY5)
 
 
 
