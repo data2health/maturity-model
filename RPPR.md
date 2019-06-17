@@ -41,13 +41,14 @@ Models created by both methods will be combined in a tool that will allow organi
 # Timeline (monthly)
  Due Date | Milestone    | Status     | 
 |:----------|:--------------:|------------:|
-8/2019 | Vignettes for main adoption model
-8/2019 | Distribution for main adoption model
-9/2019 | Main adoption model with descriptions of levels
-8/2019 | Prioritized topics
-9/2019 | Community responses for top and bottom levels of maturity
-9/2019 | Software requirements and validation
-10/2019 | Assessment tool software development plan
+8/2019 | **Main adoption model:** Vignettes defined for adoption levels
+8/2019 | **Main adoption model:** Distribution of surveyed sites across adoption levels determined
+9/2019 | **Main adoption model:** Adoption model tool as document describing model with descriptions of levels and distributions
+8/2019 | **Expanded maturity models:** Topics prioritized, grouped and mapped to components of existing models where available
+9/2019 | **Expanded maturity models:** Community responses used to complete top and bottom levels of maturity for prioritized topics
+9/2019 | **Software Assessment Tool:** Software requirements and validation
+10/2019 | **Software Assessment Tool:** Assessment tool software development plan
+12/2019 | **Software Assessment Tool:** Version 1 of software developed and ready for pilot testing
 
 # Potential Pitfalls and Alternative Strategies
 By using two approaches for developing maturity models, we mitigate the main pitfalls of models being difficult to define. The main potential pitfall for the main adoption model is that there is too much diversity of approach, which would make creating vignettes and distributions difficult. A pitfall for the rapid development approach is that the models will not be sufficiently detailed to be useful.
