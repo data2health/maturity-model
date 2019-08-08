@@ -41,8 +41,8 @@ Models created by both methods will be combined in a tool that will allow organi
 # Timeline (monthly)
  Due Date | Milestone    | Status     | 
 |:----------|:--------------|------------:|
-8/2019 | **Main adoption model:** Vignettes defined for adoption levels
-8/2019 | **Main adoption model:** Distribution of surveyed sites across adoption levels determined
+8/2019 | **Main adoption model:** Vignettes defined for adoption levels | DONE
+8/2019 | **Main adoption model:** Distribution of surveyed sites across adoption levels determined | ONGOING
 9/2019 | **Main adoption model:** Adoption model tool as document describing model with descriptions of levels and distributions
 8/2019 | **Expanded maturity models:** Topics prioritized, grouped and mapped to components of existing models where available
 9/2019 | **Expanded maturity models:** Community responses used to complete top and bottom levels of maturity for prioritized topics
