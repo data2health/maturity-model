@@ -6,7 +6,7 @@ Engagement accomplished:
     
 Ongoing:
 - A broad communication about the extant maturity models and the ability to access them with a voting mechanism for who would be interested in adopting or assessing these at their own institution. 
-    - Maturity Model 'library' to be shared for review; please [see issue]  (https://github.com/data2health/maturity-model/issues/27)
+    - Maturity Model 'library' to be shared for review; please [see issue](https://github.com/data2health/maturity-model/issues/27)
 - Our work with Knosp, Embi, Anderson, and Barnett
   - Research and Translational IT maturity model – communication with them ; support for their ongoing work ; feedback ; offer to send out their model when they are ready.
   - Precision Medicine (Barnett) – feedback on the initial model
