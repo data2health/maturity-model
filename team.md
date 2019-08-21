@@ -23,7 +23,7 @@ Randy Grout | [randallgrout](https://github.com/randallgrout) | Indiana
 Boyd Knosp | [boydknosp](http://github.com/boydknosp) | Iowa
 Bernie LaSalle | [github.com](http://github.com) | UUtahHealth
 Rania Mussa | [ramussa](https://github.com/ramussa) | UW
-Steve Patterson | [github.com.](http://github.com.) | #N/A
+Steve Patterson | [github.com.](http://github.com.) | iTHRIV
 Justin Prosser | [jprosser](http://github.com/jprosser) | UW
 Andrey Rzhetsky | [arzhetsky](http://github.com/arzhetsky) | UChicago
 Eugene Sadhu | [eugsadhu](https://github.com/eugsadhu) | UIC
