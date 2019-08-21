@@ -9,6 +9,7 @@ Adam Wilcox | [abwilcox](http://github.com/abwilcox) | UW
 ## Contributor(s)
 Name | GitHub Handle | Site
 -- | -- | --
+Chris Amos | [github.com](http://github.com) | Baylor
 Nick Anderson | [flipcorp](http://github.com/flipcorp) | UCDavisHealth
 Michael Bales | [michaelbales1](http://github.com/michaelbales1) | Cornell
 Tim Carey | [tscarey](http://github.com/tscarey) | UNC
@@ -22,6 +23,7 @@ Randy Grout | [randallgrout](https://github.com/randallgrout) | Indiana
 Boyd Knosp | [boydknosp](http://github.com/boydknosp) | Iowa
 Bernie LaSalle | [github.com](http://github.com) | UUtahHealth
 Rania Mussa | [ramussa](https://github.com/ramussa) | UW
+Steve Patterson | [github.com.](http://github.com.) | #N/A
 Justin Prosser | [jprosser](http://github.com/jprosser) | UW
 Andrey Rzhetsky | [arzhetsky](http://github.com/arzhetsky) | UChicago
 Eugene Sadhu | [eugsadhu](https://github.com/eugsadhu) | UIC
