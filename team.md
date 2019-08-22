@@ -56,6 +56,7 @@ Diane Keogh | [gibhub.com](http://gibhub.com) | Harvard
 Brenda Kostelecky | [bdkostelecky](http://github.com/bdkostelecky) | Hutch
 Ashok Krishnamurthy | [ashokohio](http://github.com/ashokohio) | UNC
 Albert Lai | [laialbert](https://github.com/laialbert) | WashU
+Diego Mazzotti | [mazzottidr](https://github.com/mazzottidr) | #N/A
 Tim McCaffrey | [github.com](http://github.com) | CNMC
 Michele Morris | [github.com](http://github.com) | UPitt
 Lisa O'Keefe | [LisaOKeefe1](https://github.com/LisaOKeefe1) | Northwestern
