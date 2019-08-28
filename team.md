@@ -52,6 +52,7 @@ Brian Furner | [bfurner](https://github.com/bfurner) | UChicago
 Tamas Gal | [tsgal](https://github.com/tsgal) | CCTR
 Kate Haas LaVigne | [KateHaasLaVigne](https://github.com/KateHaasLaVigne) | UChicago
 Melissa Haendel | [mellybelly](http://github.com/mellybelly) | OHSU
+Steve Johnson | [github.com](http://github.com) | NYU
 Diane Keogh | [gibhub.com](http://gibhub.com) | Harvard
 Brenda Kostelecky | [bdkostelecky](http://github.com/bdkostelecky) | Hutch
 Ashok Krishnamurthy | [ashokohio](http://github.com/ashokohio) | UNC
