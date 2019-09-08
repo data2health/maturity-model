@@ -7,7 +7,7 @@ Thanks for being interested in the work we are doing. We’re glad you’re here
 If you are interested in participating, and haven’t done so yet, please onboard 
 [here](http://bit.ly/cd2h-onboarding-form). This will ensure sure you have the information and access you need to partner with us. 
 
-Want to ask a question or just say hi? Please do! You can find us on the #Personas channel on the 
+Want to ask a question or just say hi? Please do! You can find us on the #riosm channel on the 
 [CD2H Slack](https://cd2h.slack.com/messages)
 
 We look forward to partnering with you!
