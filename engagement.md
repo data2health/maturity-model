@@ -1,19 +1,38 @@
-# Engagement Plan
+ # Contributing to the Research Informatics and Open Science Maturity Model project # 
 
-If you are interested in participating, please [onboard here](http://bit.ly/cd2h-onboarding-form).
-You can also begin by reviewing the current [RIOSM model](http://bit.ly/RIOSM_pdf) and assessing your organization, and providing feedback on its use.
-
-## Engagement accomplished:
-- We performed Research Informatics and Open Science maturity model assessments on 12 organizations, including Tufts, Cornell, Columbia, OHSU, UW, Nebraska, Washington University, Mt. Sinai, UCSD, Minnesota, UAB and Scripps. Interviewees included CTSA PIs, informatics chairs, CRIOs, Research IT leads, and key innovators at the institutions.
-  - We are communicating results and updates to them in advance of the CTSA PI meeting
-    
-## Ongoing:
-- A broad communication about the extant maturity models and the ability to access them with a voting mechanism for who would be interested in adopting or assessing these at their own institution. 
-    - Maturity Model 'library' to be shared for review on the [emergent guidebook](https://reusable-data-best-practices.readthedocs.io/en/latest); please [see issue](https://github.com/data2health/maturity-model/issues/27)
-- Our work to support other maturity models: 
-  - Research and Translational IT maturity model (Knosp, Embi, Anderson, and Barnett) – communication with them ; support for their ongoing work ; feedback ; CD2H will connect users to this model when ready.
-  - Precision Medicine (Barnett) – feedback on the initial model
-  - EDW4R model (Knosp, Campion) – David Dorr liaison to iDTF subcommittee; we helped interview 2 sites; Dorr helping with analysis and support; will help further connect CTSAs to that work
+Thanks for being interested in the work we are doing. We’re glad you’re here and look forward to your contributions. You don’t need to code to contribute to our project. At present, we are looking for your help in the following areas:
  
+* Read [our report](http://bit.ly/RIOSM_pdf), assess your organization, and provide feedback on its use.  This work is based on interviews at 12 organizations. Interviewees included CTSA PIs, informatics chairs, CRIOs, Research IT leads, and key innovators at the institutions.
 
+If you are interested in participating, and haven’t done so yet, please onboard 
+[here](http://bit.ly/cd2h-onboarding-form). This will ensure sure you have the information and access you need to partner with us. 
+
+To make your first contribution, please look for the label, **“Good first issue”**.  
+
+Want to ask a question or just say hi? Please do! You can find us on the #Personas channel on the 
+[CD2H Slack](https://cd2h.slack.com/messages)
+
+We look forward to partnering with you!
+
+______________
+**Audience**
+* CTSAs
+* Academic and Health Science Libraries
+* CD2H Partners
+
+______________
+**Our Community Engagement Plans**
+
+* We will contact all CD2H participants who’ve onboarded and indicated interest in this project, say hi, remind them of our github and direct them here. 
+* We will contact people who have indicated interest in our project but never onboarded. 
+* We will communicate about existing maturity models and the ability to access them with a voting mechanism for who would be interested in adopting or assessing these at their own institution.
+* We will create a maturity Model 'library' to be shared for review on the [emergent guidebook](https://reusable-data-best-practices.readthedocs.io/en/latest); please [see issue](https://github.com/data2health/maturity-model/issues/27)
+* We will make use of the #riosm channel on [CD2H Slack](https://cd2h.slack.com). This channel will be used to chat about the project, answer questions, be a community spot. We'll also share relevant files, presentations, announcements for feedback, networking 
+* Use Github and other tools to communicate, share work, and collaborate with the above mentioned communities.
+* Create documentation and support for the community
+* Periodic briefs and/or presentations to key stakeholders
+
+If you have an idea for us to better engage with the community, please let us know. We welcome invitations to share more about the work we’re all doing. Please don’t be shy in inviting us to your meet-up, seminar or conference.
+
+**It means a lot to us that you choose to contribute to this important work. We appreciate you.**
 
