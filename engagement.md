@@ -13,5 +13,6 @@ Ongoing:
   - EDW4R model (Knosp, Campion) – David Dorr liaison to iDTF subcommittee; we helped interview 2 sites; Dorr helping with analysis and support; will help further connect CTSAs to that work
  
 
-If you are interested in participating, please [onboard here](http://bit.ly/cd2h-onboarding-form)
+If you are interested in participating, please [onboard here](http://bit.ly/cd2h-onboarding-form).
+You can also begin by reviewing the current [RIOSM model](http://bit.ly/RIOSM_pdf) and assessing your organization, and providing feedback on its use.
 
