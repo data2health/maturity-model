@@ -9,7 +9,7 @@ Currently the RIOSM has defined models in three areas:
 
 1. Data Governance
 2. Software Licensing 
-3. Research IT Deploymen
+3. Research IT Deployment
 
 
 
