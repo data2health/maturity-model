@@ -17,8 +17,7 @@ The survey has three steps:
 
 3) A guided identification of  ‘bright spots’ related to the  deployment of key infrastructure capabilities.
 
-
-
+## To Learn more about what we are working on:
 
 * [Research Infomrmatics Open Science Maturity Model](pages/RIOSM.md)
 * Sample Use Cases
