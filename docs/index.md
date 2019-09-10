@@ -1,5 +1,5 @@
 
-**Welcome to the Informatics Maturity Model Project**
+## Welcome to the Informatics Maturity Model Project
 
 Organizations that engage in research, especially those with Clinical and Translational Science groups, may want to self-assess their maturity of key research IT capabilities and learn to improve these capabilities.  This project intends to develop an approach to help organizations through that process.  It builds on other assessments by Embi, Knosp, Barnett, and Anderson by narrowing the focus to key areas related to collaborative and open science, and provides more clarity and context for the possibilities for improvement.  It also intends to facilitate the process of improvement through guided vignettes and tools.
 
@@ -17,7 +17,7 @@ The survey has three steps:
 
 3) A guided identification of  ‘bright spots’ related to the  deployment of key infrastructure capabilities.
 
-## To Learn more about what we are working on:
+## Explore Our Work:
 
 * [Research Infomrmatics Open Science Maturity Model](pages/RIOSM.md)
 * Sample Use Cases
@@ -25,6 +25,9 @@ The survey has three steps:
 * [Provide Feedback](pages/provide_feedback.md)
 
 ![](./images/CD2H_color_logo.png)
+
+
+
 
 ## Explore Our Work
 ### Federated Data Query Workshop May 20 & 21st, 2019
