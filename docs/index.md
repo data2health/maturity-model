@@ -21,7 +21,9 @@ The survey has three steps:
 
 * [Research Infomrmatics Open Science Maturity Model](pages/RIOSM.md)
 * Sample Use Cases
-* [FAQs](pages/faqs.md)
+
+## Engagement 
+* [How you can contribute](pages/engage.md)
 * [Provide Feedback](pages/provide_feedback.md)
 
 ![](./images/CD2H_color_logo.png)
