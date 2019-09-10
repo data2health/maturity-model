@@ -1,5 +1,5 @@
 
-Welcome to the Informatics Maturity Model Project
+**Welcome to the Informatics Maturity Model Project**
 
 The **Research Informatics Open Science Maturity Model** (RIOSM) is a maturity model developed within the [Center for Data to Health](https://github.com/data2health) (CD2H) [Maturity Model Project](https://github.com/data2health/maturity-model). It can be used by organizations for  **self assessment and planning** for organizations needing to advance capabilities in research informatics and open science. 
 
@@ -12,7 +12,7 @@ Currently the RIOSM has defined models in three areas:
 3. Research IT Deployment
 
 
-* [About](pages/about.md)
+* [About](https://github.com/data2health/maturity-model/blob/master/README.md)
 * Sample Use Cases
 * [FAQs](pages/faqs.md)
 * [Provide Feedback](pages/provide_feedback.md)
