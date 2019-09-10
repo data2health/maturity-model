@@ -1,15 +1,12 @@
 ---
 ## About
 
-### Maturity Model
-
-The emergence and prevalence of electronic health records (EHRs)  fundamentally transformed th opportunities   for efficient translational research at scale. However, the syntactic and semantic content of EHRs remain sufficiently inconsistent between and among implementations that additional efforts for normalization are necessary across a Federated network such as the CTSA. This project is about enabling comparable and consistent representation of clinical data across the CTSA network to support federated query and facilitate large-scale translational research collaboration. 
-
-### Project Description
+### Research Informatics and Open Science Maturity Model
 
 Organizations that engage in research, especially those with Clinical and Translational Science groups, may want to self-assess their maturity of key research IT capabilities and learn to improve these capabilities.  This project intends to develop an approach to help organizations through that process.  It builds on other assessments by Embi, Knosp, Barnett, and Anderson by narrowing the focus to key areas related to collaborative and open science, and provides more clarity and context for the possibilities for improvement.  It also intends to facilitate the process of improvement through guided vignettes and tools.
 
 The purpose of this survey is to elicit key indicators related to research and translational IT that may drive the ability for institutions to engage in innovative and collaborative open science.  Our definition of research and translational IT are the capabilities that enable data, information, and knowledge to be discovered, processed, and shared.  It focuses on three key areas:
+
 * Governance and Leadership
 * Data sharing and licensing
 * Deployment of capabilities related to data (architecture, content, tools, and sharing)
