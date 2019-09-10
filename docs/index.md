@@ -1,4 +1,16 @@
-The CD2H Data Harmonization project, part of the CD2H Next Generation Data Repository Core, identifies and curates resources and tools that enable a common framework for rendering and querying clinical data. Central to the effort is designating the HL7 FHIR specification as a canonical hub to simplify integration from clinical electronic health records and transform into a broad spectrum of translational research data models. We do this by engaging expertise across the CTSA community through workshops, electronic workspaces, and community web events.
+
+Welcome to the Informatics Maturity Model Project
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+| The **Research Informatics Open Science Maturity Model** (RIOSM) is a maturity model developed within the `Center for Data to Health <https://github.com/data2health>`_ (CD2H) `Maturity Model <https://github.com/data2health/maturity-model>`_ project. It can be used by organizations for  **self assessment and planning** for organizations needing to advance capabilities in research informatics and open science. 
+| Like other maturity and adoption models, it **defines current best practices, pathways to reach them, and organizational practice distributions.**. 
+  
+Currently the RIOSM has defined models in three areas: 
+
+1. Data Governance
+2. Software Licensing 
+3. Research IT Deployment
+
 
 * [About](pages/about.md)
 * Sample Use Cases
