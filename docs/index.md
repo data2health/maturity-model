@@ -20,7 +20,7 @@ The survey has three steps:
 
 
 
-* [Research Infomrmatics Open Science Maturity Model](pages/RIOSM)
+* [Research Infomrmatics Open Science Maturity Model](pages/RIOSM.md)
 * Sample Use Cases
 * [FAQs](pages/faqs.md)
 * [Provide Feedback](pages/provide_feedback.md)
