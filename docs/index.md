@@ -1,18 +1,26 @@
 
 **Welcome to the Informatics Maturity Model Project**
 
-The **Research Informatics Open Science Maturity Model** (RIOSM) is a maturity model developed within the [Center for Data to Health](https://github.com/data2health) (CD2H) [Maturity Model Project](https://github.com/data2health/maturity-model). It can be used by organizations for  **self assessment and planning** for organizations needing to advance capabilities in research informatics and open science. 
+Organizations that engage in research, especially those with Clinical and Translational Science groups, may want to self-assess their maturity of key research IT capabilities and learn to improve these capabilities.  This project intends to develop an approach to help organizations through that process.  It builds on other assessments by Embi, Knosp, Barnett, and Anderson by narrowing the focus to key areas related to collaborative and open science, and provides more clarity and context for the possibilities for improvement.  It also intends to facilitate the process of improvement through guided vignettes and tools.
 
-Like other maturity and adoption models, it **defines current best practices, pathways to reach them, and organizational practice distributions.**. 
-  
-Currently the RIOSM has defined models in three areas: 
+The purpose of this survey is to elicit key indicators related to research and translational IT that may drive the ability for institutions to engage in innovative and collaborative open science.  Our definition of research and translational IT are the capabilities that enable data, information, and knowledge to be discovered, processed, and shared.  It focuses on three key areas:
 
-1. Data Governance
-2. Software Licensing 
-3. Research IT Deployment
+* Governance and Leadership
+* Data sharing and licensing
+* Deployment of capabilities related to data (architecture, content, tools, and sharing)
+
+The survey has three steps:  
+
+1) Data collection for “artifacts” related to our focus areas and open science/collaboration more broadly.  This includes documenting the evidence of tools, policies, governance structures, leadership positions, and resources at a site.
+
+2) Open-ended questions related to governance and leadership, and policies influencing data sharing and licensing.
+
+3) A guided identification of  ‘bright spots’ related to the  deployment of key infrastructure capabilities.
 
 
-* [About](https://github.com/data2health/maturity-model/blob/master/README.md)
+
+
+* [Research Infomrmatics Open Science Maturity Model](pages/RIOSM)
 * Sample Use Cases
 * [FAQs](pages/faqs.md)
 * [Provide Feedback](pages/provide_feedback.md)
