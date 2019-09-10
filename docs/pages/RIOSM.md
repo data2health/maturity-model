@@ -11,6 +11,7 @@ Currently the RIOSM has defined models in three areas:
 2. Software Licensing 
 3. Research IT Deployment
 
+Please explore our paper on [RIOSM](https://drive.google.com/open?id=1_d9WOmZxJsq6fvwktyI0a7EZT3fLMDh9) 
 
 
 #### Back to [home](https://data2health.github.io/maturity-model/)
