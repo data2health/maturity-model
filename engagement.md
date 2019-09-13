@@ -5,10 +5,8 @@ Thanks for being interested in the work we are doing. We’re glad you’re here
 * Read [our report](http://bit.ly/RIOSM_pdf), assess your organization, and provide feedback on its use.  This work is based on interviews at 12 organizations. Interviewees included CTSA PIs, informatics chairs, CRIOs, Research IT leads, and key innovators.
 
 If you are interested in participating, and haven’t done so yet, please onboard 
-[here](http://bit.ly/cd2h-onboarding-form). This will ensure sure you have the information and access you need to partner with us. 
-
-Want to ask a question or just say hi? Please do! You can find us on the #riosm channel on the 
-[CD2H Slack](https://cd2h.slack.com/messages)
+[here](http://bit.ly/cd2h-onboarding-form). This will ensure sure you have the information and access you need to partner with us. Want to ask a question or just say hi? Please do! You can find us on the #riosm channel on the 
+CD2H Slack which is open to all onboarded participants.
 
 We look forward to partnering with you!
 
