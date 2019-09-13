@@ -19,7 +19,7 @@ The survey has three steps:
 
 ## Explore Our Work:
 
-* [Research Infomrmatics Open Science Maturity Model](pages/RIOSM.md)
+* [Research Informatics Open Science Maturity Model](pages/RIOSM.md)
 
 
 ## Engagement 
