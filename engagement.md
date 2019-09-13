@@ -23,7 +23,7 @@ ______________
 * We will contact people who have indicated interest in our project, but never onboarded. 
 * We will communicate about existing maturity models and the ability to access them with a voting mechanism for who would be interested in adopting or assessing these at their own institution.
 * We will create a maturity Model 'library' to be shared for review on the [emergent guidebook](https://reusable-data-best-practices.readthedocs.io/en/latest); please [see issue](https://github.com/data2health/maturity-model/issues/27)
-* We will make use of the #riosm channel on [CD2H Slack](https://cd2h.slack.com). This channel will be used to chat about the project, answer questions, be a community spot. We'll also share relevant files, presentations, announcements for feedback, networking 
+* We will make use of the #riosm channel on [CD2H Slack](https://cd2h.slack.com) which is available to anyone who has onboarded to CD2H. This channel will be used to chat about the project, answer questions, be a community spot. We'll also share relevant files, presentations, announcements for feedback, networking 
 * Use Github and other tools to communicate, share work, and collaborate with the above mentioned communities.
 * Create documentation and support for the community
 * Periodic briefs and/or presentations to key stakeholders
