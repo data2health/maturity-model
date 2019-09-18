@@ -38,7 +38,6 @@ Lead(s) (github handle) | Site
 ----------|--------------|
 Adam Wilcox (@abwilcox) | University of Washington
 Robin Champieux (@rchampieux) | OHSU
-David Dorr (@davedorr9) | OHSU
 
 
 ## Team members 
