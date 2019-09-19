@@ -12,11 +12,11 @@ Enterprise Data Warehouse | Research Process Mechanics | Investment Prioritizati
 
 Compliance | Sustainability | Integration with Health System | Informatics Knowledge by non-informatics people | 
 
-Team Members (github handle) | Site
+Models | Site | 
 ----------|--------------|
-Adam Wilcox (@abwilcox) | UW
-Melissa Haendel (@mellybelly) | OHSU
-Matt Brush (@mbrush) | OHSU
-Liz Zampino (@ezampino) | UW
-Beth Britt | UW
-legal expert | TBD
+Adam Wilcox (@abwilcox) | UW | dddd
+Melissa Haendel (@mellybelly) | OHSU | ddd
+Matt Brush (@mbrush) | OHSU | dd
+Liz Zampino (@ezampino) | UW |dd
+Beth Britt | UW | dd
+legal expert | TBD |dd 
