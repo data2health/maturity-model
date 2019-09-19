@@ -25,9 +25,9 @@ The survey has three steps:
 
 ## Contact person 
 
-Point person (github handle) | Site | Core Director
+Point person (github handle) | Site | Core Director | Site
 ----------|--------------|---------------
-Liz Zampino (@ezampino) | UW | Adam Wilcox (@abwilcox)
+Liz Zampino (@ezampino) | UW | Adam Wilcox (@abwilcox) | UW
 
 
 ## Leads 
