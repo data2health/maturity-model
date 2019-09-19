@@ -12,7 +12,8 @@ Enterprise Data Warehouse | Research Process Mechanics | Investment Prioritizati
 
 Compliance | Sustainability | Integration with Health System | Informatics Knowledge by non-informatics people | 
 
-Models | ----- |
+### Models
+
 ----------|--------------
 Adam Wilcox (@abwilcox) | UW 
 Melissa Haendel (@mellybelly) | OHSU 
