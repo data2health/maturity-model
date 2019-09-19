@@ -8,7 +8,7 @@ Maturity Models, a project of the National Center for Data to Health (grant U24T
 ## Explore Our Work:
 
 * [Research Informatics Open Science Maturity Model](pages/RIOSM.md)
-* Comprehensive library of existing Maturity Models
+* [Comprehensive library of existing Maturity Models](docs/pages/ExModels.md)
 * iDTF Maturity Models
 
 
