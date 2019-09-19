@@ -12,7 +12,7 @@ Enterprise Data Warehouse | Research Process Mechanics | Investment Prioritizati
 
 Compliance | Sustainability | Integration with Health System | Informatics Knowledge by non-informatics people | 
 
-Models | |
+Models | fff |
 
 ----------|--------------
 Adam Wilcox (@abwilcox) | UW 
