@@ -15,7 +15,7 @@ Maturity Models, a project of the National Center for Data to Health (grant U24T
 ## Engagement 
 * [How you can contribute](pages/Engage.md)
 
-          - Meet with us 9/24! Agenda can be found [here](https://docs.google.com/document/d/1lIDXXyKepx_pEMmJpgSTwmha6WXXVgvfEU-2wU4XDH0)
+          Meet with us 9/24! Agenda can be found [here](https://docs.google.com/document/d/1lIDXXyKepx_pEMmJpgSTwmha6WXXVgvfEU-2wU4XDH0)
 
 * [Provide Feedback](pages/provide_feedback.md)
 
