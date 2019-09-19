@@ -4,7 +4,7 @@ The following models (listed below) were developed by the iDTF members that atte
 
 Models 
 
-|--------------|----------------|--------------- | -------------
+|--------------|----------------|--------------- | -------------|
 
 |Clinical Data Science | Data Distribution and Sharing | Honest Broker | Data Governance|
 
