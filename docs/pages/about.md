@@ -1,4 +1,4 @@
-### Maturity Model Project
+# Maturity Model Project
 
 ## Problem statement
 CTSAs are the core sources of clinical and translational research, but often struggle with helping their organizations understand the strategic importance of improving their informatics capabilities and IT deployment.  All institutions are trying to understand what they should invest in to remain innovative and competitive, not only in research but in translating knowledge into practice and exploring the data they have to improve health. 
@@ -21,7 +21,7 @@ The survey has three steps:
 
 3) A guided identification of  ‘bright spots’ related to the  deployment of key infrastructure capabilities.   
 
-### The people
+# The people
 
 ## Contact person 
 
