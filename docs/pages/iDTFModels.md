@@ -15,7 +15,7 @@ Compliance | Sustainability | Integration with Health System | Informatics Knowl
 Team Members | Site
 ----------|--------------|
 Clinical Data Science | Data Distribution and Sharing 
-Melissa Haendel (@mellybelly) | OHSU
+Honest Broker | Data Governance
 Matt Brush (@mbrush) | OHSU
 Liz Zampino (@ezampino) | UW
 Beth Britt | UW
