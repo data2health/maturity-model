@@ -20,7 +20,3 @@ Maturity Models, a project of the National Center for Data to Health (grant U24T
 * [Provide Feedback](pages/provide_feedback.md)
 
 ![](./images/CD2H_color_logo.png)
-
-
-## Working documents
-
