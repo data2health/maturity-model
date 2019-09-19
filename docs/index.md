@@ -20,10 +20,12 @@ The survey has three steps:
 ## Explore Our Work:
 
 * [Research Informatics Open Science Maturity Model](pages/RIOSM.md)
+* Comprehensive library of existing Maturity Models
+* iDTF Maturity Models
 
 
 ## Engagement 
-* [How you can contribute](pages/Engage.md)
+* [How you can contribute: Meet with us 9/24!](pages/Engage.md)
 * [Provide Feedback](pages/provide_feedback.md)
 
 ![](./images/CD2H_color_logo.png)
