@@ -1,6 +1,6 @@
 ## iDTF Models
 
-The following models (listed below) were developed by the iDTF members that attended the Maturity model breakout session that occurred at the Spring iDTF meeting in San Francisco. 
+The following models (listed below) were developed by the iDTF members that attended the Maturity model breakout session that occurred at the 2018 Spring iDTF meeting in San Francisco. 
 
 
 iDTF Model | iDTF Model
