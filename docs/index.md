@@ -1,7 +1,7 @@
 
 ## Welcome to the Informatics Maturity Model Project
 
-Maturity Models, a project of the National Center for Data to Health (grant U24TR002306), aims to help CTSAs define 
+Maturity Model is a project of the National Center for Data to Health (grant U24TR002306).
 
 [About this project and its people](pages/about.md)
 
