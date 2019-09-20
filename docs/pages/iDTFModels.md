@@ -4,7 +4,7 @@ The following models (listed below) were requested by the iDTF members that atte
 
 ![](https://github.com/data2health/maturity-model/blob/master/docs/images/iDTFModels.png)
 
-iDTF | Models:
+iDTF Models  idTF Models:
 ----------|--------------|
 Clinical Data Science | Data Distribution and Sharing 
 Honest Broker | Data Governance
