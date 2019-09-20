@@ -2,7 +2,7 @@
 
 The following models (listed below) were requested by the iDTF members that attended the Maturity model breakout session that occurred at the 2019 Spring iDTF meeting in San Francisco. Thank you for your contribution!
 
-[](docs/images/iDTFModels.png)
+![](docs/images/iDTFModels.png)
 
 iDTF Model | iDTF Model
 ----------|--------------|
