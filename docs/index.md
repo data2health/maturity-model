@@ -10,7 +10,7 @@ Maturity Model is a project of the National Center for Data to Health (grant U24
 * [Research Informatics Open Science Maturity Model](pages/RIOSM.md)
 * [Comprehensive library of existing Maturity Models](pages/ExModels.md)
 * [iDTF Maturity Models (new)](pages/iDTFModels.md)
-* [RIOSM Survey](http://bit.ly/riosmCD2)
+* [The RIOSM self-assessment survey](http://bit.ly/riosmCD2)
 
 
 ## Engagement 
