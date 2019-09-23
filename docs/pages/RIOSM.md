@@ -12,6 +12,7 @@ Currently the RIOSM has defined models in three areas:
 3. Research IT Deployment
 
 Please explore our paper on [RIOSM](http://bit.ly/RIOSM_pdf) 
+
 Please take the RIOSM self-assessment [survey](http://bit.ly/riosmCD2H)
 
 
