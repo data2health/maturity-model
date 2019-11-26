@@ -47,7 +47,7 @@ Models created by both methods will be combined in a tool that will allow organi
 9/2019 | **Main adoption model:** Adoption model tool as document describing model with descriptions of levels and distributions | DONE
 9/2019 | **Expanded maturity models:** Community responses used to complete top and bottom levels of maturity for prioritized topics | IN PROGRESS
 9/2019 | **Software Assessment Tool:** Software requirements and validation | DONE
-10/2019 | **Software Assessment Tool:** Assessment tool software development plan | IN PROGRESS
+10/2019 | **Software Assessment Tool:** Assessment tool software development plan | DONE
 12/2019 | **Software Assessment Tool:** Version 1 of software developed and ready for pilot testing | IN PROCESS
 
 # Potential Pitfalls and Alternative Strategies
