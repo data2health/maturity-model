@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Roboto;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Small screen - 45px icons only */
+@media only screen and (max-width: 1400px) {
+    html {
+      font-size: 13.0px;
+    }
+
+    .model-selection-main-text {
+        padding: 20px 10%;
+    }
+}
+
+/* Large screen - 145px */
+@media only screen and (min-width: 1401px) {
+    html {
+        font-size: 13.3px;
+    }
+}
+
+/* Extra large screen - 160px */
+@media only screen and (min-width: 1701px) {
+    html {
+        font-size: 14px;
+    }
+}

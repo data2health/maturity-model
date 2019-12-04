@@ -1,0 +1,104 @@
+/* Main */
+.model-selection-main-text {
+    font-size: 1.3rem;
+    font-weight: 300;
+    padding: 20px;
+}
+
+.model-selection-main-text > div {
+    margin: auto;
+    margin-bottom: 20px;
+    max-width: 850px;
+    text-align: left;
+}
+
+.model-selection-emphasis {
+    color: rgb(28,168,221);
+    font-weight: 500;
+}
+
+.model-selection-selected-count { 
+    background-color: rgba(28,168,221,0.1);
+    border-radius: 4px;
+    color: rgb(28,168,221);
+    float: right;
+    font-size: 1.0rem;
+    padding: 2px 4px;
+}
+
+/* Model Options */
+.model-selection-option {
+    border: 2px solid rgb(220,220,220);
+    border-radius: 8px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.05),0 3px 1px -2px rgba(0,0,0,.05),0 1px 5px 0 rgba(0,0,0,.05);
+    cursor: pointer;
+    margin: auto;
+    margin-bottom: 10px;
+    max-width: 900px;
+    padding: 10px;
+    transition: all 0.2s;
+}
+
+.model-selection-option:hover {
+    box-shadow: 4px 4px 10px 0 rgba(0,0,0,.1),-4px 4px 10px 0 rgba(0,0,0,.1);;
+}
+
+.model-selection-option:hover {
+    background-color: rgba(70, 255, 101, 0.05);
+    border-color: rgba(0, 190, 0, 0.2);
+}
+
+.model-selection-option.selected {
+    background-color: rgba(70, 255, 101, 0.1);
+    border-color: rgb(0, 190, 0);
+}
+
+.model-selection-option-top,
+.model-selection-option-bottom {
+    text-align: left;
+    width: 100%;
+}
+
+.model-selection-option-top {
+    min-height: 50px;
+}
+
+.model-selection-option-desc {
+    color: rgb(120,120,120);
+    font-size: 0.9rem;
+    padding: 10px 0 0;
+}
+
+.model-selection-option-top > div {
+    display: inline-block;
+    height: 100%;
+}
+
+.model-selection-option-checkbox {
+    border: 2px solid rgb(220,220,220);
+    border-radius: 8px;
+    float: left;
+    height: 50px !important;
+    width: 50px;
+}
+
+.model-selection-option-checkbox svg {
+    height: 80px;
+    margin: -20px 0 0 -16px;
+    opacity: 0;
+    stroke: rgb(0, 190, 0);
+    stroke-width: 1;
+    transition: opacity 0.2s;
+    width: 80px;
+}
+
+.model-selection-option.selected svg {
+    opacity: 1;
+}
+
+.model-selection-option-name {
+    line-height: 50px;
+    font-size: 1.4rem;
+    font-weight: 300;
+    margin-left: 20px;
+}

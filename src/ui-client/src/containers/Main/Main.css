@@ -1,0 +1,20 @@
+.main {
+    background-color: rgb(240, 240, 240);
+    background: repeating-linear-gradient(135deg,#E5F5FD,#E5F5FD 4px,#E2F0F7 2px,rgb(219, 219, 219) 6px);
+    height: 100vh;
+    opacity: 1.0;
+    transition: opacity 1s;
+}
+
+.main.hidden {
+    opacity: 0;
+}
+
+.main-inner {
+    height: 92%;
+    overflow-y: auto;
+    padding: 10px 50px 0 300px;
+    margin-bottom: 50px;
+    text-align: center;
+    width: 100%;
+}

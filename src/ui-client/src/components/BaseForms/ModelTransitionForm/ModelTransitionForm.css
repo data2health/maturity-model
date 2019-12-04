@@ -1,0 +1,76 @@
+.model-transition-form {
+    background-color: rgb(250,250,250);
+    border-radius: 8px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.12),0 1px 5px 0 rgba(0,0,0,.2);
+    margin: auto;
+    max-width: 1200px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.model-transition-form-inner {
+    margin-left: 0;
+    margin-right: 0;
+    opacity: 1;
+    transition: margin-left .3s, margin-right .3s, opacity .3s;
+    z-index: 99;
+}
+
+.model-transition-form-inner .form {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.model-transition-form.move-left .model-transition-form-inner {
+    margin-left: -20px;
+    opacity: 0;
+}
+
+.model-transition-form.move-right .model-transition-form-inner {
+    margin-right: -20px;
+    opacity: 0;
+}
+
+.model-transition-form.blank .model-transition-form-inner {
+    opacity: 0;
+}
+
+.model-transition-form-corner-info {
+    background-color: rgba(28,168,221,0.1);
+    border-radius: 8px;
+    color: rgb(28,168,221);
+    font-size: 1.3rem;
+    font-weight: 500;
+    left: 0;
+    margin: 4px;
+    padding: 2px 8px;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+}
+
+.model-transition-form-button {
+    background-color: rgba(28,168,221,0.1);
+    border: 0 solid #29a5f8;
+    border-radius: 4px;
+    color: #29acf8;
+    cursor: pointer;
+    float: left;
+    font-family: Roboto;
+    font-size: 1.3rem;
+    font-weight: 500;
+    height: 40px;
+    margin: 0 0 10px 10px;
+    outline: none !important;
+    padding: 0 10px 0 0;
+    transition: background-color 0.3s;
+}
+
+.model-transition-form-button:hover {
+    background-color: rgba(28,168,221,0.2);
+}
+.model-transition-form-button svg {
+    margin-bottom: -3px;
+    margin-right: 6px;
+}
