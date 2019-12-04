@@ -1,0 +1,72 @@
+.sidebar {
+    background-image: linear-gradient(60deg, rgb(34, 34, 36), rgb(74, 76, 80));
+    box-flex: 0;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 20px 0px;  
+    color: white;
+    float: left;
+    height: 100%;
+    padding: 10px;
+    position: fixed;
+    width: 250px;
+    z-index: 100;
+}
+
+/* CD2H logo */
+.sidebar-cd2h-logo-container {
+    background-color: white;
+    border-radius: 4px;
+    height: 58px;
+    margin: 0 0 20px 20px;
+    width: 180px;
+}
+
+.sidebar-cd2h-logo {
+    height: 110px;
+    margin: -25px 0 0 -30px;
+}
+
+.sidebar-cd2h-link {
+    height: 58px;
+    margin-left: 20px;
+    position: absolute;
+    width: 180px;
+}
+
+/* Options */
+.sidebar-option {
+    border: 1px solid rgb(80,80,80);
+    border-radius: 4px;
+    color: rgb(210,210,210);
+    cursor: pointer;
+    font-size: 1.0rem;
+    margin: 10px 0;
+    padding: 4px;
+}
+
+.sidebar-option:hover {
+    border-color: rgba(4, 169, 230, 0.5);
+    color: rgb(4, 169, 230);
+}
+
+.sidebar-option-home,
+.sidebar-option-results {
+    background-color: transparent;
+    border:none;
+    border-bottom: 1px solid rgb(80,80,80) !important;
+    border-radius: 0;
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+}
+
+.sidebar-option-home svg,
+.sidebar-option-results svg {
+    margin-bottom: -2px;
+    margin-right: 10px;
+}
+
+.sidebar-subtext {
+    color: rgb(150,150,150);
+    font-size: 0.8rem;
+    margin: 10px 0 -4px;
+    text-transform: uppercase;
+}

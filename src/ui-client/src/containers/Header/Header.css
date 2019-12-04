@@ -1,0 +1,34 @@
+#header {
+    background-color: rgb(28,168,221);
+    background-image: linear-gradient(60deg, #016475, #007c92);
+    background-image: linear-gradient(60deg, #0075b9, #0086d3);
+    box-shadow: rgba(0, 0, 0, 0.2) 2px 4px 10px 0px;
+    height: 75px;
+    margin-bottom: 0 !important;
+    z-index: 99;
+}
+
+/* CD2H Logo - moved to sidebar
+.header-cd2h-logo-container {
+    background-color: white;
+    border-radius: 4px;
+    height: 58px;
+    width: 180px;
+}
+
+.header-cd2h-logo {
+    height: 110px;
+    margin: -25px 0 0 -30px;
+}
+*/
+
+.header-email {
+    color: white;
+    font-size: 1.3rem;
+    margin-right: 20px;
+}
+
+.header-email svg {
+    margin-bottom: -2px;
+    margin-right: 8px;
+}
