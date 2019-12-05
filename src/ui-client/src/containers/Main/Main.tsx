@@ -5,10 +5,13 @@ import ModelSelection from '../../components/ModelSelection/ModelSelection';
 import { ModelsState } from '../../model/ModelsState';
 import { LoginState } from '../../model/LoginState';
 import { UserState } from '../../model/UserState';
+import { GeneralState, AppView } from '../../model/GeneralState';
+import Results from '../Results/Results';
 import './Main.css';
 
 interface Props {
     dispatch: any;
+    general: GeneralState;
     login: LoginState;
     models: ModelsState;
     user: UserState;
@@ -54,11 +57,17 @@ export default class Main extends React.PureComponent<Props,State> {
     }
 
     public getCurrentContent = () => {
-        const { dispatch, models, user } = this.props;
+        const { dispatch, models, user, general } = this.props;
 
-        if (models.current) {
+        if (general.currentView === AppView.ModelSelection) {
+            return <ModelSelection dispatch={dispatch} models={models.all} user={user} />;
+        }
+        if (general.currentView === AppView.ModelSurvey && models.current) {
             return models.current.render(dispatch, user.answers);
         }
-        return <ModelSelection dispatch={dispatch} models={models.all} user={user} />
+        if (general.currentView === AppView.Results) {
+            return <Results />
+        }
+        return null;
     }
 }

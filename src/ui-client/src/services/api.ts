@@ -25,7 +25,7 @@ export const login = async (email: string, entryCode: string): Promise<UserAnswe
  * Given the current user answers, update the server with
  * the latest values after diffing.
  */
-export const update = async(user: UserState): Promise<UserUpdateDTO> => {
+export const update = async (user: UserState): Promise<UserUpdateDTO> => {
 
     /*
      * Include only values that have been updated since
@@ -50,7 +50,7 @@ export const update = async(user: UserState): Promise<UserUpdateDTO> => {
     /*
      * Update the server.
      */
-    const resp = await Axios.post('/api/answers', {
+    const resp = await Axios.post('/api/user/answers', {
         email: user.email,
         entry_code: user.entryCode,
         answers: diff
@@ -68,8 +68,8 @@ export const update = async(user: UserState): Promise<UserUpdateDTO> => {
 
 /*
  * Given a REDCap-based dictionary user object, return it back
- * as a [UserAnswers] object. The DTO and Model currently match, but 
- * in the future if they don't use thus function to transform them.
+ * as a [UserAnswers] object. The DTO and Model are currently identical, but 
+ * in the future if they aren't use thus function to transform them.
  */
 const dtoToUser = (dto: UserAnswersDTO): UserAnswers => {
     return dto;

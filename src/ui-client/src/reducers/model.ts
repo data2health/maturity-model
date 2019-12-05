@@ -19,7 +19,7 @@ export const models = (state: ModelsState = defaultModelState(), action: ModelAc
             return Object.assign({}, state, { current: action.model });
         case MODEL_SET_SELECTED:
             const mdls = state.all.slice();
-            mdls[action.index!].selected = !mdls[action.index!].selected;
+            mdls[action.index!] = Object.assign({}, mdls[action.index!], { selected: !mdls[action.index!].selected });
             return Object.assign({}, state, { all: mdls })
     }
     return state;

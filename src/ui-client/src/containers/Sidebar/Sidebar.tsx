@@ -2,6 +2,8 @@ import React from 'react';
 import { ModelsState, BaseModel } from '../../model/ModelsState';
 import { modelSetCurrent } from '../../actions/model';
 import { FiHome, FiBarChart } from 'react-icons/fi';
+import { setCurrentView } from '../../actions/general';
+import { AppView } from '../../model/GeneralState';
 import './Sidebar.css';
 
 interface Props {
@@ -29,13 +31,13 @@ export default class Sidebar extends React.PureComponent<Props> {
                 </div>
 
                 {/* Home */}
-                <div className={`${c}-option ${c}-option-home`} onClick={this.handleHomeClick}>
+                <div className={`${c}-option ${c}-option-home`} onClick={this.handleHomeTabClick}>
                     <FiHome />
                     Home
                 </div>
 
                 {/* Results */}
-                <div className={`${c}-option ${c}-option-results`} onClick={this.handleHomeClick}>
+                <div className={`${c}-option ${c}-option-results`} onClick={this.handleResultsTabClick}>
                     <FiBarChart />
                     Results
                 </div>
@@ -53,13 +55,19 @@ export default class Sidebar extends React.PureComponent<Props> {
         );
     }
 
-    private handleHomeClick = () => {
+    private handleHomeTabClick = () => {
         const { dispatch } = this.props;
-        dispatch(modelSetCurrent());
+        dispatch(setCurrentView(AppView.ModelSelection));
+    }
+
+    private handleResultsTabClick = () => {
+        const { dispatch } = this.props;
+        dispatch(setCurrentView(AppView.Results));
     }
 
     private handleModelClick = (model: BaseModel) => {
         const { dispatch } = this.props;
+        dispatch(setCurrentView(AppView.ModelSurvey));
         dispatch(modelSetCurrent(model));
     }
 }

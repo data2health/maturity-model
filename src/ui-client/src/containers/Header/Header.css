@@ -3,9 +3,10 @@
     background-image: linear-gradient(60deg, #016475, #007c92);
     background-image: linear-gradient(60deg, #0075b9, #0086d3);
     box-shadow: rgba(0, 0, 0, 0.2) 2px 4px 10px 0px;
-    height: 75px;
+    height: 50px;
     margin-bottom: 0 !important;
-    z-index: 99;
+    margin-left: 250px;
+    z-index: 100;
 }
 
 /* CD2H Logo - moved to sidebar
@@ -24,7 +25,7 @@
 
 .header-email {
     color: white;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-right: 20px;
 }
 

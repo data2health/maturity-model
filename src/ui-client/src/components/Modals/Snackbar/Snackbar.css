@@ -1,0 +1,47 @@
+.snackbar {
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.35);
+    bottom: 0;
+    height: 50px;
+    font-family: Roboto;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 0 -500px 20px 0;
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    transition: margin-right 0.75s;
+    z-index: 100;
+}
+
+.snackbar.show {
+    margin-right: 20px;
+}
+
+.snackbar-container {
+    display: flex;
+}
+
+.snackbar-icon-container {
+    margin-right: 8px;
+}
+
+.snackbar svg {
+    height: 2rem;
+}
+
+.snackbar svg circle {
+    stroke-width: 2px !important;
+}
+
+.snackbar path,
+.snackbar polyline {
+    stroke: rgb(7, 192, 69);
+}
+
+.snackbar-text {
+    color: rgb(50,50,50);
+    margin-top: 2px;
+}
