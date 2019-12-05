@@ -33,7 +33,18 @@ export type AnswerField =
 
     // HIMSS EMRAM
     'himss_emram_complete'             |
-    'himss_emram_q1'
+    'himss_emram_q1'                   |
+
+    // NEHTA IMM
+    'nehta_imm_complete'               |
+    'nehta_imm_q1'                     |
+
+    // HIMSS CCMM
+    'himss_ccmm_complete'              |
+    'himss_ccmm_q1'                    |
+    'himss_ccmm_q2'                    |
+    'himss_ccmm_q3'                    |
+    'himss_ccmm_q4'
 
 export interface BaseUserAnswers {
     [key: string]: AnswerTypes
