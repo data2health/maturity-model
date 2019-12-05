@@ -2,10 +2,14 @@ import { MODEL_SET_CURRENT, ModelAction, MODEL_SET_SELECTED } from '../actions/m
 import { ModelsState } from '../model/ModelsState';
 import { RIOSM } from '../model/Models/RIOSM';
 import { HIMSS_EMRAM } from '../model/Models/HIMSS_EMRAM';
+import { Quintegra_eHMM } from '../model/Models/Quintegra_eHMM';
+import { IDC_Healthcare_IT } from '../model/Models/IDC_Healthcare_IT';
+import { NEHTA_IMM } from '../model/Models/NEHTA_IMM';
+import { HIMSS_CCMM } from '../model/Models/HIMSS_CCMM';
 
 export const defaultModelState = (): ModelsState => {
     return {
-        all: [ RIOSM, HIMSS_EMRAM ]
+        all: [ RIOSM, HIMSS_EMRAM, Quintegra_eHMM, IDC_Healthcare_IT, NEHTA_IMM, HIMSS_CCMM ]
     };
 };
 
