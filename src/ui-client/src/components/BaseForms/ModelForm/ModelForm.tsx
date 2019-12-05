@@ -6,6 +6,7 @@ import ModelTransitionForm from '../../BaseForms/ModelTransitionForm/ModelTransi
 import { BaseModel, FormComplete } from '../../../model/ModelsState';
 import { FiChevronRight } from 'react-icons/fi';
 import './ModelForm.css';
+import NextStepBox from '../NextStepBox/NextStepBox';
 
 interface Props {
     answers: UserAnswers;
@@ -56,18 +57,14 @@ export class ModelForm extends React.PureComponent<Props,State> {
             );
         }
 
-         /*
+        /*
          * If in ending state, congratulate the user and allow them to move to next survey.
          */
         if (questionIndex > model.questions.length) {
             return (
                 <ModelTransitionForm 
                     header={`You've completed the ${model.name} survey!`}
-                    content={
-                        <div>
-                            <div className={`${c}-complete`}>Great job. Next, move on to the blah survey.</div>
-                        </div>
-                    }
+                    content={<NextStepBox />}
                     onGoBackClick={this.handleGoBackClick}
                 />
             );
