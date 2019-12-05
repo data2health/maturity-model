@@ -110,7 +110,8 @@ export class ModelForm extends React.PureComponent<Props,State> {
     private handleAnswerClick = (value: any) => {
         const { dispatch, answers, model } = this.props;
         const { questionIndex } = this.state;
-        const completed = questionIndex === model.questions.length;
+        const isLast = questionIndex === model.questions.length;
+        const alreadyCompleted = answers[model.completeField] === FormComplete.Complete;
 
         /* 
          * Update store with the answer.
@@ -118,14 +119,14 @@ export class ModelForm extends React.PureComponent<Props,State> {
         const question = model.questions[questionIndex-1];
         const cpy = Object.assign({}, answers, { 
             [question.answerField]: value,
-            [model.completeField]: completed ? FormComplete.Complete : FormComplete.Started
+            [model.completeField]: alreadyCompleted || isLast ? FormComplete.Complete : FormComplete.Started
         }) as UserAnswers;
         dispatch(userSetData(cpy));
 
         /*
          * If the form is complete, update data on the server.
          */
-        if (completed) {
+        if (isLast) {
             dispatch(userUpdateServerData());
         }
         

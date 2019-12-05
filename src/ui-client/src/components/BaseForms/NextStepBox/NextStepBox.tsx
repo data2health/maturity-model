@@ -6,6 +6,8 @@ import { UserState } from '../../../model/UserState';
 import { modelSetCurrent } from '../../../actions/model';
 import { setCurrentView } from '../../../actions/general';
 import { AppView } from '../../../model/GeneralState';
+import './NextStepBox.css';
+import { FiChevronRight } from 'react-icons/fi';
 
 interface OwnProps {
     
@@ -32,8 +34,11 @@ class NextStepBox extends React.PureComponent<Props> {
         if (!len) {
             return (
                 <div className={c}>
-                    <div>You've completed all of your selected models. Take a look at the results and see how you compare!</div>
-                    <button className={`${c}-button`} onClick={this.handleSeeResultsClick}>View Results</button>
+                    <div>You've completed all of your selected models. Take a look at the results and see how you compare.</div>
+                    <button className={'maturity-model-button primary-green shadow'} onClick={this.handleSeeResultsClick}>
+                        View Results
+                        <FiChevronRight />
+                    </button>
                 </div>
             );
         }
@@ -41,8 +46,11 @@ class NextStepBox extends React.PureComponent<Props> {
         const next = remaining[0];
         return (
             <div className={c}>
-                <div>You have {len} models remaining. Next up is the {next.name}</div>
-                <button className={`${c}-button`} onClick={this.handleGoToNextSurveyClick.bind(null, next)}>Go to next model</button>
+                <div>You have {len} model{len > 1 ? 's' : ''} remaining. Next up is the {next.name}</div>
+                <button className={'maturity-model-button primary-green shadow'} onClick={this.handleGoToNextSurveyClick.bind(null, next)}>
+                    Go to next model
+                    <FiChevronRight />
+                </button>
             </div>
         )
     }
