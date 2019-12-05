@@ -50,27 +50,23 @@
     z-index: 100;
 }
 
-.model-transition-form-button {
-    background-color: rgba(28,168,221,0.1);
-    border: 0 solid #29a5f8;
-    border-radius: 4px;
-    color: #29acf8;
-    cursor: pointer;
-    float: left;
-    font-family: Roboto;
-    font-size: 1.3rem;
-    font-weight: 500;
-    height: 40px;
-    margin: 0 0 10px 10px;
-    outline: none !important;
-    padding: 0 10px 0 0;
-    transition: background-color 0.3s;
+.model-transition-form .maturity-model-button.primary-green {
+    margin-top: 40px;
 }
 
-.model-transition-form-button:hover {
-    background-color: rgba(28,168,221,0.2);
+.model-transition-form .maturity-model-button.secondary {
+    bottom: 0;
+    left: 0;
+    margin: 10px;
+    min-width: 100px !important;
+    position: absolute;
+    width: 100px !important;
 }
-.model-transition-form-button svg {
-    margin-bottom: -3px;
-    margin-right: 6px;
+
+.model-transition-form .maturity-model-button.secondary svg {
+    margin-left: -8px;
+}
+
+.model-transition-form .form {
+    opacity: 1 !important;
 }

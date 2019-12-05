@@ -1,0 +1,63 @@
+.maturity-model-button {
+    background-color: #0086d3;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: 500;
+    min-height: 50px;
+    min-width: 120px;
+    outline: none !important;
+    padding: 0 10px;
+    transition: background-color 0.3s;
+}
+
+.maturity-model-button.shadow {
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.24);
+}
+
+.maturity-model-button.primary {
+    background-color: #0086d3;
+    min-width: 150px;
+}
+
+.maturity-model-button.primary:hover {
+    background-color: #0079be;
+}
+
+.maturity-model-button.primary-green {
+    background-image: linear-gradient(60deg,#72ca4a,#44c240);
+    min-width: 150px;
+    transition: none;
+}
+
+.maturity-model-button.primary-green:hover {
+    background-image: linear-gradient(60deg,#44c240,#3daf39);
+}
+
+.maturity-model-button.secondary {
+    background-color: rgba(28,168,221,0.1);
+    color: #29acf8;
+    font-size: 1.2rem;
+    min-height: 40px;
+}
+
+.maturity-model-button.secondary:hover {
+    background-color: rgba(28,168,221,0.2);
+}
+
+.maturity-model-button:disabled,
+.maturity-model-button:disabled:hover {
+    background-color: rgb(186, 190, 194);
+    background-image: none;
+    box-shadow: none !important;
+    color: white;
+    cursor: default;
+}
+
+.maturity-model-button svg {
+    font-size: 1.5rem;
+    margin-bottom: -4px;
+    margin-left: 4px;
+}

@@ -5,7 +5,7 @@ import sys
 import json
 
 from flask import Flask, Request, request, jsonify
-from response import ok, bad_request, not_found, server_error
+from response import ok, bad_request, forbidden, not_found, server_error
 from manager import Manager
 
 app = Flask(__name__)
@@ -31,7 +31,7 @@ def is_user():
         sys.stderr.write(f'Error: {ex}\n')
         return server_error()
 
-@app.route('/api/answers', methods=['POST'])
+@app.route('/api/user/answers', methods=['POST'])
 def update_data():
     try:
         req_data = request.get_json()
@@ -44,7 +44,7 @@ def update_data():
 
         user = mgr.get_user(email, entry_code)
         if not user:
-            return not_found()
+            return forbidden()
 
         updated = mgr.update_user_answers(email, entry_code, answers)
         return ok(updated)

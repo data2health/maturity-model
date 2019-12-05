@@ -98,7 +98,7 @@ export default class ModelTransitionForm extends React.PureComponent<Props,State
                         <BaseForm {...outgoing} />
                     </div>
                     {outgoing.cornerInfo && <div className={`${c}-corner-info`}>{outgoing.cornerInfo}</div>}
-                    {outgoing.onGoBackClick && <button className={`${c}-button`}><FiChevronLeft />Go Back</button> }
+                    {outgoing.onGoBackClick && <button className={'maturity-model-button secondary'}><FiChevronLeft />Go Back</button> }
                 </div>
             );
         }
@@ -112,7 +112,7 @@ export default class ModelTransitionForm extends React.PureComponent<Props,State
                     <BaseForm {...this.props} />
                 </div>
                 {cornerInfo && <div className={`${c}-corner-info`}>{cornerInfo}</div>}
-                {onGoBackClick && <button className={`${c}-button`} onClick={this.handleGoBackClick}><FiChevronLeft />Go Back</button> }
+                {onGoBackClick && <button className={'maturity-model-button secondary'} onClick={this.handleGoBackClick}><FiChevronLeft />Go Back</button> }
             </div>
         );
     }

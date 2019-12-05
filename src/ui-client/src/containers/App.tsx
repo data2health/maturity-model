@@ -6,6 +6,7 @@ import Main from './Main/Main';
 import { UserState } from '../model/UserState';
 import { ModelsState } from '../model/ModelsState';
 import { LoginState } from '../model/LoginState';
+import { GeneralState } from '../model/GeneralState';
 
 interface OwnProps {
     
@@ -14,6 +15,7 @@ interface DispatchProps {
     dispatch: any;
 }
 interface StateProps {
+    general: GeneralState;
     login: LoginState;
     models: ModelsState;
     user: UserState;
@@ -24,7 +26,7 @@ type Props = StateProps & DispatchProps & OwnProps;
 class App extends React.PureComponent<Props> {
 
     public render() {
-        const { dispatch, login, models, user } = this.props;
+        const { dispatch, general, login, models, user } = this.props;
 
         /*
          * Show login if not logged in yet.
@@ -35,12 +37,13 @@ class App extends React.PureComponent<Props> {
         /*
          * Else show the main screen.
          */
-        return <Main dispatch={dispatch} login={login} models={models} user={user} />
+        return <Main dispatch={dispatch} general={general} login={login} models={models} user={user} />
     }
 }
 
 const mapStateToProps = (state: AppState) => {
     return {
+        general: state.general,
         login: state.login,
         models: state.models,
         user: state.user

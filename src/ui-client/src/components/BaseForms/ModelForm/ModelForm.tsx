@@ -4,9 +4,11 @@ import { userSetData, userUpdateServerData } from '../../../actions/user';
 import { UserAnswers } from '../../../model/User';
 import ModelTransitionForm from '../../BaseForms/ModelTransitionForm/ModelTransitionForm';
 import { BaseModel, FormComplete } from '../../../model/ModelsState';
-import { FiChevronRight } from 'react-icons/fi';
+import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
 import './ModelForm.css';
 import NextStepBox from '../NextStepBox/NextStepBox';
+import { setCurrentView } from '../../../actions/general';
+import { AppView } from '../../../model/GeneralState';
 
 interface Props {
     answers: UserAnswers;
@@ -47,9 +49,13 @@ export class ModelForm extends React.PureComponent<Props,State> {
                             <div className={`${c}-desc`}>
                                 <div className={`${c}-desc-inner`}>{model.description}</div>
                             </div>
-                            <button className={`${c}-button`} onClick={this.handleGetStartedClick}>
-                                Get Started
+                            <button className={`maturity-model-button primary-green shadow`} onClick={this.handleGetStartedClick}>
+                                Start Survey
                                 <FiChevronRight />
+                            </button>
+                            <button className={`maturity-model-button secondary`} onClick={this.handleReturnHomeClick}>
+                                <FiChevronLeft />
+                                Go Back
                             </button>
                         </div>
                     }
@@ -94,6 +100,11 @@ export class ModelForm extends React.PureComponent<Props,State> {
 
     private handleGoBackClick = () => {
         this.setState({ questionIndex: this.state.questionIndex - 1 })
+    }
+
+    private handleReturnHomeClick = () => {
+        const { dispatch } = this.props;
+        dispatch(setCurrentView(AppView.ModelSelection))
     }
 
     private handleAnswerClick = (value: any) => {

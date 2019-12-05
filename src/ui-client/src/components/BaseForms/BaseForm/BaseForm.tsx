@@ -33,7 +33,7 @@ export default class BaseForm extends React.PureComponent<Props,State> {
         const { show } = this.state;
 
         if (!show) {
-            classes.push('hiddenz');
+            classes.push('hidden');
         }
 
         return (
