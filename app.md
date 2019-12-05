@@ -14,7 +14,7 @@ To run it locally, do the following steps:
 
 ```bash
 # Clone the repo
-$ git clone git@github.com:uwrit/maturity-models.git
+$ git clone git@github.com:data2health/maturity-model.git
 
 # Setup a python virtual environment
 $ cd maturity-models/src/server
