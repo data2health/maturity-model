@@ -29,5 +29,5 @@ export interface ModelsState {
 export type LikertStringOneToFive = '' | '1' | '2' | '3' | '4' | '5'
 export type LikertStringOneToSeven = LikertStringOneToFive | '6' | '7'
 export type HIMSS_EMRAMZeroToSeven = '0' | LikertStringOneToSeven
-export enum FormComplete { NotStarted = '0', Started = '1', Complete = '2' }
-export type AnswerTypes = LikertStringOneToFive | LikertStringOneToSeven | FormComplete | HIMSS_EMRAMZeroToSeven
+export enum FormState { NotStarted = '0', Started = '1', Complete = '2' }
+export type AnswerTypes = LikertStringOneToFive | LikertStringOneToSeven | FormState | HIMSS_EMRAMZeroToSeven

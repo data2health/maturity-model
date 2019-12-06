@@ -32,7 +32,14 @@
     width: 180px;
 }
 
-/* Options */
+.sidebar-subtext {
+    color: rgb(150,150,150);
+    font-size: 0.8rem;
+    margin: 20px 0 -4px;
+    text-transform: uppercase;
+}
+
+/* Home & Results tabs */
 .sidebar-option {
     border: 1px solid rgb(80,80,80);
     border-radius: 4px;
@@ -63,11 +70,4 @@
 .sidebar-option-results svg {
     margin-bottom: -2px;
     margin-right: 10px;
-}
-
-.sidebar-subtext {
-    color: rgb(150,150,150);
-    font-size: 0.8rem;
-    margin: 20px 0 -4px;
-    text-transform: uppercase;
 }

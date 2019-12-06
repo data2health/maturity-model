@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { AppState } from '../../../model/AppState';
-import { ModelsState, FormComplete, BaseModel } from '../../../model/ModelsState';
+import { ModelsState, FormState, BaseModel } from '../../../model/ModelsState';
 import { UserState } from '../../../model/UserState';
 import { modelSetCurrent } from '../../../actions/model';
 import { setCurrentView } from '../../../actions/general';
@@ -27,7 +27,7 @@ class NextStepBox extends React.PureComponent<Props> {
 
     public render() {
         const { models, user } = this.props;
-        const remaining = models.all.filter(m => m.selected && user.answers[m.completeField] !== FormComplete.Complete);
+        const remaining = models.all.filter(m => m.selected && user.answers[m.completeField] !== FormState.Complete);
         const len = remaining.length;
         const c = this.className;
 

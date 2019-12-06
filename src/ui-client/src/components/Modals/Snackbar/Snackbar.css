@@ -1,10 +1,10 @@
 .snackbar {
     background-color: white;
     border: 1px solid transparent;
-    border-radius: 4px;
+    border-radius: 8px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.35);
     bottom: 0;
-    height: 70px;
+    height: 80px;
     font-family: Roboto;
     font-size: 1.8rem;
     font-weight: 300;
@@ -23,15 +23,23 @@
 
 .snackbar-container {
     display: flex;
+    height: 100%;
+}
+
+.snackbar-text-container {
+    margin: auto;
+    padding: 0 8px;
 }
 
 .snackbar-icon-container {
+    margin: auto;
     margin-right: 8px;
 }
 
 .snackbar svg {
     height: 40px;
     width: 40px;
+    margin-bottom: -8px;
     margin-left: 4px;
 }
 
@@ -46,6 +54,9 @@
 
 .snackbar-text {
     color: rgb(50,50,50);
-    margin-left: 5px;
-    margin-top: 2px;
+    margin-left: 0;
+}
+
+.snackbar-text.complete {
+    margin-left: -12px;
 }

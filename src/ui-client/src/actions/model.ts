@@ -4,12 +4,12 @@ export const MODEL_SET_CURRENT = 'MODEL_SET_CURRENT';
 export const MODEL_SET_SELECTED = 'MODEL_SET_SELECTED';
 
 export interface ModelAction {
-    index?: number;
+    indicies?: number[];
     model?: BaseModel;
     type: string;
 }
 
-export const modelSetCurrent = (model: BaseModel | undefined = undefined): ModelAction => {
+export const modelSetCurrent = (model: BaseModel): ModelAction => {
     return {
         model, 
         type: MODEL_SET_CURRENT
@@ -18,7 +18,14 @@ export const modelSetCurrent = (model: BaseModel | undefined = undefined): Model
 
 export const modelSetSelected = (index: number): ModelAction => {
     return {
-        index, 
+        indicies: [ index ], 
+        type: MODEL_SET_SELECTED
+    };
+};
+
+export const modelsSetSelected = (indicies: number[]): ModelAction => {
+    return {
+        indicies, 
         type: MODEL_SET_SELECTED
     };
 };

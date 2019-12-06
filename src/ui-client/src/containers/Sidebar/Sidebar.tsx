@@ -4,9 +4,12 @@ import { modelSetCurrent } from '../../actions/model';
 import { FiHome, FiBarChart } from 'react-icons/fi';
 import { setCurrentView } from '../../actions/general';
 import { AppView } from '../../model/GeneralState';
+import SidebarModelTab from '../../components/Sidebar/SidebarModelTab';
+import { UserAnswers } from '../../model/User';
 import './Sidebar.css';
 
 interface Props {
+    answers: UserAnswers;
     currentView: AppView;
     dispatch: any;
     models: ModelsState;
@@ -17,7 +20,7 @@ export default class Sidebar extends React.PureComponent<Props> {
 
     public render() {
         const c = this.className;
-        const { currentView, models } = this.props;
+        const { currentView, dispatch, models, answers } = this.props;
         const selected = models.all.filter(m => m.selected);
 
         return (
@@ -49,15 +52,12 @@ export default class Sidebar extends React.PureComponent<Props> {
 
                 {/* Selected models */}
                 <div className={`${c}-subtext`}>My Selected Models</div>
-                {selected.map(m => {
-                    return (
-                        <div 
-                            key={m.completeField} className={`${c}-option ${models.current === m ? 'selected' : ''}`} 
-                            onClick={this.handleModelClick.bind(null, m)}>
-                            {m.name}
-                        </div>
-                    );
-                })}
+                {selected.map(m => (
+                    <SidebarModelTab 
+                        key={m.completeField} answers={answers} 
+                        dispatch={dispatch} model={m} selected={models.current === m}
+                    />)
+                )}
             </div>
         );
     }

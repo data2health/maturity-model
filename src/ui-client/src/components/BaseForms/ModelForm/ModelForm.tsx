@@ -3,7 +3,7 @@ import ModelOption from '../../BaseForms/ModelOption/ModelOption';
 import { userSetData, userUpdateServerData } from '../../../actions/user';
 import { UserAnswers } from '../../../model/User';
 import ModelTransitionForm from '../../BaseForms/ModelTransitionForm/ModelTransitionForm';
-import { BaseModel, FormComplete } from '../../../model/ModelsState';
+import { BaseModel, FormState } from '../../../model/ModelsState';
 import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
 import './ModelForm.css';
 import NextStepBox from '../NextStepBox/NextStepBox';
@@ -113,7 +113,7 @@ export class ModelForm extends React.PureComponent<Props,State> {
         const total = model.questions.length;
         const isLast = questionIndex === total;
         const isFirst = questionIndex === 1;
-        const alreadyCompleted = answers[model.completeField] === FormComplete.Complete;
+        const alreadyCompleted = answers[model.completeField] === FormState.Complete;
 
         /* 
          * Update store with the answer.
@@ -121,7 +121,7 @@ export class ModelForm extends React.PureComponent<Props,State> {
         const question = model.questions[questionIndex-1];
         const cpy = Object.assign({}, answers, { 
             [question.answerField]: value,
-            [model.completeField]: alreadyCompleted || isLast ? FormComplete.Complete : FormComplete.Started
+            [model.completeField]: alreadyCompleted || isLast ? FormState.Complete : FormState.Started
         }) as UserAnswers;
         dispatch(userSetData(cpy));
 

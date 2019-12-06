@@ -1,12 +1,13 @@
 import React from 'react';
 import { UserState } from '../../model/UserState';
 import BaseForm from '../BaseForms/BaseForm/BaseForm';
-import { BaseModel } from '../../model/ModelsState';
+import { BaseModel, FormState } from '../../model/ModelsState';
 import { FiChevronRight } from 'react-icons/fi';
 import { modelSetSelected, modelSetCurrent } from '../../actions/model';
 import { setCurrentView } from '../../actions/general';
 import { AppView } from '../../model/GeneralState';
 import { ModelSelectionOption } from './ModalSelectionOption';
+import { UserAnswers } from '../../model/User';
 import './ModelSelection.css';
 
 interface Props {
@@ -66,8 +67,22 @@ export default class ModelSelection extends React.PureComponent<Props> {
 
                         {/* Selectable models */}
                         <div className={`${c}-option-container`}>
-                            {models.map((m,i) => <ModelSelectionOption key={m.completeField} model={m} onClick={this.handleModelClick} index={i} />)}
+                            {models.map((m,i) => (
+                                <ModelSelectionOption 
+                                    key={m.completeField} model={m} onClick={this.handleModelClick} 
+                                    index={i} answers={user.answers}
+                                />)
+                            )}
                         </div>
+
+                        {/* Show get started button again if more than 4 models */}
+                        {models.length > 4 && 
+                        <button 
+                            className={`maturity-model-button primary-green shadow ${c}-select-align`} disabled={!selectedLen} 
+                            onClick={this.handleGetStartedClick.bind(null, selected)}>
+                            Get Started
+                            <FiChevronRight />
+                        </button>}
                     </div>
                 )}
             />
@@ -80,11 +95,14 @@ export default class ModelSelection extends React.PureComponent<Props> {
     }
 
     private handleGetStartedClick = (selected: BaseModel[]) => {
-        const { dispatch } = this.props;
+        const { dispatch, user } = this.props;
         if (!selected.length) {
             return;
         }
-        dispatch(modelSetCurrent(selected[0]));
+
+        const remaining = selected.filter(m => user.answers[m.completeField] !== FormState.Complete);
+        const next = remaining.length ? remaining[0] : selected[0];
+        dispatch(modelSetCurrent(next));
         dispatch(setCurrentView(AppView.ModelSurvey));
     }
 }

@@ -32,8 +32,8 @@ export const defaultGeneralState = (): GeneralState => {
             state: NotificationStates.Hidden
         },
         snackbar: {
-            state: NotificationStates.Working,
-            message: 'Syncing data...'
+            state: NotificationStates.Complete,
+            message: "Data saved"
         },
     };
 };

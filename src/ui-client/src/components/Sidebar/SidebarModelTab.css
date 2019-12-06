@@ -1,0 +1,62 @@
+.sidebar-model-tab {
+    border: 1px solid rgb(80,80,80);
+    border-radius: 4px;
+    color: rgb(210,210,210);
+    cursor: pointer;
+    font-size: 1.0rem;
+    margin: 10px 0;
+    padding: 8px;
+    position: relative;
+}
+
+.sidebar-model-tab:hover,
+.sidebar-model-tab.selected {
+    border-color: rgba(4, 169, 230, 0.5);
+    color: rgb(4, 169, 230);
+}
+
+/* Progress */
+.sidebar-model-tab-progress-container {
+    background-color: #0075b9;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    bottom: 0;
+    box-shadow: 4px 4px 10px 0 rgba(0,0,0,.2),-4px 4px 10px 0 rgba(0,0,0,.2);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 500;
+    height: 20px;
+    margin: 0 -4px -4px 0;
+    padding: 4px;
+    position: absolute;
+    opacity: 0.7;
+    right: 0;
+    text-align: center;
+    width: 30px;
+}
+
+.sidebar-model-tab-progress {
+    margin: -4px 0 0 -2px;
+}
+
+.sidebar-model-tab-progress-container.complete .sidebar-model-tab-progress {
+    margin: 0;
+}
+
+.sidebar-model-tab-progress-container.complete {
+    background-image: linear-gradient(60deg,#72ca4a,#44c240);
+    color: white;
+    font-size: 0.9rem;
+    width: 20px;
+}
+
+.sidebar-model-tab-progress-container.complete svg {
+    margin-bottom: 5px;
+    margin-left: -1px;
+    stroke-width: 4px;
+}
+
+.sidebar-model-tab:hover .sidebar-model-tab-progress-container,
+.sidebar-model-tab.selected .sidebar-model-tab-progress-container {
+    opacity: 1;
+}
