@@ -1,7 +1,6 @@
 // Adapted from https://codepen.io/jczimm/pen/vEBpoL
 import React from 'react';
 import './LoaderIcon.css';
-import './LoaderIconFallback.css';
 
 interface Props {
     size?: number;

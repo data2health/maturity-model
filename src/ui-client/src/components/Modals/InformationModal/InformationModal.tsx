@@ -7,20 +7,20 @@ interface Props {
     backdrop?: boolean;
     className?: string;
     dispatch: any;
-    informationModal: InformationModalState;
+    state: InformationModalState;
 }
 
 export default class InformationModal extends React.PureComponent<Props> {
     public render() {
-        const { informationModal } = this.props;
+        const { state } = this.props;
         const backdrop = this.props.backdrop || true;
         const classes = [ 'maturity-model-modal', 'information-modal', (this.props.className ? this.props.className : '') ];
 
         return (
-            <Modal isOpen={informationModal.show} className={classes.join(' ')} backdrop={backdrop}>
-                <ModalHeader>{informationModal.header}</ModalHeader>
+            <Modal isOpen={state.show} className={classes.join(' ')} backdrop={backdrop}>
+                <ModalHeader>{state.header}</ModalHeader>
                 <ModalBody>
-                    {informationModal.body}                    
+                    {state.body}                    
                 </ModalBody>
                 <ModalFooter>
                     <Button className="leaf-button leaf-button-primary" onClick={this.handleClickOkay}>Okay</Button>
@@ -30,9 +30,9 @@ export default class InformationModal extends React.PureComponent<Props> {
     }
 
     private handleClickOkay = () => {
-        const { dispatch, informationModal } = this.props;
-        if (informationModal.onClickOkay) {
-            informationModal.onClickOkay();
+        const { dispatch, state } = this.props;
+        if (state.onClickOkay) {
+            state.onClickOkay();
         }
         dispatch(hideInfoModal());
     }

@@ -43,7 +43,8 @@
     padding: 4px;
 }
 
-.sidebar-option:hover {
+.sidebar-option:hover,
+.sidebar-option.selected {
     border-color: rgba(4, 169, 230, 0.5);
     color: rgb(4, 169, 230);
 }

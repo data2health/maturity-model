@@ -10,7 +10,7 @@ interface Props {
     state: SnackbarState;
 }
 
-export default class SideNotification extends React.PureComponent<Props> {
+export default class Snackbar extends React.PureComponent<Props> {
     private className = 'snackbar';
     private hideTimeoutOnCompleteMs = 2500;
     

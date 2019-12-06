@@ -4,11 +4,12 @@
     border-radius: 4px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.35);
     bottom: 0;
-    height: 50px;
+    height: 70px;
     font-family: Roboto;
-    font-size: 1.3rem;
-    font-weight: 500;
+    font-size: 1.8rem;
+    font-weight: 300;
     margin: 0 -500px 20px 0;
+    min-width: 220px;
     padding: 10px;
     position: absolute;
     right: 0;
@@ -29,7 +30,9 @@
 }
 
 .snackbar svg {
-    height: 2rem;
+    height: 40px;
+    width: 40px;
+    margin-left: 4px;
 }
 
 .snackbar svg circle {
@@ -43,5 +46,6 @@
 
 .snackbar-text {
     color: rgb(50,50,50);
+    margin-left: 5px;
     margin-top: 2px;
 }

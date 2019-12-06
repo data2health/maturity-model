@@ -7,6 +7,7 @@ import { AppView } from '../../model/GeneralState';
 import './Sidebar.css';
 
 interface Props {
+    currentView: AppView;
     dispatch: any;
     models: ModelsState;
 }
@@ -16,7 +17,7 @@ export default class Sidebar extends React.PureComponent<Props> {
 
     public render() {
         const c = this.className;
-        const { models } = this.props;
+        const { currentView, models } = this.props;
         const selected = models.all.filter(m => m.selected);
 
         return (
@@ -31,13 +32,17 @@ export default class Sidebar extends React.PureComponent<Props> {
                 </div>
 
                 {/* Home */}
-                <div className={`${c}-option ${c}-option-home`} onClick={this.handleHomeTabClick}>
+                <div 
+                    className={`${c}-option ${c}-option-home ${currentView === AppView.ModelSelection ? 'selected' : ''}`} 
+                    onClick={this.handleHomeTabClick}>
                     <FiHome />
                     Home
                 </div>
 
                 {/* Results */}
-                <div className={`${c}-option ${c}-option-results`} onClick={this.handleResultsTabClick}>
+                <div 
+                    className={`${c}-option ${c}-option-results ${currentView === AppView.Results ? 'selected' : ''}`} 
+                    onClick={this.handleResultsTabClick}>
                     <FiBarChart />
                     Results
                 </div>
@@ -46,7 +51,9 @@ export default class Sidebar extends React.PureComponent<Props> {
                 <div className={`${c}-subtext`}>My Selected Models</div>
                 {selected.map(m => {
                     return (
-                        <div key={m.completeField} className={`${c}-option`} onClick={this.handleModelClick.bind(null, m)}>
+                        <div 
+                            key={m.completeField} className={`${c}-option ${models.current === m ? 'selected' : ''}`} 
+                            onClick={this.handleModelClick.bind(null, m)}>
                             {m.name}
                         </div>
                     );

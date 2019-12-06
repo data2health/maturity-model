@@ -5,25 +5,24 @@ import { ConfirmationModalState } from '../../../model/GeneralState';
 
 interface Props { 
     backdrop?: boolean;
-    className?: string;
     dispatch: any;
-    confirmationModal: ConfirmationModalState;
+    state: ConfirmationModalState;
 }
 
 export default class ConfirmationModal extends React.PureComponent<Props> {
     public render() {
-        const { confirmationModal } = this.props;
+        const { state } = this.props;
         const buttonClasses = "maturity-model-button maturity-model-button";
-        const noButtonText = confirmationModal.noButtonText || 'No';
-        const yesButtonText = confirmationModal.yesButtonText || 'Yes';
+        const noButtonText = state.noButtonText || 'No';
+        const yesButtonText = state.yesButtonText || 'Yes';
         const backdrop = this.props.backdrop || true;
         const classes = [ 'maturity-model-modal', 'binary-selection-modal' ];
 
         return (
-            <Modal isOpen={confirmationModal.show} className={classes.join(' ')} backdrop={backdrop}>
-                <ModalHeader>{confirmationModal.header}</ModalHeader>
+            <Modal isOpen={state.show} className={classes.join(' ')} backdrop={backdrop}>
+                <ModalHeader>{state.header}</ModalHeader>
                 <ModalBody>
-                    {confirmationModal.body}                    
+                    {state.body}                    
                 </ModalBody>
                 <ModalFooter>
                     <Button className={`${buttonClasses}-secondary mr-auto`} onClick={this.handleClickCancel}>Cancel</Button>
@@ -40,14 +39,14 @@ export default class ConfirmationModal extends React.PureComponent<Props> {
     }
 
     private handleClickNo = () => {
-        const { confirmationModal, dispatch } = this.props;
-        confirmationModal.onClickNo();
+        const { state, dispatch } = this.props;
+        state.onClickNo();
         dispatch(hideConfirmModal());
     }
 
     private handleClickYes = () => {
-        const { confirmationModal, dispatch } = this.props;
-        confirmationModal.onClickYes();
+        const { state, dispatch } = this.props;
+        state.onClickYes();
         dispatch(hideConfirmModal());
     }
 }

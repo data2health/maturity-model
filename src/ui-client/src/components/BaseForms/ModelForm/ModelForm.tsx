@@ -110,7 +110,9 @@ export class ModelForm extends React.PureComponent<Props,State> {
     private handleAnswerClick = (value: any) => {
         const { dispatch, answers, model } = this.props;
         const { questionIndex } = this.state;
-        const isLast = questionIndex === model.questions.length;
+        const total = model.questions.length;
+        const isLast = questionIndex === total;
+        const isFirst = questionIndex === 1;
         const alreadyCompleted = answers[model.completeField] === FormComplete.Complete;
 
         /* 
@@ -124,9 +126,10 @@ export class ModelForm extends React.PureComponent<Props,State> {
         dispatch(userSetData(cpy));
 
         /*
-         * If the form is complete, update data on the server.
+         * If the form is complete or started and there is more than one question, 
+         * update data on the server.
          */
-        if (isLast) {
+        if (isLast || (isFirst && total > 1)) {
             dispatch(userUpdateServerData());
         }
         
