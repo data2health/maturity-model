@@ -12,6 +12,7 @@ export interface AnswerScore {
 export interface AnswerScoresDTO {
     all: AnswerScore;
     user: AnswerScore;
+    n: number;
 }
 
 export interface AnswerScores extends AnswerScoresDTO {}

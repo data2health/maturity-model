@@ -33,6 +33,7 @@ export const userUpdateServerData = ()=> {
             dispatch(setSnackbarState({ message: 'Saving data...', state: NotificationStates.Working }));
             const updated = await update(state.user);
             dispatch(setSnackbarState({ message: 'Data saved', state: NotificationStates.Complete }));
+            dispatch(userSetAnswerScoreLoadState(AnswerScoreLoadState.NotLoaded));
         } catch (err) {
             console.log(err);
             const info: InformationModalState = {

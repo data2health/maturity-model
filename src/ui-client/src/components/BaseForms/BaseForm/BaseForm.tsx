@@ -40,7 +40,7 @@ export default class BaseForm extends React.PureComponent<Props,State> {
             <div className={classes.join(' ')}>
                 <div className={`${c}-inner`}>
                     <div className={`${c}-header ${headerLarge ? 'lg' : ''}`}>{header}</div>
-                    <div className={`${c}-subheader`}>{subheader}</div>
+                    {subheader && <div className={`${c}-subheader`}>{subheader}</div>}
                     <div className={`${c}-content`}>{content}</div>
                 </div>
             </div>

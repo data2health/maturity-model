@@ -43,7 +43,7 @@ def aggregate(user, all):
     agg_score[nehta_imm]         = __get_aggregate_score(all_scores, nehta_imm)
     agg_score[eprmm]             = __get_aggregate_score(all_scores, eprmm)
 
-    return usr_score, agg_score
+    return usr_score, agg_score, len(all_scores)
 
 
 def __get_aggregate_score(scores, key):

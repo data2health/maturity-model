@@ -30,6 +30,11 @@
     max-width: 900px;
 }
 
+.form-subheader {
+    color: rgb(150,150,150);
+    margin-top: -20px;
+}
+
 .form-header.lg {
     color: rgb(40, 40, 40);
     font-size: 2.8rem;

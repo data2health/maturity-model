@@ -17,7 +17,8 @@ export const defaultUserState = (): UserState => {
         entryCode: '',
         scores: {
             all: defaultScore(),
-            user: defaultScore()
+            user: defaultScore(),
+            n: 0
         }
     };
 };

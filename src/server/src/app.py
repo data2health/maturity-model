@@ -42,8 +42,8 @@ def get_scores():
 
         user = mgr.get_user(email, entry_code)
         if user:
-            user_score, agg_score = mgr.get_scores(email, entry_code)
-            return ok({ 'user' : user_score, 'all': agg_score })
+            user_score, agg_score, n = mgr.get_scores(email, entry_code)
+            return ok({ 'user' : user_score, 'all': agg_score, 'n': n })
 
         return not_found()
     except Exception as ex:
