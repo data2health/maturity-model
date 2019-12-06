@@ -1,6 +1,7 @@
 import Axios from 'axios';
 import { UserAnswersDTO, UserAnswers, UserUpdateDTO } from '../model/User';
 import { UserState } from '../model/UserState';
+import { AnswerScoresDTO, AnswerScores } from '../model/Score';
 
 let serverState: UserAnswers = {};
 
@@ -19,6 +20,19 @@ export const login = async (email: string, entryCode: string): Promise<UserAnswe
     const user = dtoToUser(dto);
     serverState = user;
     return user;
+};
+
+/*
+ * Request the current score for the user.
+ */
+export const getUserAndAggregateScores = async (email: string, entryCode: string): Promise<AnswerScores> => {
+    const resp = await Axios.get('/api/user/scores', {
+        params: {
+            email,
+            entry_code: entryCode
+        }
+    });
+    return resp.data as AnswerScores;
 };
 
 /*

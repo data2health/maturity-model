@@ -31,6 +31,25 @@ def is_user():
         sys.stderr.write(f'Error: {ex}\n')
         return server_error()
 
+@app.route('/api/user/scores', methods=['GET'])
+def get_scores():
+    try:
+        email = request.args.get('email')
+        entry_code = request.args.get('entry_code')
+
+        if not email or not entry_code:
+            return bad_request()
+
+        user = mgr.get_user(email, entry_code)
+        if user:
+            user_score, agg_score = mgr.get_scores(email, entry_code)
+            return ok({ 'user' : user_score, 'all': agg_score })
+
+        return not_found()
+    except Exception as ex:
+        sys.stderr.write(f'Error: {ex}\n')
+        return server_error()        
+
 @app.route('/api/user/answers', methods=['POST'])
 def update_data():
     try:

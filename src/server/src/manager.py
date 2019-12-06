@@ -3,6 +3,7 @@ import json
 
 from datetime import datetime 
 from fields import ENTRY_CODE, EMAIL_ADDRESS, FNAME, LNAME, RECORD_ID, APPROVED
+from aggregator import aggregate
 from services.redcapApi import REDCapHttpConnector
 
 hidden = [ RECORD_ID, ENTRY_CODE, EMAIL_ADDRESS, APPROVED ]
@@ -12,12 +13,14 @@ class Manager:
     def __init__(self):
         self.svc = REDCapHttpConnector()
         self.__cache = {}
-        self.__update_cache_if_needed(True)
+        self.__last_cache_update = None
+        self.__update_cache_if_needed()
         self.__update_cache_threshold_seconds = 120
 
-    def __update_cache_if_needed(self, force=False):
+    def __update_cache_if_needed(self):
 
-        if force or (datetime.now() - self.__last_cache_update).total_seconds() > self.__update_cache_threshold_seconds:
+        if self.__last_cache_update == None or \
+            (datetime.now() - self.__last_cache_update).total_seconds() > self.__update_cache_threshold_seconds:
 
             self.__last_cache_update = datetime.now()
             users = self.svc.get_data()
@@ -41,6 +44,11 @@ class Manager:
         if user:
             return self.__scrub(user, hidden)
         return None
+
+    def get_scores(self, email, entry_code):
+
+        user = self.__cache.get((email, entry_code))
+        return aggregate(user, self.__cache)
 
     def update_user_answers(self, email, entry_code, answers):
 
