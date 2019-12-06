@@ -32,7 +32,8 @@ export const defaultGeneralState = (): GeneralState => {
             state: NotificationStates.Hidden
         },
         snackbar: {
-            state: NotificationStates.Hidden
+            state: NotificationStates.Complete,
+            message: "Data saved"
         },
     };
 };

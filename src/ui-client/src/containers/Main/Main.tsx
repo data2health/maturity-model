@@ -7,6 +7,10 @@ import { LoginState } from '../../model/LoginState';
 import { UserState } from '../../model/UserState';
 import { GeneralState, AppView } from '../../model/GeneralState';
 import Results from '../Results/Results';
+import ConfirmationModal from '../../components/Modals/ConfirmationModal/ConfirmationModal';
+import InformationModal from '../../components/Modals/InformationModal/InformationModal';
+import NoClickModal from '../../components/Modals/NoClickModal/NoClickModal';
+import Snackbar from '../../components/Modals/Snackbar/Snackbar';
 import './Main.css';
 
 interface Props {
@@ -38,7 +42,7 @@ export default class Main extends React.PureComponent<Props,State> {
     public render() {
         const c = this.className;
         const classes = [ c ];
-        const { dispatch, models, login } = this.props;
+        const { dispatch, models, login, general, user } = this.props;
         const { show } = this.state;
 
         if (!show) {
@@ -47,8 +51,12 @@ export default class Main extends React.PureComponent<Props,State> {
 
         return (
             <div className={classes.join(' ')}>
-                <Sidebar dispatch={dispatch} models={models} />
+                <Sidebar dispatch={dispatch} answers={user.answers} models={models} currentView={general.currentView} />
                 <Header username={login.emailAddress} />
+                <ConfirmationModal dispatch={dispatch} state={general.confirmationModal} />
+                <InformationModal dispatch={dispatch} state={general.informationModal} />
+                <NoClickModal dispatch={dispatch} state={general.noclickModal} />
+                <Snackbar dispatch={dispatch} state={general.snackbar} />
                 <div className={`${c}-inner`}>
                     {this.getCurrentContent()}
                 </div>
