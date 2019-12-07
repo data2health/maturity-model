@@ -67,8 +67,9 @@
 }
 
 .loginbox label {
+    font-size: 1.2rem;
     font-weight: 300;
-    margin-bottom: -10px;
+    margin-bottom: 2px;
 }
 
 #loginbox-email {
@@ -83,7 +84,7 @@
     font-size: 1.2rem;
     position: absolute;
     left: 93%;
-    top: 78%;
+    top: 80%;
 }
 
 .chevron {
@@ -102,8 +103,7 @@
     font-size: 1.2rem;
     height: 60px;
     margin: 30px 0 20px;
-    outline: none;
-    padding: 15px;
+    padding: 17px;
     transition: 0.2s;
     vertical-align: middle;
     width: 100%;
@@ -118,6 +118,10 @@
     color: rgb(25, 116, 150) !important;
     font-size: 1.2rem !important;
     font-weight: 500;
+}
+
+.loginbox input:focus {
+    box-shadow: 0 0 4px .2rem rgba(0, 99, 134, 0.1);
 }
 
 /* Inspired by https://stackoverflow.com/questions/15726000/css-animation-similar-to-mac-os-x-10-8-invalid-password-shake */

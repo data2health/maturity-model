@@ -49,7 +49,7 @@ export default class LoginBox extends React.PureComponent<Props,State> {
                 <FormGroup className={`${c}-form-group`}>
 
                     {/* Email */}
-                    <Label for="email">Your Email Address</Label>
+                    <Label for="email">Email Address</Label>
                     <Input
                         autoFocus={true}
                         className={emailClasses.join(' ')} 
@@ -63,7 +63,7 @@ export default class LoginBox extends React.PureComponent<Props,State> {
                     />
 
                     {/* Entry code */}
-                    <Label for="entry-code">Survey Entry Code</Label>
+                    <Label for="entry-code">Entry Code</Label>
                     <Input 
                         autoComplete="off"
                         className={entryCodeClasses.join(' ')} 
@@ -102,6 +102,10 @@ export default class LoginBox extends React.PureComponent<Props,State> {
         const entryCodeValid = !!loginState.entryCode.length;
         const emailValid = !!loginState.emailAddress.length;
 
+        if (loginState.serverCommunication === LoginServerCommunicationState.Calling) {
+            return;
+        }
+
         this.setState({ entryCodeValid, emailValid });
         if (entryCodeValid) {
             dispatch(attemptLogin(loginState.emailAddress, loginState.entryCode));
@@ -110,6 +114,10 @@ export default class LoginBox extends React.PureComponent<Props,State> {
 
     private handleGuestLoginClick = () => {
         const { dispatch, loginState } = this.props;
+
+        if (loginState.serverCommunication === LoginServerCommunicationState.Calling) {
+            return;
+        }
 
         this.setState({ entryCodeValid: true, emailValid: true });
         dispatch(loginAsGuest());
