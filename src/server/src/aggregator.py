@@ -33,7 +33,7 @@ def aggregate(user, all):
 
     agg_score  = {}
     usr_score  = get_user_score(user)
-    all_scores = [ get_user_score(v) for k,v in all.items() if k != (user[EMAIL_ADDRESS], user[ENTRY_CODE]) ]
+    all_scores = [ get_user_score(v) for k,v in all.items() ]
 
     agg_score[riosm]             = __get_aggregate_score(all_scores, riosm)
     agg_score[quintegra_ehmm]    = __get_aggregate_score(all_scores, quintegra_ehmm)

@@ -1,11 +1,12 @@
 import { UserAnswers } from "../model/User";
 import { AppState } from "../model/AppState";
-import { update, getUserAndAggregateScores } from "../services/api";
+import { update, getUserAndAggregateScores, getGuestAndAggregateScores } from "../services/api";
 import { setSnackbarState, showInfoModal } from "./general";
 import { NotificationStates, InformationModalState } from "../model/GeneralState";
 import { AnswerScores, AnswerScore } from "../model/Score";
 import { AnswerScoreLoadState } from "../model/UserState";
 
+export const USER_SET_IS_GUEST = 'USER_SET_IS_GUEST';
 export const USER_SET_ANSWERS = 'USER_SET_ANSWERS';
 export const USER_SET_CREDENTIALS = 'USER_SET_CREDENTIALS';
 export const USER_SET_ANSWER_SCORE = 'USER_SET_ANSWER_SCORE';
@@ -29,9 +30,25 @@ export interface UserAction {
 export const userUpdateServerData = ()=> {
     return async (dispatch: any, getState: () => AppState) => {
         const state = getState();
+
+        /*
+         * Don't update server if a guest.
+         */
+        if (state.user.guest) {
+            dispatch(userSetAnswerScoreLoadState(AnswerScoreLoadState.NotLoaded));
+            return;
+        }
+
         try {
+            /* 
+             * Update server with new data.
+             */
             dispatch(setSnackbarState({ message: 'Saving data...', state: NotificationStates.Working }));
             const updated = await update(state.user);
+
+            /* 
+             * Subtley notify user via snackbar and allow Results data to refresh.
+             */
             dispatch(setSnackbarState({ message: 'Data saved', state: NotificationStates.Complete }));
             dispatch(userSetAnswerScoreLoadState(AnswerScoreLoadState.NotLoaded));
         } catch (err) {
@@ -50,13 +67,21 @@ export const userUpdateServerData = ()=> {
 
 export const getScores = ()=> {
     return async (dispatch: any, getState: () => AppState) => {
-        const { email, entryCode } = getState().user;
+        const { user } = getState();
         try {
+            /* 
+             * Request scores from server.
+             */
             dispatch(userSetAnswerScoreLoadState(AnswerScoreLoadState.Loading));
-            const scores = await getUserAndAggregateScores(email, entryCode);
+            const scores = !user.guest 
+                ? await getUserAndAggregateScores(user)
+                : await getGuestAndAggregateScores(user);
+
+            /* 
+             * Update store.
+             */
             dispatch(userSetScores(scores));
             dispatch(userSetAnswerScoreLoadState(AnswerScoreLoadState.Loaded));
-            console.log(scores);
         } catch (err) {
             console.log(err);
             dispatch(userSetAnswerScoreLoadState(AnswerScoreLoadState.Failed));
@@ -68,7 +93,7 @@ export const getScores = ()=> {
 /*
  * Synchronous
  */
-export const userSetData = (answers: UserAnswers): UserAction => {
+export const userSetAnswers = (answers: UserAnswers): UserAction => {
     return {
         answers,
         type: USER_SET_ANSWERS
@@ -103,4 +128,9 @@ export const userSetAnswerScoreLoadState = (answerLoadState: AnswerScoreLoadStat
         type: USER_SET_ANSWER_SCORE_LOAD_STATE
     };
 };
-  
+
+export const userSetIsGuest = (): UserAction => {
+    return {
+        type: USER_SET_IS_GUEST
+    };
+};

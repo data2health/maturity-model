@@ -25,6 +25,8 @@ interface PolarDataPoint {
 
 export default class Results extends React.PureComponent<Props,State> {
     private className = 'results';
+    private blue = "rgb(28,168,221)";
+    private orange = "rgb(255,132,8)";
 
     public constructor(props: Props) {
         super(props);
@@ -76,22 +78,21 @@ export default class Results extends React.PureComponent<Props,State> {
                 <BaseForm 
                     header=''
                     content={(
-                        <div className={`${c} ${c}-error`}>
-                            <p>
-                                Whoops! An error occurred while trying to load your scores. We are sorry for the inconvenience.
-                            </p>
+                        <div className={c}>
+                            <div className={`${c}-error`}>
+                                <p>
+                                    Whoops! An error occurred while trying to load your scores. We are sorry for the inconvenience.
+                                </p>
+                            </div>
                         </div>
                     )}
                 />
             );
         }
 
-        // blue "rgb(28,168,221)"
-        // orange "rgb(255,132,8)"
-
         return (
             <BaseForm 
-                header={"Here's how your answer compare to other sites"}
+                header={"Here's how your answers compare to other sites"}
                 subheader={'All site data are anonymously aggregated'}
                 content={(
                     <div className={c}>
@@ -100,8 +101,8 @@ export default class Results extends React.PureComponent<Props,State> {
                                 <PolarGrid />
                                 <PolarAngleAxis dataKey="model" />
                                 <PolarRadiusAxis angle={30} domain={[0, 1]} />
-                                <Radar name={user.email} dataKey="user" stroke="rgb(255,132,8)" fill="rgb(255,132,8)" fillOpacity={0.6} />
-                                <Radar name={`Average (n=${user.scores.n})`} dataKey="all" stroke="rgb(28,168,221)" fill="rgb(28,168,221)" fillOpacity={0.4} />
+                                <Radar name={user.email} dataKey="user" stroke={this.orange} fill={this.orange} fillOpacity={0.6} />
+                                <Radar name={`Average (n=${user.scores.n})`} dataKey="all" stroke={this.blue} fill={this.blue} fillOpacity={0.4} />
                                 <Legend align={'left'} />
                             </RadarChart>
                         </div>

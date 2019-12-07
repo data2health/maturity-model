@@ -1,7 +1,7 @@
 import { LoginServerCommunicationState } from '../model/LoginState';
 import { AppState } from '../model/AppState';
 import { login } from '../services/api';
-import { userSetCredentials, userSetData } from './user';
+import { userSetCredentials, userSetAnswers, userSetIsGuest } from './user';
 import { FormState } from '../model/ModelsState';
 import { modelsSetSelected } from './model';
 
@@ -22,9 +22,6 @@ export interface LoginAction {
  */
 export const attemptLogin = (email: string, entryCode: string) => {
     return async (dispatch: any, getState: () => AppState) => {
-
-        const resetOnFail = () => setTimeout(() => dispatch(loginSetServerCommState(LoginServerCommunicationState.Idle)), 500);
-
         try {
 
             /*
@@ -38,7 +35,7 @@ export const attemptLogin = (email: string, entryCode: string) => {
              */
             dispatch(loginSetLoggedIn());
             dispatch(userSetCredentials(email, entryCode));
-            dispatch(userSetData(answers));
+            dispatch(userSetAnswers(answers));
 
             /*
              * Set default delected models based on past user data.
@@ -53,8 +50,20 @@ export const attemptLogin = (email: string, entryCode: string) => {
 
         } catch (err) {
             dispatch(loginSetServerCommState(LoginServerCommunicationState.Failed));
-            resetOnFail();
+            setTimeout(() => dispatch(loginSetServerCommState(LoginServerCommunicationState.Idle)), 500);
         }
+    };
+};
+
+export const loginAsGuest = () => {
+    return async (dispatch: any, getState: () => AppState) => {
+        const answers = Object.assign({}, getState().user.answers) as any;
+        answers['user_fname'] = 'Guest';
+        answers['email'] = 'Guest';
+
+        dispatch(userSetIsGuest());
+        dispatch(loginSetLoggedIn());
+        dispatch(userSetAnswers(answers));
     };
 };
 

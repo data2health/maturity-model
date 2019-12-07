@@ -1,5 +1,6 @@
 .results {
-    
+    min-height: 800px;
+    position: relative;
 }
 
 .results-loading {
@@ -40,4 +41,10 @@
     display: inline-block;
     margin: auto;
     text-align: center;
+}
+
+.results tspan,
+.results .recharts-default-legend {
+    font-size: 1.1rem;
+    font-weight: 300;
 }

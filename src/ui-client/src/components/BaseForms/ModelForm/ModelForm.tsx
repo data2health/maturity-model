@@ -1,6 +1,6 @@
 import React from 'react';
 import ModelOption from '../../BaseForms/ModelOption/ModelOption';
-import { userSetData, userUpdateServerData } from '../../../actions/user';
+import { userSetAnswers, userUpdateServerData } from '../../../actions/user';
 import { UserAnswers } from '../../../model/User';
 import ModelTransitionForm from '../../BaseForms/ModelTransitionForm/ModelTransitionForm';
 import { BaseModel, FormState } from '../../../model/ModelsState';
@@ -123,7 +123,7 @@ export class ModelForm extends React.PureComponent<Props,State> {
             [question.answerField]: value,
             [model.completeField]: alreadyCompleted || isLast ? FormState.Complete : FormState.Started
         }) as UserAnswers;
-        dispatch(userSetData(cpy));
+        dispatch(userSetAnswers(cpy));
 
         /*
          * If the form is complete or started and there is more than one question, 

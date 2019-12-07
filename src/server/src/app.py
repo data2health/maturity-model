@@ -3,6 +3,7 @@
 import os
 import sys
 import json
+import uuid
 
 from flask import Flask, Request, request, jsonify
 from response import ok, bad_request, forbidden, not_found, server_error
@@ -27,6 +28,7 @@ def is_user():
             return ok({ 'user' : user })
 
         return not_found()
+
     except Exception as ex:
         sys.stderr.write(f'Error: {ex}\n')
         return server_error()
@@ -36,16 +38,31 @@ def get_scores():
     try:
         email = request.args.get('email')
         entry_code = request.args.get('entry_code')
+        user_answers = request.args.get('user_answers')
 
-        if not email or not entry_code:
+        if not email or not entry_code or not user_answers:
             return bad_request()
 
-        user = mgr.get_user(email, entry_code)
-        if user:
-            user_score, agg_score, n = mgr.get_scores(email, entry_code)
+        if mgr.get_user(email, entry_code):
+            user_score, agg_score, n = mgr.get_scores(json.loads(user_answers))
             return ok({ 'user' : user_score, 'all': agg_score, 'n': n })
 
         return not_found()
+
+    except Exception as ex:
+        sys.stderr.write(f'Error: {ex}\n')
+        return server_error()      
+
+@app.route('/api/guest/scores', methods=['GET'])
+def get_guest_scores():
+    try:
+        user_answers = request.args.get('user_answers')
+        if not user_answers:
+            return bad_request()
+
+        user_score, agg_score, n = mgr.get_scores(json.loads(user_answers))
+        return ok({ 'user' : user_score, 'all': agg_score, 'n': n })
+
     except Exception as ex:
         sys.stderr.write(f'Error: {ex}\n')
         return server_error()        

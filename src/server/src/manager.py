@@ -45,10 +45,9 @@ class Manager:
             return self.__scrub(user, hidden)
         return None
 
-    def get_scores(self, email, entry_code):
+    def get_scores(self, user_answers):
 
-        user = self.__cache.get((email, entry_code))
-        return aggregate(user, self.__cache)
+        return aggregate(user_answers, self.__cache)
 
     def update_user_answers(self, email, entry_code, answers):
 

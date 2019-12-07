@@ -23,13 +23,27 @@ export const login = async (email: string, entryCode: string): Promise<UserAnswe
 };
 
 /*
- * Request the current score for the user.
+ * Request current scores for the user.
  */
-export const getUserAndAggregateScores = async (email: string, entryCode: string): Promise<AnswerScores> => {
+export const getUserAndAggregateScores = async (user: UserState): Promise<AnswerScores> => {
     const resp = await Axios.get('/api/user/scores', {
         params: {
-            email,
-            entry_code: entryCode
+            email: user.email,
+            entry_code: user.entryCode,
+            user_answers: user.answers
+        }
+    });
+    return resp.data as AnswerScores;
+};
+
+/*
+ * Request current scores for guest user.
+ */
+export const getGuestAndAggregateScores = async (user: UserState): Promise<AnswerScores> => {
+    const resp = await Axios.get('/api/guest/scores', {
+        params: {
+            user_answers: user.answers,
+            guest: user.guest
         }
     });
     return resp.data as AnswerScores;

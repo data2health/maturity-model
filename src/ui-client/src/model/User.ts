@@ -6,7 +6,6 @@ export type AnswerField =
     'user_fname'                       |
     'user_lname'                       |
     'email'                            |
-    'record_id'                        |
     'user_complete'                    |
 
     // RIOSM
@@ -44,7 +43,16 @@ export type AnswerField =
     'himss_ccmm_q1'                    |
     'himss_ccmm_q2'                    |
     'himss_ccmm_q3'                    |
-    'himss_ccmm_q4'
+    'himss_ccmm_q4'                    |
+
+    // EPRMM
+    'eprmm_q1'                         |
+
+    // Forrester
+    'forrester_model_q1'               |
+    'forrester_model_q2'               |
+    'forrester_model_q3'               |
+    'forrester_model_q4'               
 
 export interface BaseUserAnswers {
     [key: string]: AnswerTypes

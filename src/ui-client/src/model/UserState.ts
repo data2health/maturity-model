@@ -13,5 +13,6 @@ export interface UserState {
     answersLoadState: AnswerScoreLoadState;
     email: string;
     entryCode: string;
+    guest: boolean;
     scores: AnswerScores;
 }
