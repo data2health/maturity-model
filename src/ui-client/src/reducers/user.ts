@@ -58,13 +58,27 @@ export const defaultUserState = (): UserState => {
             'himss_ccmm_q4': '',
 
             // EPRMM
+            'eprmm_complete': '',
             'eprmm_q1': '',
 
             // Forrester
+            'forrester_model_complete': '',
             'forrester_model_q1': '',
             'forrester_model_q2': '',
             'forrester_model_q3': '',
-            'forrester_model_q4': ''          
+            'forrester_model_q4': '',
+
+            // Precision Health
+            'precision_health_q1': '',
+            'precision_health_q2': '',
+            'precision_health_q3': '',
+            'precision_health_q4': '',
+            'precision_health_q5': '',
+            'precision_health_q6': '',
+            'precision_health_q7': '',
+            'precision_health_q8': '',
+            'precision_health_q9': '',
+            'precision_health_q10': ''
         },
         answersLoadState: AnswerScoreLoadState.NotLoaded,
         email: '',
@@ -88,6 +102,7 @@ const defaultScore = (): AnswerScore => {
         nehta_imm: 0,
         eprmm: 0,
         forrester: 0,
+        precisionHealth: 0,
         riosm_categories: {
             overall: 0,
             governance: 0,

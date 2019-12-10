@@ -12,6 +12,7 @@ himss_ccmm        = 'himss_ccmm'
 nehta_imm         = 'nehta_imm'
 eprmm             = 'eprmm'
 forrester         = 'forrester'
+precision_health  = 'precision_health'
 
 # RIOSM categories
 riosm_categories     = 'riosm_categories'
@@ -34,6 +35,7 @@ def get_user_score(user):
     score[himss_ccmm]        = sum([ float(user[field]) for field in himss_ccmm_fields if user[field].isdigit() ]) / (len(himss_ccmm_fields) * max_seven)
     score[nehta_imm]         = float(user[NEHTA_IMM_Q1]) / max_five if user[NEHTA_IMM_Q1].isdigit() else None
     score[eprmm]             = float(user[EPRMM_Q1]) / max_six if user[EPRMM_Q1].isdigit() else None
+    score[precision_health]  = sum([ float(user[field]) for field in precision_health_fields if user[field].isdigit() ]) / (len(precision_health_fields) * max_five)
 
     score[riosm_categories] = {}
     score[riosm_categories][overall]              = __get_category_score(user, riosm_fields)
@@ -56,6 +58,7 @@ def aggregate(all):
     agg_score[himss_ccmm]        = __get_aggregate_score(all_scores, himss_ccmm)
     agg_score[nehta_imm]         = __get_aggregate_score(all_scores, nehta_imm)
     agg_score[eprmm]             = __get_aggregate_score(all_scores, eprmm)
+    agg_score[precision_health]  = __get_aggregate_score(all_scores, precision_health)
 
     agg_score[riosm_categories] = {}
     agg_score[riosm_categories][overall]              = __get_aggregate_score(riosm_scores, overall)

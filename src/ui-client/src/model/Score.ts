@@ -15,6 +15,7 @@ export interface AnswerScore {
     nehta_imm: number;
     eprmm: number;
     forrester: number;
+    precision_health: number;
 }
 
 export interface AnswerScoresDTO {

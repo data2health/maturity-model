@@ -8,10 +8,11 @@ import { IDC_Healthcare_IT } from '../model/Models/IDC_Healthcare_IT';
 import { NEHTA_IMM } from '../model/Models/NEHTA_IMM';
 import { HIMSS_CCMM } from '../model/Models/HIMSS_CCMM';
 import { AppView } from '../model/GeneralState';
+import { PrecisionHealth } from '../model/Models/PrecisionHealth';
 
 export const defaultModelState = (): ModelsState => {
     return {
-        all: [ RIOSM, HIMSS_EMRAM, Quintegra_eHMM, IDC_Healthcare_IT, NEHTA_IMM, HIMSS_CCMM ]
+        all: [ RIOSM, PrecisionHealth, HIMSS_EMRAM, Quintegra_eHMM, IDC_Healthcare_IT, NEHTA_IMM, HIMSS_CCMM ]
     };
 };
 

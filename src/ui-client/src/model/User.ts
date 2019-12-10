@@ -46,13 +46,28 @@ export type AnswerField =
     'himss_ccmm_q4'                    |
 
     // EPRMM
+    'eprmm_complete'                   |
     'eprmm_q1'                         |
 
     // Forrester
+    'forrester_model_complete'         |
     'forrester_model_q1'               |
     'forrester_model_q2'               |
     'forrester_model_q3'               |
-    'forrester_model_q4'               
+    'forrester_model_q4'               |
+
+    // Precision Health                
+    'precision_health_complete'        |
+    'precision_health_q1'              |
+    'precision_health_q2'              |
+    'precision_health_q3'              |
+    'precision_health_q4'              |
+    'precision_health_q5'              |
+    'precision_health_q6'              |
+    'precision_health_q7'              |
+    'precision_health_q8'              |
+    'precision_health_q9'              |
+    'precision_health_q10'             
 
 export interface BaseUserAnswers {
     [key: string]: AnswerTypes
@@ -133,4 +148,21 @@ export const FORRESTER_MODEL_Q4: AnswerField = 'forrester_model_q4';
 
 export const forresterFields: AnswerField[] = [
     FORRESTER_MODEL_Q1, FORRESTER_MODEL_Q2, FORRESTER_MODEL_Q3, FORRESTER_MODEL_Q4
+];
+
+// Precision Health
+export const PRECISION_HEALTH_Q1: AnswerField = 'precision_health_q1';
+export const PRECISION_HEALTH_Q2: AnswerField = 'precision_health_q2';
+export const PRECISION_HEALTH_Q3: AnswerField = 'precision_health_q3';
+export const PRECISION_HEALTH_Q4: AnswerField = 'precision_health_q4';
+export const PRECISION_HEALTH_Q5: AnswerField = 'precision_health_q5';
+export const PRECISION_HEALTH_Q6: AnswerField = 'precision_health_q6';
+export const PRECISION_HEALTH_Q7: AnswerField = 'precision_health_q7';
+export const PRECISION_HEALTH_Q8: AnswerField = 'precision_health_q8';
+export const PRECISION_HEALTH_Q9: AnswerField = 'precision_health_q9';
+export const PRECISION_HEALTH_Q10: AnswerField = 'precision_health_q10';
+
+export const precisionHealthFields: AnswerField[] = [
+    PRECISION_HEALTH_Q1, PRECISION_HEALTH_Q2, PRECISION_HEALTH_Q3, PRECISION_HEALTH_Q4, PRECISION_HEALTH_Q5,
+    PRECISION_HEALTH_Q6, PRECISION_HEALTH_Q7, PRECISION_HEALTH_Q8, PRECISION_HEALTH_Q9, PRECISION_HEALTH_Q10
 ];

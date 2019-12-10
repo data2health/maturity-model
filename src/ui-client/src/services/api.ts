@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { UserAnswersDTO, UserAnswers, UserUpdateDTO } from '../model/User';
+import { UserAnswersDTO, UserAnswers, UserUpdateDTO, precisionHealthFields } from '../model/User';
 import { UserState } from '../model/UserState';
 import { AnswerScore, AnswerScores } from "../model/Score";
 import { 
@@ -121,6 +121,7 @@ export const calculateUserScores = (user: UserAnswers): AnswerScore => {
         nehta_imm        : valElseZero(user[NEHTA_IMM_Q1]) / maxFive,
         eprmm            : valElseZero(user[EPRMM_Q1]) / maxSix,
         forrester        : 0.0,
+        precision_health : sum(validate(precisionHealthFields.map(f => user[f]))) / (precisionHealthFields.length * maxFive),
         riosm_categories : {
             overall             : riosmSum / riosmFields.length,
             governance          : sum(validate(riosmGovernance.map(f => user[f]))) / riosmGovernance.length,

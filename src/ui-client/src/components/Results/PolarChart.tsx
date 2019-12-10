@@ -41,6 +41,7 @@ export default class PolarChart extends React.PureComponent<Props> {
         const data: PolarDataPoint[] = [];
 
         data.push({ model: 'RIOSM', all: all['riosm'], user: user['riosm'], max: 1.0 });
+        data.push({ model: 'Precision Health', all: all['precision_health'], user: user['precision_health'], max: 1.0 });
         data.push({ model: 'Quintegra eHmm', all: all['quintegra_ehmm'], user: user['quintegra_ehmm'], max: 1.0 });
         data.push({ model: 'IDC Healthcare IT', all: all['idc_healthcare_it'], user: user['idc_healthcare_it'], max: 1.0 });
         data.push({ model: 'HIMSS Electronic Medical Record', all: all['himss_emram'], user: user['himss_emram'], max: 1.0 });

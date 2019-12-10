@@ -72,3 +72,20 @@ FORRESTER_MODEL_Q4 = 'forrester_model_q4'
 forrester_fields = [
     FORRESTER_MODEL_Q1, FORRESTER_MODEL_Q2, FORRESTER_MODEL_Q3, FORRESTER_MODEL_Q4
 ]
+
+# Precision Health
+PRECISION_HEALTH_Q1 = 'precision_health_q1'
+PRECISION_HEALTH_Q2 = 'precision_health_q2'
+PRECISION_HEALTH_Q3 = 'precision_health_q3'
+PRECISION_HEALTH_Q4 = 'precision_health_q4'
+PRECISION_HEALTH_Q5 = 'precision_health_q5'
+PRECISION_HEALTH_Q6 = 'precision_health_q6'
+PRECISION_HEALTH_Q7 = 'precision_health_q7'
+PRECISION_HEALTH_Q8 = 'precision_health_q8'
+PRECISION_HEALTH_Q9 = 'precision_health_q9'
+PRECISION_HEALTH_Q10 = 'precision_health_q10'
+
+precision_health_fields = [
+    PRECISION_HEALTH_Q1, PRECISION_HEALTH_Q2, PRECISION_HEALTH_Q3, PRECISION_HEALTH_Q4, PRECISION_HEALTH_Q5,
+    PRECISION_HEALTH_Q6, PRECISION_HEALTH_Q7, PRECISION_HEALTH_Q8, PRECISION_HEALTH_Q9, PRECISION_HEALTH_Q10
+]
