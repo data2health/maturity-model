@@ -88,11 +88,13 @@ export default class Results extends React.PureComponent<Props,State> {
                     <div className={c}>
                         <BaseFormSection
                             header={"Here's how your answers compare to other sites"}
-                            subheader={'All site data are anonymously aggregated'}
+                            headerLarge={true}
+                            subheader={'All site data anonymously aggregated'}
                             content={<PolarChart user={user} />}
                         />
                         <BaseFormSection
                             header={"Let's see how your RIOSM answers compare to others"}
+                            headerLarge={true}
                             subheader=
                                 {<span>
                                     The Research Informatics Maturity Model uses a 5-point scoring system to benchmark an 

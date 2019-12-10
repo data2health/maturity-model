@@ -1,11 +1,11 @@
 import React from 'react';
-import './BaseForm.css';
 import BaseFormSection from './BaseFormSection';
+import './BaseForm.css';
 
 interface Props {
     header?: string | JSX.Element;
     headerLarge?: boolean;
-    subheader?: string | JSX.Element;
+    subheader?: string | JSX.Element | JSX.Element[];
     content: string | JSX.Element | JSX.Element[];
 }
 

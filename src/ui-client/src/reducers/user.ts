@@ -9,6 +9,7 @@ import {
 } from "../actions/user";
 import { UserState, AnswerScoreLoadState } from "../model/UserState";
 import { AnswerScore } from "../model/Score";
+import { FormState } from "../model/ModelsState";
 
 export const defaultUserState = (): UserState => {
     return {
@@ -18,10 +19,10 @@ export const defaultUserState = (): UserState => {
             'user_fname': '',                     
             'user_lname': '',
             'email': '',
-            'user_complete': '',
+            'user_complete': FormState.NotStarted,
 
             // RIOSM
-            'riosm_complete': '',
+            'riosm_complete': FormState.NotStarted,
             'riosm_q1_support_open_science': '',
             'riosm_q2_data_sharing': '',
             'riosm_q3_data_sharing_edu': '',      
@@ -35,40 +36,41 @@ export const defaultUserState = (): UserState => {
             'riosm_q11_secondary_data_use': '',
 
             // Quintegra eHMM
-            'quintegra_ehmm_complete': '',
+            'quintegra_ehmm_complete': FormState.NotStarted,
             'quintegra_ehmm_q1': '',    
 
             // IDC Healthcare IT
-            'idc_healthcare_it_complete': '',
+            'idc_healthcare_it_complete': FormState.NotStarted,
             'idc_healthcare_it_q1': '',
 
             // HIMSS EMRAM
-            'himss_emram_complete': '',
+            'himss_emram_complete': FormState.NotStarted,
             'himss_emram_q1': '',
 
             // NEHTA IMM
-            'nehta_imm_complete': '',
+            'nehta_imm_complete': FormState.NotStarted,
             'nehta_imm_q1': '',
 
             // HIMSS CCMM
-            'himss_ccmm_complete': '',
+            'himss_ccmm_complete': FormState.NotStarted,
             'himss_ccmm_q1': '',        
             'himss_ccmm_q2': '',              
             'himss_ccmm_q3': '',          
             'himss_ccmm_q4': '',
 
             // EPRMM
-            'eprmm_complete': '',
+            'eprmm_complete': FormState.NotStarted,
             'eprmm_q1': '',
 
             // Forrester
-            'forrester_model_complete': '',
+            'forrester_model_complete': FormState.NotStarted,
             'forrester_model_q1': '',
             'forrester_model_q2': '',
             'forrester_model_q3': '',
             'forrester_model_q4': '',
 
             // Precision Health
+            'precision_health_complete': FormState.NotStarted,
             'precision_health_q1': '',
             'precision_health_q2': '',
             'precision_health_q3': '',

@@ -38,7 +38,7 @@ export const attemptLogin = (email: string, entryCode: string) => {
             dispatch(userSetAnswers(answers));
 
             /*
-             * Set default delected models based on past user data.
+             * Set default selected models based on past user data.
              */
             const models = getState().models.all;
             const defaultSelected = models
@@ -46,7 +46,6 @@ export const attemptLogin = (email: string, entryCode: string) => {
                 .filter(m => answers[m.model.completeField] !== FormState.NotStarted)
                 .map(m => m.index);
             dispatch(modelsSetSelected(defaultSelected));
-
 
         } catch (err) {
             dispatch(loginSetServerCommState(LoginServerCommunicationState.Failed));
@@ -57,7 +56,6 @@ export const attemptLogin = (email: string, entryCode: string) => {
 
 export const loginAsGuest = () => {
     return async (dispatch: any, getState: () => AppState) => {
-        
         const email = 'guest@cd2h.org';
         const entryCode = 'guest';
         const answers = Object.assign({}, getState().user.answers) as any;
@@ -66,6 +64,7 @@ export const loginAsGuest = () => {
 
         dispatch(userSetIsGuest());
         dispatch(loginSetLoggedIn());
+        dispatch(loginSetEmail(email));
         dispatch(userSetCredentials(email, entryCode));
         dispatch(userSetAnswers(answers));
     };

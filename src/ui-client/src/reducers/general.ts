@@ -26,7 +26,7 @@ export const defaultGeneralState = (): GeneralState => {
             header: "",
             show: false
         },
-        currentView: AppView.ModelSelection,
+        currentView: AppView.Greeting,
         noclickModal: {
             message: "",
             state: NotificationStates.Hidden

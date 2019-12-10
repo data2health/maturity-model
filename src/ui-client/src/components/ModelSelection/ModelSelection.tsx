@@ -2,7 +2,7 @@ import React from 'react';
 import { UserState } from '../../model/UserState';
 import BaseForm from '../BaseForms/BaseForm/BaseForm';
 import { BaseModel, FormState } from '../../model/ModelsState';
-import { FiChevronRight } from 'react-icons/fi';
+import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
 import { modelSetSelected, modelSetCurrent } from '../../actions/model';
 import { setCurrentView } from '../../actions/general';
 import { AppView } from '../../model/GeneralState';
@@ -33,42 +33,35 @@ export default class ModelSelection extends React.PureComponent<Props> {
 
         return (
             <BaseForm
-                header={`Hi ${user.answers.user_fname}! Welcome back!`}
+                header="Choose the models of interest to you"
                 headerLarge={true}
+                subheader={[
+                    <span key={1}>Select all that apply</span>,
+
+                    <span key={2} className={`${c}-selected-count`}>
+                        <strong>{selectedLen}</strong>
+                        <span> / </span>
+                        <strong>{models.length}</strong>
+                        <span> models selected</span>
+                    </span>
+                ]}
                 content={(
                     <div className={c}>
+                        <div className={`${c}-button-container`}>
 
-                        {/* Main text */}
-                        <div className={`${c}-main-text`}>
-                            <div>
-                               The CD2H Maturity Model survey is designed to help CTSAs better understand their levels of informatics maturity and how they compare to others. All data 
-                               entered is private and will not be shared with other CTSAs.
-                            </div>
+                            {/* Go back button */}
+                            <button className={`maturity-model-button secondary`} onClick={this.handleReturnHomeClick}>
+                                <FiChevronLeft />
+                                Go Back
+                            </button>
 
-                            {/* Get started section */}
-                            <div className={`${c}-select-container`}>
-                                <div className={`${c}-emphasis ${c}-select-align`}>
-                                    Start by selecting the Maturity Models of interest to you below:
-                                </div>
-
-                                {/* Get started button */}
-                                <button 
-                                    className={`maturity-model-button primary-green shadow ${c}-select-align`} disabled={!selectedLen} 
-                                    onClick={this.handleGetStartedClick.bind(null, selected)}>
-                                    Get Started
-                                    <FiChevronRight />
-                                </button>
-
-                                {/* Total models selected */}
-                                <div>
-                                    <span className={`${c}-selected-count`}>
-                                        <strong>{selectedLen}</strong>
-                                        <span> / </span>
-                                        <strong>{models.length}</strong>
-                                        <span> models selected</span>
-                                    </span>
-                                </div>
-                            </div>
+                            {/* Get started button */}
+                            <button 
+                                className={`maturity-model-button primary-green shadow ${c}-select-align`} disabled={!selectedLen} 
+                                onClick={this.handleGetStartedClick.bind(null, selected)}>
+                                Start Model Surveys
+                                <FiChevronRight />
+                            </button>
                         </div>
 
                         {/* Selectable models */}
@@ -83,12 +76,14 @@ export default class ModelSelection extends React.PureComponent<Props> {
 
                         {/* Show get started button again if more than 4 models */}
                         {models.length > 4 && 
-                        <button 
-                            className={`maturity-model-button primary-green shadow ${c}-select-align`} disabled={!selectedLen} 
-                            onClick={this.handleGetStartedClick.bind(null, selected)}>
-                            Get Started
-                            <FiChevronRight />
-                        </button>}
+                        <div className={`${c}-button-container`}>
+                            <button 
+                                className={`maturity-model-button primary-green shadow bottom ${c}-select-align`} disabled={!selectedLen} 
+                                onClick={this.handleGetStartedClick.bind(null, selected)}>
+                                Start Model Surveys
+                                <FiChevronRight />
+                            </button>
+                        </div>}
                     </div>
                 )}
             />
@@ -98,6 +93,11 @@ export default class ModelSelection extends React.PureComponent<Props> {
     private handleModelClick = (index: number) => {
         const { dispatch } = this.props;
         dispatch(modelSetSelected(index));
+    }
+
+    private handleReturnHomeClick = () => {
+        const { dispatch } = this.props;
+        dispatch(setCurrentView(AppView.Greeting));
     }
 
     private handleGetStartedClick = (selected: BaseModel[]) => {

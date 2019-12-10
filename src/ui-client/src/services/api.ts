@@ -52,6 +52,19 @@ export const getUserAndAggregateScores = async (user: UserState): Promise<Answer
 };
 
 /*
+ * Given the current UI state, check whether there are 
+ * any changes compared to what is believed to be on the server.
+ */
+export const changed = (user: UserState): boolean => {
+    for (const key of Object.keys(user.answers)) {
+        if (serverState[key] !== user.answers[key]) {
+            return true;
+        }
+    }
+    return false;
+};
+
+/*
  * Given the current user answers, update the server with
  * the latest values after diffing.
  */
@@ -62,21 +75,12 @@ export const update = async (user: UserState): Promise<UserUpdateDTO> => {
      * the last sync with the server.
      */
     const diff: UserAnswers = {};
-    let changed = false;
     for (const key of Object.keys(user.answers)) {
         if (serverState[key] !== user.answers[key]) {
             diff[key] = user.answers[key];
-            changed = true;
         }
     }
-
-    /*
-     * Bail if no answers have actually been changed.
-     */
-    if (!changed) {
-        return { count: 0 };
-    }
-
+    
     /*
      * Update the server.
      */

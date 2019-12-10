@@ -7,26 +7,8 @@ interface Props {
     user: UserState;
 }
 
-interface RiosmCompositeScores {
-    overall: number;
-    governance: number;
-    dataAndSoftwareSharing: number;
-    researchInformatics: number;
-}
-
 export default class RIOSMSummary extends React.PureComponent<Props> {
     private className = 'riosm-summary';
-
-    private getValueDifference = (user: number, all: number): JSX.Element | null => {
-        const c = this.className;
-
-        if (user >= all) {
-            return <span className={`${c}-composite-score-diff over`}>+{(user-all).toFixed(1)}</span>
-        } else if (all > user) {
-            return <span className={`${c}-composite-score-diff under`}>-{(all-user).toFixed(1)}</span>
-        }
-        return null;
-    }
 
     public render() {
         const c = this.className;
@@ -99,7 +81,7 @@ export default class RIOSMSummary extends React.PureComponent<Props> {
                     {RIOSM.questions.map(q => {
                         const a = answers[q.answerField];
                         return (
-                            <div className={`${c}-breakdown-container`}>
+                            <div className={`${c}-breakdown-container`} key={q.answerField}>
 
                                 <div className={`${c}-breakdown-top`}>
                                     {/* Question */}
@@ -128,5 +110,16 @@ export default class RIOSMSummary extends React.PureComponent<Props> {
                 </div>
             </div>
         );
+    }
+
+    private getValueDifference = (user: number, all: number): JSX.Element | null => {
+        const c = this.className;
+
+        if (user >= all) {
+            return <span className={`${c}-composite-score-diff over`}>+{(user-all).toFixed(1)}</span>
+        } else if (all > user) {
+            return <span className={`${c}-composite-score-diff under`}>-{(all-user).toFixed(1)}</span>
+        }
+        return null;
     }
 }

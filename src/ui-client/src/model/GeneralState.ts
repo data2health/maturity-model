@@ -1,7 +1,8 @@
 export enum AppView {
-    ModelSelection = 1,
-    ModelSurvey = 2,
-    Results = 3
+    Greeting = 1,
+    ModelSelection = 2,
+    ModelSurvey = 3,
+    Results = 4
 }
 
 export enum NotificationStates {

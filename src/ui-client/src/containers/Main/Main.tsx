@@ -12,6 +12,7 @@ import InformationModal from '../../components/Modals/InformationModal/Informati
 import NoClickModal from '../../components/Modals/NoClickModal/NoClickModal';
 import Snackbar from '../../components/Modals/Snackbar/Snackbar';
 import './Main.css';
+import Greeting from '../../components/Greeting/Greeting';
 
 interface Props {
     dispatch: any;
@@ -67,14 +68,16 @@ export default class Main extends React.PureComponent<Props,State> {
     public getCurrentContent = () => {
         const { dispatch, models, user, general } = this.props;
 
-        if (general.currentView === AppView.ModelSelection) {
-            return <ModelSelection dispatch={dispatch} models={models.all} user={user} />;
-        }
-        if (general.currentView === AppView.ModelSurvey && models.current) {
-            return models.current.render(dispatch, user.answers);
-        }
-        if (general.currentView === AppView.Results) {
-            return <Results dispatch={dispatch} user={user} />
+        switch (general.currentView) {
+            case AppView.Greeting:
+                return <Greeting dispatch={dispatch} models={models.all} user={user} />;
+            case AppView.ModelSelection:
+                return <ModelSelection dispatch={dispatch} models={models.all} user={user} />;
+            case AppView.ModelSurvey:
+                if (!models.current) { break; }
+                return models.current.render(dispatch, user.answers);
+            case AppView.Results:
+                return <Results dispatch={dispatch} user={user} />;
         }
         return null;
     }
