@@ -74,7 +74,7 @@ export default class Main extends React.PureComponent<Props,State> {
             return models.current.render(dispatch, user.answers);
         }
         if (general.currentView === AppView.Results) {
-            return <Results />
+            return <Results dispatch={dispatch} user={user} />
         }
         return null;
     }

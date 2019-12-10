@@ -127,7 +127,7 @@ export const RIOSM: BaseModel =
             value: '2'
                 },
                 {
-            text: "We have a leadership (e.g. CRIO, VP of Research IT) position, ,and that position has influence over related resource governance decisions.",
+            text: "We have a leadership (e.g. CRIO, VP of Research IT) position, and that position has influence over related resource governance decisions.",
             value: '3'
                 },
                 {

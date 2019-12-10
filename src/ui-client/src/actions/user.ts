@@ -1,16 +1,25 @@
 import { UserAnswers } from "../model/User";
 import { AppState } from "../model/AppState";
-import { update } from "../services/api";
+import { update, getUserAndAggregateScores } from "../services/api";
 import { setSnackbarState, showInfoModal } from "./general";
 import { NotificationStates, InformationModalState } from "../model/GeneralState";
+import { AnswerScores, AnswerScore } from "../model/Score";
+import { AnswerScoreLoadState } from "../model/UserState";
 
+export const USER_SET_IS_GUEST = 'USER_SET_IS_GUEST';
 export const USER_SET_ANSWERS = 'USER_SET_ANSWERS';
 export const USER_SET_CREDENTIALS = 'USER_SET_CREDENTIALS';
+export const USER_SET_ANSWER_SCORE = 'USER_SET_ANSWER_SCORE';
+export const USER_SET_ANSWER_SCORES = 'USER_SET_ANSWER_SCORES';
+export const USER_SET_ANSWER_SCORE_LOAD_STATE = 'USER_SET_ANSWER_SCORE_LOAD_STATE';
 
 export interface UserAction {
+    answers?: UserAnswers;
+    answerLoadState?: AnswerScoreLoadState;
     email?: string;
     entryCode?: string;
-    answers?: UserAnswers;
+    score?: AnswerScore;
+    scores?: AnswerScores;
     type: string;
 }
 
@@ -20,10 +29,27 @@ export interface UserAction {
 export const userUpdateServerData = ()=> {
     return async (dispatch: any, getState: () => AppState) => {
         const state = getState();
+
+        /*
+         * Don't update server if a guest.
+         */
+        if (state.user.guest) {
+            dispatch(userSetAnswerScoreLoadState(AnswerScoreLoadState.NotLoaded));
+            return;
+        }
+
         try {
+            /* 
+             * Update server with new data.
+             */
             dispatch(setSnackbarState({ message: 'Saving data...', state: NotificationStates.Working }));
-            const updated = await update(state.user);
+            await update(state.user);
+
+            /* 
+             * Subtley notify user via snackbar and allow Results data to refresh.
+             */
             dispatch(setSnackbarState({ message: 'Data saved', state: NotificationStates.Complete }));
+            dispatch(userSetAnswerScoreLoadState(AnswerScoreLoadState.NotLoaded));
         } catch (err) {
             console.log(err);
             const info: InformationModalState = {
@@ -38,10 +64,33 @@ export const userUpdateServerData = ()=> {
     };
 };
 
+export const getScores = ()=> {
+    return async (dispatch: any, getState: () => AppState) => {
+        const { user } = getState();
+        try {
+            /* 
+             * Request scores from server.
+             */
+            dispatch(userSetAnswerScoreLoadState(AnswerScoreLoadState.Loading));
+            const scores = await getUserAndAggregateScores(user);
+
+            /* 
+             * Update store.
+             */
+            dispatch(userSetScores(scores));
+            dispatch(userSetAnswerScoreLoadState(AnswerScoreLoadState.Loaded));
+        } catch (err) {
+            console.log(err);
+            dispatch(userSetAnswerScoreLoadState(AnswerScoreLoadState.Failed));
+        }
+    };
+};
+
+
 /*
  * Synchronous
  */
-export const userSetData = (answers: UserAnswers): UserAction => {
+export const userSetAnswers = (answers: UserAnswers): UserAction => {
     return {
         answers,
         type: USER_SET_ANSWERS
@@ -55,4 +104,30 @@ export const userSetCredentials = (email: string, entryCode: string): UserAction
         type: USER_SET_CREDENTIALS
     };
 };
-  
+
+export const userSetScore = (score: AnswerScore): UserAction => {
+    return {
+        score,
+        type: USER_SET_ANSWER_SCORE
+    };
+};
+
+export const userSetScores = (scores: AnswerScores): UserAction => {
+    return {
+        scores,
+        type: USER_SET_ANSWER_SCORES
+    };
+};
+
+export const userSetAnswerScoreLoadState = (answerLoadState: AnswerScoreLoadState): UserAction => {
+    return {
+        answerLoadState,
+        type: USER_SET_ANSWER_SCORE_LOAD_STATE
+    };
+};
+
+export const userSetIsGuest = (): UserAction => {
+    return {
+        type: USER_SET_IS_GUEST
+    };
+};

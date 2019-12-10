@@ -7,7 +7,6 @@ import { modelSetSelected, modelSetCurrent } from '../../actions/model';
 import { setCurrentView } from '../../actions/general';
 import { AppView } from '../../model/GeneralState';
 import { ModelSelectionOption } from './ModalSelectionOption';
-import { UserAnswers } from '../../model/User';
 import './ModelSelection.css';
 
 interface Props {
@@ -18,6 +17,13 @@ interface Props {
 
 export default class ModelSelection extends React.PureComponent<Props> {
     private className = 'model-selection';
+
+    public componentDidMount() {
+        var mainInner = document.getElementsByClassName('main-inner');
+        if (mainInner && mainInner[0]) {
+            mainInner[0].scrollTop = 0;
+        }
+    }
 
     public render() {
         const c = this.className;

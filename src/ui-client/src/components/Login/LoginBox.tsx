@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
 import { FiLock, FiChevronRight } from 'react-icons/fi';
 import { LoginState, LoginServerCommunicationState } from '../../model/LoginState';
-import { loginSetEntryCode, attemptLogin, loginSetEmail } from '../../actions/login';
+import { loginSetEntryCode, attemptLogin, loginSetEmail, loginAsGuest } from '../../actions/login';
 
 interface Props {
     dispatch: any;
@@ -47,7 +47,9 @@ export default class LoginBox extends React.PureComponent<Props,State> {
         return (
             <Form className={classes.join(' ')}> 
                 <FormGroup className={`${c}-form-group`}>
-                    <Label for="email">Your Email Address</Label>
+
+                    {/* Email */}
+                    <Label for="email">Email Address</Label>
                     <Input
                         autoFocus={true}
                         className={emailClasses.join(' ')} 
@@ -59,7 +61,9 @@ export default class LoginBox extends React.PureComponent<Props,State> {
                         type="email" 
                         value={loginState.emailAddress} 
                     />
-                    <Label for="entry-code">Survey Entry Code</Label>
+
+                    {/* Entry code */}
+                    <Label for="entry-code">Entry Code</Label>
                     <Input 
                         autoComplete="off"
                         className={entryCodeClasses.join(' ')} 
@@ -73,8 +77,21 @@ export default class LoginBox extends React.PureComponent<Props,State> {
                     />
                     <FiLock className="lock" />
                 </FormGroup>
+
+                {/* Sign in */}
                 <div className={buttonClasses.join(' ')} tabIndex={2} onClick={this.handleLoginButtonClick}>
                     {this.getSignInContent()}
+                </div>
+
+                {/* -or- */}
+                <div className={`${c}-or`}>
+                    <div className={`${c}-or-inner`}>or</div>
+                </div>
+
+                {/* Sign in as Guest */}
+                <div className={`${c}-button ${c}-button-guest`} tabIndex={3} onClick={this.handleGuestLoginClick}>
+                    Sign in as Guest
+                    <FiChevronRight className="icon chevron" />
                 </div>
             </Form>
         );
@@ -85,10 +102,25 @@ export default class LoginBox extends React.PureComponent<Props,State> {
         const entryCodeValid = !!loginState.entryCode.length;
         const emailValid = !!loginState.emailAddress.length;
 
+        if (loginState.serverCommunication === LoginServerCommunicationState.Calling) {
+            return;
+        }
+
         this.setState({ entryCodeValid, emailValid });
         if (entryCodeValid) {
             dispatch(attemptLogin(loginState.emailAddress, loginState.entryCode));
         }
+    }
+
+    private handleGuestLoginClick = () => {
+        const { dispatch, loginState } = this.props;
+
+        if (loginState.serverCommunication === LoginServerCommunicationState.Calling) {
+            return;
+        }
+
+        this.setState({ entryCodeValid: true, emailValid: true });
+        dispatch(loginAsGuest());
     }
 
     private getSignInContent = () => {
