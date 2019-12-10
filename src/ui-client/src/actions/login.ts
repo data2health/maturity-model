@@ -57,12 +57,16 @@ export const attemptLogin = (email: string, entryCode: string) => {
 
 export const loginAsGuest = () => {
     return async (dispatch: any, getState: () => AppState) => {
+        
+        const email = 'guest@cd2h.org';
+        const entryCode = 'guest';
         const answers = Object.assign({}, getState().user.answers) as any;
         answers['user_fname'] = 'Guest';
         answers['email'] = 'Guest';
 
         dispatch(userSetIsGuest());
         dispatch(loginSetLoggedIn());
+        dispatch(userSetCredentials(email, entryCode));
         dispatch(userSetAnswers(answers));
     };
 };

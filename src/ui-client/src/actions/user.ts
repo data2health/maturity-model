@@ -1,6 +1,6 @@
 import { UserAnswers } from "../model/User";
 import { AppState } from "../model/AppState";
-import { update, getUserAndAggregateScores, getGuestAndAggregateScores } from "../services/api";
+import { update, getUserAndAggregateScores } from "../services/api";
 import { setSnackbarState, showInfoModal } from "./general";
 import { NotificationStates, InformationModalState } from "../model/GeneralState";
 import { AnswerScores, AnswerScore } from "../model/Score";
@@ -26,7 +26,6 @@ export interface UserAction {
 /*
  * Asynchronous
  */
-
 export const userUpdateServerData = ()=> {
     return async (dispatch: any, getState: () => AppState) => {
         const state = getState();
@@ -73,9 +72,7 @@ export const getScores = ()=> {
              * Request scores from server.
              */
             dispatch(userSetAnswerScoreLoadState(AnswerScoreLoadState.Loading));
-            const scores = !user.guest 
-                ? await getUserAndAggregateScores(user)
-                : await getGuestAndAggregateScores(user);
+            const scores = await getUserAndAggregateScores(user);
 
             /* 
              * Update store.

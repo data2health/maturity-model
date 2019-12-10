@@ -14,5 +14,5 @@ export interface UserState {
     email: string;
     entryCode: string;
     guest: boolean;
-    scores: AnswerScores;
+    results: AnswerScores;
 }

@@ -70,7 +70,7 @@ export const defaultUserState = (): UserState => {
         email: '',
         entryCode: '',
         guest: false,
-        scores: {
+        results: {
             all: defaultScore(),
             user: defaultScore(),
             n: 0
@@ -87,7 +87,13 @@ const defaultScore = (): AnswerScore => {
         himss_ccmm: 0,
         nehta_imm: 0,
         eprmm: 0,
-        forrester: 0
+        forrester: 0,
+        riosm_categories: {
+            overall: 0,
+            governance: 0,
+            data_and_software_sharing: 0,
+            research_informatics: 0
+        }
     };
 }
 
@@ -104,14 +110,14 @@ export const user = (state: UserState = defaultUserState(), action: UserAction):
             });
         case USER_SET_ANSWER_SCORE:
             return Object.assign({}, state, { 
-                scores: { 
+                results: { 
                         user: action.score,
-                        all: state.scores.all
+                        all: state.results.all
                     } 
                 } 
             );
         case USER_SET_ANSWER_SCORES:
-            return Object.assign({}, state, { scores: action.scores } );
+            return Object.assign({}, state, { results: action.scores } );
         case USER_SET_ANSWER_SCORE_LOAD_STATE:
             return Object.assign({}, state, { answersLoadState: action.answerLoadState } );
         case USER_SET_IS_GUEST:

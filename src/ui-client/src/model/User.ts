@@ -68,3 +68,69 @@ export interface UserDTOContainer {
 export interface UserUpdateDTO {
     count: number;
 }
+
+// RIOSM
+export const RIOSM_Q1_SUPPORT_OPEN_SCIENCE   : AnswerField = 'riosm_q1_support_open_science'
+export const RIOSM_Q2_DATA_SHARING           : AnswerField = 'riosm_q2_data_sharing'
+export const RIOSM_Q3_DATA_SHARING_EDU       : AnswerField = 'riosm_q3_data_sharing_edu'
+export const RIOSM_Q4_ENGAGEMENT             : AnswerField = 'riosm_q4_engagement'
+export const RIOSM_Q5_GOVERNANCE             : AnswerField = 'riosm_q5_governance'
+export const RIOSM_Q6_REPUTATION             : AnswerField = 'riosm_q6_reputation'
+export const RIOSM_Q7_DATA_ANALYTICS_ACTIVITY: AnswerField = 'riosm_q7_data_analytics_activity'
+export const RIOSM_Q8_CTMS                   : AnswerField = 'riosm_q8_ctms'
+export const RIOSM_Q9_EXTERNAL_DATA_EDW      : AnswerField = 'riosm_q9_external_data_edw'
+export const RIOSM_Q10_RESEARCH_COMPUTING    : AnswerField = 'riosm_q10_research_computing'
+export const RIOSM_Q11_SECONDARY_DATA_USE    : AnswerField = 'riosm_q11_secondary_data_use'
+
+export const riosmFields = [ 
+    RIOSM_Q1_SUPPORT_OPEN_SCIENCE, RIOSM_Q2_DATA_SHARING, RIOSM_Q3_DATA_SHARING_EDU, RIOSM_Q4_ENGAGEMENT,
+    RIOSM_Q5_GOVERNANCE, RIOSM_Q6_REPUTATION, RIOSM_Q7_DATA_ANALYTICS_ACTIVITY, RIOSM_Q8_CTMS,
+    RIOSM_Q9_EXTERNAL_DATA_EDW, RIOSM_Q10_RESEARCH_COMPUTING, RIOSM_Q11_SECONDARY_DATA_USE
+]
+
+export const riosmGovernance: AnswerField[] = [
+    RIOSM_Q4_ENGAGEMENT, RIOSM_Q5_GOVERNANCE, RIOSM_Q6_REPUTATION
+]
+
+export const riosmDataAndSoftware: AnswerField[] = [
+    RIOSM_Q1_SUPPORT_OPEN_SCIENCE, RIOSM_Q2_DATA_SHARING, RIOSM_Q3_DATA_SHARING_EDU
+]
+
+export const riosmResearchInformatics: AnswerField[] = [
+    RIOSM_Q7_DATA_ANALYTICS_ACTIVITY, RIOSM_Q8_CTMS, RIOSM_Q9_EXTERNAL_DATA_EDW, RIOSM_Q10_RESEARCH_COMPUTING, RIOSM_Q11_SECONDARY_DATA_USE
+]
+
+// Quintegra eHMM
+export const QUINTEGRA_EHMM_Q1: AnswerField = 'quintegra_ehmm_q1';
+
+// IDC Healthcare IT
+export const IDC_HEALTHCARE_IT_Q1: AnswerField = 'idc_healthcare_it_q1';
+
+// HIMSS EMRAM
+export const HIMSS_EMRAM_Q1: AnswerField = 'himss_emram_q1';
+
+//  HIMSS CCMM
+export const HIMSS_CCMM_Q1: AnswerField = 'himss_ccmm_q1';
+export const HIMSS_CCMM_Q2: AnswerField = 'himss_ccmm_q2';
+export const HIMSS_CCMM_Q3: AnswerField = 'himss_ccmm_q3';
+export const HIMSS_CCMM_Q4: AnswerField = 'himss_ccmm_q4';
+
+export const himssCCmmFields: AnswerField[] = [
+    HIMSS_CCMM_Q1, HIMSS_CCMM_Q2, HIMSS_CCMM_Q3, HIMSS_CCMM_Q4
+];
+
+// NEHTA IMM
+export const NEHTA_IMM_Q1: AnswerField = 'nehta_imm_q1';
+
+// EPRMM
+export const EPRMM_Q1: AnswerField = 'eprmm_q1';
+
+// Forrester
+export const FORRESTER_MODEL_Q1: AnswerField = 'forrester_model_q1';
+export const FORRESTER_MODEL_Q2: AnswerField = 'forrester_model_q2';
+export const FORRESTER_MODEL_Q3: AnswerField = 'forrester_model_q3';
+export const FORRESTER_MODEL_Q4: AnswerField = 'forrester_model_q4';
+
+export const forresterFields: AnswerField[] = [
+    FORRESTER_MODEL_Q1, FORRESTER_MODEL_Q2, FORRESTER_MODEL_Q3, FORRESTER_MODEL_Q4
+];

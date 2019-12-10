@@ -1,11 +1,12 @@
 import React from 'react'
 import { UserState, AnswerScoreLoadState } from '../../model/UserState';
 import { getScores } from '../../actions/user';
-import { Bar, BarChart, LabelList, ResponsiveContainer, XAxis, YAxis, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Legend } from 'recharts';
 import LoaderIcon from '../../components/Other/LoaderIcon/LoaderIcon';
-import { Row, Col } from 'reactstrap';
-import './Results.css';
 import BaseForm from '../../components/BaseForms/BaseForm/BaseForm';
+import PolarChart from '../../components/Results/PolarChart';
+import './Results.css';
+import RIOSMSummary from '../../components/Results/RIOSMSummary/RIOSMSummary';
+import BaseFormSection from '../../components/BaseForms/BaseForm/BaseFormSection';
 
 interface Props {
     dispatch: any;
@@ -16,17 +17,8 @@ interface State {
     show: boolean;
 }
 
-interface PolarDataPoint {
-    all: number;
-    max: number;
-    model: string;
-    user: number;
-}
-
 export default class Results extends React.PureComponent<Props,State> {
     private className = 'results';
-    private blue = "rgb(28,168,221)";
-    private orange = "rgb(255,132,8)";
 
     public constructor(props: Props) {
         super(props);
@@ -92,37 +84,26 @@ export default class Results extends React.PureComponent<Props,State> {
 
         return (
             <BaseForm 
-                header={"Here's how your answers compare to other sites"}
-                subheader={'All site data are anonymously aggregated'}
                 content={(
                     <div className={c}>
-                        <div className={`${c}-polar`}>
-                            <RadarChart outerRadius={250} width={1000} height={600} data={this.getPolarData()}>
-                                <PolarGrid />
-                                <PolarAngleAxis dataKey="model" />
-                                <PolarRadiusAxis angle={30} domain={[0, 1]} />
-                                <Radar name={user.email} dataKey="user" stroke={this.orange} fill={this.orange} fillOpacity={0.6} />
-                                <Radar name={`Average (n=${user.scores.n})`} dataKey="all" stroke={this.blue} fill={this.blue} fillOpacity={0.4} />
-                                <Legend align={'left'} />
-                            </RadarChart>
-                        </div>
+                        <BaseFormSection
+                            header={"Here's how your answers compare to other sites"}
+                            subheader={'All site data are anonymously aggregated'}
+                            content={<PolarChart user={user} />}
+                        />
+                        <BaseFormSection
+                            header={"Let's see how your RIOSM answers compare to others"}
+                            subheader=
+                                {<span>
+                                    The Research Informatics Maturity Model uses a 5-point scoring system to benchmark an 
+                                    organization's overall and category-level maturity. The score corresponds to the five-level 
+                                    maturity continuum first proposed in the <a href='https://en.wikipedia.org/wiki/Capability_Maturity_Model' target='_'>Capability Maturity Model</a>.
+                                </span>}
+                            content={<RIOSMSummary user={user} />}
+                        />
                     </div>
                 )} 
             />
         )
-    }
-
-    private getPolarData = (): PolarDataPoint[] => {
-        const { all, user } = this.props.user.scores;
-        const data: PolarDataPoint[] = [];
-
-        data.push({ model: 'RIOSM', all: all['riosm'], user: user['riosm'], max: 1.0 });
-        data.push({ model: 'Quintegra eHmm', all: all['quintegra_ehmm'], user: user['quintegra_ehmm'], max: 1.0 });
-        data.push({ model: 'IDC Healthcare IT', all: all['idc_healthcare_it'], user: user['idc_healthcare_it'], max: 1.0 });
-        data.push({ model: 'HIMSS Electronic Medical Record', all: all['himss_emram'], user: user['himss_emram'], max: 1.0 });
-        data.push({ model: 'HIMSS Continuity of Care', all: all['himss_ccmm'], user: user['himss_ccmm'], max: 1.0 });
-        data.push({ model: 'NEHTA Interoperability', all: all['nehta_imm'], user: user['nehta_imm'], max: 1.0 });
-
-        return data;
     }
 }

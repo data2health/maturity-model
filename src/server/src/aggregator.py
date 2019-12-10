@@ -3,14 +3,22 @@ import sys
 
 from fields import *
 
-riosm = 'riosm'
-quintegra_ehmm = 'quintegra_ehmm'
+# Models
+riosm             = 'riosm'
+quintegra_ehmm    = 'quintegra_ehmm'
 idc_healthcare_it = 'idc_healthcare_it'
-himss_emram = 'himss_emram'
-himss_ccmm = 'himss_ccmm'
-nehta_imm = 'nehta_imm'
-eprmm = 'eprmm'
-forrester = 'forrester'
+himss_emram       = 'himss_emram'
+himss_ccmm        = 'himss_ccmm'
+nehta_imm         = 'nehta_imm'
+eprmm             = 'eprmm'
+forrester         = 'forrester'
+
+# RIOSM categories
+riosm_categories     = 'riosm_categories'
+overall              = 'overall'
+governance           = 'governance'
+data_and_software    = 'data_and_software_sharing'
+research_informatics = 'research_informatics'
 
 def get_user_score(user):
 
@@ -27,13 +35,19 @@ def get_user_score(user):
     score[nehta_imm]         = float(user[NEHTA_IMM_Q1]) / max_five if user[NEHTA_IMM_Q1].isdigit() else None
     score[eprmm]             = float(user[EPRMM_Q1]) / max_six if user[EPRMM_Q1].isdigit() else None
 
+    score[riosm_categories] = {}
+    score[riosm_categories][overall]              = __get_category_score(user, riosm_fields)
+    score[riosm_categories][governance]           = __get_category_score(user, riosm_governance)
+    score[riosm_categories][data_and_software]    = __get_category_score(user, riosm_data_and_software)
+    score[riosm_categories][research_informatics] = __get_category_score(user, riosm_research_informatics)
+
     return score
 
-def aggregate(user, all):
+def aggregate(all):
 
     agg_score  = {}
-    usr_score  = get_user_score(user)
-    all_scores = [ get_user_score(v) for k,v in all.items() ]
+    all_scores = [ get_user_score(v) for k,v in all.items() if v != None ]
+    riosm_scores = [ v[riosm_categories] for v in all_scores ]
 
     agg_score[riosm]             = __get_aggregate_score(all_scores, riosm)
     agg_score[quintegra_ehmm]    = __get_aggregate_score(all_scores, quintegra_ehmm)
@@ -43,8 +57,13 @@ def aggregate(user, all):
     agg_score[nehta_imm]         = __get_aggregate_score(all_scores, nehta_imm)
     agg_score[eprmm]             = __get_aggregate_score(all_scores, eprmm)
 
-    return usr_score, agg_score, len(all_scores)
+    agg_score[riosm_categories] = {}
+    agg_score[riosm_categories][overall]              = __get_aggregate_score(riosm_scores, overall)
+    agg_score[riosm_categories][governance]           = __get_aggregate_score(riosm_scores, governance)
+    agg_score[riosm_categories][data_and_software]    = __get_aggregate_score(riosm_scores, data_and_software)
+    agg_score[riosm_categories][research_informatics] = __get_aggregate_score(riosm_scores, research_informatics)
 
+    return agg_score, len(all_scores)
 
 def __get_aggregate_score(scores, key):
 
@@ -53,3 +72,11 @@ def __get_aggregate_score(scores, key):
     if len_valid > 0:
         return sum(valid) / len_valid
     return 0.0
+
+def __get_category_score(user, keys):
+
+    valid = [ float(user[key]) for key in keys if user[key].isdigit() ]
+    len_valid = len(valid)
+    if len_valid > 0:
+        return sum(valid) / len_valid
+    return 0.0    

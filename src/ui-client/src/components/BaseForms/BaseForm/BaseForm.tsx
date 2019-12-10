@@ -1,8 +1,9 @@
 import React from 'react';
 import './BaseForm.css';
+import BaseFormSection from './BaseFormSection';
 
 interface Props {
-    header: string | JSX.Element;
+    header?: string | JSX.Element;
     headerLarge?: boolean;
     subheader?: string | JSX.Element;
     content: string | JSX.Element | JSX.Element[];
@@ -39,9 +40,7 @@ export default class BaseForm extends React.PureComponent<Props,State> {
         return (
             <div className={classes.join(' ')}>
                 <div className={`${c}-inner`}>
-                    <div className={`${c}-header ${headerLarge ? 'lg' : ''}`}>{header}</div>
-                    {subheader && <div className={`${c}-subheader`}>{subheader}</div>}
-                    <div className={`${c}-content`}>{content}</div>
+                    <BaseFormSection header={header} headerLarge={headerLarge} subheader={subheader} content={content} />
                 </div>
             </div>
         );
