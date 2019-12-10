@@ -102,7 +102,7 @@ const defaultScore = (): AnswerScore => {
         nehta_imm: 0,
         eprmm: 0,
         forrester: 0,
-        precisionHealth: 0,
+        precision_health: 0,
         riosm_categories: {
             overall: 0,
             governance: 0,

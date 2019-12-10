@@ -21,15 +21,16 @@ export default class PolarChart extends React.PureComponent<Props> {
     public render() {
         const { user } = this.props;
         const c = this.className;
+        const data = this.getPolarData();
 
         return (
             <div className={c}>
-                <RadarChart outerRadius={250} width={1000} height={600} data={this.getPolarData()}>
-                    <PolarGrid />
+                <RadarChart outerRadius={250} width={1000} height={600} data={data}>
+                    <PolarGrid stroke={'rgb(230,230,230)'} />
                     <PolarAngleAxis dataKey="model" />
-                    <PolarRadiusAxis angle={30} domain={[0, 1]} />
-                    <Radar name={'Your Score'} dataKey="user" stroke={this.orange} fill={this.orange} fillOpacity={0.6} />
-                    <Radar name={`Average (n=${user.results.n})`} dataKey="all" stroke={this.blue} fill={this.blue} fillOpacity={0.4} />
+                    <PolarRadiusAxis angle={90} domain={[0, 1]} />
+                    <Radar name={'Your Score'} dataKey="user" stroke={this.orange} fill={this.orange} fillOpacity={0.5} />
+                    <Radar name={`Average (n=${user.results.n})`} dataKey="all" stroke={this.blue} fill={this.blue} fillOpacity={0.3} />
                     <Legend align={'left'} />
                 </RadarChart>
             </div>

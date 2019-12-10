@@ -43,7 +43,7 @@ export const userUpdateServerData = ()=> {
              * Update server with new data.
              */
             dispatch(setSnackbarState({ message: 'Saving data...', state: NotificationStates.Working }));
-            const updated = await update(state.user);
+            await update(state.user);
 
             /* 
              * Subtley notify user via snackbar and allow Results data to refresh.

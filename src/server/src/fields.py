@@ -8,6 +8,7 @@ FNAME = 'user_fname'
 LNAME = 'user_lname'
 
 # RIOSM
+RIOSM_COMPLETE = 'riosm_complete'
 RIOSM_Q1_SUPPORT_OPEN_SCIENCE = 'riosm_q1_support_open_science'
 RIOSM_Q2_DATA_SHARING = 'riosm_q2_data_sharing'
 RIOSM_Q3_DATA_SHARING_EDU = 'riosm_q3_data_sharing_edu'
@@ -39,15 +40,19 @@ riosm_research_informatics = [
 ]
 
 # Quintegra eHMM
+QUINTEGRA_EHMM_COMPELTE = 'quintegra_ehmm_complete'
 QUINTEGRA_EHMM_Q1 = 'quintegra_ehmm_q1'
 
 # IDC Healthcare IT
+IDC_HEALTHCARE_IT_COMPLETE = 'idc_healthcare_it_complete'
 IDC_HEALTHCARE_IT_Q1 = 'idc_healthcare_it_q1'
 
 # HIMSS EMRAM
+HIMSS_EMRAM_COMPLETE = 'himss_emram_complete'
 HIMSS_EMRAM_Q1 = 'himss_emram_q1'
 
 # HIMSS CCMM
+HIMSS_CCMM_COMPLETE = 'himss_ccmm_complete'
 HIMSS_CCMM_Q1 = 'himss_ccmm_q1'
 HIMSS_CCMM_Q2 = 'himss_ccmm_q2'
 HIMSS_CCMM_Q3 = 'himss_ccmm_q3'
@@ -58,12 +63,15 @@ himss_ccmm_fields = [
 ]
 
 # NEHTA IMM
+NEHTA_IMM_COMPLETE = 'nehta_imm_complete'
 NEHTA_IMM_Q1 = 'nehta_imm_q1'
 
 # EPRMM
+EPRMM_COMPLETE = 'eprmm_complete'
 EPRMM_Q1 = 'eprmm_q1'
 
 # Forrester
+FORRESTER_COMPLETE = 'forrester_model_complete'
 FORRESTER_MODEL_Q1 = 'forrester_model_q1'
 FORRESTER_MODEL_Q2 = 'forrester_model_q2'
 FORRESTER_MODEL_Q3 = 'forrester_model_q3'
@@ -74,6 +82,7 @@ forrester_fields = [
 ]
 
 # Precision Health
+PRECISION_HEALTH_COMPLETE = 'precision_health_complete'
 PRECISION_HEALTH_Q1 = 'precision_health_q1'
 PRECISION_HEALTH_Q2 = 'precision_health_q2'
 PRECISION_HEALTH_Q3 = 'precision_health_q3'
