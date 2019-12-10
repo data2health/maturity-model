@@ -1,0 +1,48 @@
+/* Main */
+.greeting-main-text {
+    font-size: 1.2rem;
+    font-weight: 300;
+    padding: 20px;
+}
+
+.greeting-main-text > div {
+    margin: auto;
+    margin-bottom: 20px;
+    max-width: 850px;
+    text-align: left;
+}
+
+.greeting-emphasis,
+.greeting-selectable-text  {
+    color: rgb(28,168,221);
+    font-weight: 500;
+}
+
+.greeting-selectable-text {
+    cursor: pointer;
+}
+
+.greeting-selectable-text:hover {
+    text-decoration: underline;
+}
+
+.greeting-select-align {
+    display: inline-block;
+}
+
+.greeting-selected-count { 
+    background-color: rgba(28,168,221,0.1);
+    border-radius: 4px;
+    color: rgb(28,168,221);
+    display: inline-block;
+    font-size: 1.0rem;
+    font-weight: 500;
+    padding: 2px 4px;
+    width: auto;
+}
+
+/* Get Started button */
+.greeting-select-container .maturity-model-button { 
+    float: right;
+    min-width: 150px;
+}

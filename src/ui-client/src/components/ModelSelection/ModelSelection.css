@@ -1,10 +1,4 @@
 /* Main */
-.model-selection-main-text {
-    font-size: 1.2rem;
-    font-weight: 300;
-    padding: 20px;
-}
-
 .model-selection-main-text > div {
     margin: auto;
     margin-bottom: 20px;
@@ -25,17 +19,29 @@
     background-color: rgba(28,168,221,0.1);
     border-radius: 4px;
     color: rgb(28,168,221);
-    display: inline-block;
     font-size: 1.0rem;
     font-weight: 500;
+    margin-left: 10px;
     padding: 2px 4px;
-    width: auto;
 }
 
 /* Get Started button */
-.model-selection-select-container .maturity-model-button { 
+.model-selection-button-container {
+    height: 50px;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    max-width: 800px;
+}
+
+.model-selection-button-container .maturity-model-button { 
     float: right;
     min-width: 150px;
+}
+
+.model-selection-button-container .maturity-model-button.secondary {
+    float: left;
+    height: 50px;
 }
 
 /* Model Options */
@@ -125,4 +131,36 @@
     padding: 4px;
     position: absolute;
     right: 0;
+}
+
+
+.model-selection-option {
+    overflow-y: hidden;
+    position: relative;
+}
+
+.model-selection-option.preview::after {
+    background-image: linear-gradient(transparent, rgba(255,255,255,0.5), white);
+    bottom: 0;
+    content: '';
+    height: 80px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.model-selection-option:hover::after {
+    content: none;
+}
+
+.model-selection-option-desc {
+    color: rgb(80,80,80);
+}
+
+.model-selection-option.preview .model-selection-option-desc {
+    max-height: 80px;
+}
+
+.model-selection-option.preview:hover .model-selection-option-desc {
+    max-height: 10000px;
 }

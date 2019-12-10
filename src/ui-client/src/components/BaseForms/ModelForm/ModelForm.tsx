@@ -5,10 +5,10 @@ import { UserAnswers } from '../../../model/User';
 import ModelTransitionForm from '../../BaseForms/ModelTransitionForm/ModelTransitionForm';
 import { BaseModel, FormState } from '../../../model/ModelsState';
 import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
-import './ModelForm.css';
 import NextStepBox from '../NextStepBox/NextStepBox';
 import { setCurrentView } from '../../../actions/general';
 import { AppView } from '../../../model/GeneralState';
+import './ModelForm.css';
 
 interface Props {
     answers: UserAnswers;
@@ -41,6 +41,12 @@ export class ModelForm extends React.PureComponent<Props,State> {
          * If in starting state, show the model description and 'Get Started' button.
          */
         if (questionIndex === this.startingState) {
+            const completionState = answers[model.completeField];
+            const buttonText = 
+                completionState === FormState.NotStarted ? 'Start Survey' :
+                completionState === FormState.Started ? 'Continue Survey' :
+                'Retake Survey';
+
             return (
                 <ModelTransitionForm 
                     header={model.name}
@@ -50,7 +56,7 @@ export class ModelForm extends React.PureComponent<Props,State> {
                                 <div className={`${c}-desc-inner`}>{model.description}</div>
                             </div>
                             <button className={`maturity-model-button primary-green shadow`} onClick={this.handleGetStartedClick}>
-                                Start Survey
+                                {buttonText}
                                 <FiChevronRight />
                             </button>
                             <button className={`maturity-model-button secondary`} onClick={this.handleReturnHomeClick}>
@@ -104,7 +110,7 @@ export class ModelForm extends React.PureComponent<Props,State> {
 
     private handleReturnHomeClick = () => {
         const { dispatch } = this.props;
-        dispatch(setCurrentView(AppView.ModelSelection))
+        dispatch(setCurrentView(AppView.Greeting))
     }
 
     private handleAnswerClick = (value: any) => {

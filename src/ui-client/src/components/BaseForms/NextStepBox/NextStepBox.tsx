@@ -6,8 +6,8 @@ import { UserState } from '../../../model/UserState';
 import { modelSetCurrent } from '../../../actions/model';
 import { setCurrentView } from '../../../actions/general';
 import { AppView } from '../../../model/GeneralState';
-import './NextStepBox.css';
 import { FiChevronRight } from 'react-icons/fi';
+import './NextStepBox.css';
 
 interface OwnProps {
     

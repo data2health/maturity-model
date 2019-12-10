@@ -1,6 +1,6 @@
 import { UserAnswers } from "../model/User";
 import { AppState } from "../model/AppState";
-import { update, getUserAndAggregateScores } from "../services/api";
+import { update, getUserAndAggregateScores, changed } from "../services/api";
 import { setSnackbarState, showInfoModal } from "./general";
 import { NotificationStates, InformationModalState } from "../model/GeneralState";
 import { AnswerScores, AnswerScore } from "../model/Score";
@@ -31,9 +31,9 @@ export const userUpdateServerData = ()=> {
         const state = getState();
 
         /*
-         * Don't update server if a guest.
+         * Don't update server if a guest or there are no changes.
          */
-        if (state.user.guest) {
+        if (state.user.guest || !changed(state.user)) {
             dispatch(userSetAnswerScoreLoadState(AnswerScoreLoadState.NotLoaded));
             return;
         }
