@@ -9,10 +9,13 @@ import { NEHTA_IMM } from '../model/Models/NEHTA_IMM';
 import { HIMSS_CCMM } from '../model/Models/HIMSS_CCMM';
 import { AppView } from '../model/GeneralState';
 import { PrecisionHealth } from '../model/Models/PrecisionHealth';
+import { Forrester } from '../model/Models/Forrester';
+import { EPRMM } from '../model/Models/EPRMM';
+
 
 export const defaultModelState = (): ModelsState => {
     return {
-        all: [ RIOSM, PrecisionHealth, HIMSS_EMRAM, Quintegra_eHMM, IDC_Healthcare_IT, NEHTA_IMM, HIMSS_CCMM ]
+        all: [ RIOSM, PrecisionHealth, HIMSS_EMRAM, Quintegra_eHMM, IDC_Healthcare_IT, NEHTA_IMM, HIMSS_CCMM, Forrester, EPRMM ]
     };
 };
 

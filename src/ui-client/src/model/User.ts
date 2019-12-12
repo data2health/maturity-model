@@ -69,6 +69,7 @@ export type AnswerField =
     'precision_health_q9'              |
     'precision_health_q10'             
 
+
 export interface BaseUserAnswers {
     [key: string]: AnswerTypes
 }
