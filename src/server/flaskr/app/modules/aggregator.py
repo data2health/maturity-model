@@ -1,7 +1,7 @@
 import os
 import sys
 
-from fields import *
+from .fields import *
 
 # Models
 riosm             = 'riosm'
@@ -82,4 +82,4 @@ def __get_category_score(user, keys):
     len_valid = len(valid)
     if len_valid > 0:
         return sum(valid) / len_valid
-    return 0.0    
+    return 0.0
