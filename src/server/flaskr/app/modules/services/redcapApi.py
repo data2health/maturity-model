@@ -13,8 +13,7 @@ class REDCapHttpConnector:
         self.token = token
 
     def __load_config(self):
-        dir_path = os.path.dirname(os.path.realpath('/data/matmodel/maturity-model/src/server/modules/app/modules/services'))
-        dir_path = '/Users/mehadi/work/maturity-model/src/server/flaskr/app/modules/services'
+        dir_path = os.path.dirname(os.path.realpath(__file__))
 
         # Assume config is in the same directory.
         with open(f'{dir_path}{os.path.sep}config.json') as f:
