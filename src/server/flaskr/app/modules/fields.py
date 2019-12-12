@@ -1,4 +1,3 @@
-
 # User
 RECORD_ID = 'record_id'
 EMAIL_ADDRESS = 'email'

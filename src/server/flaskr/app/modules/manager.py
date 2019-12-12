@@ -2,9 +2,9 @@ import os
 import json
 
 from datetime import datetime 
-from fields import ENTRY_CODE, EMAIL_ADDRESS, FNAME, LNAME, RECORD_ID, APPROVED
-from aggregator import aggregate
-from services.redcapApi import REDCapHttpConnector
+from .fields import ENTRY_CODE, EMAIL_ADDRESS, FNAME, LNAME, RECORD_ID, APPROVED
+from .aggregator import aggregate
+from .services.redcapApi import REDCapHttpConnector
 
 hidden = [ RECORD_ID, ENTRY_CODE, EMAIL_ADDRESS, APPROVED ]
 unalterable = [ ENTRY_CODE, EMAIL_ADDRESS, FNAME, LNAME, RECORD_ID, APPROVED ]
@@ -48,7 +48,7 @@ class Manager:
         return (email, entry_code) in self.__cache
 
     def get_user(self, email, entry_code):
-
+        
         self.__update_cache_if_needed()
         user = self.__cache.get((email, entry_code))
 

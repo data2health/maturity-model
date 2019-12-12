@@ -47,5 +47,3 @@ class REDCapHttpConnector:
             'data': json.dumps([ answers ])
         }
         return self.__call_api(data)
-
-    
