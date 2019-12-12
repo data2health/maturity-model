@@ -70,7 +70,7 @@ export default class RIOSMSummary extends React.PureComponent<Props> {
                         Research Informatics: 
                         <span>
                             <strong>{results.user.riosm_categories.research_informatics.toFixed(1)}</strong>
-                            {this.getValueDifference(results.user.riosm_categories.data_and_software_sharing, results.all.riosm_categories.data_and_software_sharing)}
+                            {this.getValueDifference(results.user.riosm_categories.research_informatics, results.all.riosm_categories.research_informatics)}
                         </span>
                     </div>
 
@@ -116,9 +116,9 @@ export default class RIOSMSummary extends React.PureComponent<Props> {
         const c = this.className;
 
         if (user >= all) {
-            return <span className={`${c}-composite-score-diff over`}>+{(user-all).toFixed(1)}</span>
+            return <span className={`${c}-composite-score-diff over`}>+{(user-all).toFixed(2)}</span>
         } else if (all > user) {
-            return <span className={`${c}-composite-score-diff under`}>-{(all-user).toFixed(1)}</span>
+            return <span className={`${c}-composite-score-diff under`}>-{(all-user).toFixed(2)}</span>
         }
         return null;
     }
