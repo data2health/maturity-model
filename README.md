@@ -48,7 +48,7 @@ See https://github.com/data2health/maturity-model/blob/master/team.md
 ## Deliverables
 
 - Defined adoption model for research informatics maturity with vignettes
-- Tool supporting self-assessment and assessment collection
+- [Tool supporting self-assessment and assessment collection](http://maturitymodel.cd2h.org)
 
 ## Milestones 
 
