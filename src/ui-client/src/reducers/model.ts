@@ -15,7 +15,10 @@ import { EPRMM } from '../model/Models/EPRMM';
 
 export const defaultModelState = (): ModelsState => {
     return {
-        all: [ RIOSM, PrecisionHealth, HIMSS_EMRAM, Quintegra_eHMM, IDC_Healthcare_IT, NEHTA_IMM, HIMSS_CCMM, Forrester, EPRMM ]
+        all: [ RIOSM, PrecisionHealth, Quintegra_eHMM ]
+        
+        // removed models
+        // all: [ HIMSS_EMRAM, IDC_Healthcare_IT, NEHTA_IMM, HIMSS_CCMM, Forrester, EPRMM ]
     };
 };
 
