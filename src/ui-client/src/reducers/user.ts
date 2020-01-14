@@ -23,12 +23,12 @@ export const defaultUserState = (): UserState => {
 
             // RIOSM
             'riosm_complete': FormState.NotStarted,
-            'riosm_q1_support_open_science': '',
-            'riosm_q2_data_sharing': '',
-            'riosm_q3_data_sharing_edu': '',      
-            'riosm_q4_engagement': '',  
-            'riosm_q5_governance': '',        
-            'riosm_q6_reputation': '',        
+            'riosm_q1_engagement': '',  
+            'riosm_q2_governance': '',        
+            'riosm_q3_reputation': '',        
+            'riosm_q4_support_open_science': '',
+            'riosm_q5_data_sharing': '',
+            'riosm_q6_data_sharing_edu': '',      
             'riosm_q7_data_analytics_activity': '',
             'riosm_q8_ctms': '',
             'riosm_q9_external_data_edw': '',
