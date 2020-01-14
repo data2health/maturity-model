@@ -11,85 +11,7 @@ export const RIOSM: BaseModel =
     render: (dispatch: any, answers: UserAnswers) => <RIOSMForm dispatch={dispatch} answers={answers} />,
     questions: [
         {
-        answerField: 'riosm_q1_support_open_science',
-        text: "Choose the statement that best describes your institution's overall support for open science:",
-        options: [
-                {
-            text: "Our researchers and institutional leadership are not engaged in discussions about open science, or data and software sharing",
-            value: '1'
-                },
-                {
-            text: "Specific communities or organizations within our institution are champions for open science, but it’s not on the minds of most researchers.",
-            value: '2'
-                },
-                {
-            text: "Most of our researchers are aware and supportive of open science. There is a general orientation towards data and software sharing, but this is largely investigator driven.",
-            value: '3'
-                },
-                {
-            text: "Most of our researchers know how to share their data and software to enable reuse and leadership views open science as important to our mission and scientific success, but it is not mandated.",
-            value: '4'
-                },
-                {
-            text: "Our researchers and institutional leadership regularly engage in local, national and international discussions about open science, and are aware of community best practices, such as the FAIR Data Principles. Our institution has created policies that require data and software sharing, and support mechanisms that enable the use of best practices and community standards.",
-            value: '5'
-                }
-            ]
-        },
-        {
-            answerField: 'riosm_q2_data_sharing',
-            text: "Choose the statement that best describes how your institution supports data and software sharing through policy:",
-            options: [
-                {
-                text: "Our institution does not have policies that define intellectual property (IP) ownership of research and scholarly outputs, or how data and software can be shared.",
-                value: '1'
-                },
-                {
-                text: "Our institution has policies that define IP ownership of research and scholarly outputs, and how data and software can be shared, but most people are unaware of the policy details and implications.",
-                value: '2'
-                },
-                {
-                text: "Our institution has clearly defined IP, and software and data sharing policies, which most people are aware of and understand. In general, these policies hinder data and software sharing.",
-                value: '3'
-                },
-                {
-                text: "Our institution has clearly defined IP, and software and data sharing policies, which most people are aware of and understand. In general, these policies facilitate data and software sharing.",
-                value: '4'
-                },
-                {
-                text: "Our institution has clearly defined IP, and software and data sharing policies, which most people are aware of and understand. These policies explicitly support data and software sharing, and provide guidance on specific practices that impact reuse and attribution, such as licensing.",
-                value: '5'
-                }
-            ]
-        },
-        {
-        answerField: 'riosm_q3_data_sharing_edu',
-        text: "Choose the statement that best describes how your institution supports data and software sharing through educational and technological support:",
-        options: [
-                {
-            text: "Researchers who want to share their data or software must navigate this process on their own.",
-            value: '1'
-                },
-                {
-            text: "Our institution provides some educational or technological support, but most researchers are unaware of what is available.",
-            value: '2'
-                },
-                {
-            text: "Researchers have access to and regularly utilize organized trainings, documentation, and technology designed to support data and software sharing. These resources are managed by at least one dedicated position within our organization.",
-            value: '3'
-                },
-                {
-            text: "Researchers have access to educational and technological support that address a wide breadth of data science and data sharing activities, which are managed by at least one dedicated position within our organization. However, in-depth support for specialized informatics data and software sharing issues are not robust.",
-            value: '4'
-                },
-                {
-            text: "Researchers have access to a breadth and depth of educational and technological support, which are managed by multiple dedicated positions with our organization. In-depth support for specialized informatics data and software sharing issues are robust.",
-            value: '5'
-                }
-            ]
-        },
-        {
-        answerField: 'riosm_q4_engagement',
+        answerField: 'riosm_q1_engagement',
         text: "Choose the statement that best describes how your institution's leadership is engaged in research informatics:", 
         options: [
                 {
@@ -115,7 +37,7 @@ export const RIOSM: BaseModel =
             ]
         },
         {
-        answerField: 'riosm_q5_governance',
+        answerField: 'riosm_q2_governance',
         text: "Choose the statement that best describes your institution's research informatics governance approach:",
         options: [
                 {
@@ -141,7 +63,7 @@ export const RIOSM: BaseModel =
             ]
         },
         {
-        answerField: 'riosm_q6_reputation',
+        answerField: 'riosm_q3_reputation',
         text: "How does your institution feel about the reputational value of research informatics?", 
         options: [
                 {
@@ -162,6 +84,84 @@ export const RIOSM: BaseModel =
                 },
                 {
             text: "Research informatics is valued, supported, and a point of pride for the institution.",
+            value: '5'
+                }
+            ]
+        },
+        {
+        answerField: 'riosm_q4_support_open_science',
+        text: "Choose the statement that best describes your institution's overall support for open science:",
+        options: [
+                {
+            text: "Our researchers and institutional leadership are not engaged in discussions about open science, or data and software sharing",
+            value: '1'
+                },
+                {
+            text: "Specific communities or organizations within our institution are champions for open science, but it’s not on the minds of most researchers.",
+            value: '2'
+                },
+                {
+            text: "Most of our researchers are aware and supportive of open science. There is a general orientation towards data and software sharing, but this is largely investigator driven.",
+            value: '3'
+                },
+                {
+            text: "Most of our researchers know how to share their data and software to enable reuse and leadership views open science as important to our mission and scientific success, but it is not mandated.",
+            value: '4'
+                },
+                {
+            text: "Our researchers and institutional leadership regularly engage in local, national and international discussions about open science, and are aware of community best practices, such as the FAIR Data Principles. Our institution has created policies that require data and software sharing, and support mechanisms that enable the use of best practices and community standards.",
+            value: '5'
+                }
+            ]
+        },
+        {
+            answerField: 'riosm_q5_data_sharing',
+            text: "Choose the statement that best describes how your institution supports data and software sharing through policy:",
+            options: [
+                {
+                text: "Our institution does not have policies that define intellectual property (IP) ownership of research and scholarly outputs, or how data and software can be shared.",
+                value: '1'
+                },
+                {
+                text: "Our institution has policies that define IP ownership of research and scholarly outputs, and how data and software can be shared, but most people are unaware of the policy details and implications.",
+                value: '2'
+                },
+                {
+                text: "Our institution has clearly defined IP, and software and data sharing policies, which most people are aware of and understand. In general, these policies hinder data and software sharing.",
+                value: '3'
+                },
+                {
+                text: "Our institution has clearly defined IP, and software and data sharing policies, which most people are aware of and understand. In general, these policies facilitate data and software sharing.",
+                value: '4'
+                },
+                {
+                text: "Our institution has clearly defined IP, and software and data sharing policies, which most people are aware of and understand. These policies explicitly support data and software sharing, and provide guidance on specific practices that impact reuse and attribution, such as licensing.",
+                value: '5'
+                }
+            ]
+        },
+        {
+        answerField: 'riosm_q6_data_sharing_edu',
+        text: "Choose the statement that best describes how your institution supports data and software sharing through educational and technological support:",
+        options: [
+                {
+            text: "Researchers who want to share their data or software must navigate this process on their own.",
+            value: '1'
+                },
+                {
+            text: "Our institution provides some educational or technological support, but most researchers are unaware of what is available.",
+            value: '2'
+                },
+                {
+            text: "Researchers have access to and regularly utilize organized trainings, documentation, and technology designed to support data and software sharing. These resources are managed by at least one dedicated position within our organization.",
+            value: '3'
+                },
+                {
+            text: "Researchers have access to educational and technological support that address a wide breadth of data science and data sharing activities, which are managed by at least one dedicated position within our organization. However, in-depth support for specialized informatics data and software sharing issues are not robust.",
+            value: '4'
+                },
+                {
+            text: "Researchers have access to a breadth and depth of educational and technological support, which are managed by multiple dedicated positions with our organization. In-depth support for specialized informatics data and software sharing issues are robust.",
             value: '5'
                 }
             ]

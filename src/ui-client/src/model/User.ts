@@ -10,12 +10,12 @@ export type AnswerField =
 
     // RIOSM
     'riosm_complete'                   | 
-    'riosm_q1_support_open_science'    | 
-    'riosm_q2_data_sharing'            | 
-    'riosm_q3_data_sharing_edu'        |
-    'riosm_q4_engagement'              |
-    'riosm_q5_governance'              |
-    'riosm_q6_reputation'              |
+    'riosm_q1_engagement'              |
+    'riosm_q2_governance'              |
+    'riosm_q3_reputation'              |
+    'riosm_q4_support_open_science'    | 
+    'riosm_q5_data_sharing'            | 
+    'riosm_q6_data_sharing_edu'        |
     'riosm_q7_data_analytics_activity' |
     'riosm_q8_ctms'                    |
     'riosm_q9_external_data_edw'       |
@@ -86,12 +86,12 @@ export interface UserUpdateDTO {
 }
 
 // RIOSM
-export const RIOSM_Q1_SUPPORT_OPEN_SCIENCE   : AnswerField = 'riosm_q1_support_open_science'
-export const RIOSM_Q2_DATA_SHARING           : AnswerField = 'riosm_q2_data_sharing'
-export const RIOSM_Q3_DATA_SHARING_EDU       : AnswerField = 'riosm_q3_data_sharing_edu'
-export const RIOSM_Q4_ENGAGEMENT             : AnswerField = 'riosm_q4_engagement'
-export const RIOSM_Q5_GOVERNANCE             : AnswerField = 'riosm_q5_governance'
-export const RIOSM_Q6_REPUTATION             : AnswerField = 'riosm_q6_reputation'
+export const RIOSM_Q1_ENGAGEMENT             : AnswerField = 'riosm_q1_engagement'
+export const RIOSM_Q2_GOVERNANCE             : AnswerField = 'riosm_q2_governance'
+export const RIOSM_Q3_REPUTATION             : AnswerField = 'riosm_q3_reputation'
+export const RIOSM_Q4_SUPPORT_OPEN_SCIENCE   : AnswerField = 'riosm_q4_support_open_science'
+export const RIOSM_Q5_DATA_SHARING           : AnswerField = 'riosm_q5_data_sharing'
+export const RIOSM_Q6_DATA_SHARING_EDU       : AnswerField = 'riosm_q6_data_sharing_edu'
 export const RIOSM_Q7_DATA_ANALYTICS_ACTIVITY: AnswerField = 'riosm_q7_data_analytics_activity'
 export const RIOSM_Q8_CTMS                   : AnswerField = 'riosm_q8_ctms'
 export const RIOSM_Q9_EXTERNAL_DATA_EDW      : AnswerField = 'riosm_q9_external_data_edw'
@@ -99,17 +99,17 @@ export const RIOSM_Q10_RESEARCH_COMPUTING    : AnswerField = 'riosm_q10_research
 export const RIOSM_Q11_SECONDARY_DATA_USE    : AnswerField = 'riosm_q11_secondary_data_use'
 
 export const riosmFields = [ 
-    RIOSM_Q1_SUPPORT_OPEN_SCIENCE, RIOSM_Q2_DATA_SHARING, RIOSM_Q3_DATA_SHARING_EDU, RIOSM_Q4_ENGAGEMENT,
-    RIOSM_Q5_GOVERNANCE, RIOSM_Q6_REPUTATION, RIOSM_Q7_DATA_ANALYTICS_ACTIVITY, RIOSM_Q8_CTMS,
+    RIOSM_Q1_ENGAGEMENT, RIOSM_Q2_GOVERNANCE, RIOSM_Q3_REPUTATION, RIOSM_Q4_SUPPORT_OPEN_SCIENCE,
+    RIOSM_Q5_DATA_SHARING, RIOSM_Q6_DATA_SHARING_EDU, RIOSM_Q7_DATA_ANALYTICS_ACTIVITY, RIOSM_Q8_CTMS,
     RIOSM_Q9_EXTERNAL_DATA_EDW, RIOSM_Q10_RESEARCH_COMPUTING, RIOSM_Q11_SECONDARY_DATA_USE
 ]
 
 export const riosmGovernance: AnswerField[] = [
-    RIOSM_Q4_ENGAGEMENT, RIOSM_Q5_GOVERNANCE, RIOSM_Q6_REPUTATION
+    RIOSM_Q1_ENGAGEMENT, RIOSM_Q2_GOVERNANCE, RIOSM_Q3_REPUTATION
 ]
 
 export const riosmDataAndSoftware: AnswerField[] = [
-    RIOSM_Q1_SUPPORT_OPEN_SCIENCE, RIOSM_Q2_DATA_SHARING, RIOSM_Q3_DATA_SHARING_EDU
+    RIOSM_Q4_SUPPORT_OPEN_SCIENCE, RIOSM_Q5_DATA_SHARING, RIOSM_Q6_DATA_SHARING_EDU
 ]
 
 export const riosmResearchInformatics: AnswerField[] = [
