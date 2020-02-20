@@ -1,50 +1,49 @@
 import React from 'react'
 import { BaseModel } from '../../model/ModelsState';
 import { UserState } from '../../model/UserState';
-import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Legend, Tooltip } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 
 interface Props {
     user: UserState;
     models: BaseModel[];
 }
 
-interface PolarDataPoint {
+interface StackedBarDataPoint {
     all: number;
     max: number;
     model: string;
     user: number;
 }
 
-export default class PolarChart extends React.PureComponent<Props> {
-    private className = 'results-polar';
+export default class StackedBarChart extends React.PureComponent<Props> {
+    private className = 'results-stacked-bar';
     private blue = "rgb(28,168,221)";
     private orange = "rgb(255,132,8)";
 
     public render() {
         const { user } = this.props;
         const c = this.className;
-        const data = this.getPolarData();
+        const data = this.getStackedBarData();
 
         return (
             <div className={c}>
-                <RadarChart outerRadius={250} width={1000} height={600} data={data}>
-                    <PolarGrid stroke={'rgb(230,230,230)'} />
-                    <PolarAngleAxis dataKey="model" />
-                    <PolarRadiusAxis angle={90} domain={[0, 1]} />
-                    <Radar name={'Your Score'} dataKey="user" stroke={this.orange} fill={this.orange} fillOpacity={0.5} />
-                    <Radar name={`Average (n=${user.results.n})`} dataKey="all" stroke={this.blue} fill={this.blue} fillOpacity={0.3} />
-                    <Legend align={'left'} />
+                <BarChart width={500} height={300} data={data} margin={{top: 20, right: 30, left: 20, bottom: 5}}>
+                    <XAxis dataKey="model" />
+                    <YAxis />
                     <Tooltip />
-                </RadarChart>
+                    <Bar name={'Your Score'} stackId="a" dataKey="user" stroke={this.orange} fill={this.orange} fillOpacity={0.5} />
+                    <Bar name={`Average (n=${user.results.n})`} stackId="a" dataKey="all" stroke={this.blue} fill={this.blue} fillOpacity={0.3} />
+                    <Legend />
+                </BarChart>
             </div>
         );
     }
 
-    private getPolarData = (): PolarDataPoint[] => {
-        const { all, user } = this.props.user.results;
+    private getStackedBarData = (): StackedBarDataPoint[] => {
+        const { all, user} = this.props.user.results;
         const models = this.props.models.filter(m => m.selected);
-        const data: PolarDataPoint[] = [];
-
+        const data: StackedBarDataPoint[] = [];
+;
         models.map(
             function (m) {
                 switch (m.name) {
@@ -63,11 +62,6 @@ export default class PolarChart extends React.PureComponent<Props> {
                 };
             }
         )
-
-        // data.push({ model: 'IDC Healthcare IT', all: all['idc_healthcare_it'], user: user['idc_healthcare_it'], max: 1.0 });
-        // data.push({ model: 'HIMSS Electronic Medical Record', all: all['himss_emram'], user: user['himss_emram'], max: 1.0 });
-        // data.push({ model: 'HIMSS Continuity of Care', all: all['himss_ccmm'], user: user['himss_ccmm'], max: 1.0 });
-        // data.push({ model: 'NEHTA Interoperability', all: all['nehta_imm'], user: user['nehta_imm'], max: 1.0 });
 
         return data;
     }

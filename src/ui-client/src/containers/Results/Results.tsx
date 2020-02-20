@@ -7,10 +7,13 @@ import PolarChart from '../../components/Results/PolarChart';
 import './Results.css';
 import RIOSMSummary from '../../components/Results/RIOSMSummary/RIOSMSummary';
 import BaseFormSection from '../../components/BaseForms/BaseForm/BaseFormSection';
+import StackedBarChart from '../../components/Results/StackedBarChart';
+import { BaseModel } from '../../model/ModelsState';
 
 interface Props {
     dispatch: any;
     user: UserState;
+    models: BaseModel[];
 }
 
 interface State {
@@ -90,7 +93,7 @@ export default class Results extends React.PureComponent<Props,State> {
                             header={"Here's how your answers compare to other sites"}
                             headerLarge={true}
                             subheader={'All site data anonymously aggregated'}
-                            content={<PolarChart user={user} />}
+                            content={this.getContent()}
                         />
                         <BaseFormSection
                             header={"Let's see how your RIOSM answers compare to others"}
@@ -107,5 +110,20 @@ export default class Results extends React.PureComponent<Props,State> {
                 )} 
             />
         )
+    }
+
+    private getContent = () => {
+        let content: string | JSX.Element | JSX.Element[]  = '';
+        const modelsSelectedLen = this.props.models.filter(m => m.selected).length;
+
+        if (modelsSelectedLen === 0) {
+            content = <div className={'results-none'}>No models selected.</div>
+        } else if (modelsSelectedLen === 1 || modelsSelectedLen === 2 ) {
+            content = <StackedBarChart models={this.props.models} user={this.props.user} />
+        } else {
+            content = <PolarChart models={this.props.models} user={this.props.user} />
+        }
+
+        return content;        
     }
 }
