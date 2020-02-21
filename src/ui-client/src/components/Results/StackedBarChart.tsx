@@ -1,6 +1,9 @@
 import React from 'react'
 import { BaseModel } from '../../model/ModelsState';
 import { UserState } from '../../model/UserState';
+import { RIOSM } from '../../model/Models/RIOSM'
+import { PrecisionHealth } from '../../model/Models/PrecisionHealth'
+import { Quintegra_eHMM } from '../../model/Models/Quintegra_eHMM'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 
 interface Props {
@@ -30,7 +33,7 @@ export default class StackedBarChart extends React.PureComponent<Props> {
                 <BarChart width={500} height={300} data={data} margin={{top: 20, right: 30, left: 20, bottom: 5}}>
                     <XAxis dataKey="model" />
                     <YAxis />
-                    <Tooltip />
+                    <Tooltip formatter={(value) => (Number(value)*100).toFixed(1).toString() + '%'} />
                     <Bar name={'Your Score'} stackId="a" dataKey="user" stroke={this.orange} fill={this.orange} fillOpacity={0.5} />
                     <Bar name={`Average (n=${user.results.n})`} stackId="a" dataKey="all" stroke={this.blue} fill={this.blue} fillOpacity={0.3} />
                     <Legend />
@@ -47,15 +50,15 @@ export default class StackedBarChart extends React.PureComponent<Props> {
         models.map(
             function (m) {
                 switch (m.name) {
-                    case 'Research Informatics and Open Science Maturity Model (RIOSM)': {
+                    case RIOSM.name: {
                         data.push({ model: 'RIOSM', all: all['riosm'], user: user['riosm'], max: 1.0 });
                         break;
                     };
-                    case 'Precision Health Deployment/Adoption Model': {
+                    case PrecisionHealth.name: {
                         data.push({ model: 'Precision Health', all: all['precision_health'], user: user['precision_health'], max: 1.0 });
                         break;
                     };
-                    case 'Quintegra Maturity Model for Electronic Healthcare (eHMM)': {
+                    case Quintegra_eHMM.name: {
                         data.push({ model: 'Quintegra eHmm', all: all['quintegra_ehmm'], user: user['quintegra_ehmm'], max: 1.0 });
                         break;
                     };

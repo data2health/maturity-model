@@ -11,8 +11,8 @@ import ConfirmationModal from '../../components/Modals/ConfirmationModal/Confirm
 import InformationModal from '../../components/Modals/InformationModal/InformationModal';
 import NoClickModal from '../../components/Modals/NoClickModal/NoClickModal';
 import Snackbar from '../../components/Modals/Snackbar/Snackbar';
-import './Main.css';
 import Greeting from '../../components/Greeting/Greeting';
+import './Main.css';
 
 interface Props {
     dispatch: any;
