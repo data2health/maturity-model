@@ -60,3 +60,26 @@
     font-size: 1.1rem;
     font-weight: 300;
 }
+
+/* MY NEW STUFF */
+.test-class {
+    border-top: 1px solid rgb(220,220,220);
+    margin-top: 100px;
+    padding-top: 50px;
+}
+
+/* .test-class2 {
+    background-color: white;
+    border: 1px solid rgb(230,230,230);
+    border-radius: 8px;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 75%;
+} */
+
+.test-class3 > div {
+    display: inline-block;
+    width: 100px;
+}
+

@@ -1,5 +1,4 @@
 import { UserAnswers, AnswerField } from "./User"
-import { AnswerScore } from "./Score"
 
 export interface BaseModel {
     completeField: AnswerField;
