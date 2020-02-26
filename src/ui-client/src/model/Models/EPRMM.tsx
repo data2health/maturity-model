@@ -7,6 +7,7 @@ export const EPRMM: BaseModel =
 {
     completeField: 'eprmm_complete',
     name: 'Electronic Patient Record Maturity Model (EPRMM)',
+    shortName: 'EPRMM',
     description: 'According to the NHS (United Kingdom National Health Service), there are six different stages of functionality implemented cumulatively until a complete and exhaustive Electronic Patient Record (EPR) is achieved. The adoption of an ERP system has been seen as a goal of health care organizations. In fact, it is intended to improve the efficiency of the organizations in the treatment of patient information, timely provision and needs at the point of care. As it progresses, more information will be available in the information system, whether using traditional computers, mobile phones or portable devices. The EPR system functions as the main source of all patient information. It keeps the complete medical record and will be available online at the point of contact with the patient.',
     render: (dispatch: any, answers: UserAnswers) => <EPRMMForm dispatch={dispatch} answers={answers} />,
     questions: [

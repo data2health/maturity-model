@@ -51,15 +51,15 @@ export default class StackedBarChart extends React.PureComponent<Props> {
             function (m) {
                 switch (m.name) {
                     case RIOSM.name: {
-                        data.push({ model: 'RIOSM', all: all['riosm'], user: user['riosm'], max: 1.0 });
+                        data.push({ model: m.shortName, all: all['riosm'], user: user['riosm'], max: 1.0 });
                         break;
                     };
                     case PrecisionHealth.name: {
-                        data.push({ model: 'Precision Health', all: all['precision_health'], user: user['precision_health'], max: 1.0 });
+                        data.push({ model: m.shortName, all: all['precision_health'], user: user['precision_health'], max: 1.0 });
                         break;
                     };
                     case Quintegra_eHMM.name: {
-                        data.push({ model: 'Quintegra eHmm', all: all['quintegra_ehmm'], user: user['quintegra_ehmm'], max: 1.0 });
+                        data.push({ model: m.shortName, all: all['quintegra_ehmm'], user: user['quintegra_ehmm'], max: 1.0 });
                         break;
                     };
                 };

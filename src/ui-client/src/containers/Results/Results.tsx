@@ -101,12 +101,7 @@ export default class Results extends React.PureComponent<Props,State> {
                             content={this.getResultContent()}
                         />
                         <div className='test-class'>
-                            <div className='test-class2'>
-                                <div className='test-class3'>
-                                    {/* {selected.map(m => <div>{m.name}</div>)} */}
-                                    <Menu models={models}></Menu>
-                                </div>
-                            </div>
+                            <Menu models={models}></Menu>
                         </div>
                         
                         {/* Result summaries */}

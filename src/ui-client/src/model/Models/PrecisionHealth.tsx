@@ -7,6 +7,7 @@ export const PrecisionHealth: BaseModel =
 {
     completeField: 'precision_health_complete',
     name: 'Precision Health Deployment/Adoption Model',
+    shortName: 'Precision Health',
     description: 'The Precision Health Deployment Maturity model focuses on guiding institutional strategic investment in research informatics and information technology (research IT), and providing the ability to measure readiness for clinical and research infrastructure as well as sustainability of expertise.',
     render: (dispatch: any, answers: UserAnswers) => <PrecisionHealthForm dispatch={dispatch} answers={answers} />,
     questions: [

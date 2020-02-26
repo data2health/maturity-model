@@ -4,6 +4,7 @@ export interface BaseModel {
     completeField: AnswerField;
     description: string;
     name: string;
+    shortName: string;
     questions: ModelQuestion[];
     render: (dispatch: any, answers: UserAnswers) => JSX.Element;
     selected?: boolean;

@@ -1,5 +1,6 @@
-import React, { createRef } from 'react';
+import React from 'react';
 import { BaseModel } from '../../../model/ModelsState';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 interface Props {
     models: BaseModel[];
@@ -18,40 +19,26 @@ export default class Menu extends React.PureComponent<Props,State> {
             show: false
         }
     }
-    
-    private toggleMenu() {
-        if (!this.state.show) {
-            document.addEventListener('click', this.handleOutsideClick, false);
-          } else {
-            document.removeEventListener('click', this.handleOutsideClick, false);
-          }
-        this.setState( prevState => ({
-            show: !prevState.show
-            // document.addEventListener('click', this.handleCloseMenu);
-        }))
-    }
-  
-    private handleOutsideClick(e) {
-        if (this.node.contains(e.target)) {
-            return;
-        }
-          
-        this.toggleMenu();
-
-        // this.setState({
-        //     show: false
-        // })
-    }
 
   render() {
       const { models } = this.props;
       const { show } = this.state;
       const selected = models.filter(m => m.selected);
+
     return (
-      <div ref={node => { this.node = node; }}>
-        <button onClick={() => this.toggleMenu()}> Models </button>
-        {show ? <div> {selected.map(m => <button>{m.name}</button>)} </div> : this.handleClickOutside()}
-      </div>
+        <Dropdown size="lg" isOpen={show} toggle={this.toggleMenu}>
+            <DropdownToggle caret> Models </DropdownToggle>
+            <DropdownMenu>
+                {selected.map(m => <DropdownItem> {m.name} </DropdownItem> )}
+            </DropdownMenu>
+        </Dropdown>
+
     );
   }
+
+    private toggleMenu = () => {
+        this.setState( prevState => ({
+            show: !prevState.show
+        }))
+    }
 }

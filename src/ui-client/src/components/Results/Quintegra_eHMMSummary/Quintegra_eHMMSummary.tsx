@@ -2,17 +2,24 @@ import React from 'react'
 import { UserState } from '../../../model/UserState';
 import { Quintegra_eHMM } from '../../../model/Models/Quintegra_eHMM';
 import './Quintegra_eHMMSummary.css';
+import { Collapse, Button, CardBody, Card, Dropdown, DropdownToggle, ButtonToggle, ButtonDropdown} from 'reactstrap'; 
 
 interface Props {
     user: UserState;
 }
 
-export default class RIOSMSummary extends React.PureComponent<Props> {
+interface State {
+    show: boolean;
+}
+
+export default class Quintegra_eHMMSummary extends React.PureComponent<Props,State> {
     private className = 'riosm-summary';
+    state = { show: false }
 
     public render() {
         const c = this.className;
         const { answers, results } = this.props.user;
+        const { show } = this.state;
 
         return (
             <div className={c}>
@@ -76,36 +83,46 @@ export default class RIOSMSummary extends React.PureComponent<Props> {
 
                 </div>
 
+                {/* MY STUFF */}
                 {/* Breakdown */}
                 <div className={`${c}-breakdown`}>
                     {Quintegra_eHMM.questions.map(q => {
                         const a = answers[q.answerField];
                         return (
                             <div className={`${c}-breakdown-container`} key={q.answerField}>
+                                <Button color="info" onClick={this.toggle}>
+                                    <div>Info</div>
+                                </Button>
+                                
+                                {/* check this out https://reactstrap.github.io/components/layout/ */}
 
-                                <div className={`${c}-breakdown-top`}>
-                                    {/* Question */}
-                                    <div className={`${c}-breakdown-question`}>
-                                        {q.text}
-                                    </div>
+                                <Collapse isOpen={show}>
+                                    <CardBody>
+                                        <div className={`${c}-breakdown-top`}>
+                                            {/* Question */}
+                                            <div className={`${c}-breakdown-question`}>
+                                                {q.text}
+                                            </div>
 
-                                    {/* Score */}
-                                    <div className={`${c}-breakdown-score`}>
-                                        <div className='num'>{a}</div> 
-                        <div className='denom'>/ {q.options.length}</div>
-                                    </div>
-                                </div>
-
-                                {/* Options */}
-                                {/* {q.options.map((o,i) => {
-                                    return (
-                                        <div key={i} className={`${c}-breakdown-option ${o.value === a ? 'selected' : ''}`}>
-                                            {o.text}
+                                            {/* Score */}
+                                            <div className={`${c}-breakdown-score`}>
+                                                <div className='num'>{a}</div> 
+                                                <div className='denom'>/ {q.options.length}</div>
+                                            </div>
                                         </div>
-                                    );
-                                })} */}
+
+                                        {/* Options */}
+                                        {q.options.map((o,i) => {
+                                            return (
+                                                <div key={i} className={`${c}-breakdown-option ${o.value === a ? 'selected' : ''}`}>
+                                                    {o.text}
+                                                </div>
+                                            );
+                                        })}
+                                    </CardBody>
+                                </Collapse>
                             </div>
-                        );
+                        )
                     })}
                 </div>
             </div>
@@ -122,4 +139,11 @@ export default class RIOSMSummary extends React.PureComponent<Props> {
         }
         return null;
     }
+
+    private toggle = () => {
+        this.setState( prevState => ({
+            show: !prevState.show
+        }))
+    }
+
 }
