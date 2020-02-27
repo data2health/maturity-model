@@ -1,107 +1,10 @@
-/* Scale */
-.riosm-summary-scale {
-    background-color: white;
-    border: 1px solid rgb(230,230,230);
-    border-radius: 8px;
-    margin: auto;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    width: 520px;
-}
-
-.riosm-summary-scale-key > div,
-.riosm-summary-scale-value > div {
-    display: inline-block;
-    width: 100px;
-}
-
-.riosm-summary-scale-key {
-    color: rgb(150,150,150);
-    margin-top: -2px;
-    text-transform: uppercase;
-}
-
-.riosm-summary-scale-value {
-    color: rgb(50,50,50);
-}
-
-.riosm-summary-scale-value > div {
-    font-weight: 700;
-}
-
-.riosm-summary-scale-value > div:nth-child(1) {
-    color: rgb(231, 85, 0);
-}
-.riosm-summary-scale-value > div:nth-child(2) {
-    color: rgb(231, 177, 0);
-}
-
-.riosm-summary-scale-value > div:nth-child(3) {
-    color: rgb(155, 190, 0);
-}
-
-.riosm-summary-scale-value > div:nth-child(4) {
-    color: rgb(144, 206, 0);
-}
-.riosm-summary-scale-value > div:nth-child(5) {
-    color: rgb(0, 190, 0);
-}
-
-/* Composite Scores */
-.riosm-summary-composite {
-    border-radius: 8px;
-    font-size: 1.3rem;
-    font-weight: 300;
-    margin: auto;
-    margin-bottom: 20px;
-    padding: 20px;
-    text-align: left;
-    width: 500px;
-}
-
-.riosm-summary-composite-score {
-    border-bottom: 1px solid rgb(230,230,230);
-    color: rgb(100,100,100);
-    font-size: 1.3rem;
-    font-weight: 500;
-    height: 35.7px;
-    margin-top: 10px;
-    width: 100%;
-}
-
-.riosm-summary-composite-score > span {
-    float: right;
-    margin-top: -4px;
-}
-
-.riosm-summary-composite-score strong {
-    color: rgb(80,80,80);
-    font-size: 1.7rem;
-    font-weight: 500;
-    margin-right: 8px;
-}
-
-.riosm-summary-composite-score-diff {
-    float: right;
-    font-size: 1.0rem;
-    margin-top: 10px;
-}
-
-.riosm-summary-composite-score-diff.over {
-    color: rgb(0, 190, 0);
-}
-
-.riosm-summary-composite-score-diff.under {
-    color: rgb(231, 85, 0);
-}
-
 /* Breakdown */
-.riosm-summary-breakdown {
+.precision-health-summary-breakdown {
     margin: auto;
     width: 700px;
 }
 
-.riosm-summary-breakdown-container {
+.precision-health-summary-breakdown-container {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 4px 0 rgba(0,0,0,.05),0 4px 1px -2px rgba(0,0,0,.05),0 1px 10px 0 rgba(0,0,0,.05);
@@ -112,23 +15,31 @@
     width: 100%;
 }
 
-.riosm-summary-breakdown-container:hover {
+.precision-health-summary-breakdown-container:hover {
     box-shadow: 4px 4px 10px 0 rgba(0,0,0,.1),-4px 4px 10px 0 rgba(0,0,0,.1);
 }
 
-.riosm-summary-breakdown-top {
+.precision-health-summary-breakdown-primary-top strong {
+    white-space: pre-wrap;
+}
+
+.precision-health-summary-breakdown-primary-top-q {
+    font-size: 1.75rem;
+}
+
+.precision-health-summary-breakdown-secondary-top {
     border-bottom: 1px solid rgb(230,230,230);
     margin-bottom: 10px;
     padding-bottom: 10px;
 }
 
-.riosm-summary-breakdown-question {
+.precision-health-summary-breakdown-question {
     display: inline-block;
     font-size: 1.5rem;
     width: 80%;
 }
 
-.riosm-summary-breakdown-score {
+.precision-health-summary-breakdown-score {
     border-left: 1px solid rgb(240,240,240);
     display: inline-block;
     font-weight: 300;
@@ -137,26 +48,26 @@
     width: 20%;
 }
 
-.riosm-summary-breakdown-score .num {
+.precision-health-summary-breakdown-score .num {
     display: inline-block;
     font-size: 4.0rem;
     margin-top: -13px;
 }
 
-.riosm-summary-breakdown-score .denom {
+.precision-health-summary-breakdown-score .denom {
     display: inline-block;
     font-size: 1.5rem;
     vertical-align: top;
 }
 
-.riosm-summary-breakdown-option {
+.precision-health-summary-breakdown-option {
     color: rgb(120,120,120);
     font-size: 1.0rem;
     font-weight: 300;
     margin: 10px;
 }
 
-.riosm-summary-breakdown-option.selected {
+.precision-health-summary-breakdown-option.selected {
     background-color: rgba(0, 130, 177, 0.1);
     border-left: 4px solid rgb(4, 169, 230);
     background-color: rgba(70, 255, 101, 0.05);

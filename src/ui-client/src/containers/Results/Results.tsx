@@ -12,6 +12,7 @@ import BaseFormSection from '../../components/BaseForms/BaseForm/BaseFormSection
 import StackedBarChart from '../../components/Results/StackedBarChart';
 import './Results.css';
 import Menu from '../../components/Results/Menu/Menu'
+import { DropdownToggle, DropdownMenu, DropdownItem, UncontrolledDropdown } from 'reactstrap';
 
 interface Props {
     dispatch: any;
@@ -21,6 +22,7 @@ interface Props {
 
 interface State {
     show: boolean;
+    showModel: string;
 }
 
 export default class Results extends React.PureComponent<Props,State> {
@@ -29,7 +31,8 @@ export default class Results extends React.PureComponent<Props,State> {
     public constructor(props: Props) {
         super(props);
         this.state = {
-            show: false
+            show: false,
+            showModel: ''
         }
     }
 
@@ -100,20 +103,16 @@ export default class Results extends React.PureComponent<Props,State> {
                             subheader={'All site data anonymously aggregated'}
                             content={this.getResultContent()}
                         />
-                        <div className='test-class'>
-                            <Menu models={models}></Menu>
-                        </div>
                         
                         {/* Result summaries */}
                         {this.getSummaryContent()}
+                        
+                        {this.showResults(this.state.showModel)}
+                        
                     </div>
                 )} 
             />
         )
-    }
-
-    private getSelectedModel = () => {
-        
     }
 
     private getResultContent = () => {
@@ -132,21 +131,70 @@ export default class Results extends React.PureComponent<Props,State> {
         return content;        
     }
 
+    private handleModelSummary = (model: string) => {
+        this.setState({showModel: model})
+
+        return ;
+    }
+
+    private showResults = (model: string) => {
+        if (model === 'Quintegra eHMM') {
+            return (
+                <BaseFormSection
+                    header={`Let's see how your ${model} answers compare to others`}
+                    headerLarge={true}
+                    content={<Quintegra_eHMMSummary user={this.props.user} />}
+                />
+            )
+        } else if (model === 'Precision Health') {
+            return (
+                <BaseFormSection
+                    header={`Let's see how your ${model} answers compare to others`}
+                    headerLarge={true}
+                    content={<PrecisionHealthSummary user={this.props.user} />}
+                />
+            )
+        } else {
+            return (
+                <BaseFormSection
+                    header={`Let's see how your RIOSM answers compare to others`}
+                    headerLarge={true}
+                    subheader=
+                        {<span>
+                            The Research Informatics Maturity Model uses a 5-point scoring system to benchmark an 
+                            organization's overall and category-level maturity. The score corresponds to the five-level 
+                            maturity continuum first proposed in the <a href='https://en.wikipedia.org/wiki/Capability_Maturity_Model' target='_'>Capability Maturity Model</a>.
+                        </span>}
+                    content={<RIOSMSummary user={this.props.user} />}
+                />
+            )
+        }
+    }
+
     private getSummaryContent = () => {
+        const selected = this.props.models.filter(m => m.selected);
         return (
-            <BaseFormSection
-                header={"Let's see how your RIOSM answers compare to others"}
-                headerLarge={true}
-                subheader=
-                    {<span>
-                        The Research Informatics Maturity Model uses a 5-point scoring system to benchmark an 
-                        organization's overall and category-level maturity. The score corresponds to the five-level 
-                        maturity continuum first proposed in the <a href='https://en.wikipedia.org/wiki/Capability_Maturity_Model' target='_'>Capability Maturity Model</a>.
-                    </span>}
-                // content={<RIOSMSummary user={user} />}
-                // content={<PrecisionHealthSummary user={user} />}
-                content={<Quintegra_eHMMSummary user={this.props.user} />}
-            />
+            <div className='test-class'>
+                            <UncontrolledDropdown size="lg">
+                                <DropdownToggle caret> Select a Model </DropdownToggle>
+                                <DropdownMenu>
+                                    {selected.map(m => <DropdownItem onClick={this.handleModelSummary.bind(null, m.shortName)}> {m.shortName} </DropdownItem> )}
+                                </DropdownMenu>
+                            </UncontrolledDropdown>
+                        </div>
+            // <BaseFormSection
+            //     header={`Let's see how your ${'MODEL'} answers compare to others`}
+            //     headerLarge={true}
+            //     // subheader=
+            //         // {<span>
+            //         //     The Research Informatics Maturity Model uses a 5-point scoring system to benchmark an 
+            //         //     organization's overall and category-level maturity. The score corresponds to the five-level 
+            //         //     maturity continuum first proposed in the <a href='https://en.wikipedia.org/wiki/Capability_Maturity_Model' target='_'>Capability Maturity Model</a>.
+            //         // </span>}
+            //     // content={<RIOSMSummary user={this.props.user} />}
+            //     // content={<PrecisionHealthSummary user={this.props.user} />}
+            //     content={<Quintegra_eHMMSummary user={this.props.user} />}
+            // />
         )
     }
 
