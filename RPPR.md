@@ -48,7 +48,7 @@ Models created by both methods will be combined in a tool that will allow organi
 9/2019 | **Expanded maturity models:** Community responses used to complete top and bottom levels of maturity for prioritized topics | DONE
 9/2019 | **Software Assessment Tool:** Software requirements and validation | DONE
 10/2019 | **Software Assessment Tool:** Assessment tool software development plan | DONE
-12/2019 | **Software Assessment Tool:** Version 1 of software developed and ready for pilot testing | IN PROCESS
+12/2019 | **Software Assessment Tool:** Version 1 of software developed and ready for pilot testing | DONE
 
 # Potential Pitfalls and Alternative Strategies
 By using two approaches for developing maturity models, we mitigate the main pitfalls of models being difficult to define. The main potential pitfall for the main adoption model is that there is too much diversity of approach, which would make creating vignettes and distributions difficult. A pitfall for the rapid development approach is that the models will not be sufficiently detailed to be useful.
