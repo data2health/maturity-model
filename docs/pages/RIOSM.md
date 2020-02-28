@@ -13,7 +13,7 @@ Currently the RIOSM has defined models in three areas:
 
 Please explore our paper on [RIOSM](http://bit.ly/RIOSM_pdf) 
 
-Please take the RIOSM self-assessment [survey](http://bit.ly/riosmCD2H)
+Please take the RIOSM self-assessment [survey](https://maturitymodel.rit.uw.edu)
 
 
 #### Back to [home](https://data2health.github.io/maturity-model/)
