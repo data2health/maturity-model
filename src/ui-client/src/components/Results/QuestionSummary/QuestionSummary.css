@@ -1,10 +1,4 @@
-/* Breakdown */
-.quintegra-ehmm-summary-breakdown {
-    margin: auto;
-    width: 700px;
-}
-
-.quintegra-ehmm-summary-breakdown-container {
+.question-summary-breakdown-container {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 4px 0 rgba(0,0,0,.05),0 4px 1px -2px rgba(0,0,0,.05),0 1px 10px 0 rgba(0,0,0,.05);
@@ -15,32 +9,49 @@
     width: 100%;
 }
 
-.quintegra-ehmm-summary-breakdown-container:hover {
+.question-summary-breakdown-container:hover {
     box-shadow: 4px 4px 10px 0 rgba(0,0,0,.1),-4px 4px 10px 0 rgba(0,0,0,.1);
 }
 
-.quintegra-ehmm-summary-breakdown-primary-top strong {
-    white-space: pre-wrap;
+.question-summary-breakdown-primary-top {
+    color: rgb(100,100,100);
 }
 
-.quintegra-ehmm-summary-breakdown-primary-top-q {
+.question-summary-breakdown-primary-top .question {
     font-size: 1.75rem;
 }
 
-.quintegra-ehmm-summary-breakdown-secondary-top {
+.question-summary-breakdown-primary-top .user-border {
+    border-right: 1px solid rgb(230,230,230);
+}
+
+.question-summary-breakdown-primary-top .user-score {
+    color: rgb(255, 132, 8);
+}
+
+.question-summary-breakdown-primary-top .all{
+    color: rgb(28, 168, 221);
+}
+
+.question-summary-breakdown-primary-top-question-text {
+    margin-top: 2%;
+    color: rgb(150,150,150);
+}
+
+.question-summary-breakdown-secondary-top {
     border-bottom: 1px solid rgb(230,230,230);
     margin-bottom: 10px;
     padding-bottom: 10px;
 }
 
-.quintegra-ehmm-summary-breakdown-question {
+.question-summary-breakdown-question {
     display: inline-block;
     font-size: 1.5rem;
     width: 80%;
 }
 
-.quintegra-ehmm-summary-breakdown-score {
-    border-left: 1px solid rgb(240,240,240);
+.question-summary-breakdown-score {
+    border-left: 1px solid rgb(230,230,230);
     display: inline-block;
     font-weight: 300;
     vertical-align: top;
@@ -48,26 +59,26 @@
     width: 20%;
 }
 
-.quintegra-ehmm-summary-breakdown-score .num {
+.question-summary-breakdown-score .num {
     display: inline-block;
     font-size: 4.0rem;
     margin-top: -13px;
 }
 
-.quintegra-ehmm-summary-breakdown-score .denom {
+.question-summary-breakdown-score .denom {
     display: inline-block;
     font-size: 1.5rem;
     vertical-align: top;
 }
 
-.quintegra-ehmm-summary-breakdown-option {
+.question-summary-breakdown-option {
     color: rgb(120,120,120);
     font-size: 1.0rem;
     font-weight: 300;
     margin: 10px;
 }
 
-.quintegra-ehmm-summary-breakdown-option.selected {
+.question-summary-breakdown-option.selected {
     background-color: rgba(0, 130, 177, 0.1);
     border-left: 4px solid rgb(4, 169, 230);
     background-color: rgba(70, 255, 101, 0.05);

@@ -4,32 +4,52 @@ import { UserState } from '../../model/UserState';
 import { RIOSM } from '../../model/Models/RIOSM'
 import { PrecisionHealth } from '../../model/Models/PrecisionHealth'
 import { Quintegra_eHMM } from '../../model/Models/Quintegra_eHMM'
-import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Legend, Tooltip } from 'recharts';
+import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
+         Radar, BarChart, Bar, XAxis, YAxis, Legend, Tooltip } from 'recharts';
 
 interface Props {
     user: UserState;
     models: BaseModel[];
 }
 
-interface PolarDataPoint {
+interface ChartDataPoint {
     all: number;
     max: number;
     model: string;
     user: number;
 }
 
-export default class PolarChart extends React.PureComponent<Props> {
-    private className = 'results-polar';
+export default class Chart extends React.PureComponent<Props> {
+    private className = 'results';
     private blue = "rgb(28,168,221)";
     private orange = "rgb(255,132,8)";
 
     public render() {
         const { user } = this.props;
         const c = this.className;
-        const data = this.getPolarData();
+        const data = this.getChartData();
+        const modelsSelectedLen = this.props.models.filter(m => m.selected).length;
 
-        return (
-            <div className={c}>
+        if (modelsSelectedLen === 0) {
+            return (
+                <div className={`${c}-none`}>No models selected</div>
+            )
+        } else if (modelsSelectedLen === 1 || modelsSelectedLen === 2) {
+            return (
+                <div className={`${c}-chart`}>
+                <BarChart width={500} height={300} data={data} margin={{top: 20, right: 30, left: 20, bottom: 5}}>
+                    <XAxis dataKey="model" />
+                    <YAxis />
+                    <Tooltip formatter={(value) => (Number(value)*100).toFixed(1).toString() + '%'} />
+                    <Bar name={'Your Score'} stackId="a" dataKey="user" stroke={this.orange} fill={this.orange} fillOpacity={0.5} />
+                    <Bar name={`Average (n=${user.results.n})`} stackId="a" dataKey="all" stroke={this.blue} fill={this.blue} fillOpacity={0.3} />
+                    <Legend />
+                </BarChart>
+            </div>
+            )
+        } else {
+            return (
+                <div className={`${c}-chart`}>
                 <RadarChart outerRadius={250} width={1000} height={600} data={data}>
                     <PolarGrid stroke={'rgb(230,230,230)'} />
                     <PolarAngleAxis dataKey="model" />
@@ -40,13 +60,14 @@ export default class PolarChart extends React.PureComponent<Props> {
                     <Tooltip formatter={(value) => (Number(value)*100).toFixed(1).toString() + '%'} />
                 </RadarChart>
             </div>
-        );
+            )
+        }
     }
 
-    private getPolarData = (): PolarDataPoint[] => {
+    private getChartData = (): ChartDataPoint[] => {
         const { all, user } = this.props.user.results;
         const models = this.props.models.filter(m => m.selected);
-        const data: PolarDataPoint[] = [];
+        const data: ChartDataPoint[] = [];
 
         models.map(
             function (m) {
@@ -66,11 +87,6 @@ export default class PolarChart extends React.PureComponent<Props> {
                 };
             }
         )
-
-        // data.push({ model: 'IDC Healthcare IT', all: all['idc_healthcare_it'], user: user['idc_healthcare_it'], max: 1.0 });
-        // data.push({ model: 'HIMSS Electronic Medical Record', all: all['himss_emram'], user: user['himss_emram'], max: 1.0 });
-        // data.push({ model: 'HIMSS Continuity of Care', all: all['himss_ccmm'], user: user['himss_ccmm'], max: 1.0 });
-        // data.push({ model: 'NEHTA Interoperability', all: all['nehta_imm'], user: user['nehta_imm'], max: 1.0 });
 
         return data;
     }
