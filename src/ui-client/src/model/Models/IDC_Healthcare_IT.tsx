@@ -7,6 +7,7 @@ export const IDC_Healthcare_IT: BaseModel =
 {
     completeField: 'idc_healthcare_it_complete',
     name: 'IDC Healthcare IT (HIT) Maturity Model',
+    shortName: 'IDC Healthcare IT',
     description: 'IDC (Health Industry Insights) developed a maturity model that describes the five developmental stages of hospitals IS. Each step is supported by the capabilities of the previous stage. This maturity model, called Healthcare IT (HIT) Maturity Model, has been used worldwide by IDC to assess the maturity of the hospitals IS (HIS). Also, it has been used to compare the average maturity between regions and countries of different continents. This model has five stages: basic HIS, advanced HIS, clinical HIS, and digital hospital and virtual hospital.',
     render: (dispatch: any, answers: UserAnswers) => <IDC_Healthcare_ITForm dispatch={dispatch} answers={answers} />,
     questions: [

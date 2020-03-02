@@ -7,6 +7,7 @@ export const HIMSS_EMRAM: BaseModel =
 {
     completeField: 'himss_emram_complete',
     name: 'HIMSS Maturity Model for the Electronic Medical Record (EMRAM)',
+    shortName: 'HIMSS EMRAM',
     description: 'The HIMSS Maturity Model for Electronic Medical Record is a model for the identification of various stages of maturity in the area of Electronic Medical Record (EMR) of hospitals. In these times, understanding the performance of EMR in hospitals is a challenge in the health care context. The HIMSS Analytics (Healthcare Information and Management Systems Society) developed an adoption model to identify the stages of maturity of the EMR from the limited ancillary department systems to paperless EMR environment. The model proposed by HIMSS Analytics is named EMR Adoption Model (EMRAM) and consists of 8 stages. According to HIMSS Analytics, the structure of this model ensures that a stage is reached only when all their applications are operational.',
     render: (dispatch: any, answers: UserAnswers) => <HIMSS_EMRAMForm dispatch={dispatch} answers={answers} />,
     questions: [

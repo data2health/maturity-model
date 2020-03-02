@@ -7,6 +7,7 @@ export const Forrester: BaseModel =
 {
     completeField: 'forrester_model_complete',
     name: 'Forrester',
+    shortName: 'Forrester',
     description: 'Forrester Research Inc. has developed a model with three stages for the area of EMR. This model was developed in order to help healthcare providers to assess their systems, the way they collaborate and interact, the state of the workflow, and most important, determining the map to get to the next phase. According to Clair, this three stages model includes four dimensions or influencing factors: access, interoperability, content features and planning and strategy. In addition to the model itself, Forrester Research Inc. has also developed a manual to drive systems to the next stage. The three stages of this model are: Paper- or imaged-based patient records dominate, Access to standalone repositories improves and Access to the complete digital medical record is role based.',
     render: (dispatch: any, answers: UserAnswers) => <ForresterForm dispatch={dispatch} answers={answers} />,
     questions: [

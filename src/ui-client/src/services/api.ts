@@ -1,7 +1,7 @@
 import Axios from 'axios';
-import { UserAnswersDTO, UserAnswers, UserUpdateDTO, precisionHealthFields } from '../model/User';
+import { UserAnswersDTO, UserUpdateDTO, UserAnswers } from '../model/User';
 import { UserState } from '../model/UserState';
-import { AnswerScore, AnswerScores } from "../model/Score";
+import { BaseAnswerScore, AnswerScores } from "../model/Score";
 import { 
     riosmFields, 
     QUINTEGRA_EHMM_Q1, 
@@ -9,10 +9,11 @@ import {
     HIMSS_EMRAM_Q1, 
     himssCCmmFields, 
     EPRMM_Q1, 
-    NEHTA_IMM_Q1, 
+    NEHTA_IMM_Q1,
+    precisionHealthFields,
     riosmGovernance, 
     riosmDataAndSoftware, 
-    riosmResearchInformatics 
+    riosmResearchInformatics,
 } from "../model/User";
 
 let serverState: UserAnswers = {};
@@ -109,7 +110,7 @@ const dtoToUser = (dto: UserAnswersDTO): UserAnswers => {
     return dto;
 };
 
-export const calculateUserScores = (user: UserAnswers): AnswerScore => {
+export const calculateUserScores = (user: UserAnswers): BaseAnswerScore => {
     const maxFive  = 5.0;
     const maxSix   = 6.0;
     const maxSeven = 7.0;
@@ -131,7 +132,7 @@ export const calculateUserScores = (user: UserAnswers): AnswerScore => {
             governance          : sum(validate(riosmGovernance.map(f => user[f]))) / riosmGovernance.length,
             data_and_software_sharing   : sum(validate(riosmDataAndSoftware.map(f => user[f]))) / riosmDataAndSoftware.length,
             research_informatics: sum(validate(riosmResearchInformatics.map(f => user[f]))) / riosmResearchInformatics.length
-        }
+        }    
     };
 };
 

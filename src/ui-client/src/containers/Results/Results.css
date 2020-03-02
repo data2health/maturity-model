@@ -37,7 +37,21 @@
     text-align: center;
 }
 
-.results-polar {
+.results-summary-dropdown-text {
+    color: #007bff;
+}
+
+.results-none {
+    color: rgb(40, 40, 40);
+    font-size: 1.9rem;
+    font-weight: 300;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    max-width: 900px;
+}
+
+.results-chart {
     display: inline-block;
     margin: auto;
     text-align: center;

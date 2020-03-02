@@ -1,18 +1,35 @@
-import React from 'react'
+import React from 'react';
+import { BaseModel } from '../../../model/ModelsState';
 import { UserState } from '../../../model/UserState';
 import { RIOSM } from '../../../model/Models/RIOSM';
-import './RIOSMSummary.css';
+import ModelSummary from '../ModelSummary/ModelSummary';
+import './ContentSummary.css';
 
 interface Props {
     user: UserState;
+    models: BaseModel[];
+    model: string;
 }
 
-export default class RIOSMSummary extends React.PureComponent<Props> {
-    private className = 'riosm-summary';
+export default class ContentSummary extends React.PureComponent<Props> {
 
     public render() {
-        const c = this.className;
-        const { answers, results } = this.props.user;
+        const { user, models, model } = this.props;
+
+        if (model === 'RIOSM') {
+            return this.getRIOSMSummary()
+        };
+        
+        return (
+            models.map((m) => {
+                return m.shortName === model && <ModelSummary model={m} user={user} />
+            })
+        );
+    };
+
+    private getRIOSMSummary = () => {
+        const c = 'riosm-summary';
+        const { results } = this.props.user;        
 
         return (
             <div className={c}>
@@ -76,50 +93,20 @@ export default class RIOSMSummary extends React.PureComponent<Props> {
 
                 </div>
 
-                {/* Breakdown */}
-                <div className={`${c}-breakdown`}>
-                    {RIOSM.questions.map(q => {
-                        const a = answers[q.answerField];
-                        return (
-                            <div className={`${c}-breakdown-container`} key={q.answerField}>
+                <ModelSummary model={RIOSM} user={this.props.user} />
 
-                                <div className={`${c}-breakdown-top`}>
-                                    {/* Question */}
-                                    <div className={`${c}-breakdown-question`}>
-                                        {q.text}
-                                    </div>
-
-                                    {/* Score */}
-                                    <div className={`${c}-breakdown-score`}>
-                                        <div className='num'>{a}</div> 
-                                        <div className='denom'>/ 5</div>
-                                    </div>
-                                </div>
-
-                                {/* Options */}
-                                {q.options.map((o,i) => {
-                                    return (
-                                        <div key={i} className={`${c}-breakdown-option ${o.value === a ? 'selected' : ''}`}>
-                                            {o.text}
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        );
-                    })}
-                </div>
             </div>
         );
-    }
+    };
 
     private getValueDifference = (user: number, all: number): JSX.Element | null => {
-        const c = this.className;
+        const c = 'riosm-summary';
 
         if (user >= all) {
             return <span className={`${c}-composite-score-diff over`}>+{(user-all).toFixed(2)}</span>
         } else if (all > user) {
             return <span className={`${c}-composite-score-diff under`}>-{(all-user).toFixed(2)}</span>
-        }
+        };
         return null;
-    }
+    };
 }

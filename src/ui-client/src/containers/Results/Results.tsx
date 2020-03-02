@@ -1,16 +1,18 @@
 import React from 'react'
+import { BaseModel } from '../../model/ModelsState';
 import { UserState, AnswerScoreLoadState } from '../../model/UserState';
 import { getScores } from '../../actions/user';
 import LoaderIcon from '../../components/Other/LoaderIcon/LoaderIcon';
 import BaseForm from '../../components/BaseForms/BaseForm/BaseForm';
-import PolarChart from '../../components/Results/PolarChart';
-import './Results.css';
-import RIOSMSummary from '../../components/Results/RIOSMSummary/RIOSMSummary';
 import BaseFormSection from '../../components/BaseForms/BaseForm/BaseFormSection';
+import Chart from '../../components/Results/Chart';
+import Summary from '../../components/Results/Summary'
+import './Results.css';
 
 interface Props {
     dispatch: any;
     user: UserState;
+    models: BaseModel[];
 }
 
 interface State {
@@ -39,7 +41,7 @@ export default class Results extends React.PureComponent<Props,State> {
     public render() {
         const c = this.className;
         const classes = [ c ];
-        const { user } = this.props;
+        const { user, models } = this.props;
         const { show } = this.state;
 
         if (!show) {
@@ -86,23 +88,16 @@ export default class Results extends React.PureComponent<Props,State> {
             <BaseForm 
                 content={(
                     <div className={c}>
+                        {/* Chart results */}
                         <BaseFormSection
                             header={"Here's how your answers compare to other sites"}
                             headerLarge={true}
                             subheader={'All site data anonymously aggregated'}
-                            content={<PolarChart user={user} />}
+                            content={<Chart models={models} user={user} />}
                         />
-                        <BaseFormSection
-                            header={"Let's see how your RIOSM answers compare to others"}
-                            headerLarge={true}
-                            subheader=
-                                {<span>
-                                    The Research Informatics Maturity Model uses a 5-point scoring system to benchmark an 
-                                    organization's overall and category-level maturity. The score corresponds to the five-level 
-                                    maturity continuum first proposed in the <a href='https://en.wikipedia.org/wiki/Capability_Maturity_Model' target='_'>Capability Maturity Model</a>.
-                                </span>}
-                            content={<RIOSMSummary user={user} />}
-                        />
+
+                        {/* Result summaries */}
+                        <Summary models={models} user={user} />
                     </div>
                 )} 
             />

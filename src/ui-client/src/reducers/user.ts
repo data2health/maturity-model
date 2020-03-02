@@ -8,7 +8,7 @@ import {
     USER_SET_IS_GUEST
 } from "../actions/user";
 import { UserState, AnswerScoreLoadState } from "../model/UserState";
-import { AnswerScore } from "../model/Score";
+import { BaseAnswerScore, AllAnswerScore } from "../model/Score";
 import { FormState } from "../model/ModelsState";
 
 export const defaultUserState = (): UserState => {
@@ -87,14 +87,14 @@ export const defaultUserState = (): UserState => {
         entryCode: '',
         guest: false,
         results: {
-            all: defaultScore(),
-            user: defaultScore(),
+            all: allDefaultScore(),
+            user: userDefaultScore(),
             n: 0
         }
     };
 };
 
-const defaultScore = (): AnswerScore => {
+const userDefaultScore = (): BaseAnswerScore => {
     return {
         riosm: 0,
         quintegra_ehmm: 0,
@@ -110,6 +110,54 @@ const defaultScore = (): AnswerScore => {
             governance: 0,
             data_and_software_sharing: 0,
             research_informatics: 0
+        }
+    };
+}
+
+const allDefaultScore = (): AllAnswerScore => {
+    return {
+        riosm: 0,
+        quintegra_ehmm: 0,
+        idc_healthcare_it: 0,
+        himss_emram: 0,
+        himss_ccmm: 0,
+        nehta_imm: 0,
+        eprmm: 0,
+        forrester: 0,
+        precision_health: 0,
+        riosm_categories: {
+            overall: 0,
+            governance: 0,
+            data_and_software_sharing: 0,
+            research_informatics: 0
+        },
+        riosm_questions: {
+            q1Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q2Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q3Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q4Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q5Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q6Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q7Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q8Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q9Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q10Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q11Stats: { mean: 0, min: 0, max: 0, median: 0 }
+        },
+        quintegra_ehmm_questions: {
+            q1Stats: { mean: 0, min: 0, max: 0, median: 0 }
+        },
+        precision_health_questions: {
+            q1Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q2Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q3Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q4Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q5Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q6Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q7Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q8Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q9Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q10Stats: { mean: 0, min: 0, max: 0, median: 0 }
         }
     };
 }

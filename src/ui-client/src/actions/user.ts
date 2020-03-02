@@ -3,7 +3,7 @@ import { AppState } from "../model/AppState";
 import { update, getUserAndAggregateScores, changed } from "../services/api";
 import { setSnackbarState, showInfoModal } from "./general";
 import { NotificationStates, InformationModalState } from "../model/GeneralState";
-import { AnswerScores, AnswerScore } from "../model/Score";
+import { AnswerScores, BaseAnswerScore } from "../model/Score";
 import { AnswerScoreLoadState } from "../model/UserState";
 
 export const USER_SET_IS_GUEST = 'USER_SET_IS_GUEST';
@@ -18,7 +18,7 @@ export interface UserAction {
     answerLoadState?: AnswerScoreLoadState;
     email?: string;
     entryCode?: string;
-    score?: AnswerScore;
+    score?: BaseAnswerScore;
     scores?: AnswerScores;
     type: string;
 }
@@ -105,7 +105,7 @@ export const userSetCredentials = (email: string, entryCode: string): UserAction
     };
 };
 
-export const userSetScore = (score: AnswerScore): UserAction => {
+export const userSetScore = (score: BaseAnswerScore): UserAction => {
     return {
         score,
         type: USER_SET_ANSWER_SCORE

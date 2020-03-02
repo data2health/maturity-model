@@ -7,6 +7,7 @@ export const RIOSM: BaseModel =
 {
     completeField: 'riosm_complete',
     name: 'Research Informatics and Open Science Maturity Model (RIOSM)',
+    shortName: 'RIOSM',
     description: 'The RIOSM self-assessment survey uses short vignettes to describe a five-level maturity continuum, based on the maturity levels first proposed in the Capability Maturity Model (CMM).  RIOSM’s maturity level vignettes were derived from over 20 hours of interviews at 12 sites.  The result is an evidence-based model derived from data on the variability of capabilities and activities across institutions.',
     render: (dispatch: any, answers: UserAnswers) => <RIOSMForm dispatch={dispatch} answers={answers} />,
     questions: [

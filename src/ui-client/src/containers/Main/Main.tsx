@@ -11,8 +11,8 @@ import ConfirmationModal from '../../components/Modals/ConfirmationModal/Confirm
 import InformationModal from '../../components/Modals/InformationModal/InformationModal';
 import NoClickModal from '../../components/Modals/NoClickModal/NoClickModal';
 import Snackbar from '../../components/Modals/Snackbar/Snackbar';
-import './Main.css';
 import Greeting from '../../components/Greeting/Greeting';
+import './Main.css';
 
 interface Props {
     dispatch: any;
@@ -77,7 +77,7 @@ export default class Main extends React.PureComponent<Props,State> {
                 if (!models.current) { break; }
                 return models.current.render(dispatch, user.answers);
             case AppView.Results:
-                return <Results dispatch={dispatch} user={user} />;
+                return <Results dispatch={dispatch} models={models.all} user={user} />;
         }
         return null;
     }
