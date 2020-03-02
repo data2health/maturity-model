@@ -14,8 +14,8 @@ mgr = Manager()
 #########################################
 # Routes
 #########################################
-# @app.route('/user', methods=['GET'])
-@app.route('/api/user', methods=['GET'])
+
+@app.route('/user', methods=['GET'])
 def is_user():
     try:
         email = request.args.get('email')
@@ -34,8 +34,7 @@ def is_user():
         sys.stderr.write(f'Error: {ex}\n')
         return server_error()    
 
-# @app.route('/user/answers', methods=['POST'])
-@app.route('/api/user/answers', methods=['POST'])
+@app.route('/user/answers', methods=['POST'])
 def update_data():
     try:
         req_data = request.get_json()
@@ -56,8 +55,7 @@ def update_data():
         sys.stderr.write(f'Error: {ex}\n')
         return server_error()
 
-# @app.route('/scores', methods=['GET'])
-@app.route('/api/scores', methods=['GET'])
+@app.route('/scores', methods=['GET'])
 def get_scores():
     try:
         email = request.args.get('email')

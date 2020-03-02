@@ -22,8 +22,8 @@ export default class QuestionSummary extends React.PureComponent<Props, State> {
         super(props);
         this.state = {
             show: false
-        }
-    }
+        };
+    };
 
     public render() {
 
@@ -80,11 +80,11 @@ export default class QuestionSummary extends React.PureComponent<Props, State> {
                     </CardBody>
                 </Collapse>
             </div>
-        )
-    }
+        );
+    };
     private handleQuestionDisplay = () => {
         this.setState( prevState => ({
             show: !prevState.show
         }));
-    }
+    };
 }

@@ -18,14 +18,14 @@ export default class ContentSummary extends React.PureComponent<Props> {
 
         if (model === 'RIOSM') {
             return this.getRIOSMSummary()
-        }
+        };
         
         return (
             models.map((m) => {
                 return m.shortName === model && <ModelSummary model={m} user={user} />
             })
-        )
-    }
+        );
+    };
 
     private getRIOSMSummary = () => {
         const c = 'riosm-summary';
@@ -96,8 +96,8 @@ export default class ContentSummary extends React.PureComponent<Props> {
                 <ModelSummary model={RIOSM} user={this.props.user} />
 
             </div>
-        )
-    }
+        );
+    };
 
     private getValueDifference = (user: number, all: number): JSX.Element | null => {
         const c = 'riosm-summary';
@@ -106,7 +106,7 @@ export default class ContentSummary extends React.PureComponent<Props> {
             return <span className={`${c}-composite-score-diff over`}>+{(user-all).toFixed(2)}</span>
         } else if (all > user) {
             return <span className={`${c}-composite-score-diff under`}>-{(all-user).toFixed(2)}</span>
-        }
+        };
         return null;
-    }
+    };
 }

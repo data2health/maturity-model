@@ -26,24 +26,24 @@ export default class ModelSummary extends React.PureComponent<Props> {
                         const result = this.getResults(model.shortName, i);
                         return (
                             <QuestionSummary answer={a} question={q} index={i} results={result} />
-                        )
-                    })}
+                        );
+                    })};
                 </div>
             </div>
         );
-    }
+    };
 
     private getResults = (modelName: string, index: number): AnswerStats => {
         if (modelName === this.res.RIOSM.name) {
             return this.res.RIOSM.questions[index];
-        }
+        };
         if (modelName === this.res.Quintegra_eHMM.name) {
             return this.res.Quintegra_eHMM.questions[index];
-        }
+        };
         if (modelName === this.res.PrecisionHealth.name) {
             return this.res.PrecisionHealth.questions[index];
-        }
-        return {mean: 0 , min: 0, max: 0, median: 0}
+        };
+        return {mean: 0 , min: 0, max: 0, median: 0};
     }
 
     private results = this.props.user.results;
@@ -199,16 +199,16 @@ export default class ModelSummary extends React.PureComponent<Props> {
                 }
             ]
         }
-    }
+    };
 }
 
 interface Result {
     RIOSM: ModelResult;
     Quintegra_eHMM: ModelResult;
     PrecisionHealth: ModelResult;
-}
+};
 
 interface ModelResult {
     name: string;
     questions: AnswerStats[];
-}
+};

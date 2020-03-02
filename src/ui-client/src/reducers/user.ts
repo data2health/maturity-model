@@ -8,7 +8,7 @@ import {
     USER_SET_IS_GUEST
 } from "../actions/user";
 import { UserState, AnswerScoreLoadState } from "../model/UserState";
-import { AnswerScore } from "../model/Score";
+import { BaseAnswerScore, AllAnswerScore } from "../model/Score";
 import { FormState } from "../model/ModelsState";
 
 export const defaultUserState = (): UserState => {
@@ -87,14 +87,34 @@ export const defaultUserState = (): UserState => {
         entryCode: '',
         guest: false,
         results: {
-            all: defaultScore(),
-            user: defaultScore(),
+            all: allDefaultScore(),
+            user: userDefaultScore(),
             n: 0
         }
     };
 };
 
-const defaultScore = (): AnswerScore => {
+const userDefaultScore = (): BaseAnswerScore => {
+    return {
+        riosm: 0,
+        quintegra_ehmm: 0,
+        idc_healthcare_it: 0,
+        himss_emram: 0,
+        himss_ccmm: 0,
+        nehta_imm: 0,
+        eprmm: 0,
+        forrester: 0,
+        precision_health: 0,
+        riosm_categories: {
+            overall: 0,
+            governance: 0,
+            data_and_software_sharing: 0,
+            research_informatics: 0
+        }
+    };
+}
+
+const allDefaultScore = (): AllAnswerScore => {
     return {
         riosm: 0,
         quintegra_ehmm: 0,

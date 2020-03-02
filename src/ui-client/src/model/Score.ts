@@ -36,12 +36,10 @@ export interface Quintegra_eHMMQuestionScore {
     q1Stats: AnswerStats;
 }
 
-export interface AnswerScore {
+export interface BaseAnswerScore {
     riosm: number;
     riosm_categories: RIOSMCategoryScore;
-    riosm_questions: RIOSMQuestionScore;
     quintegra_ehmm: number;
-    quintegra_ehmm_questions: Quintegra_eHMMQuestionScore;
     idc_healthcare_it: number;
     himss_emram: number;
     himss_ccmm: number;
@@ -49,6 +47,11 @@ export interface AnswerScore {
     eprmm: number;
     forrester: number;
     precision_health: number;
+}
+
+export interface AllAnswerScore extends BaseAnswerScore {
+    riosm_questions: RIOSMQuestionScore;
+    quintegra_ehmm_questions: Quintegra_eHMMQuestionScore;
     precision_health_questions: PrecisionHealthQuestionScore;
 }
 
@@ -60,10 +63,10 @@ export interface AnswerStats {
 }
 
 export interface AnswerScoresDTO {
-    all: AnswerScore;
+    all: AllAnswerScore;
     n: number;
 }
 
 export interface AnswerScores extends AnswerScoresDTO {
-    user: AnswerScore;
+    user: BaseAnswerScore;
 }

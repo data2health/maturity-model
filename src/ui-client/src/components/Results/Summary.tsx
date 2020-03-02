@@ -24,8 +24,8 @@ export default class Summary extends React.PureComponent<Props,State> {
         this.state = {
             model: this.selected.length > 0 ? this.selected[0].shortName : '',
             show: false
-        }
-    }
+        };
+    };
 
     public render() {
         const c = this.className;
@@ -52,19 +52,19 @@ export default class Summary extends React.PureComponent<Props,State> {
                 subheader={this.getSubHeader(model)}
                 content={<ContentSummary models={selected} model={this.state.model} user={user} />}
             />
-        )
-    }
+        );
+    };
 
     private toggle = () => {
         this.setState(prevState => ({
             show: !prevState.show
-        }))
-    }
+        }));
+    };
     private handleModelSummary = (model: string) => {
         this.setState({
             model: model
-        })
-    }
+        });
+    };
 
     private getSubHeader = (model: string) => {
         if (model === 'RIOSM') {
@@ -74,8 +74,8 @@ export default class Summary extends React.PureComponent<Props,State> {
                     organization's overall and category-level maturity. The score corresponds to the five-level 
                     maturity continuum first proposed in the <a href='https://en.wikipedia.org/wiki/Capability_Maturity_Model' target='_'>Capability Maturity Model</a>.
                 </span>
-            )
-        }
-        return
-    }
+            );
+        };
+        return undefined;
+    };
 }

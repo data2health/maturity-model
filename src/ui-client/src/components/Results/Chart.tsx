@@ -33,7 +33,7 @@ export default class Chart extends React.PureComponent<Props> {
         if (modelsSelectedLen === 0) {
             return (
                 <div className={`${c}-none`}>No models selected</div>
-            )
+            );
         } else if (modelsSelectedLen === 1 || modelsSelectedLen === 2) {
             return (
                 <div className={`${c}-chart`}>
@@ -46,7 +46,7 @@ export default class Chart extends React.PureComponent<Props> {
                     <Legend />
                 </BarChart>
             </div>
-            )
+            );
         } else {
             return (
                 <div className={`${c}-chart`}>
@@ -60,9 +60,9 @@ export default class Chart extends React.PureComponent<Props> {
                     <Tooltip formatter={(value) => (Number(value)*100).toFixed(1).toString() + '%'} />
                 </RadarChart>
             </div>
-            )
-        }
-    }
+            );
+        };
+    };
 
     private getChartData = (): ChartDataPoint[] => {
         const { all, user } = this.props.user.results;
@@ -86,8 +86,8 @@ export default class Chart extends React.PureComponent<Props> {
                     };
                 };
             }
-        )
+        );
 
         return data;
-    }
+    };
 }
