@@ -110,6 +110,34 @@ const defaultScore = (): AnswerScore => {
             governance: 0,
             data_and_software_sharing: 0,
             research_informatics: 0
+        },
+        riosm_questions: {
+            q1Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q2Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q3Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q4Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q5Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q6Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q7Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q8Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q9Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q10Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q11Stats: { mean: 0, min: 0, max: 0, median: 0 }
+        },
+        quintegra_ehmm_questions: {
+            q1Stats: { mean: 0, min: 0, max: 0, median: 0 }
+        },
+        precision_health_questions: {
+            q1Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q2Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q3Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q4Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q5Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q6Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q7Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q8Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q9Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q10Stats: { mean: 0, min: 0, max: 0, median: 0 }
         }
     };
 }

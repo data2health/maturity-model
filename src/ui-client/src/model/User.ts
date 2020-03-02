@@ -98,7 +98,7 @@ export const RIOSM_Q9_EXTERNAL_DATA_EDW      : AnswerField = 'riosm_q9_external_
 export const RIOSM_Q10_RESEARCH_COMPUTING    : AnswerField = 'riosm_q10_research_computing'
 export const RIOSM_Q11_SECONDARY_DATA_USE    : AnswerField = 'riosm_q11_secondary_data_use'
 
-export const riosmFields = [ 
+export const riosmFields: AnswerField[] = [ 
     RIOSM_Q1_ENGAGEMENT, RIOSM_Q2_GOVERNANCE, RIOSM_Q3_REPUTATION, RIOSM_Q4_SUPPORT_OPEN_SCIENCE,
     RIOSM_Q5_DATA_SHARING, RIOSM_Q6_DATA_SHARING_EDU, RIOSM_Q7_DATA_ANALYTICS_ACTIVITY, RIOSM_Q8_CTMS,
     RIOSM_Q9_EXTERNAL_DATA_EDW, RIOSM_Q10_RESEARCH_COMPUTING, RIOSM_Q11_SECONDARY_DATA_USE

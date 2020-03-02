@@ -1,9 +1,9 @@
 import React from 'react'
 import { BaseModel } from '../../model/ModelsState';
 import { UserState } from '../../model/UserState';
-import { RIOSM } from '../../model/Models/RIOSM'
-import { PrecisionHealth } from '../../model/Models/PrecisionHealth'
-import { Quintegra_eHMM } from '../../model/Models/Quintegra_eHMM'
+import { RIOSM } from '../../model/Models/RIOSM';
+import { PrecisionHealth } from '../../model/Models/PrecisionHealth';
+import { Quintegra_eHMM } from '../../model/Models/Quintegra_eHMM';
 import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
          Radar, BarChart, Bar, XAxis, YAxis, Legend, Tooltip } from 'recharts';
 
@@ -73,15 +73,15 @@ export default class Chart extends React.PureComponent<Props> {
             function (m) {
                 switch (m.name) {
                     case RIOSM.name: {
-                        data.push({ model: m.shortName, all: all['riosm'], user: user['riosm'], max: 1.0 });
+                        data.push({ model: m.shortName, all: all.riosm, user: user.riosm, max: 1.0 });
                         break;
                     };
                     case PrecisionHealth.name: {
-                        data.push({ model: m.shortName, all: all['precision_health'], user: user['precision_health'], max: 1.0 });
+                        data.push({ model: m.shortName, all: all.precision_health, user: user.precision_health, max: 1.0 });
                         break;
                     };
                     case Quintegra_eHMM.name: {
-                        data.push({ model: m.shortName, all: all['quintegra_ehmm'], user: user['quintegra_ehmm'], max: 1.0 });
+                        data.push({ model: m.shortName, all: all.quintegra_ehmm, user: user.quintegra_ehmm, max: 1.0 });
                         break;
                     };
                 };

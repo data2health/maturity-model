@@ -1,5 +1,5 @@
 import React from 'react'
-import { AnswerScores } from '../../../model/Score';
+import { AnswerStats } from '../../../model/Score';
 import { AnswerTypes, ModelQuestion } from '../../../model/ModelsState';
 import { Col, Row, Collapse, Button, Container, CardBody } from 'reactstrap';
 import './QuestionSummary.css';
@@ -8,7 +8,7 @@ interface Props {
     answer: AnswerTypes;
     question: ModelQuestion;
     index: number;
-    results: AnswerScores;
+    results: AnswerStats;
 }
 
 interface State {
@@ -36,10 +36,10 @@ export default class QuestionSummary extends React.PureComponent<Props, State> {
                     <Row>
                         <Col className={`${c}-breakdown-primary-top`}><div className='question'>Q{index+1}</div></Col>
                         <Col className={`${c}-breakdown-primary-top`}><div className='user-border'><strong>Your Score</strong></div><div className='user-border user-score'>{((Number(answer)/question.options.length)*100).toFixed(1).toString() + '%'}</div></Col>
-                        <Col className={`${c}-breakdown-primary-top`}><div><strong>Mean</strong></div><div className='all'>{(results.all.riosm*100).toFixed(1).toString() + '%'}</div></Col>
-                        <Col className={`${c}-breakdown-primary-top`}><div><strong>Minimum</strong></div><div className='all'>{5*4}</div></Col>
-                        <Col className={`${c}-breakdown-primary-top`}><div><strong>Maximum</strong></div><div className='all'>{5}</div></Col>
-                        <Col className={`${c}-breakdown-primary-top`}><div><strong>Median</strong></div><div className='all'>{3}</div></Col>
+                        <Col className={`${c}-breakdown-primary-top`}><div><strong>Mean</strong></div><div className='all'>{(results.mean*100).toFixed(1).toString() + '%'}</div></Col>
+                        <Col className={`${c}-breakdown-primary-top`}><div><strong>Minimum</strong></div><div className='all'>{(results.min*100).toFixed(1).toString() + '%'}</div></Col>
+                        <Col className={`${c}-breakdown-primary-top`}><div><strong>Maximum</strong></div><div className='all'>{(results.max*100).toFixed(1).toString() + '%'}</div></Col>
+                        <Col className={`${c}-breakdown-primary-top`}><div><strong>Median</strong></div><div className='all'>{(results.median*100).toFixed(1).toString() + '%'}</div></Col>
 
                         <Col className={`${c}-breakdown-primary-top`}>
                             <Button outline onClick={this.handleQuestionDisplay.bind(null)}>
