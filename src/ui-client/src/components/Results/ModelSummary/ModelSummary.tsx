@@ -3,7 +3,7 @@ import { AnswerStats } from '../../../model/Score';
 import { BaseModel } from '../../../model/ModelsState';
 import { UserState } from '../../../model/UserState';
 import QuestionSummary from '../QuestionSummary/QuestionSummary';
-import './ModelSummary.css' ;
+import './ModelSummary.css';
 
 interface Props {
     user: UserState;
@@ -26,8 +26,8 @@ export default class ModelSummary extends React.PureComponent<Props> {
                         const result = this.getResults(model.shortName, i);
                         return (
                             <QuestionSummary answer={a} question={q} index={i} results={result} />
-                        );
-                    })};
+                        )
+                    })}
                 </div>
             </div>
         );
