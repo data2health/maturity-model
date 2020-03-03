@@ -75,7 +75,7 @@ export default class QuestionSummary extends React.PureComponent<Props, State> {
                                 <div key={i} className={`${c}-breakdown-option ${o.value === answer ? 'selected' : ''}`}>
                                     {o.text}
                                 </div>
-                            );
+                            )
                         })}
                     </CardBody>
                 </Collapse>
