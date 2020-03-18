@@ -18,9 +18,12 @@ Maturity Model is a project of the National Center for Data to Health (grant U24
 
 ## Engagement 
 * [How you can contribute](pages/Engage.md)
+Every third Thursday at 10am we have community meetings that are open to everyone. We rotate the project each monthand send out invites and agdendas to those individuals that have singaled their interest via the CD2H onboarind process.
 
-    * Thank you to all that attended our community meeting on 9.24; we missed you if you weren't able to join us! Please review the [slides](https://docs.google.com/presentation/d/1pSHvebGGU2JMFQq9YdYvfp4_TrWzbslJf1coO-EGCrE/edit?usp=sharing).
+For past presentations on Maturity Models please visit our presentations [folder](https://drive.google.com/drive/u/1/folders/1Favda_FCXfIlRnY8Sz7OZxwDVIiN3DsS).
 
+we invite individuals that have completed the CD2H Onboarding process and 
+  
 * [Provide Feedback](pages/provide_feedback.md)
 
 ![](./images/CD2H_color_logo.png)
