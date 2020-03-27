@@ -26,6 +26,10 @@ export type AnswerField =
     'quintegra_ehmm_complete'          |
     'quintegra_ehmm_q1'                |
 
+    // HAAM
+    'haam_complete'                    |
+    'haam_q1'                          |
+
     // IDC Healthcare IT
     'idc_healthcare_it_complete'       |
     'idc_healthcare_it_q1'             |
@@ -118,6 +122,9 @@ export const riosmResearchInformatics: AnswerField[] = [
 
 // Quintegra eHMM
 export const QUINTEGRA_EHMM_Q1: AnswerField = 'quintegra_ehmm_q1';
+
+// HAAM
+export const HAAM_Q1: AnswerField = 'haam_q1';
 
 // IDC Healthcare IT
 export const IDC_HEALTHCARE_IT_Q1: AnswerField = 'idc_healthcare_it_q1';

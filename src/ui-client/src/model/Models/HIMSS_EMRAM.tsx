@@ -14,6 +14,7 @@ export const HIMSS_EMRAM: BaseModel =
         {
             answerField: 'himss_emram_q1',
             text: 'Select the stage of EMR adoption which best represents the state of your organization:',
+            zeroIndex: true,
             options: [
                 {
                     text: 'Some clinical automation may be present, but all three of the major ancillary department systems for laboratory, pharmacy, and radiology are not implemented.',

@@ -37,7 +37,11 @@ export const defaultUserState = (): UserState => {
 
             // Quintegra eHMM
             'quintegra_ehmm_complete': FormState.NotStarted,
-            'quintegra_ehmm_q1': '',    
+            'quintegra_ehmm_q1': '',
+
+            // HAAM
+            'haam_complete': FormState.NotStarted,
+            'haam_q1': '',
 
             // IDC Healthcare IT
             'idc_healthcare_it_complete': FormState.NotStarted,
@@ -98,6 +102,7 @@ const userDefaultScore = (): BaseAnswerScore => {
     return {
         riosm: 0,
         quintegra_ehmm: 0,
+        haam: 0,
         idc_healthcare_it: 0,
         himss_emram: 0,
         himss_ccmm: 0,
@@ -118,6 +123,7 @@ const allDefaultScore = (): AllAnswerScore => {
     return {
         riosm: 0,
         quintegra_ehmm: 0,
+        haam: 0,
         idc_healthcare_it: 0,
         himss_emram: 0,
         himss_ccmm: 0,
@@ -145,6 +151,9 @@ const allDefaultScore = (): AllAnswerScore => {
             q11Stats: { mean: 0, min: 0, max: 0, median: 0 }
         },
         quintegra_ehmm_questions: {
+            q1Stats: { mean: 0, min: 0, max: 0, median: 0 }
+        },
+        haam_questions: {
             q1Stats: { mean: 0, min: 0, max: 0, median: 0 }
         },
         precision_health_questions: {
