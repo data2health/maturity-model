@@ -14,6 +14,7 @@ export const NEHTA_IMM: BaseModel =
         {
             answerField: 'nehta_imm_q1',
             text: 'Choose the statement that best describes the current stage of your model:',
+            zeroIndex: true,
             options: [
                 {
                     text: 'No awareness of e-health interoperability issue nor processes to support it. Isolated system design, development, and procurement.',

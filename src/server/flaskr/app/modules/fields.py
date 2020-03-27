@@ -42,6 +42,10 @@ riosm_research_informatics = [
 QUINTEGRA_EHMM_COMPELTE = 'quintegra_ehmm_complete'
 QUINTEGRA_EHMM_Q1 = 'quintegra_ehmm_q1'
 
+# HAAM
+HAAM_COMPELTE = 'haam_complete'
+HAAM_Q1 = 'haam_q1'
+
 # IDC Healthcare IT
 IDC_HEALTHCARE_IT_COMPLETE = 'idc_healthcare_it_complete'
 IDC_HEALTHCARE_IT_Q1 = 'idc_healthcare_it_q1'

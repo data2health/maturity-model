@@ -43,6 +43,9 @@ export default class ModelSummary extends React.PureComponent<Props> {
         if (modelName === this.res.PrecisionHealth.name) {
             return this.res.PrecisionHealth.questions[index];
         };
+        if (modelName === this.res.HAAM.name) {
+            return this.res.HAAM.questions[index];
+        };
         return {mean: 0 , min: 0, max: 0, median: 0};
     }
 
@@ -50,6 +53,7 @@ export default class ModelSummary extends React.PureComponent<Props> {
     private riosm = this.results.all.riosm_questions;
     private quintegra_eHMMR = this.results.all.quintegra_ehmm_questions;
     private precisionHealth = this.results.all.precision_health_questions;
+    private haam = this.results.all.haam_questions;
 
     private res: Result = {
         RIOSM: {
@@ -198,6 +202,17 @@ export default class ModelSummary extends React.PureComponent<Props> {
                     median: this.precisionHealth.q10Stats.median
                 }
             ]
+        },
+        HAAM: {
+            name: 'HAAM',
+            questions: [
+                {
+                    mean: this.haam.q1Stats.mean,
+                    min: this.haam.q1Stats.min,
+                    max: this.haam.q1Stats.max,
+                    median: this.haam.q1Stats.median 
+                }
+            ]
         }
     };
 }
@@ -206,6 +221,7 @@ interface Result {
     RIOSM: ModelResult;
     Quintegra_eHMM: ModelResult;
     PrecisionHealth: ModelResult;
+    HAAM: ModelResult;
 };
 
 interface ModelResult {

@@ -14,6 +14,7 @@ export const HIMSS_CCMM: BaseModel =
         {
         answerField: 'himss_ccmm_q1',
         text: "Choose the statement that best describes the current stage of your model:",
+        zeroIndex: true,
         options: [
                 {
             text: "Limited to no e-communication.",
@@ -52,6 +53,7 @@ export const HIMSS_CCMM: BaseModel =
         {
             answerField: 'himss_ccmm_q2',
             text: "Choose the statement that best describes the current stage of your model:",
+            zeroIndex: true,
             options: [
                 {
             text: "Engaged in EMRAM maturation.",
@@ -90,6 +92,7 @@ export const HIMSS_CCMM: BaseModel =
         {
         answerField: 'himss_ccmm_q3',
         text: "Choose the statement that best describes the current stage of your model:",
+        zeroIndex: true,
         options: [
                 {
             text: "Governance is informal, inconsistent and undocumented.",
@@ -127,7 +130,8 @@ export const HIMSS_CCMM: BaseModel =
         },
         {
         answerField: 'himss_ccmm_q4',
-        text: "Choose the statement that best describes the current stage of your model:", 
+        text: "Choose the statement that best describes the current stage of your model:",
+        zeroIndex: true,
         options: [
                 {
             text: "Data is isolated.",

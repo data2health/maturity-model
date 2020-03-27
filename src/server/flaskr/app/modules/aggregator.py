@@ -7,6 +7,7 @@ from statistics import median
 # Models
 riosm             = 'riosm'
 quintegra_ehmm    = 'quintegra_ehmm'
+haam              = 'haam'
 idc_healthcare_it = 'idc_healthcare_it'
 himss_emram       = 'himss_emram'
 himss_ccmm        = 'himss_ccmm'
@@ -17,6 +18,7 @@ precision_health  = 'precision_health'
 
 riosm_questions            = 'riosm_questions'
 quintegra_ehmm_questions   = 'quintegra_ehmm_questions'
+haam_questions             = 'haam_questions'
 precision_health_questions = 'precision_health_questions'
 
 # RIOSM categories
@@ -39,10 +41,13 @@ riosm_q9_external_data_edw       = 'riosm_q9_external_data_edw'
 riosm_q10_research_computing     = 'riosm_q10_research_computing'
 riosm_q11_secondary_data_use     = 'riosm_q11_secondary_data_use'
 
-#Quintegra_eHMM questions
+# Quintegra_eHMM questions
 quintegra_ehmm_q1 = 'quintegra_ehmm_q1'
 
-#Precision Health questions
+# HAAM questions
+haam_q1 = 'haam_q1'
+
+# Precision Health questions
 precision_health_q1  = 'precision_health_q1'
 precision_health_q2  = 'precision_health_q2'
 precision_health_q3  = 'precision_health_q3'
@@ -73,9 +78,11 @@ def get_user_score(user):
     max_five  = 5.0
     max_six   = 6.0
     max_seven = 7.0
+    max_eight = 8.0
 
     score[riosm]             = sum([ float(user[field]) for field in riosm_fields if user[field].isdigit() ]) / (len(riosm_fields) * max_five) if user[RIOSM_COMPLETE] == '2' else None
     score[quintegra_ehmm]    = float(user[QUINTEGRA_EHMM_Q1]) / max_seven if user[QUINTEGRA_EHMM_Q1].isdigit() else None if user[QUINTEGRA_EHMM_COMPELTE] == '2' else None
+    score[haam]              = float(user[HAAM_Q1]) / max_eight if user[HAAM_Q1].isdigit() else None if user[HAAM_COMPELTE] == '2' else None
     score[idc_healthcare_it] = float(user[IDC_HEALTHCARE_IT_Q1]) / max_five if user[IDC_HEALTHCARE_IT_Q1].isdigit() else None if user[IDC_HEALTHCARE_IT_COMPLETE] == '2' else None
     score[himss_emram]       = float(user[HIMSS_EMRAM_Q1]) / max_seven if user[HIMSS_EMRAM_Q1].isdigit() else None if user[HIMSS_EMRAM_COMPLETE] == '2' else None
     score[himss_ccmm]        = sum([ float(user[field]) for field in himss_ccmm_fields if user[field].isdigit() ]) / (len(himss_ccmm_fields) * max_seven) if user[HIMSS_CCMM_COMPLETE] == '2' else None
@@ -105,6 +112,9 @@ def get_user_score(user):
     score[quintegra_ehmm_questions] = {}
     score[quintegra_ehmm_questions][quintegra_ehmm_q1]       = float(user[QUINTEGRA_EHMM_Q1]) / max_seven if user[QUINTEGRA_EHMM_Q1].isdigit() else None if user[QUINTEGRA_EHMM_COMPELTE] == '2' else None
 
+    score[haam_questions] = {}
+    score[haam_questions][haam_q1]                           = float(user[HAAM_Q1]) / max_eight if user[HAAM_Q1].isdigit() else None if user[HAAM_COMPELTE] == '2' else None
+
     score[precision_health_questions] = {}
     score[precision_health_questions][precision_health_q1]   = float(user[PRECISION_HEALTH_Q1]) / max_five if user[PRECISION_HEALTH_Q1].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
     score[precision_health_questions][precision_health_q2]   = float(user[PRECISION_HEALTH_Q2]) / max_five if user[PRECISION_HEALTH_Q2].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
@@ -126,10 +136,12 @@ def aggregate(all):
     riosm_scores = [ v[riosm_categories] for v in all_scores ]
     riosm_question_scores = [ v[riosm_questions] for v in all_scores ]
     quintegra_ehmm_question_scores = [ v[quintegra_ehmm_questions] for v in all_scores ]
+    haam_question_scores = [ v[haam_questions] for v in all_scores ]
     precision_health_question_scores = [ v[precision_health_questions] for v in all_scores ]
 
     agg_score[riosm]             = __get_aggregate_score(all_scores, riosm)
     agg_score[quintegra_ehmm]    = __get_aggregate_score(all_scores, quintegra_ehmm)
+    agg_score[haam]              = __get_aggregate_score(all_scores, haam)
     agg_score[idc_healthcare_it] = __get_aggregate_score(all_scores, idc_healthcare_it)
     agg_score[himss_emram]       = __get_aggregate_score(all_scores, himss_emram)
     agg_score[himss_ccmm]        = __get_aggregate_score(all_scores, himss_ccmm)
@@ -158,6 +170,9 @@ def aggregate(all):
 
     agg_score[quintegra_ehmm_questions] = {}
     agg_score[quintegra_ehmm_questions][q1Stats]    = __get_aggregate_stats(quintegra_ehmm_question_scores, quintegra_ehmm_q1)
+
+    agg_score[haam_questions] = {}
+    agg_score[haam_questions][q1Stats]              = __get_aggregate_stats(haam_question_scores, haam_q1)
 
     agg_score[precision_health_questions] = {}
     agg_score[precision_health_questions][q1Stats]  = __get_aggregate_stats(precision_health_question_scores, precision_health_q1)

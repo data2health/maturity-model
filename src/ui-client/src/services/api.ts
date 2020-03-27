@@ -5,6 +5,7 @@ import { BaseAnswerScore, AnswerScores } from "../model/Score";
 import { 
     riosmFields, 
     QUINTEGRA_EHMM_Q1, 
+    HAAM_Q1,
     IDC_HEALTHCARE_IT_Q1, 
     HIMSS_EMRAM_Q1, 
     himssCCmmFields, 
@@ -114,12 +115,14 @@ export const calculateUserScores = (user: UserAnswers): BaseAnswerScore => {
     const maxFive  = 5.0;
     const maxSix   = 6.0;
     const maxSeven = 7.0;
+    const maxEight = 8.0;
     const valElseZero = (val:string) => val !== '' ? parseFloat(val) : 0;
     const riosmSum = sum(validate((riosmFields.map(f => user[f]))));
     
     return {
         riosm            : riosmSum / (riosmFields.length * maxFive),
         quintegra_ehmm   : valElseZero(user[QUINTEGRA_EHMM_Q1]) / maxSeven,
+        haam             : valElseZero(user[HAAM_Q1]) / maxEight,
         idc_healthcare_it: valElseZero(user[IDC_HEALTHCARE_IT_Q1]) / maxFive,
         himss_emram      : valElseZero(user[HIMSS_EMRAM_Q1]) / maxSeven,
         himss_ccmm       : sum(validate(himssCCmmFields.map(f => user[f]))) / (himssCCmmFields.length * maxFive),

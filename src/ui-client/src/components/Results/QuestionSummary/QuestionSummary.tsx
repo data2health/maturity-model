@@ -29,13 +29,14 @@ export default class QuestionSummary extends React.PureComponent<Props, State> {
 
         const c = this.className;
         const { answer, question, index, results } = this.props;
+        const questionLength = question.zeroIndex ? question.options.length-1 : question.options.length;
 
         return (
             <div className={`${c}-breakdown-container`} key={question.answerField}>
                 <Container>
                     <Row>
                         <Col className={`${c}-breakdown-primary-top`}><div className='question'>Q{index+1}</div></Col>
-                        <Col className={`${c}-breakdown-primary-top`}><div className='user-border'><strong>Your Score</strong></div><div className='user-border user-score'>{((Number(answer)/question.options.length)*100).toFixed(1).toString() + '%'}</div></Col>
+                        <Col className={`${c}-breakdown-primary-top`}><div className='user-border'><strong>Your Score</strong></div><div className='user-border user-score'>{((Number(answer)/questionLength)*100).toFixed(1).toString() + '%'}</div></Col>
                         <Col className={`${c}-breakdown-primary-top`}><div><strong>Mean</strong></div><div className='all'>{(results.mean*100).toFixed(1).toString() + '%'}</div></Col>
                         <Col className={`${c}-breakdown-primary-top`}><div><strong>Minimum</strong></div><div className='all'>{(results.min*100).toFixed(1).toString() + '%'}</div></Col>
                         <Col className={`${c}-breakdown-primary-top`}><div><strong>Maximum</strong></div><div className='all'>{(results.max*100).toFixed(1).toString() + '%'}</div></Col>
@@ -64,8 +65,8 @@ export default class QuestionSummary extends React.PureComponent<Props, State> {
 
                             {/* Score */}
                             <div className={`${c}-breakdown-score`}>
-                                <div className='num'>{answer}</div> 
-                                <div className='denom'>/ {question.options.length}</div>
+                                <div className='num'>{answer}</div>
+                                <div className='denom'>/ {questionLength}</div>
                             </div>
                         </div>
 

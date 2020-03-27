@@ -36,10 +36,15 @@ export interface Quintegra_eHMMQuestionScore {
     q1Stats: AnswerStats;
 }
 
+export interface HAAMQuestionScore {
+    q1Stats: AnswerStats;
+}
+
 export interface BaseAnswerScore {
     riosm: number;
     riosm_categories: RIOSMCategoryScore;
     quintegra_ehmm: number;
+    haam: number;
     idc_healthcare_it: number;
     himss_emram: number;
     himss_ccmm: number;
@@ -53,6 +58,7 @@ export interface AllAnswerScore extends BaseAnswerScore {
     riosm_questions: RIOSMQuestionScore;
     quintegra_ehmm_questions: Quintegra_eHMMQuestionScore;
     precision_health_questions: PrecisionHealthQuestionScore;
+    haam_questions: HAAMQuestionScore;
 }
 
 export interface AnswerStats {
