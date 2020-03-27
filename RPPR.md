@@ -52,3 +52,13 @@ Models created by both methods will be combined in a tool that will allow organi
 
 # Potential Pitfalls and Alternative Strategies
 By using two approaches for developing maturity models, we mitigate the main pitfalls of models being difficult to define. The main potential pitfall for the main adoption model is that there is too much diversity of approach, which would make creating vignettes and distributions difficult. A pitfall for the rapid development approach is that the models will not be sufficiently detailed to be useful.
+
+# Y3 (July 1, 2019-June 30, 2020) Accomplishments 
+The following content is from the June 30 - Dec 30, 2019 mid year progress report [here](https://docs.google.com/document/d/1LLe3uCfEUakWxIJyi5SA4ZocYDmINvhySTperaui1Bw/edit).  Please add progress for Jan 1 - June 30th, 2020. 
+
+* Defined adoption model for research informatics maturity with vignettes:
+  * [Self-assessment survey](https://ohsu.ca1.qualtrics.com/jfe/form/SV_3k3SDYgxOH1tfbD)
+  * [White paper detailing our methodology and results](https://drive.google.com/file/d/1_d9WOmZxJsq6fvwktyI0a7EZT3fLMDh9/view) 
+  
+* Tool supporting self-assessment and assessment collection:
+  * A detailed requirements description of the expanded self-assessment tool are available here and linked to on [Github](https://docs.google.com/document/d/1mWJfaz5o3VT9HHJzlTbiz8CuYD5n5NmKbcsQsRctHMY/edit).  The tool’s development is being tracked on [Github](https://github.com/data2health/maturity-model/milestone/12) and the beta version will be completed by 12/31. Beta version can be found [here](http://maturitymodel.cd2h.org).
