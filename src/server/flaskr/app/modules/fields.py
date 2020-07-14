@@ -84,6 +84,18 @@ forrester_fields = [
     FORRESTER_MODEL_Q1, FORRESTER_MODEL_Q2, FORRESTER_MODEL_Q3, FORRESTER_MODEL_Q4
 ]
 
+# SEDoH
+SEDOH_COMPLETE = 'sedoh_complete'
+SEDOH_Q1 = 'sedoh_q1'
+SEDOH_Q2 = 'sedoh_q2'
+SEDOH_Q3 = 'sedoh_q3'
+SEDOH_Q4 = 'sedoh_q4'
+SEDOH_Q5 = 'sedoh_q5'
+
+sedoh_fields = [
+    SEDOH_Q1, SEDOH_Q2, SEDOH_Q3, SEDOH_Q4, SEDOH_Q5
+]
+
 # Precision Health
 PRECISION_HEALTH_COMPLETE = 'precision_health_complete'
 PRECISION_HEALTH_Q1 = 'precision_health_q1'

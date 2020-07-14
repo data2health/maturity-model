@@ -71,7 +71,15 @@ export type AnswerField =
     'precision_health_q7'              |
     'precision_health_q8'              |
     'precision_health_q9'              |
-    'precision_health_q10'             
+    'precision_health_q10'             |
+
+    // SEDoH
+    'sedoh_complete'                   |
+    'sedoh_q1'                         |
+    'sedoh_q2'                         |
+    'sedoh_q3'                         |
+    'sedoh_q4'                         |
+    'sedoh_q5'
 
 
 export interface BaseUserAnswers {
@@ -156,6 +164,17 @@ export const FORRESTER_MODEL_Q4: AnswerField = 'forrester_model_q4';
 
 export const forresterFields: AnswerField[] = [
     FORRESTER_MODEL_Q1, FORRESTER_MODEL_Q2, FORRESTER_MODEL_Q3, FORRESTER_MODEL_Q4
+];
+
+// SEDoH
+export const SEDOH_Q1: AnswerField = 'sedoh_q1';
+export const SEDOH_Q2: AnswerField = 'sedoh_q2';
+export const SEDOH_Q3: AnswerField = 'sedoh_q3';
+export const SEDOH_Q4: AnswerField = 'sedoh_q4';
+export const SEDOH_Q5: AnswerField = 'sedoh_q5';
+
+export const sedohFields: AnswerField[] = [
+    SEDOH_Q1, SEDOH_Q2, SEDOH_Q3, SEDOH_Q4, SEDOH_Q5
 ];
 
 // Precision Health

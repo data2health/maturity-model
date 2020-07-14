@@ -14,11 +14,13 @@ himss_ccmm        = 'himss_ccmm'
 nehta_imm         = 'nehta_imm'
 eprmm             = 'eprmm'
 forrester         = 'forrester'
+sedoh             = 'sedoh'
 precision_health  = 'precision_health'
 
 riosm_questions            = 'riosm_questions'
 quintegra_ehmm_questions   = 'quintegra_ehmm_questions'
 haam_questions             = 'haam_questions'
+sedoh_questions            = 'sedoh_questions'
 precision_health_questions = 'precision_health_questions'
 
 # RIOSM categories
@@ -46,6 +48,13 @@ quintegra_ehmm_q1 = 'quintegra_ehmm_q1'
 
 # HAAM questions
 haam_q1 = 'haam_q1'
+
+# SEDoH questions
+sedoh_q1  = 'sedoh_q1'
+sedoh_q2  = 'sedoh_q2'
+sedoh_q3  = 'sedoh_q3'
+sedoh_q4  = 'sedoh_q4'
+sedoh_q5  = 'sedoh_q5'
 
 # Precision Health questions
 precision_health_q1  = 'precision_health_q1'
@@ -88,6 +97,7 @@ def get_user_score(user):
     score[himss_ccmm]        = sum([ float(user[field]) for field in himss_ccmm_fields if user[field].isdigit() ]) / (len(himss_ccmm_fields) * max_seven) if user[HIMSS_CCMM_COMPLETE] == '2' else None
     score[nehta_imm]         = float(user[NEHTA_IMM_Q1]) / max_five if user[NEHTA_IMM_Q1].isdigit() else None if user[NEHTA_IMM_COMPLETE] == '2' else None
     score[eprmm]             = float(user[EPRMM_Q1]) / max_six if user[EPRMM_Q1].isdigit() else None if user[EPRMM_COMPLETE] == '2' else None
+    score[sedoh]             = sum([ float(user[field]) for field in sedoh_fields if user[field].isdigit() ]) / (len(sedoh_fields) * max_seven) if user[SEDOH_COMPLETE] == '2' else None
     score[precision_health]  = sum([ float(user[field]) for field in precision_health_fields if user[field].isdigit() ]) / (len(precision_health_fields) * max_five) if user[PRECISION_HEALTH_COMPLETE] == '2' else None
 
     score[riosm_categories] = {}
@@ -115,6 +125,13 @@ def get_user_score(user):
     score[haam_questions] = {}
     score[haam_questions][haam_q1]                           = float(user[HAAM_Q1]) / max_eight if user[HAAM_Q1].isdigit() else None if user[HAAM_COMPELTE] == '2' else None
 
+    score[sedoh_questions] = {}
+    score[sedoh_questions][sedoh_q1]   = float(user[SEDOH_Q1]) / max_seven if user[SEDOH_Q1].isdigit() else None if user[SEDOH_COMPLETE] == '2' else None
+    score[sedoh_questions][sedoh_q2]   = float(user[SEDOH_Q2]) / max_seven if user[SEDOH_Q2].isdigit() else None if user[SEDOH_COMPLETE] == '2' else None
+    score[sedoh_questions][sedoh_q3]   = float(user[SEDOH_Q3]) / max_seven if user[SEDOH_Q3].isdigit() else None if user[SEDOH_COMPLETE] == '2' else None
+    score[sedoh_questions][sedoh_q4]   = float(user[SEDOH_Q4]) / max_seven if user[SEDOH_Q4].isdigit() else None if user[SEDOH_COMPLETE] == '2' else None
+    score[sedoh_questions][sedoh_q5]   = float(user[SEDOH_Q5]) / max_seven if user[SEDOH_Q5].isdigit() else None if user[SEDOH_COMPLETE] == '2' else None
+
     score[precision_health_questions] = {}
     score[precision_health_questions][precision_health_q1]   = float(user[PRECISION_HEALTH_Q1]) / max_five if user[PRECISION_HEALTH_Q1].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
     score[precision_health_questions][precision_health_q2]   = float(user[PRECISION_HEALTH_Q2]) / max_five if user[PRECISION_HEALTH_Q2].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
@@ -137,6 +154,7 @@ def aggregate(all):
     riosm_question_scores = [ v[riosm_questions] for v in all_scores ]
     quintegra_ehmm_question_scores = [ v[quintegra_ehmm_questions] for v in all_scores ]
     haam_question_scores = [ v[haam_questions] for v in all_scores ]
+    sedoh_question_scores = [ v[sedoh_questions] for v in all_scores ]
     precision_health_question_scores = [ v[precision_health_questions] for v in all_scores ]
 
     agg_score[riosm]             = __get_aggregate_score(all_scores, riosm)
@@ -147,6 +165,7 @@ def aggregate(all):
     agg_score[himss_ccmm]        = __get_aggregate_score(all_scores, himss_ccmm)
     agg_score[nehta_imm]         = __get_aggregate_score(all_scores, nehta_imm)
     agg_score[eprmm]             = __get_aggregate_score(all_scores, eprmm)
+    agg_score[sedoh]             = __get_aggregate_score(all_scores, sedoh)
     agg_score[precision_health]  = __get_aggregate_score(all_scores, precision_health)
 
     agg_score[riosm_categories] = {}
@@ -173,6 +192,13 @@ def aggregate(all):
 
     agg_score[haam_questions] = {}
     agg_score[haam_questions][q1Stats]              = __get_aggregate_stats(haam_question_scores, haam_q1)
+
+    agg_score[sedoh_questions] = {}
+    agg_score[sedoh_questions][q1Stats]  = __get_aggregate_stats(sedoh_question_scores, sedoh_q1)
+    agg_score[sedoh_questions][q2Stats]  = __get_aggregate_stats(sedoh_question_scores, sedoh_q2)
+    agg_score[sedoh_questions][q3Stats]  = __get_aggregate_stats(sedoh_question_scores, sedoh_q3)
+    agg_score[sedoh_questions][q4Stats]  = __get_aggregate_stats(sedoh_question_scores, sedoh_q4)
+    agg_score[sedoh_questions][q5Stats]  = __get_aggregate_stats(sedoh_question_scores, sedoh_q5)
 
     agg_score[precision_health_questions] = {}
     agg_score[precision_health_questions][q1Stats]  = __get_aggregate_stats(precision_health_question_scores, precision_health_q1)

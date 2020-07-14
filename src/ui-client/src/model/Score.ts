@@ -40,6 +40,14 @@ export interface HAAMQuestionScore {
     q1Stats: AnswerStats;
 }
 
+export interface SEDoHQuestionScore {
+    q1Stats: AnswerStats;
+    q2Stats: AnswerStats;
+    q3Stats: AnswerStats;
+    q4Stats: AnswerStats;
+    q5Stats: AnswerStats;
+}
+
 export interface BaseAnswerScore {
     riosm: number;
     riosm_categories: RIOSMCategoryScore;
@@ -51,6 +59,7 @@ export interface BaseAnswerScore {
     nehta_imm: number;
     eprmm: number;
     forrester: number;
+    sedoh: number;
     precision_health: number;
 }
 
@@ -59,6 +68,7 @@ export interface AllAnswerScore extends BaseAnswerScore {
     quintegra_ehmm_questions: Quintegra_eHMMQuestionScore;
     precision_health_questions: PrecisionHealthQuestionScore;
     haam_questions: HAAMQuestionScore;
+    sedoh_questions: SEDoHQuestionScore;
 }
 
 export interface AnswerStats {
