@@ -5,6 +5,7 @@ import { RIOSM } from '../../model/Models/RIOSM';
 import { PrecisionHealth } from '../../model/Models/PrecisionHealth';
 import { Quintegra_eHMM } from '../../model/Models/Quintegra_eHMM';
 import { HAAM } from '../../model/Models/HAAM';
+import { SEDoH } from '../../model/Models/SEDoH';
 import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
          Radar, BarChart, Bar, XAxis, YAxis, Legend, Tooltip } from 'recharts';
 
@@ -87,6 +88,10 @@ export default class Chart extends React.PureComponent<Props> {
                     };
                     case HAAM.name: {
                         data.push({ model: m.shortName, all: all.haam, user: user.haam, max: 1.0 });
+                        break;
+                    };
+                    case SEDoH.name: {
+                        data.push({ model: m.shortName, all: all.sedoh, user: user.sedoh, max: 1.0 });
                         break;
                     };
                 };

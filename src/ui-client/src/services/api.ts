@@ -8,7 +8,8 @@ import {
     HAAM_Q1,
     IDC_HEALTHCARE_IT_Q1, 
     HIMSS_EMRAM_Q1, 
-    himssCCmmFields, 
+    himssCCmmFields,
+    sedohFields,
     EPRMM_Q1, 
     NEHTA_IMM_Q1,
     precisionHealthFields,
@@ -117,24 +118,25 @@ export const calculateUserScores = (user: UserAnswers): BaseAnswerScore => {
     const maxSeven = 7.0;
     const maxEight = 8.0;
     const valElseZero = (val:string) => val !== '' ? parseFloat(val) : 0;
-    const riosmSum = sum(validate((riosmFields.map(f => user[f]))));
+    const riosmSum = sum(validate(riosmFields.map(f => user[f])));
     
     return {
-        riosm            : riosmSum / (riosmFields.length * maxFive),
-        quintegra_ehmm   : valElseZero(user[QUINTEGRA_EHMM_Q1]) / maxSeven,
-        haam             : valElseZero(user[HAAM_Q1]) / maxEight,
-        idc_healthcare_it: valElseZero(user[IDC_HEALTHCARE_IT_Q1]) / maxFive,
-        himss_emram      : valElseZero(user[HIMSS_EMRAM_Q1]) / maxSeven,
-        himss_ccmm       : sum(validate(himssCCmmFields.map(f => user[f]))) / (himssCCmmFields.length * maxFive),
-        nehta_imm        : valElseZero(user[NEHTA_IMM_Q1]) / maxFive,
-        eprmm            : valElseZero(user[EPRMM_Q1]) / maxSix,
-        forrester        : 0.0,
-        precision_health : sum(validate(precisionHealthFields.map(f => user[f]))) / (precisionHealthFields.length * maxFive),
-        riosm_categories : {
-            overall             : riosmSum / riosmFields.length,
-            governance          : sum(validate(riosmGovernance.map(f => user[f]))) / riosmGovernance.length,
-            data_and_software_sharing   : sum(validate(riosmDataAndSoftware.map(f => user[f]))) / riosmDataAndSoftware.length,
-            research_informatics: sum(validate(riosmResearchInformatics.map(f => user[f]))) / riosmResearchInformatics.length
+        riosm             : riosmSum / (riosmFields.length * maxFive),
+        quintegra_ehmm    : valElseZero(user[QUINTEGRA_EHMM_Q1]) / maxSeven,
+        haam              : valElseZero(user[HAAM_Q1]) / maxEight,
+        idc_healthcare_it : valElseZero(user[IDC_HEALTHCARE_IT_Q1]) / maxFive,
+        himss_emram       : valElseZero(user[HIMSS_EMRAM_Q1]) / maxSeven,
+        himss_ccmm        : sum(validate(himssCCmmFields.map(f => user[f]))) / (himssCCmmFields.length * maxFive),
+        nehta_imm         : valElseZero(user[NEHTA_IMM_Q1]) / maxFive,
+        eprmm             : valElseZero(user[EPRMM_Q1]) / maxSix,
+        sedoh             : sum(validate(sedohFields.map(f => user[f]))) / (sedohFields.length * maxSeven),
+        forrester         : 0.0,
+        precision_health  : sum(validate(precisionHealthFields.map(f => user[f]))) / (precisionHealthFields.length * maxFive),
+        riosm_categories  : {
+            overall                   : riosmSum / riosmFields.length,
+            governance                : sum(validate(riosmGovernance.map(f => user[f]))) / riosmGovernance.length,
+            data_and_software_sharing : sum(validate(riosmDataAndSoftware.map(f => user[f]))) / riosmDataAndSoftware.length,
+            research_informatics      : sum(validate(riosmResearchInformatics.map(f => user[f]))) / riosmResearchInformatics.length
         }    
     };
 };

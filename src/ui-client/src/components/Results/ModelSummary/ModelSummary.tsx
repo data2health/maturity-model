@@ -46,6 +46,9 @@ export default class ModelSummary extends React.PureComponent<Props> {
         if (modelName === this.res.HAAM.name) {
             return this.res.HAAM.questions[index];
         };
+        if (modelName === this.res.SEDoH.name) {
+            return this.res.SEDoH.questions[index];
+        };
         return {mean: 0 , min: 0, max: 0, median: 0};
     }
 
@@ -54,6 +57,7 @@ export default class ModelSummary extends React.PureComponent<Props> {
     private quintegra_eHMMR = this.results.all.quintegra_ehmm_questions;
     private precisionHealth = this.results.all.precision_health_questions;
     private haam = this.results.all.haam_questions;
+    private sedoh = this.results.all.sedoh_questions; 
 
     private res: Result = {
         RIOSM: {
@@ -213,6 +217,41 @@ export default class ModelSummary extends React.PureComponent<Props> {
                     median: this.haam.q1Stats.median 
                 }
             ]
+        },
+        SEDoH: {
+            name: 'SEDoH',
+            questions: [
+                {
+                    mean: this.sedoh.q1Stats.mean,
+                    min: this.sedoh.q1Stats.min,
+                    max: this.sedoh.q1Stats.max,
+                    median: this.sedoh.q1Stats.median
+                },
+                {
+                    mean: this.sedoh.q2Stats.mean,
+                    min: this.sedoh.q2Stats.min,
+                    max: this.sedoh.q2Stats.max,
+                    median: this.sedoh.q2Stats.median
+                },
+                {
+                    mean: this.sedoh.q3Stats.mean,
+                    min: this.sedoh.q3Stats.min,
+                    max: this.sedoh.q3Stats.max,
+                    median: this.sedoh.q3Stats.median
+                },
+                {
+                    mean: this.sedoh.q4Stats.mean,
+                    min: this.sedoh.q4Stats.min,
+                    max: this.sedoh.q4Stats.max,
+                    median: this.sedoh.q4Stats.median
+                },
+                {
+                    mean: this.sedoh.q5Stats.mean,
+                    min: this.sedoh.q5Stats.min,
+                    max: this.sedoh.q5Stats.max,
+                    median: this.sedoh.q5Stats.median
+                }
+            ]
         }
     };
 }
@@ -222,6 +261,7 @@ interface Result {
     Quintegra_eHMM: ModelResult;
     PrecisionHealth: ModelResult;
     HAAM: ModelResult;
+    SEDoH: ModelResult;
 };
 
 interface ModelResult {

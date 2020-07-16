@@ -11,12 +11,13 @@ import { AppView } from '../model/GeneralState';
 import { PrecisionHealth } from '../model/Models/PrecisionHealth';
 import { Forrester } from '../model/Models/Forrester';
 import { EPRMM } from '../model/Models/EPRMM';
+import { SEDoH } from '../model/Models/SEDoH';
 import { HAAM } from '../model/Models/HAAM';
 
 
 export const defaultModelState = (): ModelsState => {
     return {
-        all: [ RIOSM, PrecisionHealth, Quintegra_eHMM, HAAM ]
+        all: [ RIOSM, PrecisionHealth, Quintegra_eHMM, HAAM, SEDoH ]
         
         // removed models
         // all: [ HIMSS_EMRAM, IDC_Healthcare_IT, NEHTA_IMM, HIMSS_CCMM, Forrester, EPRMM ]
