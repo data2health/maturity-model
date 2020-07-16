@@ -12,7 +12,7 @@ export default class LeftFooter extends React.PureComponent<Props> {
             <div className={c}>
                 <p className={`${c}-shoutout`}>
                     <span>Developed with 
-                        <span role="img" aria-label={'heart'}>❤️</span> 
+                        <span role="img" aria-label={'heart'}> ❤️ </span> 
                         in Seattle by UW Medicine Research IT and the CD2H
                     </span>
                 </p>

@@ -8,7 +8,7 @@ export const SEDoH: BaseModel =
     completeField: 'sedoh_complete',
     name: 'Social & Environmental Determinants of Health Maturity Model (v2, SEDoH)',
     shortName: 'SEDoH',
-    description: 'NEED A DESCRIPTION!',
+    description: "This maturity model is for SEDoH data use in the clinical enterprise, not data being collected exclusively for research projects. Race, ethnicity, address, and other variables collected as a standard part of patient registration and billing are not considered SEDoH data collection. Each of the questions asks about the highest level at which your institution consistently performs. Even if there may be a research project at your institution that is very advanced, the goal of this maturity model is to understand at which level your institution's clinical enterprise consistently performs.",
     render: (dispatch: any, answers: UserAnswers) => <SEDoHForm dispatch={dispatch} answers={answers} />,
     questions: [
         {
