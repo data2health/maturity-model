@@ -6,6 +6,8 @@ import { PrecisionHealth } from '../../model/Models/PrecisionHealth';
 import { Quintegra_eHMM } from '../../model/Models/Quintegra_eHMM';
 import { HAAM } from '../../model/Models/HAAM';
 import { SEDoH } from '../../model/Models/SEDoH';
+import { NESTcc } from '../../model/Models/NESTcc';
+import { NLP } from '../../model/Models/NLP';
 import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
          Radar, BarChart, Bar, XAxis, YAxis, Legend, Tooltip } from 'recharts';
 
@@ -70,7 +72,7 @@ export default class Chart extends React.PureComponent<Props> {
         const { all, user } = this.props.user.results;
         const models = this.props.models.filter(m => m.selected);
         const data: ChartDataPoint[] = [];
-
+        
         models.map(
             function (m) {
                 switch (m.name) {
@@ -92,6 +94,14 @@ export default class Chart extends React.PureComponent<Props> {
                     };
                     case SEDoH.name: {
                         data.push({ model: m.shortName, all: all.sedoh, user: user.sedoh, max: 1.0 });
+                        break;
+                    };
+                    case NESTcc.name: {
+                        data.push({ model: m.shortName, all: all.nestcc, user: user.nestcc, max: 1.0 });
+                        break;
+                    };
+                    case NLP.name: {
+                        data.push({ model: m.shortName, all: all.nlp, user: user.nlp, max: 1.0 });
                         break;
                     };
                 };

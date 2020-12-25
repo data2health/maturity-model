@@ -1,5 +1,4 @@
 
-
 export enum LoginServerCommunicationState {
     Idle = 1,
     Calling = 2,

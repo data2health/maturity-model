@@ -41,7 +41,7 @@ export default class Summary extends React.PureComponent<Props,State> {
                             <Dropdown isOpen={this.state.show} toggle={this.toggle}>
                                 Let's see how your <DropdownToggle className={`${c}-dropdown-text`} tag="span"> {model} </DropdownToggle> answers compare to others
                                 <DropdownMenu>
-                                    {selected.map(m => <DropdownItem onClick={this.handleModelSummary.bind(null, m.shortName)}> {m.shortName} </DropdownItem> )}
+                                    {selected.map((m, i) => <DropdownItem key={i} onClick={this.handleModelSummary.bind(null, m.shortName)}> {m.shortName} </DropdownItem> )}
                                 </DropdownMenu>
                             </Dropdown>
                           </div>

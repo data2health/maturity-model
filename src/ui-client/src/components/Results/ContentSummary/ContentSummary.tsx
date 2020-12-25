@@ -21,8 +21,8 @@ export default class ContentSummary extends React.PureComponent<Props> {
         };
         
         return (
-            models.map((m) => {
-                return m.shortName === model && <ModelSummary model={m} user={user} />
+            models.map((m, i) => {
+                return m.shortName === model && <ModelSummary key={i} model={m} user={user} />
             })
         );
     };

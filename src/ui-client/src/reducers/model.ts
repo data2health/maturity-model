@@ -13,11 +13,13 @@ import { Forrester } from '../model/Models/Forrester';
 import { EPRMM } from '../model/Models/EPRMM';
 import { SEDoH } from '../model/Models/SEDoH';
 import { HAAM } from '../model/Models/HAAM';
+import { NESTcc } from '../model/Models/NESTcc';
+import { NLP } from '../model/Models/NLP';
 
 
 export const defaultModelState = (): ModelsState => {
     return {
-        all: [ RIOSM, PrecisionHealth, Quintegra_eHMM, HAAM, SEDoH ]
+        all: [ RIOSM, PrecisionHealth, Quintegra_eHMM, HAAM, SEDoH, NESTcc, NLP ]
         
         // removed models
         // all: [ HIMSS_EMRAM, IDC_Healthcare_IT, NEHTA_IMM, HIMSS_CCMM, Forrester, EPRMM ]

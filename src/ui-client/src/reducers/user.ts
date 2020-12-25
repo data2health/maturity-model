@@ -92,7 +92,24 @@ export const defaultUserState = (): UserState => {
             'precision_health_q7': '',
             'precision_health_q8': '',
             'precision_health_q9': '',
-            'precision_health_q10': ''
+            'precision_health_q10': '',
+
+            // NESTcc
+            'nestcc_complete': FormState.NotStarted,
+            'nestcc_q1': '',
+            'nestcc_q2': '',
+            'nestcc_q3': '',
+            'nestcc_q4': '',
+            'nestcc_q5': '',
+
+            // NLP
+            'nlp_complete': FormState.NotStarted,
+            'nlp_q1': '',
+            'nlp_q2': '',
+            'nlp_q3': '',
+            'nlp_q4': '',
+            'nlp_q5': '',
+            'nlp_q6': ''
         },
         answersLoadState: AnswerScoreLoadState.NotLoaded,
         email: '',
@@ -115,6 +132,8 @@ const userDefaultScore = (): BaseAnswerScore => {
         himss_emram: 0,
         himss_ccmm: 0,
         nehta_imm: 0,
+        nestcc: 0,
+        nlp: 0,
         eprmm: 0,
         forrester: 0,
         sedoh: 0,
@@ -137,6 +156,8 @@ const allDefaultScore = (): AllAnswerScore => {
         himss_emram: 0,
         himss_ccmm: 0,
         nehta_imm: 0,
+        nestcc: 0,
+        nlp: 0,
         eprmm: 0,
         forrester: 0,
         sedoh: 0,
@@ -184,6 +205,21 @@ const allDefaultScore = (): AllAnswerScore => {
             q8Stats: { mean: 0, min: 0, max: 0, median: 0 },
             q9Stats: { mean: 0, min: 0, max: 0, median: 0 },
             q10Stats: { mean: 0, min: 0, max: 0, median: 0 }
+        },
+        nestcc_questions: {
+            q1Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q2Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q3Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q4Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q5Stats: { mean: 0, min: 0, max: 0, median: 0 }
+        },
+        nlp_questions: {
+            q1Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q2Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q3Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q4Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q5Stats: { mean: 0, min: 0, max: 0, median: 0 },
+            q6Stats: { mean: 0, min: 0, max: 0, median: 0 }
         }
     };
 }
