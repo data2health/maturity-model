@@ -25,7 +25,7 @@ export default class ModelSummary extends React.PureComponent<Props> {
                         const a = answers[q.answerField];
                         const result = this.getResults(model.shortName, i);
                         return (
-                            <QuestionSummary answer={a} question={q} index={i} results={result} />
+                            <QuestionSummary key={i} answer={a} question={q} index={i} results={result} />
                         )
                     })}
                 </div>
@@ -49,6 +49,12 @@ export default class ModelSummary extends React.PureComponent<Props> {
         if (modelName === this.res.SEDoH.name) {
             return this.res.SEDoH.questions[index];
         };
+        if (modelName === this.res.NESTcc.name) {
+            return this.res.NESTcc.questions[index];
+        };
+        if (modelName === this.res.NLP.name) {
+            return this.res.NLP.questions[index];
+        };
         return {mean: 0 , min: 0, max: 0, median: 0};
     }
 
@@ -57,7 +63,9 @@ export default class ModelSummary extends React.PureComponent<Props> {
     private quintegra_eHMMR = this.results.all.quintegra_ehmm_questions;
     private precisionHealth = this.results.all.precision_health_questions;
     private haam = this.results.all.haam_questions;
-    private sedoh = this.results.all.sedoh_questions; 
+    private sedoh = this.results.all.sedoh_questions;
+    private nestcc = this.results.all.nestcc_questions;
+    private nlp = this.results.all.nlp_questions;
 
     private res: Result = {
         RIOSM: {
@@ -252,6 +260,82 @@ export default class ModelSummary extends React.PureComponent<Props> {
                     median: this.sedoh.q5Stats.median
                 }
             ]
+        },
+        NESTcc: {
+            name: 'NESTcc',
+            questions: [
+                {
+                    mean: this.nestcc.q1Stats.mean,
+                    min: this.nestcc.q1Stats.min,
+                    max: this.nestcc.q1Stats.max,
+                    median: this.nestcc.q1Stats.median
+                },
+                {
+                    mean: this.nestcc.q2Stats.mean,
+                    min: this.nestcc.q2Stats.min,
+                    max: this.nestcc.q2Stats.max,
+                    median: this.nestcc.q2Stats.median
+                },
+                {
+                    mean: this.nestcc.q3Stats.mean,
+                    min: this.nestcc.q3Stats.min,
+                    max: this.nestcc.q3Stats.max,
+                    median: this.nestcc.q3Stats.median
+                },
+                {
+                    mean: this.nestcc.q4Stats.mean,
+                    min: this.nestcc.q4Stats.min,
+                    max: this.nestcc.q4Stats.max,
+                    median: this.nestcc.q4Stats.median
+                },
+                {
+                    mean: this.nestcc.q5Stats.mean,
+                    min: this.nestcc.q5Stats.min,
+                    max: this.nestcc.q5Stats.max,
+                    median: this.nestcc.q5Stats.median
+                }
+            ]
+        },
+        NLP: {
+            name: 'NLP',
+            questions: [
+                {
+                    mean: this.nlp.q1Stats.mean,
+                    min: this.nlp.q1Stats.min,
+                    max: this.nlp.q1Stats.max,
+                    median: this.nlp.q1Stats.median
+                },
+                {
+                    mean: this.nlp.q2Stats.mean,
+                    min: this.nlp.q2Stats.min,
+                    max: this.nlp.q2Stats.max,
+                    median: this.nlp.q2Stats.median
+                },
+                {
+                    mean: this.nlp.q3Stats.mean,
+                    min: this.nlp.q3Stats.min,
+                    max: this.nlp.q3Stats.max,
+                    median: this.nlp.q3Stats.median
+                },
+                {
+                    mean: this.nlp.q4Stats.mean,
+                    min: this.nlp.q4Stats.min,
+                    max: this.nlp.q4Stats.max,
+                    median: this.nlp.q4Stats.median
+                },
+                {
+                    mean: this.nlp.q5Stats.mean,
+                    min: this.nlp.q5Stats.min,
+                    max: this.nlp.q5Stats.max,
+                    median: this.nlp.q5Stats.median
+                },
+                {
+                    mean: this.nlp.q6Stats.mean,
+                    min: this.nlp.q6Stats.min,
+                    max: this.nlp.q6Stats.max,
+                    median: this.nlp.q6Stats.median
+                }
+            ]
         }
     };
 }
@@ -262,6 +346,8 @@ interface Result {
     PrecisionHealth: ModelResult;
     HAAM: ModelResult;
     SEDoH: ModelResult;
+    NESTcc: ModelResult;
+    NLP: ModelResult;
 };
 
 interface ModelResult {

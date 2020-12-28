@@ -48,6 +48,23 @@ export interface SEDoHQuestionScore {
     q5Stats: AnswerStats;
 }
 
+export interface NESTccQuestionScore {
+    q1Stats: AnswerStats;
+    q2Stats: AnswerStats;
+    q3Stats: AnswerStats;
+    q4Stats: AnswerStats;
+    q5Stats: AnswerStats;
+}
+
+export interface NLPQuestionScore {
+    q1Stats: AnswerStats;
+    q2Stats: AnswerStats;
+    q3Stats: AnswerStats;
+    q4Stats: AnswerStats;
+    q5Stats: AnswerStats;
+    q6Stats: AnswerStats;
+}
+
 export interface BaseAnswerScore {
     riosm: number;
     riosm_categories: RIOSMCategoryScore;
@@ -57,6 +74,8 @@ export interface BaseAnswerScore {
     himss_emram: number;
     himss_ccmm: number;
     nehta_imm: number;
+    nestcc: number;
+    nlp: number;
     eprmm: number;
     forrester: number;
     sedoh: number;
@@ -64,10 +83,12 @@ export interface BaseAnswerScore {
 }
 
 export interface AllAnswerScore extends BaseAnswerScore {
-    riosm_questions: RIOSMQuestionScore;
-    quintegra_ehmm_questions: Quintegra_eHMMQuestionScore;
-    precision_health_questions: PrecisionHealthQuestionScore;
     haam_questions: HAAMQuestionScore;
+    nestcc_questions: NESTccQuestionScore;
+    nlp_questions: NLPQuestionScore;
+    precision_health_questions: PrecisionHealthQuestionScore;
+    quintegra_ehmm_questions: Quintegra_eHMMQuestionScore;
+    riosm_questions: RIOSMQuestionScore;
     sedoh_questions: SEDoHQuestionScore;
 }
 

@@ -79,7 +79,24 @@ export type AnswerField =
     'sedoh_q2'                         |
     'sedoh_q3'                         |
     'sedoh_q4'                         |
-    'sedoh_q5'
+    'sedoh_q5'                         |
+
+    // NESTcc
+    'nestcc_complete'                  |
+    'nestcc_q1'                        |
+    'nestcc_q2'                        |
+    'nestcc_q3'                        |
+    'nestcc_q4'                        |
+    'nestcc_q5'                        |
+
+    // NLP
+    'nlp_complete'                     |
+    'nlp_q1'                           |
+    'nlp_q2'                           |
+    'nlp_q3'                           |
+    'nlp_q4'                           |
+    'nlp_q5'                           |
+    'nlp_q6'
 
 
 export interface BaseUserAnswers {
@@ -192,4 +209,27 @@ export const PRECISION_HEALTH_Q10: AnswerField = 'precision_health_q10';
 export const precisionHealthFields: AnswerField[] = [
     PRECISION_HEALTH_Q1, PRECISION_HEALTH_Q2, PRECISION_HEALTH_Q3, PRECISION_HEALTH_Q4, PRECISION_HEALTH_Q5,
     PRECISION_HEALTH_Q6, PRECISION_HEALTH_Q7, PRECISION_HEALTH_Q8, PRECISION_HEALTH_Q9, PRECISION_HEALTH_Q10
+];
+
+// NESTcc
+export const NESTcc_Q1: AnswerField = 'nestcc_q1';
+export const NESTcc_Q2: AnswerField = 'nestcc_q2';
+export const NESTcc_Q3: AnswerField = 'nestcc_q3';
+export const NESTcc_Q4: AnswerField = 'nestcc_q4';
+export const NESTcc_Q5: AnswerField = 'nestcc_q5';
+
+export const nestccFields: AnswerField[] = [
+    NESTcc_Q1, NESTcc_Q2, NESTcc_Q3, NESTcc_Q4, NESTcc_Q5
+];
+
+// NLP
+export const NLP_Q1: AnswerField = 'nlp_q1';
+export const NLP_Q2: AnswerField = 'nlp_q2';
+export const NLP_Q3: AnswerField = 'nlp_q3';
+export const NLP_Q4: AnswerField = 'nlp_q4';
+export const NLP_Q5: AnswerField = 'nlp_q5';
+export const NLP_Q6: AnswerField = 'nlp_q6';
+
+export const nlpFields: AnswerField[] = [
+    NLP_Q1, NLP_Q2, NLP_Q3, NLP_Q4, NLP_Q5, NLP_Q6
 ];

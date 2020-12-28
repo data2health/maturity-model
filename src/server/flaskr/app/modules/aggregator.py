@@ -12,6 +12,8 @@ idc_healthcare_it = 'idc_healthcare_it'
 himss_emram       = 'himss_emram'
 himss_ccmm        = 'himss_ccmm'
 nehta_imm         = 'nehta_imm'
+nestcc            = 'nestcc'
+nlp               = 'nlp'
 eprmm             = 'eprmm'
 forrester         = 'forrester'
 sedoh             = 'sedoh'
@@ -22,6 +24,8 @@ quintegra_ehmm_questions   = 'quintegra_ehmm_questions'
 haam_questions             = 'haam_questions'
 sedoh_questions            = 'sedoh_questions'
 precision_health_questions = 'precision_health_questions'
+nestcc_questions           = 'nestcc_questions'
+nlp_questions              = 'nlp_questions'
 
 # RIOSM categories
 riosm_categories     = 'riosm_categories'
@@ -68,6 +72,21 @@ precision_health_q8  = 'precision_health_q8'
 precision_health_q9  = 'precision_health_q9'
 precision_health_q10 = 'precision_health_q10'
 
+# NESTcc questions
+nestcc_q1  = 'nestcc_q1'
+nestcc_q2  = 'nestcc_q2'
+nestcc_q3  = 'nestcc_q3'
+nestcc_q4  = 'nestcc_q4'
+nestcc_q5  = 'nestcc_q5'
+
+# NLP questions
+nlp_q1  = 'nlp_q1'
+nlp_q2  = 'nlp_q2'
+nlp_q3  = 'nlp_q3'
+nlp_q4  = 'nlp_q4'
+nlp_q5  = 'nlp_q5'
+nlp_q6  = 'nlp_q6'
+
 # Stats
 q1Stats = 'q1Stats'
 q2Stats = 'q2Stats'
@@ -96,6 +115,8 @@ def get_user_score(user):
     score[himss_emram]       = float(user[HIMSS_EMRAM_Q1]) / max_seven if user[HIMSS_EMRAM_Q1].isdigit() else None if user[HIMSS_EMRAM_COMPLETE] == '2' else None
     score[himss_ccmm]        = sum([ float(user[field]) for field in himss_ccmm_fields if user[field].isdigit() ]) / (len(himss_ccmm_fields) * max_seven) if user[HIMSS_CCMM_COMPLETE] == '2' else None
     score[nehta_imm]         = float(user[NEHTA_IMM_Q1]) / max_five if user[NEHTA_IMM_Q1].isdigit() else None if user[NEHTA_IMM_COMPLETE] == '2' else None
+    score[nestcc]            = sum([ float(user[field]) for field in nestcc_fields if user[field].isdigit() ]) / (len(nestcc_fields) * max_five) if user[NESTcc_COMPLETE] == '2' else None
+    score[nlp]               = sum([ float(user[field]) for field in nlp_fields if user[field].isdigit() ]) / (len(nlp_fields) * max_five) if user[NLP_COMPLETE] == '2' else None
     score[eprmm]             = float(user[EPRMM_Q1]) / max_six if user[EPRMM_Q1].isdigit() else None if user[EPRMM_COMPLETE] == '2' else None
     score[sedoh]             = sum([ float(user[field]) for field in sedoh_fields if user[field].isdigit() ]) / (len(sedoh_fields) * max_seven) if user[SEDOH_COMPLETE] == '2' else None
     score[precision_health]  = sum([ float(user[field]) for field in precision_health_fields if user[field].isdigit() ]) / (len(precision_health_fields) * max_five) if user[PRECISION_HEALTH_COMPLETE] == '2' else None
@@ -144,6 +165,21 @@ def get_user_score(user):
     score[precision_health_questions][precision_health_q9]   = float(user[PRECISION_HEALTH_Q9]) / max_five if user[PRECISION_HEALTH_Q9].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
     score[precision_health_questions][precision_health_q10]  = float(user[PRECISION_HEALTH_Q10]) / max_five if user[PRECISION_HEALTH_Q10].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
 
+    score[nestcc_questions] = {}
+    score[nestcc_questions][nestcc_q1]   = float(user[NESTcc_Q1]) / max_five if user[NESTcc_Q1].isdigit() else None if user[NESTcc_COMPLETE] == '2' else None
+    score[nestcc_questions][nestcc_q2]   = float(user[NESTcc_Q2]) / max_five if user[NESTcc_Q2].isdigit() else None if user[NESTcc_COMPLETE] == '2' else None
+    score[nestcc_questions][nestcc_q3]   = float(user[NESTcc_Q3]) / max_five if user[NESTcc_Q3].isdigit() else None if user[NESTcc_COMPLETE] == '2' else None
+    score[nestcc_questions][nestcc_q4]   = float(user[NESTcc_Q4]) / max_five if user[NESTcc_Q4].isdigit() else None if user[NESTcc_COMPLETE] == '2' else None
+    score[nestcc_questions][nestcc_q5]   = float(user[NESTcc_Q5]) / max_five if user[NESTcc_Q5].isdigit() else None if user[NESTcc_COMPLETE] == '2' else None
+
+    score[nlp_questions] = {}
+    score[nlp_questions][nlp_q1]   = float(user[NLP_Q1]) / max_five if user[NLP_Q1].isdigit() else None if user[NLP_COMPLETE] == '2' else None
+    score[nlp_questions][nlp_q2]   = float(user[NLP_Q2]) / max_five if user[NLP_Q2].isdigit() else None if user[NLP_COMPLETE] == '2' else None
+    score[nlp_questions][nlp_q3]   = float(user[NLP_Q3]) / max_five if user[NLP_Q3].isdigit() else None if user[NLP_COMPLETE] == '2' else None
+    score[nlp_questions][nlp_q4]   = float(user[NLP_Q4]) / max_five if user[NLP_Q4].isdigit() else None if user[NLP_COMPLETE] == '2' else None
+    score[nlp_questions][nlp_q5]   = float(user[NLP_Q5]) / max_five if user[NLP_Q5].isdigit() else None if user[NLP_COMPLETE] == '2' else None
+    score[nlp_questions][nlp_q6]   = float(user[NLP_Q6]) / max_five if user[NLP_Q6].isdigit() else None if user[NLP_COMPLETE] == '2' else None
+
     return score
 
 def aggregate(all):
@@ -154,6 +190,8 @@ def aggregate(all):
     riosm_question_scores = [ v[riosm_questions] for v in all_scores ]
     quintegra_ehmm_question_scores = [ v[quintegra_ehmm_questions] for v in all_scores ]
     haam_question_scores = [ v[haam_questions] for v in all_scores ]
+    nestcc_question_scores = [ v[nestcc_questions] for v in all_scores ]
+    nlp_question_scores = [ v[nlp_questions] for v in all_scores ]
     sedoh_question_scores = [ v[sedoh_questions] for v in all_scores ]
     precision_health_question_scores = [ v[precision_health_questions] for v in all_scores ]
 
@@ -164,6 +202,8 @@ def aggregate(all):
     agg_score[himss_emram]       = __get_aggregate_score(all_scores, himss_emram)
     agg_score[himss_ccmm]        = __get_aggregate_score(all_scores, himss_ccmm)
     agg_score[nehta_imm]         = __get_aggregate_score(all_scores, nehta_imm)
+    agg_score[nestcc]            = __get_aggregate_score(all_scores, nestcc)
+    agg_score[nlp]               = __get_aggregate_score(all_scores, nlp)
     agg_score[eprmm]             = __get_aggregate_score(all_scores, eprmm)
     agg_score[sedoh]             = __get_aggregate_score(all_scores, sedoh)
     agg_score[precision_health]  = __get_aggregate_score(all_scores, precision_health)
@@ -211,6 +251,21 @@ def aggregate(all):
     agg_score[precision_health_questions][q8Stats]  = __get_aggregate_stats(precision_health_question_scores, precision_health_q8)
     agg_score[precision_health_questions][q9Stats]  = __get_aggregate_stats(precision_health_question_scores, precision_health_q9)
     agg_score[precision_health_questions][q10Stats] = __get_aggregate_stats(precision_health_question_scores, precision_health_q10)
+
+    agg_score[nestcc_questions] = {}
+    agg_score[nestcc_questions][q1Stats]  = __get_aggregate_stats(nestcc_question_scores, nestcc_q1)
+    agg_score[nestcc_questions][q2Stats]  = __get_aggregate_stats(nestcc_question_scores, nestcc_q2)
+    agg_score[nestcc_questions][q3Stats]  = __get_aggregate_stats(nestcc_question_scores, nestcc_q3)
+    agg_score[nestcc_questions][q4Stats]  = __get_aggregate_stats(nestcc_question_scores, nestcc_q4)
+    agg_score[nestcc_questions][q5Stats]  = __get_aggregate_stats(nestcc_question_scores, nestcc_q5)
+
+    agg_score[nlp_questions] = {}
+    agg_score[nlp_questions][q1Stats]  = __get_aggregate_stats(nlp_question_scores, nlp_q1)
+    agg_score[nlp_questions][q2Stats]  = __get_aggregate_stats(nlp_question_scores, nlp_q2)
+    agg_score[nlp_questions][q3Stats]  = __get_aggregate_stats(nlp_question_scores, nlp_q3)
+    agg_score[nlp_questions][q4Stats]  = __get_aggregate_stats(nlp_question_scores, nlp_q4)
+    agg_score[nlp_questions][q5Stats]  = __get_aggregate_stats(nlp_question_scores, nlp_q5)
+    agg_score[nlp_questions][q6Stats]  = __get_aggregate_stats(nlp_question_scores, nlp_q6)
 
     return agg_score, len(all_scores)
 
