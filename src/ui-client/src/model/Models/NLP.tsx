@@ -8,7 +8,7 @@ export const NLP: BaseModel =
     completeField: 'nlp_complete',
     name: 'NLP Maturity Grid',
     shortName: 'NLP',
-    description: 'NLP DESCRIPTION NEEDED.',
+    description: 'The NLP maturity model is a grid-based model developed as part of the CD2H iCore Community meetings in 2020. Its purpose is to provide an assessment of an organization’s maturity in implementing central NLP-based services (or Text analytics services) with higher maturity indicating higher service management, increased sophistication and quality in processing text, and higher effectiveness in integrating results. This model has six categories with five maturity levels in each category. Current version is a draft that needs further piloting and review.',
     render: (dispatch: any, answers: UserAnswers) => <NLPForm dispatch={dispatch} answers={answers} />,
     questions: [
         {
@@ -46,7 +46,7 @@ export const NLP: BaseModel =
             value: '1'
                 },
                 {
-            text: "Establish Institution-wide data governance policies.",
+            text: "Establish Institution - wide data governance policies.",
             value: '2'
                 },
                 {
