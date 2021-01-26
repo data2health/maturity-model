@@ -16,31 +16,31 @@ export const Quintegra_eHMM: BaseModel =
             text: 'Choose the statement that best describes the current level of your model:',
             options: [
                 {
-                    text: 'Hospital Administration Level',
+                    text: 'Hospital Administration Level: patient admin; billing; wards management; diagnostics management; MIS.',
                     value: '1'
                 },
                 {
-                    text: 'Hospital Enterprise Level',
+                    text: 'Hospital Enterprise Level: finance; materials management; HR management; electronic claims and payment processing',
                     value: '2'
                 },
                 {
-                    text: 'EMR Basic Level',
+                    text: 'EMR Basic Level: laboratory information system; radiology information system; PACS; Pharmacy',
                     value: '3'
                 },
                 {
-                    text: 'Clinical Decision Support Level',
+                    text: 'Clinical Decision Support: computerized provider order entry; international codification of diseases; alerts/contraindications; used for edcuational purposes',
                     value: '4'
                 },
                 {
-                    text: 'Clinical Research Level',
+                    text: 'Clinical Research Level: clinical trials; clinical data research based on drug prescriptions and reactions',
                     value: '5'
                 },
                 {
-                    text: 'Regional Level',
+                    text: 'Regional Level: telemedicine; aggregation of data from various hospitals at the regional level',
                     value: '6'
                 },
                 {
-                    text: 'National Level',
+                    text: 'National Level: data frfom all reguins aggregated; enables healthcare planning and government initiatives towards healthcare',
                     value: '7'
                 }
             ]
