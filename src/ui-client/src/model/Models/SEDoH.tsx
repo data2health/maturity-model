@@ -13,7 +13,7 @@ export const SEDoH: BaseModel =
     questions: [
         {
         answerField: 'sedoh_q1',
-        text: "Choose the statement that best describes the current stage of your data collection policies:",
+        text: "What is the highest level of DATA COLLECTION POLICIES in the SC CTSI SEDoH Maturity Model at which your organization consistently and comprehensively operates on a daily basis?",
         options: [
                 {
             text: "None",
@@ -47,7 +47,7 @@ export const SEDoH: BaseModel =
         },
         {
             answerField: 'sedoh_q2',
-            text: "Choose the statement that best describes the current stage of your data collection methods:",
+            text: "What is the highest level of DATA COLLECTION METHODS in the SC CTSI SEDoH Maturity Model at which your organization consistently and comprehensively operates on a daily basis?",
             options: [
                 {
             text: "Paper",
@@ -81,7 +81,7 @@ export const SEDoH: BaseModel =
         },
         {
         answerField: 'sedoh_q3',
-        text: "Choose the statement that best describes the current stage of your technology platforms:",
+        text: "What is the highest level of TECHNOLOGY PLATFORMS in the SC CTSI SEDoH Maturity Model at which your organization consistently and comprehensively operates on a daily basis?",
         options: [
                 {
             text: "None",
@@ -115,7 +115,7 @@ export const SEDoH: BaseModel =
         },
         {
         answerField: 'sedoh_q4',
-        text: "Choose the statement that best describes the current stage of your analytics capacity:",
+        text: "What is the highest level of ANALYTICS CAPACITY (specifically in terms of SEDoH) in the SC CTSI SEDoH Maturity Model at which your organization consistently and comprehensively operates on a daily basis?",
         options: [
                 {
             text: "None",
@@ -149,7 +149,7 @@ export const SEDoH: BaseModel =
         },
         {
         answerField: 'sedoh_q5',
-        text: "Choose the statement that best describes the current stage of your operational and strategic impact:",
+        text: "What is the highest level of OPERATIONAL AND STRATEGIC IMPACT in the SC CTSI SEDoH Maturity Model at which your organization consistently and comprehensively operates on a daily basis?",
         options: [
                 {
             text: "None",
