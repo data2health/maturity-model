@@ -65,6 +65,21 @@ export interface NLPQuestionScore {
     q6Stats: AnswerStats;
 }
 
+export interface AllModelsCompleted {
+    riosm: number;
+    quintegra_ehmm: number;
+    haam: number;
+    idc_healthcare_it: number;
+    himss_emram: number;
+    himss_ccmm: number;
+    nehta_imm: number;
+    nestcc: number;
+    nlp: number;
+    eprmm: number;
+    sedoh: number;
+    precision_health: number;
+}
+
 export interface BaseAnswerScore {
     riosm: number;
     riosm_categories: RIOSMCategoryScore;
@@ -83,6 +98,7 @@ export interface BaseAnswerScore {
 }
 
 export interface AllAnswerScore extends BaseAnswerScore {
+    models_completed: AllModelsCompleted;
     haam_questions: HAAMQuestionScore;
     nestcc_questions: NESTccQuestionScore;
     nlp_questions: NLPQuestionScore;

@@ -55,7 +55,7 @@ export default class ModelSummary extends React.PureComponent<Props> {
         if (modelName === this.res.NLP.name) {
             return this.res.NLP.questions[index];
         };
-        return {mean: 0 , min: 0, max: 0, median: 0};
+        return {mean: 0, min: 0, max: 0, median: 0};
     }
 
     private results = this.props.user.results;

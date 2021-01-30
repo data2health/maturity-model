@@ -11,9 +11,14 @@ import { NLP } from '../../model/Models/NLP';
 import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
          Radar, BarChart, Bar, XAxis, YAxis, Legend, Tooltip } from 'recharts';
 
+import { Alert } from 'reactstrap';
+
 interface Props {
     user: UserState;
     models: BaseModel[];
+    data: ChartDataPoint[];
+    modComplete: Map<string, number>;
+    totalMod: number;
 }
 
 interface ChartDataPoint {
@@ -29,9 +34,14 @@ export default class Chart extends React.PureComponent<Props> {
     private orange = "rgb(255,132,8)";
 
     public render() {
-        const { user } = this.props;
+        const { user, data, totalMod } = this.props;
         const c = this.className;
-        const data = this.getChartData();
+        // const data = this.getChartData();
+        
+        // const models_completed = for  this.props.user.results.all.models_completed.
+        // const mods = this.props.user.results.all.models_completed;
+        // console.log(mods)
+
         const modelsSelectedLen = this.props.models.filter(m => m.selected).length;
 
         if (modelsSelectedLen === 0) {
@@ -41,29 +51,33 @@ export default class Chart extends React.PureComponent<Props> {
         } else if (modelsSelectedLen === 1 || modelsSelectedLen === 2) {
             return (
                 <div className={`${c}-chart`}>
-                <BarChart width={500} height={300} data={data} margin={{top: 20, right: 30, left: 20, bottom: 5}}>
-                    <XAxis dataKey="model" />
-                    <YAxis />
-                    <Tooltip formatter={(value) => (Number(value)*100).toFixed(1).toString() + '%'} />
-                    <Bar name={'Your Score'} stackId="a" dataKey="user" stroke={this.orange} fill={this.orange} fillOpacity={0.5} />
-                    <Bar name={`Average (n=${user.results.n})`} stackId="a" dataKey="all" stroke={this.blue} fill={this.blue} fillOpacity={0.3} />
-                    <Legend />
-                </BarChart>
-            </div>
+                    <div>{totalMod}</div>
+                    
+                    <BarChart width={500} height={300} data={data} margin={{top: 20, right: 30, left: 20, bottom: 5}}>
+                        <XAxis dataKey="model" />
+                        <YAxis />
+                        <Tooltip formatter={(value) => (Number(value)*100).toFixed(1).toString() + '%'} />
+                        <Bar name={'Your Score'} stackId="a" dataKey="user" stroke={this.orange} fill={this.orange} fillOpacity={0.5} />
+                        <Bar name={`Average (n=${user.results.n})`} stackId="a" dataKey="all" stroke={this.blue} fill={this.blue} fillOpacity={0.3} />
+                        <Legend />
+                    </BarChart>
+                </div>
             );
         } else {
             return (
                 <div className={`${c}-chart`}>
-                <RadarChart outerRadius={250} width={1000} height={600} data={data}>
-                    <PolarGrid stroke={'rgb(230,230,230)'} />
-                    <PolarAngleAxis dataKey="model" />
-                    <PolarRadiusAxis angle={90} domain={[0, 1]} />
-                    <Radar name={'Your Score'} dataKey="user" stroke={this.orange} fill={this.orange} fillOpacity={0.5} />
-                    <Radar name={`Average (n=${user.results.n})`} dataKey="all" stroke={this.blue} fill={this.blue} fillOpacity={0.3} />
-                    <Legend align={'left'} />
-                    <Tooltip formatter={(value) => (Number(value)*100).toFixed(1).toString() + '%'} />
-                </RadarChart>
-            </div>
+                    <div>{totalMod}</div>
+                    
+                    <RadarChart outerRadius={250} width={1000} height={600} data={data}>
+                        <PolarGrid stroke={'rgb(230,230,230)'} />
+                        <PolarAngleAxis dataKey="model" />
+                        <PolarRadiusAxis angle={90} domain={[0, 1]} />
+                        <Radar name={'Your Score'} dataKey="user" stroke={this.orange} fill={this.orange} fillOpacity={0.5} />
+                        <Radar name={`Average (n=${user.results.n})`} dataKey="all" stroke={this.blue} fill={this.blue} fillOpacity={0.3} />
+                        <Legend align={'left'} />
+                        <Tooltip formatter={(value) => (Number(value)*100).toFixed(1).toString() + '%'} />
+                    </RadarChart>
+                </div>
             );
         };
     };

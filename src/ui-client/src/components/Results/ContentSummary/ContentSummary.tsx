@@ -1,4 +1,5 @@
 import React from 'react';
+import { Alert } from 'reactstrap';
 import { BaseModel } from '../../../model/ModelsState';
 import { UserState } from '../../../model/UserState';
 import { RIOSM } from '../../../model/Models/RIOSM';
@@ -9,12 +10,13 @@ interface Props {
     user: UserState;
     models: BaseModel[];
     model: string;
+    mod: Map<string, number>;
 }
 
 export default class ContentSummary extends React.PureComponent<Props> {
 
     public render() {
-        const { user, models, model } = this.props;
+        const { user, models, model, mod } = this.props;
 
         if (model === 'RIOSM') {
             return this.getRIOSMSummary()
@@ -22,7 +24,11 @@ export default class ContentSummary extends React.PureComponent<Props> {
         
         return (
             models.map((m, i) => {
-                return m.shortName === model && <ModelSummary key={i} model={m} user={user} />
+                return m.shortName === model &&
+                    <div>
+                        <Alert color="primary">{mod.get(m.shortName)}</Alert>
+                        <ModelSummary key={i} model={m} user={user} />
+                    </div>
             })
         );
     };
@@ -30,6 +36,8 @@ export default class ContentSummary extends React.PureComponent<Props> {
     private getRIOSMSummary = () => {
         const c = 'riosm-summary';
         const { results } = this.props.user;        
+
+        const { mod } = this.props;
 
         return (
             <div className={c}>
@@ -93,6 +101,7 @@ export default class ContentSummary extends React.PureComponent<Props> {
 
                 </div>
 
+                <Alert color="primary">{mod.get(RIOSM.shortName)}</Alert>
                 <ModelSummary model={RIOSM} user={this.props.user} />
 
             </div>
