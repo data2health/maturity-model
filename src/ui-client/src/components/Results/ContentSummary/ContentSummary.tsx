@@ -1,5 +1,4 @@
 import React from 'react';
-import { Alert } from 'reactstrap';
 import { BaseModel } from '../../../model/ModelsState';
 import { UserState } from '../../../model/UserState';
 import { RIOSM } from '../../../model/Models/RIOSM';
@@ -10,13 +9,16 @@ interface Props {
     user: UserState;
     models: BaseModel[];
     model: string;
-    mod: Map<string, number>;
+    mappedModels: Map<string, number>;
 }
 
 export default class ContentSummary extends React.PureComponent<Props> {
 
+    private className = 'content-summary';
+
     public render() {
-        const { user, models, model, mod } = this.props;
+        const c = this.className;
+        const { user, models, model, mappedModels } = this.props;
 
         if (model === 'RIOSM') {
             return this.getRIOSMSummary()
@@ -25,8 +27,11 @@ export default class ContentSummary extends React.PureComponent<Props> {
         return (
             models.map((m, i) => {
                 return m.shortName === model &&
-                    <div>
-                        <Alert color="primary">{mod.get(m.shortName)}</Alert>
+                    <div key={i} className={c}>
+                        <div className={`${c}-total-submissions`}>
+                            There are {mappedModels.get(m.shortName)} submission(s) for this model.
+                        </div>
+
                         <ModelSummary key={i} model={m} user={user} />
                     </div>
             })
@@ -36,12 +41,15 @@ export default class ContentSummary extends React.PureComponent<Props> {
     private getRIOSMSummary = () => {
         const c = 'riosm-summary';
         const { results } = this.props.user;        
-
-        const { mod } = this.props;
+        const { mappedModels } = this.props;
 
         return (
             <div className={c}>
 
+                <div className={`${c}-total-submissions`}>
+                    There are {mappedModels.get(RIOSM.shortName)} submission(s) for this model.
+                </div>
+                
                 {/* Scale */}
                 <div className={`${c}-scale`}>
                     <div className={`${c}-scale-value`}>
@@ -100,8 +108,7 @@ export default class ContentSummary extends React.PureComponent<Props> {
                     </div>
 
                 </div>
-
-                <Alert color="primary">{mod.get(RIOSM.shortName)}</Alert>
+                
                 <ModelSummary model={RIOSM} user={this.props.user} />
 
             </div>
