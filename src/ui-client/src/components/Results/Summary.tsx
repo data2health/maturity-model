@@ -8,6 +8,7 @@ import ContentSummary from './ContentSummary/ContentSummary';
 interface Props {
     user: UserState;
     models: BaseModel[];
+    completedModels: Map<string, number>;
 }
 
 interface State {
@@ -30,7 +31,7 @@ export default class Summary extends React.PureComponent<Props,State> {
     public render() {
         const c = this.className;
         const selected = this.selected;
-        const { user } = this.props;
+        const { user, completedModels } = this.props;
         const { model } =this.state;
         
         return (
@@ -50,7 +51,7 @@ export default class Summary extends React.PureComponent<Props,State> {
 
                 headerLarge={this.state.model ? true : false}
                 subheader={this.getSubHeader(model)}
-                content={<ContentSummary models={selected} model={this.state.model} user={user} />}
+                content={<ContentSummary mappedModels={completedModels} models={selected} model={this.state.model} user={user} />}
             />
         );
     };

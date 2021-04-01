@@ -4,6 +4,9 @@ import sys
 from .fields import *
 from statistics import median
 
+# Models completed
+models_completed = 'models_completed'
+
 # Models
 riosm             = 'riosm'
 quintegra_ehmm    = 'quintegra_ehmm'
@@ -180,12 +183,29 @@ def get_user_score(user):
     score[nlp_questions][nlp_q5]   = float(user[NLP_Q5]) / max_five if user[NLP_Q5].isdigit() else None if user[NLP_COMPLETE] == '2' else None
     score[nlp_questions][nlp_q6]   = float(user[NLP_Q6]) / max_five if user[NLP_Q6].isdigit() else None if user[NLP_COMPLETE] == '2' else None
 
+    score[models_completed] = {}
+    score[models_completed][riosm]             = 1 if user[RIOSM_COMPLETE] == '2' else None
+    score[models_completed][quintegra_ehmm]    = 1 if user[QUINTEGRA_EHMM_COMPELTE] == '2' else None
+    score[models_completed][haam]              = 1 if user[HAAM_COMPELTE] == '2' else None
+    score[models_completed][idc_healthcare_it] = 1 if user[IDC_HEALTHCARE_IT_COMPLETE] == '2' else None
+    score[models_completed][himss_emram]       = 1 if user[HIMSS_EMRAM_COMPLETE] == '2' else None
+    score[models_completed][himss_ccmm]        = 1 if user[HIMSS_CCMM_COMPLETE] == '2' else None
+    score[models_completed][nehta_imm]         = 1 if user[NEHTA_IMM_COMPLETE] == '2' else None
+    score[models_completed][nestcc]            = 1 if user[NESTcc_COMPLETE] == '2' else None
+    score[models_completed][nlp]               = 1 if user[NLP_COMPLETE] == '2' else None
+    score[models_completed][eprmm]             = 1 if user[EPRMM_COMPLETE] == '2' else None
+    score[models_completed][forrester]         = 1 if user[FORRESTER_COMPLETE] == '2' else None
+    score[models_completed][sedoh]             = 1 if user[SEDOH_COMPLETE] == '2' else None
+    score[models_completed][precision_health]  = 1 if user[PRECISION_HEALTH_COMPLETE] == '2' else None
+
     return score
 
 def aggregate(all):
 
     agg_score  = {}
     all_scores = [ get_user_score(v) for k,v in all.items() if v != None ]
+
+    all_models_completed = [ v[models_completed] for v in all_scores ]
     riosm_scores = [ v[riosm_categories] for v in all_scores ]
     riosm_question_scores = [ v[riosm_questions] for v in all_scores ]
     quintegra_ehmm_question_scores = [ v[quintegra_ehmm_questions] for v in all_scores ]
@@ -267,7 +287,27 @@ def aggregate(all):
     agg_score[nlp_questions][q5Stats]  = __get_aggregate_stats(nlp_question_scores, nlp_q5)
     agg_score[nlp_questions][q6Stats]  = __get_aggregate_stats(nlp_question_scores, nlp_q6)
 
+    agg_score[models_completed] = {}
+    agg_score[models_completed][riosm]             = __get_aggregate_completed_models(all_models_completed, riosm)
+    agg_score[models_completed][quintegra_ehmm]    = __get_aggregate_completed_models(all_models_completed, quintegra_ehmm)
+    agg_score[models_completed][haam]              = __get_aggregate_completed_models(all_models_completed, haam)
+    agg_score[models_completed][idc_healthcare_it] = __get_aggregate_completed_models(all_models_completed, idc_healthcare_it)
+    agg_score[models_completed][himss_emram]       = __get_aggregate_completed_models(all_models_completed, himss_emram)
+    agg_score[models_completed][himss_ccmm]        = __get_aggregate_completed_models(all_models_completed, himss_ccmm)
+    agg_score[models_completed][nehta_imm]         = __get_aggregate_completed_models(all_models_completed, nehta_imm)
+    agg_score[models_completed][nestcc]            = __get_aggregate_completed_models(all_models_completed, nestcc)
+    agg_score[models_completed][nlp]               = __get_aggregate_completed_models(all_models_completed, nlp)
+    agg_score[models_completed][eprmm]             = __get_aggregate_completed_models(all_models_completed, eprmm)
+    agg_score[models_completed][sedoh]             = __get_aggregate_completed_models(all_models_completed, sedoh)
+    agg_score[models_completed][precision_health]  = __get_aggregate_completed_models(all_models_completed, precision_health)
+
     return agg_score, len(all_scores)
+
+def __get_aggregate_completed_models(models, key):
+    valid = [ model[key] for model in models if model[key] != None ]
+    if len(valid) > 0:
+        return sum(valid)
+    return 0.0
 
 def __get_aggregate_score(scores, key):
 

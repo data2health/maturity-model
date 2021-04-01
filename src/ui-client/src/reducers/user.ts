@@ -220,6 +220,20 @@ const allDefaultScore = (): AllAnswerScore => {
             q4Stats: { mean: 0, min: 0, max: 0, median: 0 },
             q5Stats: { mean: 0, min: 0, max: 0, median: 0 },
             q6Stats: { mean: 0, min: 0, max: 0, median: 0 }
+        },
+        models_completed: {
+            riosm: 0,
+            quintegra_ehmm: 0,
+            haam: 0,
+            idc_healthcare_it: 0,
+            himss_emram: 0,
+            himss_ccmm: 0,
+            nehta_imm: 0,
+            nestcc: 0,
+            nlp: 0,
+            eprmm: 0,
+            sedoh: 0,
+            precision_health: 0
         }
     };
 }

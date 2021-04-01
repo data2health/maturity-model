@@ -9,12 +9,16 @@ interface Props {
     user: UserState;
     models: BaseModel[];
     model: string;
+    mappedModels: Map<string, number>;
 }
 
 export default class ContentSummary extends React.PureComponent<Props> {
 
+    private className = 'content-summary';
+
     public render() {
-        const { user, models, model } = this.props;
+        const c = this.className;
+        const { user, models, model, mappedModels } = this.props;
 
         if (model === 'RIOSM') {
             return this.getRIOSMSummary()
@@ -22,7 +26,14 @@ export default class ContentSummary extends React.PureComponent<Props> {
         
         return (
             models.map((m, i) => {
-                return m.shortName === model && <ModelSummary key={i} model={m} user={user} />
+                return m.shortName === model &&
+                    <div key={i} className={c}>
+                        <div className={`${c}-total-submissions`}>
+                            There are {mappedModels.get(m.shortName)} submission(s) for this model.
+                        </div>
+
+                        <ModelSummary key={i} model={m} user={user} />
+                    </div>
             })
         );
     };
@@ -30,10 +41,15 @@ export default class ContentSummary extends React.PureComponent<Props> {
     private getRIOSMSummary = () => {
         const c = 'riosm-summary';
         const { results } = this.props.user;        
+        const { mappedModels } = this.props;
 
         return (
             <div className={c}>
 
+                <div className={`${c}-total-submissions`}>
+                    There are {mappedModels.get(RIOSM.shortName)} submission(s) for this model.
+                </div>
+                
                 {/* Scale */}
                 <div className={`${c}-scale`}>
                     <div className={`${c}-scale-value`}>
@@ -92,7 +108,7 @@ export default class ContentSummary extends React.PureComponent<Props> {
                     </div>
 
                 </div>
-
+                
                 <ModelSummary model={RIOSM} user={this.props.user} />
 
             </div>

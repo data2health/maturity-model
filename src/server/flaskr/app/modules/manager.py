@@ -26,7 +26,7 @@ class Manager:
             users = self.svc.get_data()
 
             if users:
-                self.__cache = { (u[EMAIL_ADDRESS], u[ENTRY_CODE]) : u for u in users if u[APPROVED] == '1' }
+                self.__cache = { (u[EMAIL_ADDRESS].lower(), u[ENTRY_CODE]) : u for u in users if u[APPROVED] == '1' }
                 self.__add_guest_login()
 
     def __add_guest_login(self):

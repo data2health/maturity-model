@@ -108,7 +108,7 @@ export default class LoginBox extends React.PureComponent<Props,State> {
 
         this.setState({ entryCodeValid, emailValid });
         if (entryCodeValid) {
-            dispatch(attemptLogin(loginState.emailAddress, loginState.entryCode));
+            dispatch(attemptLogin(loginState.emailAddress.toLowerCase(), loginState.entryCode));
         }
     }
 

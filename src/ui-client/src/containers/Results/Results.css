@@ -55,10 +55,16 @@
     display: inline-block;
     margin: auto;
     text-align: center;
+    max-width: 100%;
 }
 
 .results tspan,
 .results .recharts-default-legend {
     font-size: 1.1rem;
     font-weight: 300;
+}
+
+.results-chart-total-submissions {
+    font-size: 16px;
+    margin-top: 5px;
 }

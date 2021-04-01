@@ -1,3 +1,14 @@
+.content-summary-total-submissions {
+    font-size: 16px;
+    margin-bottom: 15px;
+    margin-top: -15px;
+}
+
+.riosm-summary-total-submissions {
+    font-size: 16px;
+    margin-top: 15px;
+}
+
 /* Scale */
 .riosm-summary-scale {
     background-color: white;
