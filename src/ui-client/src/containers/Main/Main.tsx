@@ -53,7 +53,7 @@ export default class Main extends React.PureComponent<Props,State> {
         return (
             <div className={classes.join(' ')}>
                 <Sidebar dispatch={dispatch} answers={user.answers} models={models} currentView={general.currentView} />
-                <Header username={login.emailAddress} />
+                <Header username={login.emailAddress.toLowerCase()} />
                 <ConfirmationModal dispatch={dispatch} state={general.confirmationModal} />
                 <InformationModal dispatch={dispatch} state={general.informationModal} />
                 <NoClickModal dispatch={dispatch} state={general.noclickModal} />
