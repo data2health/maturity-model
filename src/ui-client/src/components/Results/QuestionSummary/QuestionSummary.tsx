@@ -36,11 +36,11 @@ export default class QuestionSummary extends React.PureComponent<Props, State> {
                 <Container>
                     <Row>
                         <Col className={`${c}-breakdown-primary-top`}><div className='question'>Q{index+1}</div></Col>
-                        <Col className={`${c}-breakdown-primary-top`}><div className='user-border'><strong>Your Score</strong></div><div className='user-border user-score'>{((Number(answer)/questionLength)*100).toFixed(1).toString() + '%'}</div></Col>
-                        <Col className={`${c}-breakdown-primary-top`}><div><strong>Mean</strong></div><div className='all'>{(results.mean*100).toFixed(1).toString() + '%'}</div></Col>
-                        <Col className={`${c}-breakdown-primary-top`}><div><strong>Minimum</strong></div><div className='all'>{(results.min*100).toFixed(1).toString() + '%'}</div></Col>
-                        <Col className={`${c}-breakdown-primary-top`}><div><strong>Maximum</strong></div><div className='all'>{(results.max*100).toFixed(1).toString() + '%'}</div></Col>
-                        <Col className={`${c}-breakdown-primary-top`}><div><strong>Median</strong></div><div className='all'>{(results.median*100).toFixed(1).toString() + '%'}</div></Col>
+                        <Col className={`${c}-breakdown-primary-top`}><div className='user-border'><strong>Your Score</strong></div><div className='user-border user-score'>{Number(answer)}</div></Col>
+                        <Col className={`${c}-breakdown-primary-top`}><div><strong>Mean</strong></div><div className='all'>{results.mean}</div></Col>
+                        <Col className={`${c}-breakdown-primary-top`}><div><strong>Minimum</strong></div><div className='all'>{results.min}</div></Col>
+                        <Col className={`${c}-breakdown-primary-top`}><div><strong>Maximum</strong></div><div className='all'>{results.max}</div></Col>
+                        <Col className={`${c}-breakdown-primary-top`}><div><strong>Median</strong></div><div className='all'>{results.median}</div></Col>
 
                         <Col className={`${c}-breakdown-primary-top`}>
                             <Button outline onClick={this.handleQuestionDisplay.bind(null)}>
@@ -50,7 +50,8 @@ export default class QuestionSummary extends React.PureComponent<Props, State> {
                     </Row>
                     <Row>
                         {!this.state.show  &&
-                            <Col><div className={`${c}-breakdown-primary-top-question-text`}>{question.text.toString().replace(':', '.')}</div></Col>
+                            // <Col><div className={`${c}-breakdown-primary-top-question-text`}>{question.text.toString().replace(':', '.')}</div></Col>
+                            <Col><div className={`${c}-breakdown-primary-top-question-text`}>{question.text}</div></Col>
                         }
                     </Row>
                 </Container>

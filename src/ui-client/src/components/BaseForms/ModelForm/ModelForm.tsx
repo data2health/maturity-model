@@ -54,6 +54,11 @@ export class ModelForm extends React.PureComponent<Props,State> {
                         <div>
                             <div className={`${c}-desc`}>
                                 <div className={`${c}-desc-inner`}>{model.description}</div>
+                                {model.url &&
+                                    <div className={`${c}-desc-url`}>
+                                        Source: <a href={model.url} target="_blank">{model.shortName}</a>
+                                    </div>
+                                }
                             </div>
                             <button className={`maturity-model-button primary-green shadow`} onClick={this.handleGetStartedClick}>
                                 {buttonText}
