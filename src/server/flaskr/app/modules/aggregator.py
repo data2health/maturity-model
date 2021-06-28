@@ -131,57 +131,57 @@ def get_user_score(user):
     score[riosm_categories][research_informatics] = __get_category_score(user, riosm_research_informatics)
 
     score[riosm_questions] = {}
-    score[riosm_questions][riosm_q1_engagement]              = float(user[RIOSM_Q1_ENGAGEMENT]) / max_five if user[RIOSM_Q1_ENGAGEMENT].isdigit() else None if user[RIOSM_COMPLETE] == '2' else None
-    score[riosm_questions][riosm_q2_governance]              = float(user[RIOSM_Q2_GOVERNANCE]) / max_five if user[RIOSM_Q2_GOVERNANCE].isdigit() else None if user[RIOSM_COMPLETE] == '2' else None
-    score[riosm_questions][riosm_q3_reputation]              = float(user[RIOSM_Q3_REPUTATION]) / max_five if user[RIOSM_Q3_REPUTATION].isdigit() else None if user[RIOSM_COMPLETE] == '2' else None
-    score[riosm_questions][riosm_q4_support_open_science]    = float(user[RIOSM_Q4_SUPPORT_OPEN_SCIENCE]) / max_five if user[RIOSM_Q4_SUPPORT_OPEN_SCIENCE].isdigit() else None if user[RIOSM_COMPLETE] == '2' else None
-    score[riosm_questions][riosm_q5_data_sharing]            = float(user[RIOSM_Q5_DATA_SHARING]) / max_five if user[RIOSM_Q5_DATA_SHARING].isdigit() else None if user[RIOSM_COMPLETE] == '2' else None
-    score[riosm_questions][riosm_q6_data_sharing_edu]        = float(user[RIOSM_Q6_DATA_SHARING_EDU]) / max_five if user[RIOSM_Q6_DATA_SHARING_EDU].isdigit() else None if user[RIOSM_COMPLETE] == '2' else None
-    score[riosm_questions][riosm_q7_data_analytics_activity] = float(user[RIOSM_Q7_DATA_ANALYTICS_ACTIVITY]) / max_five if user[RIOSM_Q7_DATA_ANALYTICS_ACTIVITY].isdigit() else None if user[RIOSM_COMPLETE] == '2' else None
-    score[riosm_questions][riosm_q8_ctms]                    = float(user[RIOSM_Q8_CTMS]) / max_five if user[RIOSM_Q8_CTMS].isdigit() else None if user[RIOSM_COMPLETE] == '2' else None
-    score[riosm_questions][riosm_q9_external_data_edw]       = float(user[RIOSM_Q9_EXTERNAL_DATA_EDW]) / max_five if user[RIOSM_Q9_EXTERNAL_DATA_EDW].isdigit() else None if user[RIOSM_COMPLETE] == '2' else None
-    score[riosm_questions][riosm_q10_research_computing]     = float(user[RIOSM_Q10_RESEARCH_COMPUTING]) / max_five if user[RIOSM_Q10_RESEARCH_COMPUTING].isdigit() else None if user[RIOSM_COMPLETE] == '2' else None
-    score[riosm_questions][riosm_q11_secondary_data_use]     = float(user[RIOSM_Q11_SECONDARY_DATA_USE]) / max_five if user[RIOSM_Q11_SECONDARY_DATA_USE].isdigit() else None if user[RIOSM_COMPLETE] == '2' else None
+    score[riosm_questions][riosm_q1_engagement]              = float(user[RIOSM_Q1_ENGAGEMENT]) if user[RIOSM_Q1_ENGAGEMENT].isdigit() else None if user[RIOSM_COMPLETE] == '2' else None
+    score[riosm_questions][riosm_q2_governance]              = float(user[RIOSM_Q2_GOVERNANCE]) if user[RIOSM_Q2_GOVERNANCE].isdigit() else None if user[RIOSM_COMPLETE] == '2' else None
+    score[riosm_questions][riosm_q3_reputation]              = float(user[RIOSM_Q3_REPUTATION]) if user[RIOSM_Q3_REPUTATION].isdigit() else None if user[RIOSM_COMPLETE] == '2' else None
+    score[riosm_questions][riosm_q4_support_open_science]    = float(user[RIOSM_Q4_SUPPORT_OPEN_SCIENCE]) if user[RIOSM_Q4_SUPPORT_OPEN_SCIENCE].isdigit() else None if user[RIOSM_COMPLETE] == '2' else None
+    score[riosm_questions][riosm_q5_data_sharing]            = float(user[RIOSM_Q5_DATA_SHARING]) if user[RIOSM_Q5_DATA_SHARING].isdigit() else None if user[RIOSM_COMPLETE] == '2' else None
+    score[riosm_questions][riosm_q6_data_sharing_edu]        = float(user[RIOSM_Q6_DATA_SHARING_EDU]) if user[RIOSM_Q6_DATA_SHARING_EDU].isdigit() else None if user[RIOSM_COMPLETE] == '2' else None
+    score[riosm_questions][riosm_q7_data_analytics_activity] = float(user[RIOSM_Q7_DATA_ANALYTICS_ACTIVITY]) if user[RIOSM_Q7_DATA_ANALYTICS_ACTIVITY].isdigit() else None if user[RIOSM_COMPLETE] == '2' else None
+    score[riosm_questions][riosm_q8_ctms]                    = float(user[RIOSM_Q8_CTMS]) if user[RIOSM_Q8_CTMS].isdigit() else None if user[RIOSM_COMPLETE] == '2' else None
+    score[riosm_questions][riosm_q9_external_data_edw]       = float(user[RIOSM_Q9_EXTERNAL_DATA_EDW]) if user[RIOSM_Q9_EXTERNAL_DATA_EDW].isdigit() else None if user[RIOSM_COMPLETE] == '2' else None
+    score[riosm_questions][riosm_q10_research_computing]     = float(user[RIOSM_Q10_RESEARCH_COMPUTING]) if user[RIOSM_Q10_RESEARCH_COMPUTING].isdigit() else None if user[RIOSM_COMPLETE] == '2' else None
+    score[riosm_questions][riosm_q11_secondary_data_use]     = float(user[RIOSM_Q11_SECONDARY_DATA_USE]) if user[RIOSM_Q11_SECONDARY_DATA_USE].isdigit() else None if user[RIOSM_COMPLETE] == '2' else None
 
     score[quintegra_ehmm_questions] = {}
-    score[quintegra_ehmm_questions][quintegra_ehmm_q1]       = float(user[QUINTEGRA_EHMM_Q1]) / max_seven if user[QUINTEGRA_EHMM_Q1].isdigit() else None if user[QUINTEGRA_EHMM_COMPELTE] == '2' else None
+    score[quintegra_ehmm_questions][quintegra_ehmm_q1]       = float(user[QUINTEGRA_EHMM_Q1]) if user[QUINTEGRA_EHMM_Q1].isdigit() else None if user[QUINTEGRA_EHMM_COMPELTE] == '2' else None
 
     score[haam_questions] = {}
-    score[haam_questions][haam_q1]                           = float(user[HAAM_Q1]) / max_eight if user[HAAM_Q1].isdigit() else None if user[HAAM_COMPELTE] == '2' else None
+    score[haam_questions][haam_q1]                           = float(user[HAAM_Q1]) if user[HAAM_Q1].isdigit() else None if user[HAAM_COMPELTE] == '2' else None
 
     score[sedoh_questions] = {}
-    score[sedoh_questions][sedoh_q1]   = float(user[SEDOH_Q1]) / max_seven if user[SEDOH_Q1].isdigit() else None if user[SEDOH_COMPLETE] == '2' else None
-    score[sedoh_questions][sedoh_q2]   = float(user[SEDOH_Q2]) / max_seven if user[SEDOH_Q2].isdigit() else None if user[SEDOH_COMPLETE] == '2' else None
-    score[sedoh_questions][sedoh_q3]   = float(user[SEDOH_Q3]) / max_seven if user[SEDOH_Q3].isdigit() else None if user[SEDOH_COMPLETE] == '2' else None
-    score[sedoh_questions][sedoh_q4]   = float(user[SEDOH_Q4]) / max_seven if user[SEDOH_Q4].isdigit() else None if user[SEDOH_COMPLETE] == '2' else None
-    score[sedoh_questions][sedoh_q5]   = float(user[SEDOH_Q5]) / max_seven if user[SEDOH_Q5].isdigit() else None if user[SEDOH_COMPLETE] == '2' else None
+    score[sedoh_questions][sedoh_q1]   = float(user[SEDOH_Q1]) if user[SEDOH_Q1].isdigit() else None if user[SEDOH_COMPLETE] == '2' else None
+    score[sedoh_questions][sedoh_q2]   = float(user[SEDOH_Q2]) if user[SEDOH_Q2].isdigit() else None if user[SEDOH_COMPLETE] == '2' else None
+    score[sedoh_questions][sedoh_q3]   = float(user[SEDOH_Q3]) if user[SEDOH_Q3].isdigit() else None if user[SEDOH_COMPLETE] == '2' else None
+    score[sedoh_questions][sedoh_q4]   = float(user[SEDOH_Q4]) if user[SEDOH_Q4].isdigit() else None if user[SEDOH_COMPLETE] == '2' else None
+    score[sedoh_questions][sedoh_q5]   = float(user[SEDOH_Q5]) if user[SEDOH_Q5].isdigit() else None if user[SEDOH_COMPLETE] == '2' else None
 
     score[precision_health_questions] = {}
-    score[precision_health_questions][precision_health_q1]   = float(user[PRECISION_HEALTH_Q1]) / max_five if user[PRECISION_HEALTH_Q1].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
-    score[precision_health_questions][precision_health_q2]   = float(user[PRECISION_HEALTH_Q2]) / max_five if user[PRECISION_HEALTH_Q2].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
-    score[precision_health_questions][precision_health_q3]   = float(user[PRECISION_HEALTH_Q3]) / max_five if user[PRECISION_HEALTH_Q3].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
-    score[precision_health_questions][precision_health_q4]   = float(user[PRECISION_HEALTH_Q4]) / max_five if user[PRECISION_HEALTH_Q4].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
-    score[precision_health_questions][precision_health_q5]   = float(user[PRECISION_HEALTH_Q5]) / max_five if user[PRECISION_HEALTH_Q5].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
-    score[precision_health_questions][precision_health_q6]   = float(user[PRECISION_HEALTH_Q6]) / max_five if user[PRECISION_HEALTH_Q6].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
-    score[precision_health_questions][precision_health_q7]   = float(user[PRECISION_HEALTH_Q7]) / max_five if user[PRECISION_HEALTH_Q7].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
-    score[precision_health_questions][precision_health_q8]   = float(user[PRECISION_HEALTH_Q8]) / max_five if user[PRECISION_HEALTH_Q8].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
-    score[precision_health_questions][precision_health_q9]   = float(user[PRECISION_HEALTH_Q9]) / max_five if user[PRECISION_HEALTH_Q9].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
-    score[precision_health_questions][precision_health_q10]  = float(user[PRECISION_HEALTH_Q10]) / max_five if user[PRECISION_HEALTH_Q10].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
+    score[precision_health_questions][precision_health_q1]   = float(user[PRECISION_HEALTH_Q1]) if user[PRECISION_HEALTH_Q1].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
+    score[precision_health_questions][precision_health_q2]   = float(user[PRECISION_HEALTH_Q2]) if user[PRECISION_HEALTH_Q2].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
+    score[precision_health_questions][precision_health_q3]   = float(user[PRECISION_HEALTH_Q3]) if user[PRECISION_HEALTH_Q3].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
+    score[precision_health_questions][precision_health_q4]   = float(user[PRECISION_HEALTH_Q4]) if user[PRECISION_HEALTH_Q4].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
+    score[precision_health_questions][precision_health_q5]   = float(user[PRECISION_HEALTH_Q5]) if user[PRECISION_HEALTH_Q5].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
+    score[precision_health_questions][precision_health_q6]   = float(user[PRECISION_HEALTH_Q6]) if user[PRECISION_HEALTH_Q6].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
+    score[precision_health_questions][precision_health_q7]   = float(user[PRECISION_HEALTH_Q7]) if user[PRECISION_HEALTH_Q7].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
+    score[precision_health_questions][precision_health_q8]   = float(user[PRECISION_HEALTH_Q8]) if user[PRECISION_HEALTH_Q8].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
+    score[precision_health_questions][precision_health_q9]   = float(user[PRECISION_HEALTH_Q9]) if user[PRECISION_HEALTH_Q9].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
+    score[precision_health_questions][precision_health_q10]  = float(user[PRECISION_HEALTH_Q10]) if user[PRECISION_HEALTH_Q10].isdigit() else None if user[PRECISION_HEALTH_COMPLETE] == '2' else None
 
     score[nestcc_questions] = {}
-    score[nestcc_questions][nestcc_q1]   = float(user[NESTcc_Q1]) / max_five if user[NESTcc_Q1].isdigit() else None if user[NESTcc_COMPLETE] == '2' else None
-    score[nestcc_questions][nestcc_q2]   = float(user[NESTcc_Q2]) / max_five if user[NESTcc_Q2].isdigit() else None if user[NESTcc_COMPLETE] == '2' else None
-    score[nestcc_questions][nestcc_q3]   = float(user[NESTcc_Q3]) / max_five if user[NESTcc_Q3].isdigit() else None if user[NESTcc_COMPLETE] == '2' else None
-    score[nestcc_questions][nestcc_q4]   = float(user[NESTcc_Q4]) / max_five if user[NESTcc_Q4].isdigit() else None if user[NESTcc_COMPLETE] == '2' else None
-    score[nestcc_questions][nestcc_q5]   = float(user[NESTcc_Q5]) / max_five if user[NESTcc_Q5].isdigit() else None if user[NESTcc_COMPLETE] == '2' else None
+    score[nestcc_questions][nestcc_q1]   = float(user[NESTcc_Q1]) if user[NESTcc_Q1].isdigit() else None if user[NESTcc_COMPLETE] == '2' else None
+    score[nestcc_questions][nestcc_q2]   = float(user[NESTcc_Q2]) if user[NESTcc_Q2].isdigit() else None if user[NESTcc_COMPLETE] == '2' else None
+    score[nestcc_questions][nestcc_q3]   = float(user[NESTcc_Q3]) if user[NESTcc_Q3].isdigit() else None if user[NESTcc_COMPLETE] == '2' else None
+    score[nestcc_questions][nestcc_q4]   = float(user[NESTcc_Q4]) if user[NESTcc_Q4].isdigit() else None if user[NESTcc_COMPLETE] == '2' else None
+    score[nestcc_questions][nestcc_q5]   = float(user[NESTcc_Q5]) if user[NESTcc_Q5].isdigit() else None if user[NESTcc_COMPLETE] == '2' else None
 
     score[nlp_questions] = {}
-    score[nlp_questions][nlp_q1]   = float(user[NLP_Q1]) / max_five if user[NLP_Q1].isdigit() else None if user[NLP_COMPLETE] == '2' else None
-    score[nlp_questions][nlp_q2]   = float(user[NLP_Q2]) / max_five if user[NLP_Q2].isdigit() else None if user[NLP_COMPLETE] == '2' else None
-    score[nlp_questions][nlp_q3]   = float(user[NLP_Q3]) / max_five if user[NLP_Q3].isdigit() else None if user[NLP_COMPLETE] == '2' else None
-    score[nlp_questions][nlp_q4]   = float(user[NLP_Q4]) / max_five if user[NLP_Q4].isdigit() else None if user[NLP_COMPLETE] == '2' else None
-    score[nlp_questions][nlp_q5]   = float(user[NLP_Q5]) / max_five if user[NLP_Q5].isdigit() else None if user[NLP_COMPLETE] == '2' else None
-    score[nlp_questions][nlp_q6]   = float(user[NLP_Q6]) / max_five if user[NLP_Q6].isdigit() else None if user[NLP_COMPLETE] == '2' else None
+    score[nlp_questions][nlp_q1]   = float(user[NLP_Q1]) if user[NLP_Q1].isdigit() else None if user[NLP_COMPLETE] == '2' else None
+    score[nlp_questions][nlp_q2]   = float(user[NLP_Q2]) if user[NLP_Q2].isdigit() else None if user[NLP_COMPLETE] == '2' else None
+    score[nlp_questions][nlp_q3]   = float(user[NLP_Q3]) if user[NLP_Q3].isdigit() else None if user[NLP_COMPLETE] == '2' else None
+    score[nlp_questions][nlp_q4]   = float(user[NLP_Q4]) if user[NLP_Q4].isdigit() else None if user[NLP_COMPLETE] == '2' else None
+    score[nlp_questions][nlp_q5]   = float(user[NLP_Q5]) if user[NLP_Q5].isdigit() else None if user[NLP_COMPLETE] == '2' else None
+    score[nlp_questions][nlp_q6]   = float(user[NLP_Q6]) if user[NLP_Q6].isdigit() else None if user[NLP_COMPLETE] == '2' else None
 
     score[models_completed] = {}
     score[models_completed][riosm]             = 1 if user[RIOSM_COMPLETE] == '2' else None

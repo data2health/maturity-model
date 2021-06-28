@@ -19,10 +19,10 @@ import { NLP } from '../model/Models/NLP';
 
 export const defaultModelState = (): ModelsState => {
     return {
-        all: [ RIOSM, PrecisionHealth, Quintegra_eHMM, HAAM, SEDoH, NESTcc, NLP ]
+        all: [ RIOSM, PrecisionHealth, HAAM, SEDoH, NESTcc, NLP ]
         
         // removed models
-        // all: [ HIMSS_EMRAM, IDC_Healthcare_IT, NEHTA_IMM, HIMSS_CCMM, Forrester, EPRMM ]
+        // all: [ HIMSS_EMRAM, IDC_Healthcare_IT, NEHTA_IMM, HIMSS_CCMM, Forrester, EPRMM, Quintegra_eHMM ]
     };
 };
 
