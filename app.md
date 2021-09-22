@@ -38,7 +38,7 @@ Next, create a `config.json` file to tell the API the REDCap instance to point t
 
 Run the API
 ```bash
-$ python3 src/app.py
+$ python3 run.py
 ```
 
 ### Web client setup
