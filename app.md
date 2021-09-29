@@ -1,11 +1,12 @@
-# maturity-models
+# Maturity Models
 
 Welcome to the Maturity Models Survey app!
 
-- [Running the app locally](#running-the-app-locally)
+- [Running the App Locally](#running-the-app-locally)
+- [Creating the User Form](#creating-the-user-form)
 - [Adding Models](#adding-models)
 
-## Running the app locally
+## Running the App Locally
 The Maturity Models survey app uses a three-tiered architecture with a React web client, a small Python-Flask server API, and a REDCap project as a database.
 
 To run it locally, do the following steps:
@@ -56,11 +57,34 @@ $ npm start
 
 Note that in order to be allowed into the app (even in development), you'll need a record in the REDCap project `User` form with your `email` address and `entry_code`.
 
+## Creating the User Form
+
+The `User` form is a record of all the users and their login info. To add new users, this form must be completed to grant them access.
+
+The following fields (located in `src/server/flaskr/app/modules/fields.py`) are currrently being used in the app and can be modified to project needs.
+
+```python
+RECORD_ID = 'record_id' (REDCap automatically makes this field)
+EMAIL_ADDRESS = 'email'
+ENTRY_CODE = 'entry_code'
+APPROVED = 'approved'
+FNAME = 'user_fname'
+LNAME = 'user_lname'
+```
+
+1. The app uses the variable names `email` and `entry_code` to log in, which must be included in the form.
+
+2. There is an `approved` field, which validates whether the login is approved or not. If the variable is set to `false`, the **login will fail**.
+
+3. The app also uses the `user_fname` and `user_lname` to display the user name in the app. If the field is left blank, no name will be shown.
+
+The `User` form can also store additional information about the user which may or may not be used.
+
 ## Adding Models
 
 Adding models to the Maturity Models Survey app is straightforward.
 
-1. Add a new `Form` to the [REDCap project](https://rcdev.iths.org/redcap_v9.4.2/Design/online_designer.php?pid=277) to represent the Model you'd like to add. 
+1. Add a new `Form` to the REDCap project to represent the Model you'd like to add. 
 
 Name the variables in the project uses the convention `<form_name>_q<question_num>_<short_name>`, and be sure to use `Multiple Radio Buttons (Single Answer)` as the type.
 
