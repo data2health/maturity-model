@@ -61,7 +61,7 @@ Note that in order to be allowed into the app (even in development), you'll need
 
 The `User` form is a record of all the users and their login info. To add new users, this form must be completed to grant them access.
 
-The following fields (located in `src/server/flaskr/app/modules/fields.py`) are currrently being used in the app and can be modified to project needs.
+The following fields in [maturity-model/src/server/flaskr/app/modules/fields.py](https://github.com/data2health/maturity-model/blob/redcap-doc/src/server/flaskr/app/modules/fields.py) are currrently being used in the app and can be modified to project needs.
 
 ```python
 RECORD_ID = 'record_id' (REDCap automatically makes this field)
