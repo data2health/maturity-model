@@ -50,7 +50,6 @@ export default class QuestionSummary extends React.PureComponent<Props, State> {
                     </Row>
                     <Row>
                         {!this.state.show  &&
-                            // <Col><div className={`${c}-breakdown-primary-top-question-text`}>{question.text.toString().replace(':', '.')}</div></Col>
                             <Col><div className={`${c}-breakdown-primary-top-question-text`}>{question.text}</div></Col>
                         }
                     </Row>
