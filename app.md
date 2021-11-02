@@ -26,8 +26,7 @@ $ . venv/bin/activate
 $ python3 -m pip install Flask requests
 ```
 
-Next, create a `config.json` file to tell the API the REDCap instance to point to under `/maturity-models/src/server/src/services/config.json`.
-
+Next, create a `config.json` file to tell the API the REDCap instance to point to under `/maturity-models/src/server/flaskr/app/modules/services/config.json`.
 ```json
 {
     "redcap": {
