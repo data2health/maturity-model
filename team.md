@@ -3,7 +3,7 @@
 ## Lead(s)
 Name | GitHub Handle | Site
 -- | -- | --
-Adam Wilcox | [abwilcox](http://github.com/abwilcox) | UW
+Adam Wilcox | [abwilcox](http://github.com/abwilcox) | WUSTL
 
 ## Contributor(s)
 Name | GitHub Handle | Site
