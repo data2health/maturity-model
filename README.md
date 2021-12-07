@@ -29,14 +29,14 @@ The survey has three steps:
 
 Point person (github handle) | Site | Core Director
 ----------|--------------|---------------
-Liz Zampino (@ezampino) | UW | Adam Wilcox (@abwilcox)
+Liz Zampino (@ezampino) | UW / WUSTL| Adam Wilcox (@abwilcox)
 
 
 ## Leads 
 
 Lead(s) (github handle) | Site
 ----------|--------------|
-Adam Wilcox (@abwilcox) | University of Washington
+Adam Wilcox (@abwilcox) | Washington University St. Louis
 Robin Champieux (@rchampieux) | OHSU
 
 
