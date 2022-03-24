@@ -47,3 +47,24 @@ class REDCapHttpConnector:
             'data': json.dumps([ answers ])
         }
         return self.__call_api(data)
+    
+    def add_new_user(self, new_user_form_data):
+
+        next_record_id = self.generate_next_record_id()
+        new_user_form_data['record_id'] = '{}'.format(next_record_id)
+        new_user_form_data['approved'] = '1'
+        new_user_form_data['user_complete'] = '2'
+
+        data = {
+            'content': 'record',
+            'type': 'flat',
+            'data': json.dumps([ new_user_form_data ])
+        }
+        return self.__call_api(data)
+
+    def generate_next_record_id(self):
+
+        data = {
+            'content': 'generateNextRecordName'
+        }
+        return self.__call_api(data)

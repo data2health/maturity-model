@@ -15,7 +15,7 @@ mgr = Manager()
 # Routes
 #########################################
 
-@app.route('/user', methods=['GET'])
+@app.route('/api/user', methods=['GET'])
 def is_user():
     try:
         email = request.args.get('email')
@@ -34,10 +34,32 @@ def is_user():
         sys.stderr.write(f'Error: {ex}\n')
         return server_error()    
 
-@app.route('/user/answers', methods=['POST'])
+@app.route('/api/user', methods=['POST'])
+def new_user():
+    try:
+        req_data = request.get_json()
+        email = req_data.get('email')
+        institution = req_data.get('institution')
+        entry_code = req_data.get('entry_code')
+
+        if not email or not entry_code or not institution:
+            return bad_request()
+
+        user_added = mgr.sign_up_user(req_data)
+        if user_added:
+            return ok({ 'user_added' : user_added })
+
+        return bad_request()
+
+    except Exception as ex:
+        sys.stderr.write(f'Error: {ex}\n')
+        return server_error()
+
+@app.route('/api/user/answers', methods=['POST'])
 def update_data():
     try:
         req_data = request.get_json()
+        print(req_data)
         email = req_data.get('email')
         entry_code = req_data.get('entry_code')
         answers = req_data.get('answers')
@@ -55,7 +77,7 @@ def update_data():
         sys.stderr.write(f'Error: {ex}\n')
         return server_error()
 
-@app.route('/scores', methods=['GET'])
+@app.route('/api/scores', methods=['GET'])
 def get_scores():
     try:
         email = request.args.get('email')

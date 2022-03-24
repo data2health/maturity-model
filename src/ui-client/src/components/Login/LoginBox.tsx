@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
 import { FiLock, FiChevronRight } from 'react-icons/fi';
 import { LoginState, LoginServerCommunicationState } from '../../model/LoginState';
-import { loginSetEntryCode, attemptLogin, loginSetEmail, loginAsGuest } from '../../actions/login';
+import { loginSetEntryCode, attemptLogin, isNewUser, loginSetEmail, loginAsGuest } from '../../actions/login';
 
 interface Props {
     dispatch: any;
@@ -93,6 +93,13 @@ export default class LoginBox extends React.PureComponent<Props,State> {
                     Sign in as Guest
                     <FiChevronRight className="icon chevron" />
                 </div>
+
+                {/* Sign Up */}
+                <div className={`${c}-button ${c}-button-signup`} tabIndex={4} onClick={this.handleSignUpClick}>
+                    Sign Up
+                    <FiChevronRight className="icon chevron" />
+                </div>
+
             </Form>
         );
     }
@@ -121,6 +128,11 @@ export default class LoginBox extends React.PureComponent<Props,State> {
 
         this.setState({ entryCodeValid: true, emailValid: true });
         dispatch(loginAsGuest());
+    }
+
+    private handleSignUpClick = () => {
+        const { dispatch } = this.props;
+        dispatch(isNewUser(true));
     }
 
     private getSignInContent = () => {

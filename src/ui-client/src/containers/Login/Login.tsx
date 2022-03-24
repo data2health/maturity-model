@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 import InfoBox from '../../components/Login/InfoBox';
 import LeftFooter from '../../components/Login/LeftFooter';
 import LoginBox from '../../components/Login/LoginBox';
+import SignUp from '../../components/SignUp/SignUp';
 import { LoginState } from '../../model/LoginState';
 import './Login.css';
 
@@ -12,7 +13,7 @@ interface Props {
 }
 
 export class Login extends React.PureComponent<Props> {
-    private className = 'login'
+    private className = 'login';
 
     public render() {
         const c = this.className;
@@ -32,14 +33,14 @@ export class Login extends React.PureComponent<Props> {
                             <div className="cd2h-logo-wrapper">
                                 <img className="cd2h-logo" src={process.env.PUBLIC_URL + '/cd2h-logo.png'} alt="cd2h logo" />
                             </div>
-                            <LoginBox 
-                                dispatch={dispatch}
-                                loginState={loginState}
-                            />
+                            {!loginState.newUser
+                                ? <LoginBox dispatch={dispatch} loginState={loginState} />
+                                : <SignUp dispatch={dispatch} />
+                            }
                         </div>
                     </Col>
                 </Row>
             </Container>
-        )
-    }
-}
+        );
+    };
+};
