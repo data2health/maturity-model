@@ -35,7 +35,7 @@ export class Login extends React.PureComponent<Props> {
                             </div>
                             {!loginState.newUser
                                 ? <LoginBox dispatch={dispatch} loginState={loginState} />
-                                : <SignUp dispatch={dispatch} />
+                                : <SignUp dispatch={dispatch} loginState={loginState} />
                             }
                         </div>
                     </Col>

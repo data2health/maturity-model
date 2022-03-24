@@ -70,7 +70,7 @@ export const attemptSignUp = (newUserForm: NewUserFormState) => {
             dispatch(isNewUser(false));
             dispatch(loginSetEmail(newUserForm.emailAddress));
             dispatch(loginSetEntryCode(newUserForm.entryCode));
-            dispatch(loginSetServerCommState(LoginServerCommunicationState.Idle))
+            dispatch(loginSetServerCommState(LoginServerCommunicationState.Idle));
 
         } catch (err) {
             dispatch(loginSetServerCommState(LoginServerCommunicationState.Failed));
