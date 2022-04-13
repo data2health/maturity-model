@@ -56,12 +56,16 @@ class Manager:
             return self.__scrub(user, hidden)
         return None
 
-    def sign_up_user(self, new_user_form_data):
-        
-        user_added = self.svc.add_new_user(new_user_form_data)
+    def sign_up_user(self, email, new_user_form_data):
 
-        if user_added:
-            return user_added
+        self.__update_cache_if_needed()
+        emails = [ key[0] for key in self.__cache ]
+
+        if email.lower() not in emails:
+            user_added = self.svc.add_new_user(new_user_form_data)
+            if user_added:
+                return user_added
+
         return None
 
     def get_scores(self):

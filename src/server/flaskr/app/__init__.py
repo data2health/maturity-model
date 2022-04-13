@@ -45,7 +45,7 @@ def new_user():
         if not email or not entry_code or not institution:
             return bad_request()
 
-        user_added = mgr.sign_up_user(req_data)
+        user_added = mgr.sign_up_user(email, req_data)
         if user_added:
             return ok({ 'user_added' : user_added })
 
@@ -59,7 +59,6 @@ def new_user():
 def update_data():
     try:
         req_data = request.get_json()
-        print(req_data)
         email = req_data.get('email')
         entry_code = req_data.get('entry_code')
         answers = req_data.get('answers')

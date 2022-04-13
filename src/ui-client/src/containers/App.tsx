@@ -32,7 +32,7 @@ class App extends React.PureComponent<Props> {
          * Show login if not logged in yet.
          */
         if (!login.loggedIn) {
-            return <Login dispatch={dispatch} loginState={login} />;
+            return <Login dispatch={dispatch} generalState={general} loginState={login} />;
         }
         /*
          * Else show the main screen.

@@ -1,12 +1,16 @@
 import React from 'react';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
 import { FiChevronRight } from 'react-icons/fi';
-import { attemptSignUp } from '../../actions/login';
+import { attemptSignUp,isNewUser } from '../../actions/login';
 import { LoginServerCommunicationState, LoginState, NewUserFormState } from '../../model/LoginState';
 import './SignUp.css';
 
+import InformationModal from '../../components/Modals/InformationModal/InformationModal';
+import { InformationModalState } from '../../model/GeneralState';
+
 interface Props {
     dispatch: any;
+    infoState: InformationModalState;
     loginState: LoginState;
 }
 
@@ -32,12 +36,14 @@ export default class SignUp extends React.PureComponent<Props, State> {
 
     public render() {
         const c = this.className;
-        const { loginState } = this.props;
+        const { dispatch, infoState } = this.props;
         const { newUserForm } = this.state;
         const inputClassName = 'leaf-input';
 
         return (
-            <Form className={c}> 
+            <Form className={c}>
+                <InformationModal dispatch={dispatch} state={infoState} />
+
                 <FormGroup className={`${c}-form-group`}>
 
                     {/* Email */}
@@ -109,6 +115,10 @@ export default class SignUp extends React.PureComponent<Props, State> {
                     {this.getSignUpContent()}
                 </div>
 
+                <div className={`${c}-button`} onClick={this.handleLoginClick}>
+                    <span>Login</span>
+                </div>
+
             </Form>
         );
     };
@@ -133,7 +143,7 @@ export default class SignUp extends React.PureComponent<Props, State> {
         const { newUserForm } = this.state;
 
         // TODO:
-        //  ASK NIC: 1. check for email validation
+        //  1. check for email validation
         // const isValidEmail = 
 
         if (newUserForm.emailAddress && newUserForm.entryCode && newUserForm.institutionName) {
@@ -153,5 +163,10 @@ export default class SignUp extends React.PureComponent<Props, State> {
             // CSS for icon in Login.css container
             <FiChevronRight key={2} className="icon chevron" />
         ]);
+    };
+
+    private handleLoginClick = () => {
+        const { dispatch } = this.props;
+        dispatch(isNewUser(false));
     };
 };

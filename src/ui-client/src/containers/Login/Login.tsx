@@ -4,11 +4,13 @@ import InfoBox from '../../components/Login/InfoBox';
 import LeftFooter from '../../components/Login/LeftFooter';
 import LoginBox from '../../components/Login/LoginBox';
 import SignUp from '../../components/SignUp/SignUp';
+import { GeneralState } from '../../model/GeneralState';
 import { LoginState } from '../../model/LoginState';
 import './Login.css';
 
 interface Props {
     dispatch: any;
+    generalState: GeneralState;
     loginState: LoginState;
 }
 
@@ -17,7 +19,7 @@ export class Login extends React.PureComponent<Props> {
 
     public render() {
         const c = this.className;
-        const { dispatch, loginState } = this.props;
+        const { dispatch, generalState, loginState } = this.props;
         
         return (
             <Container fluid={true}>
@@ -35,7 +37,7 @@ export class Login extends React.PureComponent<Props> {
                             </div>
                             {!loginState.newUser
                                 ? <LoginBox dispatch={dispatch} loginState={loginState} />
-                                : <SignUp dispatch={dispatch} loginState={loginState} />
+                                : <SignUp dispatch={dispatch} infoState={generalState.informationModal} loginState={loginState} />
                             }
                         </div>
                     </Col>

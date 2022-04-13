@@ -1,9 +1,11 @@
-import { LoginServerCommunicationState, NewUserFormState } from '../model/LoginState';
+import { showInfoModal } from './general';
+import { modelsSetSelected } from './model';
 import { AppState } from '../model/AppState';
+import { InformationModalState } from '../model/GeneralState';
+import { LoginServerCommunicationState, NewUserFormState } from '../model/LoginState';
+import { FormState } from '../model/ModelsState';
 import { login, signUp } from '../services/api';
 import { userSetCredentials, userSetAnswers, userSetIsGuest } from './user';
-import { FormState } from '../model/ModelsState';
-import { modelsSetSelected } from './model';
 
 export const IS_NEW_USER = 'IS_NEW_USER';
 export const LOGIN_SET_EMAIL = 'LOGIN_SET_EMAIL';
@@ -63,16 +65,23 @@ export const attemptSignUp = (newUserForm: NewUserFormState) => {
              */
             dispatch(loginSetServerCommState(LoginServerCommunicationState.Calling));
             await signUp(newUserForm);
-            
+
             /*
-             * Set new user to false after sign up.
+             * Set new user to false after successful sign up.
              */
             dispatch(isNewUser(false));
             dispatch(loginSetEmail(newUserForm.emailAddress));
             dispatch(loginSetEntryCode(newUserForm.entryCode));
             dispatch(loginSetServerCommState(LoginServerCommunicationState.Idle));
-
         } catch (err) {
+            const info: InformationModalState = {
+                header: 'An Error Occurred',
+                body: 
+                    'There was an error encountered while signing up. Please ensure that the form is properly filled out. ' +
+                    'Additionally, please ensure that your email is not in use. If so, select forgot password on the login page.',
+                show: true
+            };
+            dispatch(showInfoModal(info));
             dispatch(loginSetServerCommState(LoginServerCommunicationState.Failed));
             setTimeout(() => dispatch(loginSetServerCommState(LoginServerCommunicationState.Idle)), 500);
         };
