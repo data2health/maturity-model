@@ -39,6 +39,7 @@
 
 .results-summary-dropdown-text {
     color: #007bff;
+    cursor: pointer;
 }
 
 .results-none {

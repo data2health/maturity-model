@@ -15,7 +15,7 @@ class Manager:
         self.__cache = {}
         self.__last_cache_update = None
         self.__update_cache_if_needed()
-        self.__update_cache_threshold_seconds = 120
+        self.__update_cache_threshold_seconds = 30
 
     def __update_cache_if_needed(self):
 

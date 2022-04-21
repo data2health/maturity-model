@@ -77,8 +77,8 @@ export const attemptSignUp = (newUserForm: NewUserFormState) => {
             const info: InformationModalState = {
                 header: 'An Error Occurred',
                 body: 
-                    'There was an error encountered while signing up. Please ensure that the form is properly filled out. ' +
-                    'Additionally, please ensure that your email is not in use. If so, select forgot password on the login page.',
+                    'There was an error encountered while signing up. Please ensure that the form is ' +
+                    'properly filled out and your email is not in use already.',
                 show: true
             };
             dispatch(showInfoModal(info));
@@ -101,6 +101,18 @@ export const loginAsGuest = () => {
         dispatch(loginSetEmail(email));
         dispatch(userSetCredentials(email, entryCode));
         dispatch(userSetAnswers(answers));
+    };
+};
+
+export const forgotPasswordNotification = () => {
+    return (dispatch: any) => {
+        const contactEmail = 'ezampino@uw.edu';
+        const info: InformationModalState = {
+            header: 'Forgot Password',
+            body: `Please contact the administrator at ${contactEmail} to retrieve your password.`,
+            show: true
+        };
+        dispatch(showInfoModal(info));
     };
 };
 

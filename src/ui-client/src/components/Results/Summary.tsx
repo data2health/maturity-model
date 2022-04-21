@@ -32,26 +32,26 @@ export default class Summary extends React.PureComponent<Props,State> {
         const c = this.className;
         const selected = this.selected;
         const { user, completedModels } = this.props;
-        const { model } =this.state;
+        const { model, show } =this.state;
         
         return (
             <BaseFormSection
                 header={
                     selected.length > 0
                         ? <div>
-                            <Dropdown isOpen={this.state.show} toggle={this.toggle}>
-                                Let's see how your <DropdownToggle className={`${c}-dropdown-text`} tag="span"> {model} </DropdownToggle> answers compare to others
+                            <Dropdown isOpen={show} toggle={this.toggle}>
+                                Let's see how your <DropdownToggle caret className={`${c}-dropdown-text`} tag="span">{model}</DropdownToggle> answers compare to others
                                 <DropdownMenu>
-                                    {selected.map((m, i) => <DropdownItem key={i} onClick={this.handleModelSummary.bind(null, m.shortName)}> {m.shortName} </DropdownItem> )}
+                                    {selected.map((m, i) => <DropdownItem key={i} onClick={this.handleModelSummary.bind(null, m.shortName)}>{m.shortName}</DropdownItem> )}
                                 </DropdownMenu>
                             </Dropdown>
                           </div>
                         : <div>No models selected</div>
                     }
 
-                headerLarge={this.state.model ? true : false}
+                headerLarge={model ? true : false}
                 subheader={this.getSubHeader(model)}
-                content={<ContentSummary mappedModels={completedModels} models={selected} model={this.state.model} user={user} />}
+                content={<ContentSummary mappedModels={completedModels} models={selected} model={model} user={user} />}
             />
         );
     };

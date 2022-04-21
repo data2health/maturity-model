@@ -36,7 +36,7 @@ export class Login extends React.PureComponent<Props> {
                                 <img className="cd2h-logo" src={process.env.PUBLIC_URL + '/cd2h-logo.png'} alt="cd2h logo" />
                             </div>
                             {!loginState.newUser
-                                ? <LoginBox dispatch={dispatch} loginState={loginState} />
+                                ? <LoginBox dispatch={dispatch} infoState={generalState.informationModal} loginState={loginState} />
                                 : <SignUp dispatch={dispatch} infoState={generalState.informationModal} loginState={loginState} />
                             }
                         </div>
@@ -45,4 +45,4 @@ export class Login extends React.PureComponent<Props> {
             </Container>
         );
     };
-};
+}
