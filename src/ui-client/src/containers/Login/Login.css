@@ -80,6 +80,14 @@
     position: relative;
 }
 
+.loginbox-forgot {
+    color: rgb(0 123 255);
+    cursor: pointer;
+    left: 70%;
+    margin-top: 5px;
+    position: absolute;    
+}
+
 .lock {
     font-size: 1.2rem;
     position: absolute;
@@ -102,7 +110,7 @@
     cursor: pointer;
     font-size: 1.2rem;
     height: 60px;
-    margin: 30px 0 20px;
+    margin: 50px 0 20px;
     padding: 17px;
     transition: 0.2s;
     vertical-align: middle;
@@ -153,11 +161,21 @@
 
 /* Guest login button */
 .loginbox-button-guest {
-    background-color: rgb(0, 138, 69);
+    background-color: rgb(78 85 92);
     margin-top: 20px;
 }
 
 .loginbox-button-guest:hover {
+    background-color: rgb(61 66 72);
+}
+
+/* Sign up button */
+.loginbox-button-signup {
+    background-color: rgb(0, 138, 69);
+    margin-top: 20px;
+}
+
+.loginbox-button-signup:hover {
     background-color: rgb(0, 109, 54);
 }
 

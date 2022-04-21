@@ -13,7 +13,6 @@ interface Props {
 }
 
 export default class ContentSummary extends React.PureComponent<Props> {
-
     private className = 'content-summary';
 
     public render() {

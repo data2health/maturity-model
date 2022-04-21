@@ -1,11 +1,14 @@
 import React from 'react';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
 import { FiLock, FiChevronRight } from 'react-icons/fi';
+import { InformationModalState } from '../../model/GeneralState';
 import { LoginState, LoginServerCommunicationState } from '../../model/LoginState';
-import { loginSetEntryCode, attemptLogin, loginSetEmail, loginAsGuest } from '../../actions/login';
+import { loginSetEntryCode, attemptLogin, isNewUser, loginSetEmail, loginAsGuest, forgotPasswordNotification } from '../../actions/login';
+import InformationModal from '../../components/Modals/InformationModal/InformationModal';
 
 interface Props {
     dispatch: any;
+    infoState: InformationModalState;
     loginState: LoginState;
 }
 
@@ -25,7 +28,7 @@ export default class LoginBox extends React.PureComponent<Props,State> {
 
     public render() {
         const c = 'loginbox';
-        const { loginState } = this.props;
+        const { dispatch, infoState, loginState } = this.props;
         const { entryCodeValid, emailValid } = this.state;
         const classes = [ c, (loginState.serverCommunication === LoginServerCommunicationState.Failed ? 'invalid' : '') ];
         const buttonClasses = [ `${c}-button`, (loginState.serverCommunication === LoginServerCommunicationState.Calling ? 'calling' : '') ];
@@ -46,6 +49,8 @@ export default class LoginBox extends React.PureComponent<Props,State> {
 
         return (
             <Form className={classes.join(' ')}> 
+                <InformationModal dispatch={dispatch} state={infoState} />
+                
                 <FormGroup className={`${c}-form-group`}>
 
                     {/* Email */}
@@ -63,7 +68,7 @@ export default class LoginBox extends React.PureComponent<Props,State> {
                     />
 
                     {/* Entry code */}
-                    <Label for="entry-code">Entry Code</Label>
+                    <Label for="entry-code">Password</Label>
                     <Input 
                         autoComplete="off"
                         className={entryCodeClasses.join(' ')} 
@@ -76,6 +81,9 @@ export default class LoginBox extends React.PureComponent<Props,State> {
                         value={loginState.entryCode} 
                     />
                     <FiLock className="lock" />
+
+                    {/* Forgot Password */}
+                    <div className={`${c}-forgot`} onClick={this.handleForgotPasswordClick}>Forgot Password?</div>
                 </FormGroup>
 
                 {/* Sign in */}
@@ -93,9 +101,21 @@ export default class LoginBox extends React.PureComponent<Props,State> {
                     Sign in as Guest
                     <FiChevronRight className="icon chevron" />
                 </div>
+
+                {/* Sign Up */}
+                <div className={`${c}-button ${c}-button-signup`} tabIndex={4} onClick={this.handleSignUpClick}>
+                    Sign Up
+                    <FiChevronRight className="icon chevron" />
+                </div>
+
             </Form>
         );
     }
+
+    private handleForgotPasswordClick = () => {
+        const { dispatch } = this.props;
+        dispatch(forgotPasswordNotification());
+    };
 
     private handleLoginButtonClick = () => {
         const { dispatch, loginState } = this.props;
@@ -121,6 +141,11 @@ export default class LoginBox extends React.PureComponent<Props,State> {
 
         this.setState({ entryCodeValid: true, emailValid: true });
         dispatch(loginAsGuest());
+    }
+
+    private handleSignUpClick = () => {
+        const { dispatch } = this.props;
+        dispatch(isNewUser(true));
     }
 
     private getSignInContent = () => {

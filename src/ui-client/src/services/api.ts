@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import { NewUserFormState } from '../model/LoginState';
 import { UserAnswersDTO, UserUpdateDTO, UserAnswers } from '../model/User';
 import { UserState } from '../model/UserState';
 import { BaseAnswerScore, AnswerScores } from "../model/Score";
@@ -36,7 +37,23 @@ export const login = async (email: string, entryCode: string): Promise<UserAnswe
     const dto = resp.data.user as UserAnswersDTO;
     const user = dtoToUser(dto);
     serverState = user;
+
     return user;
+};
+
+/*
+ * Sign up new user.
+ */
+export const signUp = async (newUserForm: NewUserFormState): Promise<number> => {
+    const resp = await Axios.post('/api/user', {
+        email: newUserForm.emailAddress,
+        institution: newUserForm.institutionName,
+        entry_code: newUserForm.entryCode,
+        user_fname: newUserForm.firstName,
+        user_lname: newUserForm.lastName
+    });
+
+    return resp.status
 };
 
 /*
@@ -66,6 +83,7 @@ export const changed = (user: UserState): boolean => {
             return true;
         }
     }
+    
     return false;
 };
 

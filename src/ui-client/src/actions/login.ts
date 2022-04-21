@@ -1,10 +1,13 @@
-import { LoginServerCommunicationState } from '../model/LoginState';
-import { AppState } from '../model/AppState';
-import { login } from '../services/api';
-import { userSetCredentials, userSetAnswers, userSetIsGuest } from './user';
-import { FormState } from '../model/ModelsState';
+import { showInfoModal } from './general';
 import { modelsSetSelected } from './model';
+import { AppState } from '../model/AppState';
+import { InformationModalState } from '../model/GeneralState';
+import { LoginServerCommunicationState, NewUserFormState } from '../model/LoginState';
+import { FormState } from '../model/ModelsState';
+import { login, signUp } from '../services/api';
+import { userSetCredentials, userSetAnswers, userSetIsGuest } from './user';
 
+export const IS_NEW_USER = 'IS_NEW_USER';
 export const LOGIN_SET_EMAIL = 'LOGIN_SET_EMAIL';
 export const LOGIN_SET_ENTRY_CODE = 'LOGIN_SET_ENTRY_CODE';
 export const LOGIN_SET_SERVER_COMM_STATE = 'LOGIN_SET_SERVER_COMM_STATE';
@@ -14,6 +17,7 @@ export interface LoginAction {
     email?: string;
     entryCode?: string;
     commState?: LoginServerCommunicationState;
+    newUser?: boolean;
     type: string;
 }
 
@@ -23,7 +27,6 @@ export interface LoginAction {
 export const attemptLogin = (email: string, entryCode: string) => {
     return async (dispatch: any, getState: () => AppState) => {
         try {
-
             /*
              * Try to get user data from credentials.
              */
@@ -50,7 +53,38 @@ export const attemptLogin = (email: string, entryCode: string) => {
         } catch (err) {
             dispatch(loginSetServerCommState(LoginServerCommunicationState.Failed));
             setTimeout(() => dispatch(loginSetServerCommState(LoginServerCommunicationState.Idle)), 500);
-        }
+        };
+    };
+};
+
+export const attemptSignUp = (newUserForm: NewUserFormState) => {
+    return async (dispatch: any) => {
+        try {
+            /*
+             * Try to upload new user form to REDCap.
+             */
+            dispatch(loginSetServerCommState(LoginServerCommunicationState.Calling));
+            await signUp(newUserForm);
+
+            /*
+             * Set new user to false after successful sign up.
+             */
+            dispatch(isNewUser(false));
+            dispatch(loginSetEmail(newUserForm.emailAddress));
+            dispatch(loginSetEntryCode(newUserForm.entryCode));
+            dispatch(loginSetServerCommState(LoginServerCommunicationState.Idle));
+        } catch (err) {
+            const info: InformationModalState = {
+                header: 'An Error Occurred',
+                body: 
+                    'There was an error encountered while signing up. Please ensure that the form is ' +
+                    'properly filled out and your email is not in use already.',
+                show: true
+            };
+            dispatch(showInfoModal(info));
+            dispatch(loginSetServerCommState(LoginServerCommunicationState.Failed));
+            setTimeout(() => dispatch(loginSetServerCommState(LoginServerCommunicationState.Idle)), 500);
+        };
     };
 };
 
@@ -70,9 +104,28 @@ export const loginAsGuest = () => {
     };
 };
 
+export const forgotPasswordNotification = () => {
+    return (dispatch: any) => {
+        const contactEmail = 'ezampino@uw.edu';
+        const info: InformationModalState = {
+            header: 'Forgot Password',
+            body: `Please contact the administrator at ${contactEmail} to retrieve your password.`,
+            show: true
+        };
+        dispatch(showInfoModal(info));
+    };
+};
+
 /*
  * Synchronous
  */
+export const isNewUser = (newUser: boolean): LoginAction => {
+    return {
+        newUser,
+        type: IS_NEW_USER
+    }
+};
+
 export const loginSetLoggedIn = (): LoginAction => {
     return {
         type: LOGIN_SET_LOGGED_IN

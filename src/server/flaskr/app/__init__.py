@@ -34,6 +34,27 @@ def is_user():
         sys.stderr.write(f'Error: {ex}\n')
         return server_error()    
 
+@app.route('/user', methods=['POST'])
+def new_user():
+    try:
+        req_data = request.get_json()
+        email = req_data.get('email')
+        institution = req_data.get('institution')
+        entry_code = req_data.get('entry_code')
+
+        if not email or not entry_code or not institution:
+            return bad_request()
+
+        user_added = mgr.sign_up_user(email, req_data)
+        if user_added:
+            return ok({ 'user_added' : user_added })
+
+        return bad_request()
+
+    except Exception as ex:
+        sys.stderr.write(f'Error: {ex}\n')
+        return server_error()
+
 @app.route('/user/answers', methods=['POST'])
 def update_data():
     try:

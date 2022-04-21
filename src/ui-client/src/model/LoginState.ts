@@ -9,5 +9,14 @@ export interface LoginState {
     emailAddress: string;
     entryCode: string;
     loggedIn: boolean;
+    newUser: boolean;
     serverCommunication: LoginServerCommunicationState;
+}
+
+export interface NewUserFormState {
+    emailAddress: string;
+    entryCode: string;
+    firstName: string;
+    institutionName: string;
+    lastName: string;
 }
