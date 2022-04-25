@@ -1,5 +1,5 @@
 # maturity-model
-[Research Informatics and Open Science Maturity Model](https://data2health.github.io/maturity-model/)
+[Research Informatics Maturity Model Tool](https://maturitymodel.rit.uw.edu)
 
 
 ## Problem statement
