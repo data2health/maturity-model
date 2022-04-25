@@ -40,43 +40,6 @@ Adam Wilcox (@abwilcox) | Washington University St. Louis
 Robin Champieux (@rchampieux) | OHSU
 
 
-## Team members 
-
-See https://github.com/data2health/maturity-model/blob/master/team.md
-
-
-## Deliverables
-
-- Defined adoption model for research informatics maturity with vignettes
-- [Tool supporting self-assessment and assessment collection](http://maturitymodel.cd2h.org)
-
-## Milestones 
-
-See milestone at https://github.com/data2health/maturity-model/milestones
-
-## Evaluation 
-
-1) Descriptions of the benchmarks and levels.
-2) Qualitative feedback on the survey and how it can be improved; with benchmark for validation as to usefulness.
-
-[Evaluation Plan](https://github.com/data2health/maturity-model/blob/master/evaluation.md)
-
-## Education
-
-1) Description of how to take and interpret the survey
-2) FUTURE: potential connection to knowledge 
-
-[Education Plan](https://github.com/data2health/maturity-model/blob/master/education.md)
-
-## Get involved
-[Engagement Ideas](https://github.com/data2health/maturity-model/blob/master/engagement.md)
-
-
-## Working documents
-[Maturity survey](https://docs.google.com/document/d/13jN5Fu24Q_YmQJFnEnWNvqXLRQC9uz5TJ_vxbMCFIZI/)
-
-
-[Team Collaborative folder](https://drive.google.com/drive/u/0/folders/1JLKDhzvaqe6gNM9GFVids95XjLt8WsY5)
 
 
 
