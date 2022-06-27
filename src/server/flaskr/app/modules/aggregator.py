@@ -1,4 +1,6 @@
+from operator import delitem
 import os
+from re import L
 import sys
 
 from .fields import *
@@ -6,6 +8,9 @@ from statistics import median
 
 # Models completed
 models_completed = 'models_completed'
+
+# User
+email             = 'email'
 
 # Models
 riosm             = 'riosm'
@@ -103,6 +108,19 @@ q9Stats = 'q9Stats'
 q10Stats = 'q10Stats'
 q11Stats = 'q11Stats'
 
+# Questions
+q1 = 'q1'
+q2 = 'q2'
+q3 = 'q3'
+q4 = 'q4'
+q5 = 'q5'
+q6 = 'q6'
+q7 = 'q7'
+q8 = 'q8'
+q9 = 'q9'
+q10 = 'q10'
+q11 = 'q11'
+
 def get_user_score(user):
 
     score = {}
@@ -110,6 +128,8 @@ def get_user_score(user):
     max_six   = 6.0
     max_seven = 7.0
     max_eight = 8.0
+
+    score[email] = user[EMAIL_ADDRESS]
 
     score[riosm]             = sum([ float(user[field]) for field in riosm_fields if user[field].isdigit() ]) / (len(riosm_fields) * max_five) if user[RIOSM_COMPLETE] == '2' else None
     score[quintegra_ehmm]    = float(user[QUINTEGRA_EHMM_Q1]) / max_seven if user[QUINTEGRA_EHMM_Q1].isdigit() else None if user[QUINTEGRA_EHMM_COMPELTE] == '2' else None
@@ -301,7 +321,144 @@ def aggregate(all):
     agg_score[models_completed][sedoh]             = __get_aggregate_completed_models(all_models_completed, sedoh)
     agg_score[models_completed][precision_health]  = __get_aggregate_completed_models(all_models_completed, precision_health)
 
-    return agg_score, len(all_scores)
+    # ################# #
+    # instituion scores
+    # ################# #
+
+    all_users_by_institution = {}
+    for u in all_scores:
+        user_email = u[email]
+        parsed_user_email = user_email.split('@')
+        if len(parsed_user_email) > 1:
+            institution = parsed_user_email[1].split()[0]
+            if (institution not in all_users_by_institution):
+                all_users_by_institution[institution] = [ u ]
+            else:
+                institution_users = all_users_by_institution.get(institution)
+                institution_users.append(u)
+                all_users_by_institution[institution] = institution_users
+
+    institutions = [ k for k,v in all_users_by_institution.items() if v != None ]
+
+    instituion_scores = {}
+    # agg_score['institution_scores'] = {} 
+    for institution in institutions:
+
+        institution_users = all_users_by_institution[institution]
+
+        instituion_scores[institution] = {}
+        instituion_scores[institution][riosm]             = __get_aggregate_score(institution_users, riosm)
+        instituion_scores[institution][quintegra_ehmm]    = __get_aggregate_score(institution_users, quintegra_ehmm)
+        instituion_scores[institution][haam]              = __get_aggregate_score(institution_users, haam)
+        instituion_scores[institution][idc_healthcare_it] = __get_aggregate_score(institution_users, idc_healthcare_it)
+        instituion_scores[institution][himss_emram]       = __get_aggregate_score(institution_users, himss_emram)
+        instituion_scores[institution][himss_ccmm]        = __get_aggregate_score(institution_users, himss_ccmm)
+        instituion_scores[institution][nehta_imm]         = __get_aggregate_score(institution_users, nehta_imm)
+        instituion_scores[institution][nestcc]            = __get_aggregate_score(institution_users, nestcc)
+        instituion_scores[institution][nlp]               = __get_aggregate_score(institution_users, nlp)
+        instituion_scores[institution][eprmm]             = __get_aggregate_score(institution_users, eprmm)
+        instituion_scores[institution][sedoh]             = __get_aggregate_score(institution_users, sedoh)
+        instituion_scores[institution][precision_health]  = __get_aggregate_score(institution_users, precision_health)
+
+        # RIOSM Categories
+        user_riosm_scores = [ u[riosm_categories] for u in institution_users ]
+        instituion_scores[institution][riosm_categories] = {}
+        instituion_scores[institution][riosm_categories][overall]              = __get_aggregate_score(user_riosm_scores, overall)
+        instituion_scores[institution][riosm_categories][governance]           = __get_aggregate_score(user_riosm_scores, governance)
+        instituion_scores[institution][riosm_categories][data_and_software]    = __get_aggregate_score(user_riosm_scores, data_and_software)
+        instituion_scores[institution][riosm_categories][research_informatics] = __get_aggregate_score(user_riosm_scores, research_informatics)
+
+        # Model Questions
+        # instituion_scores[institution][riosm_questions]            = [ u[riosm_questions] for u in institution_users ]
+        # instituion_scores[institution][quintegra_ehmm_questions]   = [ u[quintegra_ehmm_questions] for u in institution_users ]
+        # instituion_scores[institution][haam_questions]             = [ u[haam_questions] for u in institution_users ]
+        # instituion_scores[institution][nestcc_questions]           = [ u[nestcc_questions] for u in institution_users ]
+        # instituion_scores[institution][nlp_questions]              = [ u[nlp_questions] for u in institution_users ]
+        # instituion_scores[institution][sedoh_questions]            = [ u[sedoh_questions] for u in institution_users ]
+        # instituion_scores[institution][precision_health_questions] = [ u[precision_health_questions] for u in institution_users ]
+        institution_riosm_questions            = [ u[riosm_questions] for u in institution_users ]
+        institution_quintegra_ehmm_questions   = [ u[quintegra_ehmm_questions] for u in institution_users ]
+        institution_haam_questions             = [ u[haam_questions] for u in institution_users ]
+        institution_nestcc_questions           = [ u[nestcc_questions] for u in institution_users ]
+        institution_nlp_questions              = [ u[nlp_questions] for u in institution_users ]
+        institution_sedoh_questions            = [ u[sedoh_questions] for u in institution_users ]
+        institution_precision_health_questions = [ u[precision_health_questions] for u in institution_users ]
+
+
+        # ####### #
+        instituion_scores[institution][riosm_questions] = {}
+        instituion_scores[institution][riosm_questions][q1]  = __get_question_scores(institution_riosm_questions, riosm_q1_engagement)
+        instituion_scores[institution][riosm_questions][q2]  = __get_question_scores(institution_riosm_questions, riosm_q2_governance)
+        instituion_scores[institution][riosm_questions][q3]  = __get_question_scores(institution_riosm_questions, riosm_q3_reputation)
+        instituion_scores[institution][riosm_questions][q4]  = __get_question_scores(institution_riosm_questions, riosm_q4_support_open_science)
+        instituion_scores[institution][riosm_questions][q5]  = __get_question_scores(institution_riosm_questions, riosm_q5_data_sharing)
+        instituion_scores[institution][riosm_questions][q6]  = __get_question_scores(institution_riosm_questions, riosm_q6_data_sharing_edu)
+        instituion_scores[institution][riosm_questions][q7]  = __get_question_scores(institution_riosm_questions, riosm_q7_data_analytics_activity)
+        instituion_scores[institution][riosm_questions][q8]  = __get_question_scores(institution_riosm_questions, riosm_q8_ctms)
+        instituion_scores[institution][riosm_questions][q9]  = __get_question_scores(institution_riosm_questions, riosm_q9_external_data_edw)
+        instituion_scores[institution][riosm_questions][q10] = __get_question_scores(institution_riosm_questions, riosm_q10_research_computing)
+        instituion_scores[institution][riosm_questions][q11] = __get_question_scores(institution_riosm_questions, riosm_q11_secondary_data_use)
+
+        instituion_scores[institution][quintegra_ehmm_questions] = {}
+        instituion_scores[institution][quintegra_ehmm_questions][q1] = __get_question_scores(institution_quintegra_ehmm_questions, quintegra_ehmm_q1)
+
+        instituion_scores[institution][haam_questions] = {}
+        instituion_scores[institution][haam_questions][q1] = __get_question_scores(institution_haam_questions, haam_q1)
+
+        instituion_scores[institution][sedoh_questions] = {}
+        instituion_scores[institution][sedoh_questions][q1]  = __get_question_scores(institution_sedoh_questions, sedoh_q1)
+        instituion_scores[institution][sedoh_questions][q2]  = __get_question_scores(institution_sedoh_questions, sedoh_q2)
+        instituion_scores[institution][sedoh_questions][q3]  = __get_question_scores(institution_sedoh_questions, sedoh_q3)
+        instituion_scores[institution][sedoh_questions][q4]  = __get_question_scores(institution_sedoh_questions, sedoh_q4)
+        instituion_scores[institution][sedoh_questions][q5]  = __get_question_scores(institution_sedoh_questions, sedoh_q5)
+
+        instituion_scores[institution][precision_health_questions] = {}
+        instituion_scores[institution][precision_health_questions][q1]  = __get_question_scores(institution_precision_health_questions, precision_health_q1)
+        instituion_scores[institution][precision_health_questions][q2]  = __get_question_scores(institution_precision_health_questions, precision_health_q2)
+        instituion_scores[institution][precision_health_questions][q3]  = __get_question_scores(institution_precision_health_questions, precision_health_q3)
+        instituion_scores[institution][precision_health_questions][q4]  = __get_question_scores(institution_precision_health_questions, precision_health_q4)
+        instituion_scores[institution][precision_health_questions][q5]  = __get_question_scores(institution_precision_health_questions, precision_health_q5)
+        instituion_scores[institution][precision_health_questions][q6]  = __get_question_scores(institution_precision_health_questions, precision_health_q6)
+        instituion_scores[institution][precision_health_questions][q7]  = __get_question_scores(institution_precision_health_questions, precision_health_q7)
+        instituion_scores[institution][precision_health_questions][q8]  = __get_question_scores(institution_precision_health_questions, precision_health_q8)
+        instituion_scores[institution][precision_health_questions][q9]  = __get_question_scores(institution_precision_health_questions, precision_health_q9)
+        instituion_scores[institution][precision_health_questions][q10] = __get_question_scores(institution_precision_health_questions, precision_health_q10)
+
+        instituion_scores[institution][nestcc_questions] = {}
+        instituion_scores[institution][nestcc_questions][q1]  = __get_question_scores(institution_nestcc_questions, nestcc_q1)
+        instituion_scores[institution][nestcc_questions][q2]  = __get_question_scores(institution_nestcc_questions, nestcc_q2)
+        instituion_scores[institution][nestcc_questions][q3]  = __get_question_scores(institution_nestcc_questions, nestcc_q3)
+        instituion_scores[institution][nestcc_questions][q4]  = __get_question_scores(institution_nestcc_questions, nestcc_q4)
+        instituion_scores[institution][nestcc_questions][q5]  = __get_question_scores(institution_nestcc_questions, nestcc_q5)
+
+        instituion_scores[institution][nlp_questions] = {}
+        instituion_scores[institution][nlp_questions][q1]  = __get_question_scores(institution_nlp_questions, nlp_q1)
+        instituion_scores[institution][nlp_questions][q2]  = __get_question_scores(institution_nlp_questions, nlp_q2)
+        instituion_scores[institution][nlp_questions][q3]  = __get_question_scores(institution_nlp_questions, nlp_q3)
+        instituion_scores[institution][nlp_questions][q4]  = __get_question_scores(institution_nlp_questions, nlp_q4)
+        instituion_scores[institution][nlp_questions][q5]  = __get_question_scores(institution_nlp_questions, nlp_q5)
+        instituion_scores[institution][nlp_questions][q6]  = __get_question_scores(institution_nlp_questions, nlp_q6)
+        # ####### #
+
+        # Models Completed
+        all_models_completed_by_institution = [ u[models_completed] for u in institution_users ]
+        instituion_scores[institution][models_completed] = {}
+        instituion_scores[institution][models_completed][riosm]             = __get_aggregate_completed_models(all_models_completed_by_institution, riosm)
+        instituion_scores[institution][models_completed][quintegra_ehmm]    = __get_aggregate_completed_models(all_models_completed_by_institution, quintegra_ehmm)
+        instituion_scores[institution][models_completed][haam]              = __get_aggregate_completed_models(all_models_completed_by_institution, haam)
+        instituion_scores[institution][models_completed][idc_healthcare_it] = __get_aggregate_completed_models(all_models_completed_by_institution, idc_healthcare_it)
+        instituion_scores[institution][models_completed][himss_emram]       = __get_aggregate_completed_models(all_models_completed_by_institution, himss_emram)
+        instituion_scores[institution][models_completed][himss_ccmm]        = __get_aggregate_completed_models(all_models_completed_by_institution, himss_ccmm)
+        instituion_scores[institution][models_completed][nehta_imm]         = __get_aggregate_completed_models(all_models_completed_by_institution, nehta_imm)
+        instituion_scores[institution][models_completed][nestcc]            = __get_aggregate_completed_models(all_models_completed_by_institution, nestcc)
+        instituion_scores[institution][models_completed][nlp]               = __get_aggregate_completed_models(all_models_completed_by_institution, nlp)
+        instituion_scores[institution][models_completed][eprmm]             = __get_aggregate_completed_models(all_models_completed_by_institution, eprmm)
+        instituion_scores[institution][models_completed][sedoh]             = __get_aggregate_completed_models(all_models_completed_by_institution, sedoh)
+        instituion_scores[institution][models_completed][precision_health]  = __get_aggregate_completed_models(all_models_completed_by_institution, precision_health)
+
+    # print(instituion_scores)
+
+    return agg_score, len(all_scores), instituion_scores
 
 def __get_aggregate_completed_models(models, key):
     valid = [ model[key] for model in models if model[key] != None ]
@@ -337,3 +494,37 @@ def __get_aggregate_stats(scores, key):
         stats['median'] = median(valid)
         return stats
     return 0.0
+
+def __get_question_scores(scores, key):
+
+    valid = [ score[key] for score in scores if score[key] != None ]
+    if len(valid) > 0:
+        return valid
+    return 0.0
+
+# def __get_aggregate_score_by_institution(all_scores):
+    
+#     institution_score = {}
+
+#     for k,v in all_scores:
+#         # if v[email] in institution_score:
+#         print(v[email])
+
+#     return 0
+
+# def __get_scores_by_institution(all_scores):
+#     all_scores_by_institution = {}
+
+#     for u in all_scores:
+#         user_email = u[email]
+#         parsed_user_email = user_email.split('@')
+#         if len(parsed_user_email) > 1:
+#             institution = parsed_user_email[1]
+#             if (institution not in all_scores_by_institution):
+#                 all_scores_by_institution[institution] = [ u ]
+#             else:
+#                 institution_users = all_scores_by_institution.get(institution)
+#                 institution_users.append(u)
+#                 all_scores_by_institution[institution] = institution_users
+    
+#     return all_scores_by_institution

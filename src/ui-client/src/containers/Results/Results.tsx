@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Button } from 'reactstrap';
 import { BaseModel } from '../../model/ModelsState';
 import { UserState, AnswerScoreLoadState } from '../../model/UserState';
 import { getScores } from '../../actions/user';
@@ -24,6 +25,7 @@ interface Props {
 
 interface State {
     show: boolean;
+    showInstitutionResult: boolean;
 }
 
 interface ChartDataPoint {
@@ -45,7 +47,8 @@ export default class Results extends React.PureComponent<Props,State> {
     public constructor(props: Props) {
         super(props);
         this.state = {
-            show: false
+            show: false,
+            showInstitutionResult: false
         }
     }
 
@@ -62,7 +65,7 @@ export default class Results extends React.PureComponent<Props,State> {
         const c = this.className;
         const classes = [ c ];
         const { user, models } = this.props;
-        const { show } = this.state;
+        const { show, showInstitutionResult } = this.state;
         const data = this.getChartData();
 
         if (!show) {
@@ -109,6 +112,14 @@ export default class Results extends React.PureComponent<Props,State> {
             <BaseForm 
                 content={(
                     <div className={c}>
+                        <div>
+                            <Button>Show Institution Results</Button>
+                            <Button>Show All Results</Button>
+                        </div>
+
+                        {showInstitutionResult
+                        
+                        }
                         {/* Chart results */}
                         <BaseFormSection
                             header={"Here's how your answers compare to other sites"}
@@ -133,6 +144,10 @@ export default class Results extends React.PureComponent<Props,State> {
         
         const mappedCompletedModels = new Map<string, number>();
         const completedModels: number[] = [];
+
+        // 
+        // console.log(this.props.user.results.institution_scores);
+        // 
 
         models.map(
             function (m) {

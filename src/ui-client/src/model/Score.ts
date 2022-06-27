@@ -115,11 +115,88 @@ export interface AnswerStats {
     median: number;
 }
 
+export type institution = string;
+
 export interface AnswerScoresDTO {
     all: AllAnswerScore;
     n: number;
+    institution_scores: Map<institution, InstitutionScores>;
 }
 
 export interface AnswerScores extends AnswerScoresDTO {
     user: BaseAnswerScore;
+}
+
+
+// 
+
+export interface InstitutionScores extends BaseAnswerScore {
+    models_completed: AllModelsCompleted;
+    haam_questions: HAAMInstitutionScores;
+    nestcc_questions: NESTccInstitutionScores;
+    nlp_questions: NLPInstitutionScores;
+    precision_health_questions: PrecisionHealthInstitutionScores;
+    quintegra_ehmm_questions: Quintegra_eHMMInstitutionScores;
+    riosm_questions: RIOSMInstitutionScores;
+    sedoh_questions: SEDoHInstitutionScores;
+}
+
+export interface RIOSMInstitutionScores {
+    q1: number[];
+    q2: number[];
+    q3: number[];
+    q4: number[];
+    q5: number[];
+    q6: number[];
+    q7: number[];
+    q8: number[];
+    q9: number[];
+    q10: number[];
+    q11: number[];
+}
+
+export interface PrecisionHealthInstitutionScores {
+    q1: number[];
+    q2: number[];
+    q3: number[];
+    q4: number[];
+    q5: number[];
+    q6: number[];
+    q7: number[];
+    q8: number[];
+    q9: number[];
+    q10: number[];
+}
+
+export interface Quintegra_eHMMInstitutionScores {
+    q1: number[];
+}
+
+export interface HAAMInstitutionScores {
+    q1: number[];
+}
+
+export interface SEDoHInstitutionScores {
+    q1: number[];
+    q2: number[];
+    q3: number[];
+    q4: number[];
+    q5: number[];
+}
+
+export interface NESTccInstitutionScores {
+    q1: number[];
+    q2: number[];
+    q3: number[];
+    q4: number[];
+    q5: number[];
+}
+
+export interface NLPInstitutionScores {
+    q1: number[];
+    q2: number[];
+    q3: number[];
+    q4: number[];
+    q5: number[];
+    q6: number[];
 }

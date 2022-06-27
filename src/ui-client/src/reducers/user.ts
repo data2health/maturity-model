@@ -8,7 +8,7 @@ import {
     USER_SET_IS_GUEST
 } from "../actions/user";
 import { UserState, AnswerScoreLoadState } from "../model/UserState";
-import { BaseAnswerScore, AllAnswerScore } from "../model/Score";
+import { BaseAnswerScore, AllAnswerScore, AnswerScores, institution, InstitutionScores } from "../model/Score";
 import { FormState } from "../model/ModelsState";
 
 export const defaultUserState = (): UserState => {
@@ -117,6 +117,7 @@ export const defaultUserState = (): UserState => {
         guest: false,
         results: {
             all: allDefaultScore(),
+            institution_scores: new Map<institution, InstitutionScores>(),
             user: userDefaultScore(),
             n: 0
         }
@@ -238,6 +239,23 @@ const allDefaultScore = (): AllAnswerScore => {
     };
 }
 
+const mapInstitutionScores = (scores: AnswerScores) => {
+    const mappedInstitutionScores = new Map<institution, InstitutionScores>();
+    const entries = Object.entries(scores.institution_scores);
+
+    for (let entry of entries) {
+        const key = entry[0]; // entry[0] is the key i.e. institution name
+        const val = entry[1]; // entry[1] is the val i.e. institution score
+        
+        mappedInstitutionScores.set(key, val);
+    }
+
+    const results = scores;
+    const updatedResults = Object.assign({}, results, { institution_scores: mappedInstitutionScores }) as AnswerScores;
+
+    return updatedResults;
+};
+
 export const user = (state: UserState = defaultUserState(), action: UserAction): UserState => {
     switch (action.type) {
         case USER_SET_CREDENTIALS:
@@ -258,7 +276,11 @@ export const user = (state: UserState = defaultUserState(), action: UserAction):
                 } 
             );
         case USER_SET_ANSWER_SCORES:
-            return Object.assign({}, state, { results: action.scores } );
+            const mappedResult = mapInstitutionScores(action.scores!);
+
+            // return Object.assign({}, state, { results: action.scores } );
+            return Object.assign({}, state, { results: mappedResult } );
+
         case USER_SET_ANSWER_SCORE_LOAD_STATE:
             return Object.assign({}, state, { answersLoadState: action.answerLoadState } );
         case USER_SET_IS_GUEST:

@@ -5,6 +5,26 @@ import { UserState } from '../../../model/UserState';
 import QuestionSummary from '../QuestionSummary/QuestionSummary';
 import './ModelSummary.css';
 
+import { RIOSM } from '../../../model/Models/RIOSM';
+import { PrecisionHealth } from '../../../model/Models/PrecisionHealth';
+import { Quintegra_eHMM } from '../../../model/Models/Quintegra_eHMM';
+import { HAAM } from '../../../model/Models/HAAM';
+import { SEDoH } from '../../../model/Models/SEDoH';
+import { NESTcc } from '../../../model/Models/NESTcc';
+import { NLP } from '../../../model/Models/NLP';
+
+
+import {
+    RIOSMInstitutionScores,
+    PrecisionHealthInstitutionScores,
+    Quintegra_eHMMInstitutionScores,
+    HAAMInstitutionScores,
+    SEDoHInstitutionScores,
+    NESTccInstitutionScores,
+    NLPInstitutionScores,
+    institution
+} from '../../../model/Score';
+
 interface Props {
     user: UserState;
     model: BaseModel;
@@ -15,8 +35,13 @@ export default class ModelSummary extends React.PureComponent<Props> {
 
     public render() {
         const c = this.className;
-        const { model } = this.props;
+        const { model, user } = this.props;
         const { answers } = this.props.user;
+
+        const institutionQuestionsMap: Map<institution, QuestionsMap> = this.getData();
+
+        // const parsedUserEmail = user.email.split('@');
+        // const userInstitution = parsedUserEmail.length > 1 ? parsedUserEmail[1] : "";
 
         return (
             <div className={c}>
@@ -24,13 +49,123 @@ export default class ModelSummary extends React.PureComponent<Props> {
                     {model.questions.map((q, i) => {
                         const a = answers[q.answerField];
                         const result = this.getResults(model.shortName, i);
+                        const chartData = this.getQuestionData(institutionQuestionsMap, i)
                         return (
-                            <QuestionSummary key={i} answer={a} question={q} index={i} results={result} />
+                            <QuestionSummary key={i} answer={a} question={q} index={i} results={result} chartData={chartData} />
                         )
                     })}
                 </div>
             </div>
         );
+    };
+
+
+    private getQuestionData = (institutionQMap: Map<institution, QuestionsMap>, index: number) => {
+        const institutions = Array.from(institutionQMap.keys());
+        const chartData: ChartDataPoint[] = [];
+
+        for (let i of institutions) {
+            const qMap = institutionQMap.get(i)!;
+            const scores = qMap.get(index)!;
+
+            scores && scores.map(s => {
+                chartData.push({ institution: i, score: s } as ChartDataPoint);    
+            });
+        };
+
+        return chartData;
+    };
+
+    private getData = () => {
+        const { institution_scores } = this.props.user.results;
+        const { model } = this.props;
+        const institutions = Array.from(institution_scores.keys());
+
+        const institutionQuestionsMap = new Map<institution, QuestionsMap>();
+
+        for (let i of institutions) {
+            const score = institution_scores.get(i)!;
+            const qMap = new Map<number, number[]>();
+
+            switch (model.name) {
+                case RIOSM.name: {
+                    qMap.set(0, score.riosm_questions.q1);
+                    qMap.set(1, score.riosm_questions.q2);
+                    qMap.set(2, score.riosm_questions.q3);
+                    qMap.set(3, score.riosm_questions.q4);
+                    qMap.set(4, score.riosm_questions.q5);
+                    qMap.set(5, score.riosm_questions.q6);
+                    qMap.set(6, score.riosm_questions.q7);
+                    qMap.set(7, score.riosm_questions.q8);
+                    qMap.set(8, score.riosm_questions.q9);
+                    qMap.set(9, score.riosm_questions.q10);
+                    qMap.set(10, score.riosm_questions.q11);
+
+                    institutionQuestionsMap.set(i, qMap);
+                    break;
+                };
+                case PrecisionHealth.name: {
+                    qMap.set(0, score.precision_health_questions.q1);
+                    qMap.set(1, score.precision_health_questions.q2);
+                    qMap.set(2, score.precision_health_questions.q3);
+                    qMap.set(3, score.precision_health_questions.q4);
+                    qMap.set(4, score.precision_health_questions.q5);
+                    qMap.set(5, score.precision_health_questions.q6);
+                    qMap.set(6, score.precision_health_questions.q7);
+                    qMap.set(7, score.precision_health_questions.q8);
+                    qMap.set(8, score.precision_health_questions.q9);
+                    qMap.set(9, score.precision_health_questions.q10);
+
+                    institutionQuestionsMap.set(i, qMap);
+                    break;
+                };
+                case Quintegra_eHMM.name: {
+                    qMap.set(0, score.quintegra_ehmm_questions.q1);
+
+                    institutionQuestionsMap.set(i, qMap);
+                    break;
+                };
+                case HAAM.name: {
+                    qMap.set(0, score.haam_questions.q1);
+
+                    institutionQuestionsMap.set(i, qMap);
+                    break;
+                };
+                case SEDoH.name: {
+                    qMap.set(0, score.sedoh_questions.q1);
+                    qMap.set(1, score.sedoh_questions.q2);
+                    qMap.set(2, score.sedoh_questions.q3);
+                    qMap.set(3, score.sedoh_questions.q4);
+                    qMap.set(4, score.sedoh_questions.q5);
+
+                    institutionQuestionsMap.set(i, qMap);
+                    break;
+                };
+                case NESTcc.name: {
+                    qMap.set(0, score.nestcc_questions.q1);
+                    qMap.set(1, score.nestcc_questions.q2);
+                    qMap.set(2, score.nestcc_questions.q3);
+                    qMap.set(3, score.nestcc_questions.q4);
+                    qMap.set(4, score.nestcc_questions.q5);
+
+                    institutionQuestionsMap.set(i, qMap);
+                    break;
+                };
+                case NLP.name: {
+                    qMap.set(0, score.nlp_questions.q1);
+                    qMap.set(1, score.nlp_questions.q2);
+                    qMap.set(2, score.nlp_questions.q3);
+                    qMap.set(3, score.nlp_questions.q4);
+                    qMap.set(4, score.nlp_questions.q5);
+                    qMap.set(5, score.nlp_questions.q6);
+
+                    institutionQuestionsMap.set(i, qMap);
+                    break;
+                };
+            };
+        };
+
+        return institutionQuestionsMap;
     };
 
     private getResults = (modelName: string, index: number): AnswerStats => {
@@ -354,3 +489,45 @@ interface ModelResult {
     name: string;
     questions: AnswerStats[];
 };
+
+//
+type QuestionsMap = Map<number, number[]>;
+
+interface ChartDataPoint {
+    institution: string;
+    score: number;
+}
+
+// switch (model.name) {
+//     case RIOSM.name: {
+//         chartData.push({ institution: i, score: Object.entries(score.riosm_questions), name: model.shortName });
+//         // const q = 'q' + (qIndex+1).toString();
+//         // const t = score.riosm_questions
+        
+//         break;
+//     };
+//     case PrecisionHealth.name: {
+//         chartData.push({ institution: i, score: score.precision_health_questions, name: model.shortName });
+//         break;
+//     };
+//     case Quintegra_eHMM.name: {
+//         chartData.push({ institution: i, score: score.quintegra_ehmm_questions, name: model.shortName });
+//         break;
+//     };
+//     case HAAM.name: {
+//         chartData.push({ institution: i, score: score.haam_questions, name: model.shortName });
+//         break;
+//     };
+//     case SEDoH.name: {
+//         chartData.push({ institution: i, score: score.sedoh_questions, name: model.shortName });
+//         break;
+//     };
+//     case NESTcc.name: {
+//         chartData.push({ institution: i, score: score.nestcc_questions, name: model.shortName });
+//         break;
+//     };
+//     case NLP.name: {
+//         chartData.push({ institution: i, score: score.nlp_questions, name: model.shortName });
+//         break;
+//     };
+// };

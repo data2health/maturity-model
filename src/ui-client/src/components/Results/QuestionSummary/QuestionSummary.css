@@ -73,9 +73,9 @@
 
 .question-summary-breakdown-option {
     color: rgb(120,120,120);
-    font-size: 1.0rem;
-    font-weight: 300;
-    margin: 10px;
+    /* font-size: 1.0rem; */
+    /* font-weight: 300; */
+    /* margin-left: 10px; */
 }
 
 .question-summary-breakdown-option.selected {
